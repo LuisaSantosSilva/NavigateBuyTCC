@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import Card from "../components/card";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { AiOutlineArrowDown } from "react-icons/ai";
 import "../app/globals.css";
 import React from "react";
 
@@ -71,11 +72,29 @@ const produtos: React.FC = () => {
           </MenuItems>
         </Menu>
       </div>
-      <div className="grid grid-cols-4">
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+      <div className="grid grid-cols-4 max-[1050px]:grid-cols-2 max-[540px]:grid-cols-1">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+      <div className="grid grid-cols-4 max-[1050px]:grid-cols-2 max-[540px]:grid-cols-1">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+      <a href="#" className="flex justify-center text-xl">
+        <p>Ver mais</p>
+        <div className="p-[6px]">
+          <AiOutlineArrowDown />
+        </div>
+      </a>
+      <div className="p-16">
+        <p className="text-center text-lg font-bold">Valores que custam os produtos</p>
+        <div className="flex justify-center">
+          <img src={"./img/tabela.png"} alt="" />
+        </div>
       </div>
       <Footer />
     </main>

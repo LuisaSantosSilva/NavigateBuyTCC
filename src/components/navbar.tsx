@@ -76,12 +76,6 @@ const navbar = () => {
                 >
                   Conversões monetárias
                 </a>
-                <a
-                  href="/"
-                  className="text-white hover:bg-white hover:text-black rounded-lg p-2"
-                >
-                  Home
-                </a>
               </div>
             </div>
             <div className="md:hidden flex items-center">
