@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-      <footer className="bg-black text-white absolute w-full bottom-0">
+      <footer className="bg-black text-white">
         <div className="flex flex-grow justify-between items-center sm:px-12 px-4 py-12">
           <h3 className="lg:text-1xl md:text-base sm:text-sm text-xl max-[450px]:text-xs md:mb-0 mb-6 font-semibold md:w-2/5">
             <span className="block mb-2">

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Navbar from "./navbar/page";
-import Footer from "./footer/page";
+import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 import React from "react";
 
 const page: React.FC = () => {
@@ -9,10 +9,6 @@ const page: React.FC = () => {
       <Navbar />
       <h1>Hello World</h1>
       <Footer />
-      <p className="p-5">
-        <Link href="/navbar">link navbar</Link>
-      </p>
-      <Link href="/footer">link footer</Link>
     </main>
     
   );

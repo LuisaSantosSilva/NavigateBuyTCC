@@ -20,7 +20,7 @@ const navbar = () => {
               alt="Logo"
               className="w-12 md:w-18 sm:w-16 sm:h-10 md:h-10"
             />
-            <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold font-Poppins sm:block">
+            <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold sm:block">
               <span className="text-navigateblue">
                 Navigate
                 <span className="text-navigategreen">Buy</span>
@@ -116,7 +116,7 @@ const navbar = () => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M4 6h16M4 12h16m- 6h7"
+                      d="M4 6h16M4 12h16m-6 7"
                     />
                   </svg>
                 )}

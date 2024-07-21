@@ -7,9 +7,6 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      Poppins: ['Poppins', 'sans-serif']
-    },
     extend: {
       colors:{
         navigateblue: '#0C0440',
