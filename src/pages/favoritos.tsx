@@ -1,5 +1,6 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Favoritedcard from "@/components/favoritedcard";
 import "../app/globals.css";
 import React from 'react'
 
@@ -8,7 +9,7 @@ const favoritos = () => {
     <main>
         <Navbar/>
             <div className="text-center mt-10">
-                <div className="font-bold text-xl mb-8">
+                <div className="font-bold text-lg mb-8">
                     <p>Aqui você pode acessar os produtos que 
                         <span className="text-navigategreen"> favoritou</span> e 
                     </p> 
@@ -20,6 +21,7 @@ const favoritos = () => {
                     <p>Parabéns! Você está personalizando cada vez mais suas pesquisas</p>
                 </div>
             </div>
+            <Favoritedcard/>
         <Footer/>
     </main>
   )
