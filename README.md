@@ -32,7 +32,7 @@ Reclame aqui, análise de dados e gráficos e comparações de preços de difere
 <div align="justify">
   
 Por que escolheram esse nome?
-> **Resp:** "Navigate Buy" combina duas palavras em inglês: "Navigate" que remete à navegação, e "Buy," que significa compra. O nome reflete a facilidade de navegar e encontrar produtos de compra online fornecidos no sistema.
+> **Resp:** "Navigate Buy" combina duas palavras em inglês: "Navigate" que remete à navegação, e "Buy" que significa compra. O nome reflete a facilidade de navegar e encontrar produtos de compra online fornecidos no sistema web.
 
 Qual o principal diferencial?
 > **Resp:** Além de fornecer diferentes preços de produtos de várias lojas, permitimos que o consumidor encontre comentários e avaliações de outros consumidores retirados de sites como o Reclame Aqui, análises de gráficos e conversões monetárias, tudo em um só lugar, economizando tempo e dinheiro online.
