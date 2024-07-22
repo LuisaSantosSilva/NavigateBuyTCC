@@ -1,9 +1,15 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Resposta from "../components/respostaavaliacao";
 import "../app/globals.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const avaliação = () => {
+  const [showComponent, setShowComponent] = useState(false);
+
+  const handleClick = () => {
+    setShowComponent(true);
+  };
   return (
     <main>
       <Navbar />
@@ -44,9 +50,8 @@ const avaliação = () => {
             </div>
           </form>
         </div>
-        <div className="inline-flex justify-center mb-16 rounded-2xl bg-navigateblue px-16 py-2 text-lg font-semibold text-white hover:bg-blue-600">
-          <button>Buscar</button>
-        </div>
+        <button className="inline-flex justify-center mb-16 rounded-2xl bg-navigateblue px-16 py-2 text-lg font-semibold text-white hover:bg-blue-600" onClick={handleClick}>Buscar</button>
+        {showComponent && (<Resposta />)}
       </div>
       <Footer />
     </main>

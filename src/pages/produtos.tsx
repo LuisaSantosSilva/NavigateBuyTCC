@@ -22,49 +22,31 @@ const produtos: React.FC = () => {
 
         <Menu as="div" className="relative inline-block text-left">
           <div>
-            <MenuButton className="inline-flex w-full justify-center gap-x-1 rounded-xl bg-navigategreen px-7 py-2 text-sm text-white hover:bg-green-600">
+            <MenuButton className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-sm bg-navigategreen text-white hover:bg-green-600">
               Filtrar por maior relevância
-              <ChevronDownIcon
-                aria-hidden="true"
-                className="-mr-1 h-5 w-5 text-white"
-              />
+              <ChevronDownIcon aria-hidden="true" className="-mr-1 h-5 w-5 text-white"/>
             </MenuButton>
           </div>
 
-          <MenuItems
-            transition
-            className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-xl bg-white border-2 border-navigategreen transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
-          >
+          <MenuItems transition className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-xl bg-white border-2 border-navigategreen transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
             <div className="py-1">
               <MenuItem>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen"
-                >
+                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
                   Filtrar por maior relevância
                 </a>
               </MenuItem>
               <MenuItem>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen"
-                >
+                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
                   Filtrar por menor preço
                 </a>
               </MenuItem>
               <MenuItem>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen"
-                >
+                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
                   Filtrar por maior preço
                 </a>
               </MenuItem>
               <MenuItem>
-                <a
-                  href="#"
-                  className="block px-4 py-2 text-sm text-black data-[focus]:font-bold"
-                >
+                <a href="#" className="block px-4 py-2 text-sm data-[focus]:font-bold text-black">
                   Filtrar por melhor avaliação
                 </a>
               </MenuItem>

@@ -11,19 +11,13 @@ const Footer = () => {
             <span className="block">Trabalho de Conclusão de Curso</span>
           </h3>
           <h3 className="lg:text-1xl md:text-base sm:text-sm text-xl max-[450px]:text-xs md:mb-0 mb-6 md:w-2/5">
-            <a
-              href="#"
-              className="block mb-2 font-semibold hover:text-navigategreen"
-            >
+            <a href="#" className="block mb-2 font-semibold hover:text-navigategreen">
               Destaques
             </a>
-            <a
-              href="#"
-              className="block mb-2 hover:text-navigategreen"
-            >
+            <a href="#" className="block mb-2 hover:text-navigategreen">
               Buscar Produto
             </a>
-            <a href="#" className="block hover:text-navigategreen">
+            <a href="/avaliacao" className="block hover:text-navigategreen">
               Avaliações e comentários
             </a>
           </h3>

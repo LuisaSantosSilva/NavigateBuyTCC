@@ -14,7 +14,6 @@ const favoritedcard = () => {
                   className="w-full h-full"
                 />
               </div>
-
               <div className="flex flex-col">
                 <h3 className="text-lg text-gray-800">
                   Fone de Ouvido Esportivo Pulse PH333 - com Microfone Branco
@@ -49,9 +48,7 @@ const favoritedcard = () => {
               </div>
             </div>
           </div>
-
           <hr className="border-black"/>
-
           <div className="grid grid-cols-3 items-start gap-4">
             <div className="col-span-2 flex items-start gap-4">
               <div className="w-40 h-40 max-sm:w-24 max-sm:h-24 shrink-0 p-2">
@@ -95,7 +92,6 @@ const favoritedcard = () => {
               </div>
             </div>
           </div>
-
           <hr className="border-black"/>
         </div>
       </div>
