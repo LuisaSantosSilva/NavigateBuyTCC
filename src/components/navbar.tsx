@@ -40,7 +40,7 @@ const navbar = () => {
             </div>
           </form>
           <div className="space-x-7 font-semibold hidden xl:block">
-            <a href="#" className="px-4 py-4 hover:bg-black hover:text-white rounded-md">Favoritos</a>
+            <a href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md">Favoritos</a>
             <a href="#" className="px-4 py-4 hover:bg-black hover:text-white rounded-md">Entrar / Cadastrar-se</a>
             <a
               href="#"
@@ -65,7 +65,7 @@ const navbar = () => {
                   <span className="ml-2">Categorias</span>
                 </a>
                 <a
-                  href="/"
+                  href="/avaliacao"
                   className="text-white hover:bg-white hover:text-black rounded-lg p-2"
                 >
                   Avaliações e comentários de consumidores
