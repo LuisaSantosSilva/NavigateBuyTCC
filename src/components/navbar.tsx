@@ -27,12 +27,12 @@ const navbar = () => {
               </span>
             </div>
           </div>
-          <form className="w-40 relative mx-auto text-white sm:w-[300px] md:w-[500px]">
+          <form className="w-40 relative mx-auto sm:w-[300px] md:w-[500px]">
             <div className="relative text-white">
               <input
                 type="search"
                 placeholder="Buscar produto"
-                className="w-full p-4 rounded-full bg-navigategreen"
+                className="w-full p-4 rounded-full bg-navigategreen placeholder-white"
               />
               <button className="absolute right-1 top-1/2 -translate-y-1/2 p-4 bg-green-800 rounded-full">
                 <AiOutlineSearch />
