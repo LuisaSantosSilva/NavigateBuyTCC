@@ -1,98 +1,154 @@
-import Link from "next/link";
+import Link from "next/link"
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { Menu, MenuButton } from "@headlessui/react";
+import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 import "../app/globals.css";
-import React from 'react'
+import React, { useState } from 'react';
 
-const conversoes = () => {
+const formatNumber = (num: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    }).format(num);
+};
+
+const Conversoes = () => {
+    const [amount, setAmount] = useState<number>(0);
+    const [fromCurrency] = useState<string>('USD');
+    const [toCurrency] = useState<string>('BRL');
+    const [result, setResult] = useState<number | null>(null);
+    const [error, setError] = useState<string | null>(null);
+
+    const handleConversion = async () => {
+
+        if (isNaN(amount) || amount <= 0) {
+            setError('Por favor, insira um valor numérico válido.');
+            setResult(null);
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://economia.awesomeapi.com.br/json/last/${fromCurrency}-${toCurrency}`);
+            const data = await response.json();
+            const rate = data[`${fromCurrency}${toCurrency}`].bid;
+            setResult(amount * parseFloat(rate));
+            setError(null);
+        } catch (error) {
+            setError('Erro ao buscar dados de conversão.');
+            setResult(null);
+        }
+    };
+
     return (
         <main>
             <Navbar />
             <div className="container text-center mt-10">
-                <div className="font-bold text-lg mb-8">
+                <div className="font-bold text-xl mb-8">
                     <p>
                         Compare e analise o valor das
                         <span className="text-navigategreen"> moedas</span> entre
                         <span className="text-navigateblue"> países</span> em tempo real
                     </p>
                 </div>
-                <div className="text-lg mt-10">
-                    <p>Faça abaixo a conversão monetária que deseja</p>
+                <div className="text-xl mt-10">
+                    <p>Faça abaixo a conversão monetária com o valor que deseja</p>
                 </div>
-                <div className="flex justify-center text-lg mt-20">
-                    <div className="mr-6">
-                        <p>Selecione a moeda pela qual deseja converter:</p>
-                    </div>
-                    <Menu as="div" className="relative inline-block text-left">
-                        <div className="mb-3">
-                            <MenuButton className="inline-flex w-full justify-center rounded-3xl px-14 py-4 text-sm bg-navigategreen text-white hover:bg-green-600 max-[400px]:px-7 max-[400px]:py-2 ">
-                                Dólar Americano
-                                <ChevronDownIcon aria-hidden="true" className="h-5 w-5 text-white" />
-                            </MenuButton>
+                <div className="flex justify-center items-center mt-10">
+                    <div className="flex items-center space-x-8">
+                        <div className="text-xl">
+                            <p>De:</p>
                         </div>
-                        <MenuItems transition className="right-0 z-10 mt-2 w-56 origin-top-right rounded-xl bg-white border-2 border-navigategreen transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
-                            <MenuItem>
-                                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
-                                    Real Brasileiro
-                                </a>
-                            </MenuItem>
-                            <MenuItem>
-                                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
-                                    Euro
-                                </a>
-                            </MenuItem>
-                            <MenuItem>
-                                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
-                                    Dólar Americano
-                                </a>
-                            </MenuItem>
-                        </MenuItems>
-                    </Menu>
+                        <Menu as="div" className="relative inline-block text-left">
+                            <MenuButton value={fromCurrency} className="inline-flex w-full justify-center rounded-3xl px-8 py-2 text-lg bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
+                                <p>Dólares Americanos</p>
+                            </MenuButton>
+                        </Menu>
+                        <div className="text-xl">
+                            <p>Para:</p>
+                        </div>
+                        <Menu as="div" className="relative inline-block text-left">
+                            <MenuButton value={toCurrency} className="inline-flex w-full justify-center rounded-3xl px-8 py-2 text-lg bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
+                                <p>Real Brasileiro</p>
+                            </MenuButton>
+                        </Menu>
+                    </div>
                 </div>
-                <div className="flex justify-center text-lg mt-12">
+                <div className="flex justify-center text-xl mt-12">
                     <p className="mr-6">Quantidade em valor:</p>
-                    <input placeholder="ex: 1,00" className="mb-2 rounded-2xl px-1 py-3 text-sm border-2 text-center placeholder-opacity-40 font-semibold placeholder-black border-navigateblue bg-white text-black" />
+                    <input
+                        type="number"
+                        step="0.01"
+                        value={amount === 0 ? '' : amount}
+                        onChange={(e) => setAmount(parseFloat(e.target.value))}
+                        placeholder="ex: 1,00"
+                        className="mb-2 rounded-2xl px-1 py-2 border-2 text-center placeholder-opacity-40 font-semibold placeholder-black border-navigateblue bg-white text-black"
+                    />
                 </div>
-                <div className="flex justify-center text-lg mt-12">
-                    <div className="mr-6">
-                        <p>Selecione a moeda pela qual deseja converter:</p>
+                <button
+                    onClick={handleConversion}
+                    className="inline-flex justify-center mt-7 mb-12 rounded-2xl bg-navigateblue px-12 py-3 text-xl font-semibold text-white hover:bg-blue-600"
+                >
+                    Converter
+                </button>
+                {result !== null && (
+                    <div className="flex justify-center">
+                        <p className="text-xl"><span className="font-bold">Resultado: </span>R$ {result !== null ? formatNumber(result) : '0,00'}</p>
                     </div>
-                    <Menu as="div" className="relative inline-block text-left">
-                        <div className="mb-3">
-                            <MenuButton className="inline-flex w-full justify-center rounded-3xl px-14 py-4 text-sm bg-navigategreen text-white hover:bg-green-600 max-[400px]:px-7 max-[400px]:py-2 ">
-                                Real Brasileiro
-                                <ChevronDownIcon aria-hidden="true" className="h-5 w-5 text-white" />
-                            </MenuButton>
+                )}
+                {error && (
+                    <div className="flex justify-center">
+                        <p className="text-xl text-red-500">{error}</p>
+                    </div>
+                )}
+                <div className="flex justify-start ml-12 max-[450px]:justify-center">
+                    <p>Principais Lojas internacionais online</p>
+                </div>
+                <div className="flex items-center justify-center space-x-24 mt-4 px-4 py-4">
+                    <MdArrowBackIosNew />
+                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-80 h-auto p-6">
+                        <p className="text-center font-semibold mb-4">
+                            SheIn
+                        </p>
+                        <div className="text-center mb-4">
+                            <p>A Shein oferece produtos
+                                internacionais no Brasil
+                                com diversas promoções
+                            </p>
                         </div>
-                        <MenuItems transition className="right-0 z-10 mt-2 w-56 origin-top-right rounded-xl bg-white border-2 border-navigategreen transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
-                            <MenuItem>
-                                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
-                                    Real Brasileiro
-                                </a>
-                            </MenuItem>
-                            <MenuItem>
-                                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
-                                    Euro
-                                </a>
-                            </MenuItem>
-                            <MenuItem>
-                                <a href="#" className="block px-4 py-2 text-sm text-black data-[focus]:font-bold border-b border-navigategreen">
-                                    Dólar Americano
-                                </a>
-                            </MenuItem>
-                        </MenuItems>
-                    </Menu>
+                        <Link href="" className="text-black underline">Acessar</Link>
+                    </div>
+                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-80 h-auto p-6">
+                        <p className="text-center font-semibold mb-4">
+                            Amazon
+                        </p>
+                        <div className="text-center mb-4">
+                            <p>A Amazon oferece produtos
+                                internacionais no Brasil com
+                                promoções como o prime day
+                            </p>
+                        </div>
+                        <Link href="" className="text-black underline">Acessar</Link>
+                    </div>
+                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-80 h-auto p-6">
+                        <p className="text-center font-semibold mb-4">
+                            Walmart
+                        </p>
+                        <div className="text-center mb-4">
+                            <p>Para que possa comparar
+                                preços o walmart fornece
+                                seus preços em dólar
+                            </p>
+                        </div>
+                        <Link href="" className="text-black underline">Acessar</Link>
+                    </div>
+                    <MdArrowForwardIos />
                 </div>
-                <button className="inline-flex justify-center mt-5 mb-12 rounded-2xl bg-navigateblue px-12 py-3 text-lg font-semibold text-white hover:bg-blue-600">Converter</button>
-                <div className="flex justify-center">
-                    <p className="text-lg"><span className="font-bold">Resultado:</span> 2,00</p>
-                </div>
+
             </div>
             <Footer />
         </main>
-    )
+    );
 }
 
-export default conversoes
+export default Conversoes;
