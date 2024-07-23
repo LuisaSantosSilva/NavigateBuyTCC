@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
+import { BiTransfer } from "react-icons/bi";
 
 const navbar = () => {
   const [isClick, setisClick] = useState(false);
@@ -52,9 +53,10 @@ const navbar = () => {
                 <a href="/avaliacao" className="rounded-lg p-2 text-white hover:bg-white hover:text-black">
                   Avaliações e comentários de consumidores
                 </a>
-                <a href="/" className="rounded-lg p-2 text-white hover:bg-white hover:text-black">
-                  Conversões monetárias
-                </a>
+                <a href="/conversoes" className="rounded-lg p-2 flex items-center text-white hover:bg-white hover:text-black">
+                  <BiTransfer />
+                  <span className="ml-2">Conversões monetárias</span>
+                </a>  
               </div>
             </div>
             <div className="md:hidden flex items-center">
@@ -77,7 +79,7 @@ const navbar = () => {
               <a href="/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Avaliações e comentários de consumidores
               </a>
-              <a href="/" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <a href="/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Conversões monetárias
               </a>
               <a href="/favoritos"className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
