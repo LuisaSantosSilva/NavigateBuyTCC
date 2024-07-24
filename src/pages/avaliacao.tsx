@@ -51,7 +51,7 @@ const avaliação = () => {
           </form>
         </div>
         <button className="inline-flex justify-center mb-16 rounded-2xl bg-navigateblue px-16 py-2 text-lg font-semibold text-white hover:bg-blue-600" onClick={handleClick}>Buscar</button>
-        {showComponent && (<Resposta />)}
+        {showComponent && (<Resposta/>)}
       </div>
       <Footer />
     </main>

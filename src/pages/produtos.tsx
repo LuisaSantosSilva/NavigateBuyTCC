@@ -53,16 +53,56 @@ const produtos: React.FC = () => {
         </Menu>
       </div>
       <div className="grid grid-cols-4 max-[1050px]:grid-cols-2 max-[540px]:grid-cols-1">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card
+          imageSrc="./img/Fone MagaLu.png"
+          heartIconSrc="./img/icon coração pintado.png"
+          productDescription="Fone de Ouvido Esportivo Pulse PH333 - com Microfone Branco"
+          brandName="Magazine Luiza"
+          price="R$ 39,10" />
+        <Card
+          imageSrc="./img/Fone Mercado livre.png"
+          heartIconSrc="./img/icon coração.png"
+          productDescription="Fone de ouvido on-ear AKG K414 P preto"
+          brandName="Mercado Livre"
+          price="R$ 228,27" />
+        <Card
+          imageSrc="./img/Fone Casas Bahia.png"
+          heartIconSrc="./img/icon coração.png"
+          productDescription="Fones de Ouvido JBL Wave Buds Preto"
+          brandName="Casas Bahia"
+          price="R$ 236,55" />
+        <Card
+          imageSrc="./img/Fone Amazon.png"
+          heartIconSrc="./img/icon coração.png"
+          productDescription="JBL, Fone de Ouvido Sem Fio, Bluetooth, Wave Flex TWS - Preto"
+          brandName="Amazon"
+          price="R$ 331,19" />
       </div>
       <div className="grid grid-cols-4 max-[1050px]:grid-cols-2 max-[540px]:grid-cols-1">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card
+          imageSrc="./img/Fone Americanas.png"
+          heartIconSrc="./img/icon coração.png"
+          productDescription="Fone De Ouvido Bluetooth Sem Fio tws Compatível com Todos Celulares Microfone embutido"
+          brandName="Americanas"
+          price="R$ 30,71" />
+        <Card
+          imageSrc="./img/Fone Amazon 2.png"
+          heartIconSrc="./img/icon coração.png"
+          productDescription="Fone De Ouvido Sem Fio Bluetooth 5.3 Compatível iPhone Android Linha Premium AGOLD FN-BT10"
+          brandName="Amazon"
+          price="R$ 94,95" />
+        <Card
+          imageSrc="./img/Fone Mercado Livre 2.png"
+          heartIconSrc="./img/icon coração pintado.png"
+          productDescription="Fone de ouvido over-ear gamer Havit H2232D 2xP2, RGB - Preto"
+          brandName="Mercado livre"
+          price="R$ 103,55" />
+        <Card
+          imageSrc="./img/Fone Casas Bahia 2.png"
+          heartIconSrc="./img/icon coração.png"
+          productDescription="Fone de Ouvido Sem Fio Samsung Galaxy Buds FE - Branco"
+          brandName="Mercado livre"
+          price="R$ 381,65" />
       </div>
       <a href="#" className="flex justify-center text-xl">
         <p>Ver mais</p>

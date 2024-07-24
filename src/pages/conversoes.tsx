@@ -43,7 +43,7 @@ const Conversoes = () => {
     return (
         <main>
             <Navbar />
-            <div className="container text-center mt-10">
+            <div className="text-center mt-10">
                 <div className="font-bold text-xl mb-8">
                     <p>
                         Compare e analise o valor das
@@ -104,47 +104,31 @@ const Conversoes = () => {
                 <div className="flex justify-start ml-12 max-[450px]:justify-center">
                     <p>Principais Lojas internacionais online</p>
                 </div>
-                <div className="flex items-center justify-center space-x-24 mt-4 px-4 py-4">
+                <div className="flex items-center justify-center space-x-4 md:space-x-24 mt-4 px-4 py-4 flex-wrap md:flex-nowrap">
                     <MdArrowBackIosNew />
-                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-80 h-auto p-6">
-                        <p className="text-center font-semibold mb-4">
-                            SheIn
-                        </p>
+                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
+                        <p className="text-center font-semibold mb-4">SheIn</p>
                         <div className="text-center mb-4">
-                            <p>A Shein oferece produtos
-                                internacionais no Brasil
-                                com diversas promoções
-                            </p>
+                            <p>A Shein oferece produtos internacionais no Brasil com diversas promoções</p>
                         </div>
                         <Link href="" className="text-black underline">Acessar</Link>
                     </div>
-                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-80 h-auto p-6">
-                        <p className="text-center font-semibold mb-4">
-                            Amazon
-                        </p>
+                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
+                        <p className="text-center font-semibold mb-4">Amazon</p>
                         <div className="text-center mb-4">
-                            <p>A Amazon oferece produtos
-                                internacionais no Brasil com
-                                promoções como o prime day
-                            </p>
+                            <p>A Amazon oferece produtos internacionais no Brasil com promoções como o prime day</p>
                         </div>
                         <Link href="" className="text-black underline">Acessar</Link>
                     </div>
-                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-80 h-auto p-6">
-                        <p className="text-center font-semibold mb-4">
-                            Walmart
-                        </p>
+                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
+                        <p className="text-center font-semibold mb-4">Walmart</p>
                         <div className="text-center mb-4">
-                            <p>Para que possa comparar
-                                preços o walmart fornece
-                                seus preços em dólar
-                            </p>
+                            <p>Para que possa comparar preços, o Walmart fornece seus preços em dólar</p>
                         </div>
                         <Link href="" className="text-black underline">Acessar</Link>
                     </div>
                     <MdArrowForwardIos />
                 </div>
-
             </div>
             <Footer />
         </main>

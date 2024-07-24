@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -11,15 +12,15 @@ const Footer = () => {
             <span className="block">Trabalho de Conclusão de Curso</span>
           </h3>
           <h3 className="lg:text-1xl md:text-base sm:text-sm text-xl max-[450px]:text-xs md:mb-0 mb-6 md:w-2/5">
-            <a href="#" className="block mb-2 font-semibold hover:text-navigategreen">
+            <Link href="#" className="block mb-2 font-semibold hover:text-navigategreen">
               Destaques
-            </a>
-            <a href="#" className="block mb-2 hover:text-navigategreen">
+            </Link>
+            <Link href="#" className="block mb-2 hover:text-navigategreen">
               Buscar Produto
-            </a>
-            <a href="/avaliacao" className="block hover:text-navigategreen">
+            </Link>
+            <Link href="/avaliacao" className="block hover:text-navigategreen">
               Avaliações e comentários
-            </a>
+            </Link>
           </h3>
         </div>
       </footer>
