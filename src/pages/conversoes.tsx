@@ -13,6 +13,12 @@ const formatNumber = (num: number) => {
     }).format(num);
 };
 
+const sites = [
+    { id: 1, title: 'SheIn', desc:'A Shein oferece produtos internacionais no Brasil com diversas promoções', url: 'https://pt.shein.com/' },
+    { id: 2, title: 'Amazon', desc:'A Amazon oferece produtos internacionais no Brasil com promoções como o prime day', url: 'https://www.amazon.com.br/' },
+    { id: 3, title: 'Walmart', desc:'Para que possa comparar preços, o Walmart fornece seus preços em dólar', url: 'https://www.walmart.com/' },
+]
+
 const Conversoes = () => {
     const [amount, setAmount] = useState<number>(0);
     const [fromCurrency] = useState<string>('USD');
@@ -43,18 +49,18 @@ const Conversoes = () => {
     return (
         <main>
             <Navbar />
-            <div className="text-center mt-10">
-                <div className="font-bold text-xl mb-8">
+            <div className="text-center mt-10 select-none">
+                <div className="font-bold text-3xl mb-8">
                     <p>
                         Compare e analise o valor das
                         <span className="text-navigategreen"> moedas</span> entre
                         <span className="text-navigateblue"> países</span> em tempo real
                     </p>
                 </div>
-                <div className="text-xl mt-10">
+                <div className="text-2xl mt-10">
                     <p>Faça abaixo a conversão monetária com o valor que deseja</p>
                 </div>
-                <div className="flex justify-center items-center mt-10">
+                <div className="flex justify-center items-center mt-16">
                     <div className="flex items-center space-x-8">
                         <div className="text-xl">
                             <p>De:</p>
@@ -102,31 +108,19 @@ const Conversoes = () => {
                     </div>
                 )}
                 <div className="flex justify-start ml-12 max-[450px]:justify-center">
-                    <p>Principais Lojas internacionais online</p>
+                    <p className="text-xl">Principais Lojas internacionais online</p>
                 </div>
                 <div className="flex items-center justify-center space-x-4 md:space-x-24 mt-4 px-4 py-4 flex-wrap md:flex-nowrap">
                     <MdArrowBackIosNew />
-                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
-                        <p className="text-center font-semibold mb-4">SheIn</p>
+                    {sites.map((sites) => (
+                    <div key={sites.id} className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
+                        <p className="text-center font-semibold mb-4">{sites.title}</p>
                         <div className="text-center mb-4">
                             <p>A Shein oferece produtos internacionais no Brasil com diversas promoções</p>
                         </div>
-                        <Link href="" className="text-black underline">Acessar</Link>
+                        <Link href={sites.url} className="text-black underline">Acessar</Link>
                     </div>
-                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
-                        <p className="text-center font-semibold mb-4">Amazon</p>
-                        <div className="text-center mb-4">
-                            <p>A Amazon oferece produtos internacionais no Brasil com promoções como o prime day</p>
-                        </div>
-                        <Link href="" className="text-black underline">Acessar</Link>
-                    </div>
-                    <div className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
-                        <p className="text-center font-semibold mb-4">Walmart</p>
-                        <div className="text-center mb-4">
-                            <p>Para que possa comparar preços, o Walmart fornece seus preços em dólar</p>
-                        </div>
-                        <Link href="" className="text-black underline">Acessar</Link>
-                    </div>
+                    ))}
                     <MdArrowForwardIos />
                 </div>
             </div>

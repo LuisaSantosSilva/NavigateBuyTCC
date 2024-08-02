@@ -13,8 +13,8 @@ const avaliação = () => {
   return (
     <main>
       <Navbar />
-      <div className="text-center mt-10">
-        <div className="font-bold text-lg mb-8">
+      <div className="text-center mt-10 select-none">
+        <div className="font-bold text-3xl mb-8">
           <p>
             Analise as
             <span className="text-navigateblue"> avaliações</span> e
@@ -23,7 +23,7 @@ const avaliação = () => {
           </p>
           <p>outros sobre o que você precisa</p>
         </div>
-        <div className="text-lg mb-14">
+        <div className="text-xl mb-14">
           <p>
             Busque na barra abaixo e caso precise adicione o nome da loja para
             uma pesquisa mais apurada
@@ -35,7 +35,7 @@ const avaliação = () => {
               <input
                 type="search"
                 placeholder="Adicione aqui o nome do produto que deseja analisar"
-                className="w-full p-4 rounded-full bg-white placeholder-black shadow-md shadow-navigategreen border-2 border-black"
+                className="w-full p-4 rounded-full bg-white placeholder-black shadow-sm shadow-navigategreen border-2 border-black"
               />
             </div>
           </form>
@@ -45,7 +45,7 @@ const avaliação = () => {
               <input
                 type="search"
                 placeholder="Adicione aqui o local de compra desse produto"
-                className="w-full p-4 rounded-full bg-white placeholder-black shadow-md shadow-navigategreen border-2 border-black"
+                className="w-full p-4 rounded-full bg-white placeholder-black shadow-sm shadow-navigategreen border-2 border-black"
               />
             </div>
           </form>

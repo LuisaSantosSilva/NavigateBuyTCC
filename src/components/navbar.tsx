@@ -27,7 +27,7 @@ const navbar = () => {
             <Link href="/">
             <img src={"./img/logo lupa.png"} alt="Logo" className="w-12 md:w-18 sm:w-16 sm:h-10 md:h-10" />
             </Link>
-            <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold sm:block">
+            <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold sm:block select-none">
               <span className="text-navigateblue">
                 Navigate
                 <span className="text-navigategreen">Buy</span>
@@ -42,29 +42,29 @@ const navbar = () => {
               </button>
             </div>
           </form>
-          <div className="space-x-7 font-semibold hidden xl:block">
-            <Link href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md">Favoritos</Link>
-            <Link href="/cadastro" className="px-4 py-4 hover:bg-black hover:text-white rounded-md">Entrar / Cadastrar-se</Link>
+          <div className="space-x-7 font-semibold hidden xl:block select-none">
+            <Link href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">Favoritos</Link>
+            <Link href="/cadastro" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">Entrar / Cadastrar-se</Link>
             <Link href="/editar-perfil" className="w-[550px] relative p-3 rounded-full bg-navigateblue text-white hover:text-navigategreen">
               Perfil
             </Link>
           </div>
         </div>
       </div>
-      <div className="bg-black">
+      <div className="bg-black select-none">
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="hidden md:block">
               <div className="ml-4 flex items-center space-x-4">
-                <Link href="/" onClick={handleClick} className="rounded-lg p-2 flex items-center text-white hover:bg-white hover:text-black">
+                <Link href="/" onClick={handleClick} className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <AiOutlineMenu />
                   <span className="ml-2">Categorias</span>
                 </Link>
                 {showComponent && (<Categorias/>)}
-                <Link href="/avaliacao" className="rounded-lg p-2 text-white hover:bg-white hover:text-black">
+                <Link href="/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
                   Avaliações e comentários de consumidores
                 </Link>
-                <Link href="/conversoes" className="rounded-lg p-2 flex items-center text-white hover:bg-white hover:text-black">
+                <Link href="/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
                   <span className="ml-2">Conversões monetárias</span>
                 </Link>

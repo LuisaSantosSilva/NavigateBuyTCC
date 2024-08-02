@@ -6,7 +6,7 @@ import "./login.css";
 
 const Login = () => {
   return (
-    <header className="flex flex-col md:flex-row h-screen">
+    <header className="flex flex-col md:flex-row h-screen select-none">
       {/* Formulário */}
       <div className="flex-1 w-full h-full bg-white flex flex-col items-center justify-center form-container">
         <div className="max-w-6xl mx-auto p-8">
@@ -18,7 +18,7 @@ const Login = () => {
           </p>
           <form className="space-y-10 w-full max-w-lg mx-auto">
             <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3 relative">
+              <div className="w-full px-3 relative flex">
                 <img
                   src="../img/icon_email.png"
                   alt=""
@@ -27,7 +27,7 @@ const Login = () => {
                 <input
                   id="email"
                   type="email"
-                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none focus:border-green-700
+                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl focus:outline-none focus:border-green-700
                   shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out largeInputOnDesktop`}
                   placeholder="Email"
                   required
@@ -35,7 +35,7 @@ const Login = () => {
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
-              <div className="w-full px-3 relative">
+              <div className="w-full px-3 relative flex">
                 <img
                   src="../img/icon_senha.png"
                   alt=""
@@ -44,7 +44,7 @@ const Login = () => {
                 <input
                   id="senha"
                   type="password"
-                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-2xl md:text-2xl lg:text-2xl rounded-2xl border border-black focus:outline-none focus:border-green-700
+                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-2xl md:text-2xl lg:text-2xl rounded-2xl focus:outline-none focus:border-green-700
                   shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out largeInputOnDesktop`}
                   placeholder="Senha"
                   required

@@ -3,7 +3,7 @@ import React from "react";
 const respostaavaliacao = () => {
     return (
         <main>
-            <div className="text-center mt-3 max-w-2xl mx-auto">
+            <div className="text-center text-lg mt-3 max-w-2xl mx-auto">
                 <hr className="border-navigategreen"/>
                 <p>
                     De acordo com o nome <span className="font-bold">"Fone"</span> e local
@@ -31,7 +31,7 @@ const respostaavaliacao = () => {
                                 começou a falhar com interferências, até que finalmente ficou com o som mais baixo que o direito...
                             </p>
                             </div>
-                            <div className="rounded-xl py-2 px-3 mt-6 text-base border-2 shadow-md shadow-navigategreen border-black bg-white text-black">
+                            <div className="rounded-xl py-2 px-3 mt-6 text-base border-2 shadow-sm shadow-navigategreen border-black bg-white text-black">
                                 <button>Ver mais e analisar se foi resolvido</button>
                             </div>
                         </div>
@@ -51,7 +51,7 @@ const respostaavaliacao = () => {
                                     tento suporte com a Motorola e ninguém me presta atendimento...
                                 </p>
                             </div>
-                            <div className="rounded-xl py-2 px-3 mt-6 text-base border-2 shadow-md shadow-navigategreen border-black bg-white text-black">
+                            <div className="rounded-xl py-2 px-3 mt-6 text-base border-2 shadow-sm shadow-navigategreen border-black bg-white text-black">
                                 <button>Ver mais e analisar se foi resolvido</button>
                             </div>
                         </div>

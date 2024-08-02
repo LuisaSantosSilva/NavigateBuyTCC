@@ -41,8 +41,8 @@ const ConteudoInferior = () => {
           </h2>
           <a href="https://transparencyreport.google.com/safe-browsing/search">
             <button className="mt-4 py-3 px-6 sm:py-4 sm:px-10 text-lg sm:text-lg rounded-full border-2 
-              bg-slate-900 border-slate-900 shadow-md
-              text-white font-semibold transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900 mb-20">
+              bg-navigateblue border-navigateblue shadow-md
+              text-white font-semibold transition duration-1000 ease-in-out hover:bg-transparent hover:text-navigateblue hover:border-navigateblue mb-20">
               Acessar Google Transparency Report
             </button>
           </a>
