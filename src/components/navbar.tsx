@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
 import { BiTransfer } from "react-icons/bi";
 import Categorias from "../components/categorias";
 
@@ -16,7 +15,7 @@ const navbar = () => {
   const [showComponent, setShowComponent] = useState(false);
 
   const handleClick = () => {
-    setShowComponent(true);
+    setShowComponent((prev) => !prev);
   };
 
   return (
@@ -25,7 +24,7 @@ const navbar = () => {
         <div className="flex items-center h-16 px-6 sm:px-6 lg:px-8">
           <div className="flex items-start">
             <Link href="/">
-            <img src={"./img/logo lupa.png"} alt="Logo" className="w-12 md:w-18 sm:w-16 sm:h-10 md:h-10" />
+              <img src={"./img/logo lupa.png"} alt="Logo" className="w-12 md:w-18 sm:w-16 sm:h-10 md:h-10" />
             </Link>
             <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold sm:block select-none">
               <span className="text-navigateblue">
@@ -42,11 +41,15 @@ const navbar = () => {
               </button>
             </div>
           </form>
-          <div className="space-x-7 font-semibold hidden xl:block select-none">
-            <Link href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">Favoritos</Link>
-            <Link href="/cadastro" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">Entrar / Cadastrar-se</Link>
-            <Link href="/editar-perfil" className="w-[550px] relative p-3 rounded-full bg-navigateblue text-white hover:text-navigategreen">
-              Perfil
+          <div className="space-x-7 font-semibold hidden xl:flex select-none items-center">
+            <Link href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+              Favoritos
+            </Link>
+            <Link href="/cadastro" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+              Entrar / Cadastrar-se
+            </Link>
+            <Link href="/editar-perfil" className="p-2 rounded-full bg-navigateblue text-white hover:text-navigategreen">
+              <AiOutlineUser className="text-2xl" />
             </Link>
           </div>
         </div>
@@ -56,11 +59,11 @@ const navbar = () => {
           <div className="flex items-center justify-between h-16">
             <div className="hidden md:block">
               <div className="ml-4 flex items-center space-x-4">
-                <Link href="/" onClick={handleClick} className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="#" onClick={handleClick} className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <AiOutlineMenu />
                   <span className="ml-2">Categorias</span>
                 </Link>
-                {showComponent && (<Categorias/>)}
+                {showComponent && (<Categorias />)}
                 <Link href="/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
                   Avaliações e comentários de consumidores
                 </Link>
@@ -68,11 +71,15 @@ const navbar = () => {
                   <BiTransfer />
                   <span className="ml-2">Conversões monetárias</span>
                 </Link>
-                <div className="flex items-center space-x-4 lg:hidden">
-                  <Link href="/favoritos" className="hover:bg-white hover:text-black text-white rounded-md">Favoritos</Link>
-                  <Link href="/cadastro" className="p-2 hover:bg-white hover:text-black text-white rounded-md">Entrar / Cadastrar-se</Link>
+                <div className="flex items-center space-x-4 min-[1250px]:hidden">
+                  <Link href="/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                    Favoritos
+                  </Link>
+                  <Link href="/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                    Entrar / Cadastrar-se
+                  </Link>
                   <Link href="/editar-perfil" className="p-2 hover:bg-white hover:text-black text-white">
-                    Perfil
+                    <AiOutlineUser className="text-2xl" />
                   </Link></div>
               </div>
             </div>

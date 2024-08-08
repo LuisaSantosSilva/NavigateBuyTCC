@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { poppins } from "../app/fonts";
 import "../app/globals.css";
 import "../components/header.css";
-import Cards from '../components/cards';
+import Cards from '../components/homecard';
 import ConteudoInferior from '../components/conteudoHomeBaixo';
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";

@@ -66,7 +66,7 @@ const Conversoes = () => {
                             <p>De:</p>
                         </div>
                         <Menu as="div" className="relative inline-block text-left">
-                            <MenuButton value={fromCurrency} className="inline-flex w-full justify-center rounded-3xl px-8 py-2 text-lg bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
+                            <MenuButton value={fromCurrency} className="inline-flex w-full justify-center rounded-3xl px-8 py-2 text-lg cursor-default bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
                                 <p>Dólares Americanos</p>
                             </MenuButton>
                         </Menu>
@@ -74,7 +74,7 @@ const Conversoes = () => {
                             <p>Para:</p>
                         </div>
                         <Menu as="div" className="relative inline-block text-left">
-                            <MenuButton value={toCurrency} className="inline-flex w-full justify-center rounded-3xl px-8 py-2 text-lg bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
+                            <MenuButton value={toCurrency} className="inline-flex w-full justify-center rounded-3xl px-8 py-2 text-lg cursor-default bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
                                 <p>Real Brasileiro</p>
                             </MenuButton>
                         </Menu>

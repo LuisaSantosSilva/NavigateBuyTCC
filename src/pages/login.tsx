@@ -27,7 +27,7 @@ const Login = () => {
       // Verificação se ocorreu erro no login
       if (response.status === 200) {
         setMessage(response.data.message);
-        router.push('/home'); // Redireciona para a página inicial
+        router.push('/'); // Redireciona para a página inicial
       } else {
         setMessage(response.data.message);
       }
@@ -105,7 +105,7 @@ const Login = () => {
 
       <div className="w-full md:w-1/2 h-full overflow-hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
         <div className="absolute top-5 sm:top-6 md:top-8 lg:top-10 left-3 sm:left-4 md:left-5 lg:left-6">
-          <a href="#" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl text-white hover:text-slate-300 transition duration-500 ease-in-out">
+          <a href="/" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl text-white hover:text-slate-300 transition duration-500 ease-in-out">
             <img src="../img/setinha(login_cadastro).png" alt="" className="w-5 sm:w-6 md:w-7 lg:w-8 h-5 sm:h-6 md:h-7 lg:h-8 mr-2 hidden sm:block" />
             Voltar ao início
           </a>

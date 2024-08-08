@@ -1,17 +1,12 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { AiOutlineMenu } from "react-icons/ai";
 import { poppins } from "../app/fonts";      
 
 const Categorias = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -55,16 +50,7 @@ const Categorias = () => {
   }, [isMenuOpen]);
 
   return (
-    <div className="relative">
-      <button
-        ref={buttonRef}
-        onClick={toggleMenu}
-        className="text-white hover:bg-white hover:text-black rounded-lg p-2 flex items-center"
-      >
-        <AiOutlineMenu />
-      </button>
-
-      {isMenuOpen && (
+    <div className="absolute">
         <div
           ref={menuRef}
           className="absolute mt-2 w-96 bg-white hover:bg-opacity-75 border-2 transition-all border-black rounded-lg shadow-lg z-10"
@@ -121,7 +107,6 @@ const Categorias = () => {
             </li>
           </ul>
         </div>
-      )}
     </div>
   );
 };
