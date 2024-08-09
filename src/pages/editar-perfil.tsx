@@ -1,6 +1,7 @@
 import React from 'react';
 import { poppins } from "../app/fonts";
 import "../components/header.css";
+import "../app/globals.css";
 import Navbar from "../components/navbar";
 import Footer from '@/components/footer';
 
