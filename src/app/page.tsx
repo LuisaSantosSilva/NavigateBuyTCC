@@ -104,39 +104,39 @@ const Home = () => {
                 <>
                   <button
                     className={`absolute left-0 top-1/2 transform -translate-y-1/2 ${canScrollLeft ?
-                      'hover:bg-opacity-80 hover:bg-navigateblue' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
+                      'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
                     onClick={scrollLeft}
                     disabled={!canScrollLeft}
                   >
                     &lt;
                   </button>
 
-                  <div
-                    ref={scrollContainerRef}
-                    className={`flex space-x-8 md:space-x-10 lg:space-x-14 py-4 mx-4 h-32 ${isScrollable ? 'overflow-x-auto' : 'overflow-hidden'}`}
-                    style={{ scrollbarWidth: isScrollable ? 'thin' : 'none' }} >
-                    {cards.map((card) => (
-                      <div
-                        key={card.id}
-                        className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-green-700
-                     hover:border-navigateblue hover:shadow-sm hover:shadow-navigateblue min-w-[300px] md:min-w-[240px] lg:min-w-[440px] p-4 bg-white shadow-sm shadow-green-700 rounded-2xl flex-col justify-center'>
-                        <h3 className={`text-base md:text-lg lg:text-xl font-extrabold ${poppins.className} text-center`}>{card.title}</h3>
-                        <a href={card.url} target="_blank" rel="noopener noreferrer">
-                          <p className={`text-gray-500 text-sm md:text-base lg:text-xl flex justify-center mr-5 ${poppins.className}`}>Acessar</p>
-                        </a>
-                      </div>
-                    ))}
-                  </div>
-
                   <button
                     className={`absolute right-0 top-1/2 transform -translate-y-1/2 ${canScrollRight ?
-                      'hover:bg-opacity-80 hover:bg-navigateblue' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
+                      'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
                     onClick={scrollRight}
                     disabled={!canScrollRight}>
                     &gt;
                   </button>
                 </>
               )}
+
+              <div
+                ref={scrollContainerRef}
+                className={`flex space-x-8 md:space-x-10 lg:space-x-14 py-4 mx-4 h-32 ${isScrollable ? 'overflow-x-auto' : 'overflow-hidden'}`}
+                style={{ scrollbarWidth: isScrollable ? 'thin' : 'none' }} >
+                {cards.map((card) => (
+                  <div
+                    key={card.id}
+                    className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-green-700
+                     hover:border-navigateblue hover:shadow-sm hover:shadow-navigateblue min-w-[300px] md:min-w-[240px] lg:min-w-[440px] p-4 bg-white shadow-sm shadow-green-700 rounded-2xl flex-col justify-center'>
+                    <h3 className={`text-base md:text-lg lg:text-xl font-extrabold ${poppins.className} text-center`}>{card.title}</h3>
+                    <a href={card.url} target="_blank" rel="noopener noreferrer">
+                      <p className={`text-gray-500 text-sm md:text-base lg:text-xl flex justify-center mr-5 ${poppins.className}`}>Acessar</p>
+                    </a>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className='mt-8 mx-4 ml-12'>
