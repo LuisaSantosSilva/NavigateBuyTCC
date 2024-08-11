@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { poppins } from "../app/fonts";
+import Head from 'next/head';
 import Link from 'next/link';
 import "../app/globals.css";
 import "./login.css";
@@ -11,6 +12,11 @@ const Cadastro = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [touched, setTouched] = useState({
+    username: false,
+    email: false,
+    password: false,
+  });
 
   useEffect(() => {
     setIsClient(true);
@@ -20,7 +26,7 @@ const Cadastro = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/api/app', { 
+      const response = await fetch('http://localhost:5000/useradd', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,11 +44,38 @@ const Cadastro = () => {
 
       const data = await response.json();
       alert(data.message || 'Usuário cadastrado com sucesso!');
-      // Redirecionar para a página de login ou outra página desejada
+      window.location.href = '/login';
     } catch (error) {
       console.error('Erro na solicitação:', error);
       alert('Erro ao registrar usuário. Por favor, tente novamente.');
     }
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched({ ...touched, [field]: true });
+  };
+
+  const getInputClass = (field: string) => {
+    const isTouched = touched[field as keyof typeof touched];
+    let isValid = false;
+
+    if (field === 'username') {
+      isValid = username.length > 0;
+    } else if (field === 'email') {
+      isValid = email.includes('@') && email.includes('.');
+    } else if (field === 'password') {
+      isValid = password.length >= 8;
+    }
+
+    if (!isTouched) {
+      return "shadow-black";
+    }
+
+    if (isTouched && !isValid) {
+      return "border-red-500 shadow-red-500";
+    }
+
+    return "border-navigategreen shadow-navigategreen";
   };
 
   if (!isClient) {
@@ -51,8 +84,11 @@ const Cadastro = () => {
 
   return (
     <header className="flex flex-col md:flex-row h-screen">
+      <Head>
+        <title>Navigate Buy</title>
+      </Head>
       <div className="w-full md:w-1/2 h-full overflow-hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
-        <div className="max-w-md p-6 sm:p-8 md:p-10 lg:p-12 text-center text-white">
+        <div className="max-w-md p-4 sm:p-8 md:p-10 lg:p-12 text-center text-white">
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10">
             <a href="/" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl hover:text-slate-300 transition duration-500 ease-in-out">
               <img src="../img/setinha(login_cadastro).png" alt="" className="w-5 sm:w-6 md:w-7 lg:w-8 h-5 sm:h-6 md:h-7 lg:h-8 mr-2 hidden sm:block" />
@@ -69,8 +105,7 @@ const Cadastro = () => {
             </p>
           </div>
           <Link href="/login">
-            <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-32 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-transparent text-white font-semibold border-white
-                            transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent">
+            <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-32 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-transparent text-white font-semibold border-white transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent">
               Entrar
             </button>
           </Link>
@@ -97,8 +132,9 @@ const Cadastro = () => {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none focus:border-green-700
-                  shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out w-full largeInputOnDesktop"
+                  onBlur={() => handleBlur('username')}
+                  className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
+                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('username')}`}
                   placeholder="Digite seu nome completo"
                   required
                 />
@@ -116,8 +152,9 @@ const Cadastro = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none focus:border-green-700
-                  shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out w-full largeInputOnDesktop"
+                  onBlur={() => handleBlur('email')}
+                  className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
+                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('email')}`}
                   placeholder="Email"
                   required
                 />
@@ -135,8 +172,9 @@ const Cadastro = () => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none focus:border-green-700
-                  shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out w-full largeInputOnDesktop"
+                  onBlur={() => handleBlur('password')}
+                  className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
+                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('password')}`}
                   placeholder="Senha"
                   required
                 />
@@ -145,7 +183,7 @@ const Cadastro = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="mt-6 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-slate-900 text-white font-semibold 
+                className="mt-4 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-slate-900 text-white font-semibold 
                 transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900">
                 Cadastrar
               </button>

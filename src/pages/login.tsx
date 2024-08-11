@@ -1,14 +1,19 @@
 import React, { useState, FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import "../app/globals.css";
+import Head from 'next/head';
 import Link from 'next/link';
+import "../app/globals.css";
 import "./login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [touched, setTouched] = useState({
+    username: false,
+    password: false,
+  });
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
@@ -16,7 +21,7 @@ const Login = () => {
 
     try {
       const response = await axios.post('http://localhost:5000/login', {
-        email,
+        username,
         password,
       }, {
         headers: {
@@ -40,8 +45,36 @@ const Login = () => {
     }
   };
 
+  const handleBlur = (field: string) => {
+    setTouched({ ...touched, [field]: true });
+  };
+
+  const getInputClass = (field: string) => {
+    const isTouched = touched[field as keyof typeof touched];
+    let isValid = false;
+
+    if (field === 'username') {
+      isValid = username.length > 0;
+    } else if (field === 'password') {
+      isValid = password.length >= 8;
+    }
+
+    if (!isTouched) {
+      return "shadow-black";
+    }
+
+    if (isTouched && !isValid) {
+      return "border-red-500 shadow-red-500";
+    }
+
+    return "border-navigategreen shadow-navigategreen";
+  };
+
   return (
     <header className="flex flex-col md:flex-row h-screen">
+      <Head>
+        <title>Navigate Buy</title>
+      </Head>
       <div className="flex-1 w-full h-full bg-white flex flex-col items-center justify-center form-container">
         <div className="max-w-6xl mx-auto p-8">
           <h1 className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl text-center font-extrabold">
@@ -54,18 +87,19 @@ const Login = () => {
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full px-3 relative">
                 <img
-                  src="../img/icon_email.png"
+                  src="../img/icon_user.png"
                   alt=""
                   className="absolute left-3 sm:left-4 md:left-5 lg:left-6 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-6"
                 />
                 <input
-                  id="email"
-                  type="email"
-                  className="py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out largeInputOnDesktop"
-                  placeholder="Email"
+                  id="username"
+                  type="text"
+                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('username')}`}
+                  placeholder="Nome"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  onBlur={() => handleBlur('username')}
                 />
               </div>
             </div>
@@ -79,11 +113,12 @@ const Login = () => {
                 <input
                   id="senha"
                   type="password"
-                  className="py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-2xl md:text-2xl lg:text-2xl rounded-2xl border border-black focus:outline-none focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out largeInputOnDesktop"
+                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-2xl md:text-2xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('password')}`}
                   placeholder="Senha"
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  onBlur={() => handleBlur('password')}
                 />
               </div>
             </div>
@@ -110,7 +145,6 @@ const Login = () => {
             Voltar ao início
           </a>
         </div>
-        
         <div className="text-white p-6 sm:p-8 md:p-10 lg:p-12 max-w-md">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl text-right max-sm:mt-10">
             <strong>Seja Bem- Vindo(a) <br /> ao Navigate Buy</strong>

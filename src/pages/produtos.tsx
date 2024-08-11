@@ -1,16 +1,19 @@
-import Link from "next/link";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Card from "../components/card";
+import React from "react";
+import Head from "next/head";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import "../app/globals.css";
-import React from "react";
 
 const produtos: React.FC = () => {
   return (
     <main>
+      <Head>
+        <title>Navigate Buy</title>
+      </Head>
       <Navbar />
       <div className="flex justify-center p-8">
         <h2 className="text-xl text-black">

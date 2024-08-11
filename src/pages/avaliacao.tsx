@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import Resposta from "../components/respostaavaliacao";
 import "../app/globals.css";
 import React, { useState } from "react";
+import Head from "next/head";
 
 const avaliação = () => {
   const [showComponent, setShowComponent] = useState(false);
@@ -12,6 +13,9 @@ const avaliação = () => {
   };
   return (
     <main>
+      <Head>
+        <title>Navigate Buy</title>
+      </Head>
       <Navbar />
       <div className="text-center mt-10 select-none">
         <div className="font-bold text-3xl mb-8">
@@ -51,7 +55,7 @@ const avaliação = () => {
           </form>
         </div>
         <button className="inline-flex justify-center mb-16 rounded-2xl bg-navigateblue px-16 py-2 text-lg font-semibold text-white hover:bg-blue-600" onClick={handleClick}>Buscar</button>
-        {showComponent && (<Resposta/>)}
+        {showComponent && (<Resposta />)}
       </div>
       <Footer />
     </main>

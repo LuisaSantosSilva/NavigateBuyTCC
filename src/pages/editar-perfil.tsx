@@ -4,17 +4,21 @@ import "../components/header.css";
 import "../app/globals.css";
 import Navbar from "../components/navbar";
 import Footer from '@/components/footer';
+import Head from 'next/head';
 
 const Editar = () => {
   return (
-    <div className="flex flex-col min-h-screen"> {/* Flex container */}
-      <Navbar />
+    <div className="flex flex-col min-h-screen">
+      <Head>
+        <title>Navigate Buy</title>
+      </Head>
+      <Navbar/>
       <header className="flex-grow"> {/* Permite o crescimento do conteúdo para empurrar o footer para baixo */}
         <h2 className={`text-center font-extrabold mt-10 text-3xl sm:text-2xl md:text-3xl ${poppins.className}`}>
           Perfil
         </h2>
         <p className={`text-center mt-2 text-xl sm:text-lg md:text-xl ${poppins.className}`}>
-          Olá ${}
+          Olá ${ }
         </p>
         <div className="relative mb-8 space-y-6 max-w-md mx-auto px-4">
           <div className="relative flex flex-col mb-6">

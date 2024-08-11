@@ -1,4 +1,5 @@
-import Link from "next/link"
+import Link from "next/link";
+import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import { Menu, MenuButton } from "@headlessui/react";
@@ -14,9 +15,9 @@ const formatNumber = (num: number) => {
 };
 
 const sites = [
-    { id: 1, title: 'SheIn', desc:'A Shein oferece produtos internacionais no Brasil com diversas promoções', url: 'https://pt.shein.com/' },
-    { id: 2, title: 'Amazon', desc:'A Amazon oferece produtos internacionais no Brasil com promoções como o prime day', url: 'https://www.amazon.com.br/' },
-    { id: 3, title: 'Walmart', desc:'Para que possa comparar preços, o Walmart fornece seus preços em dólar', url: 'https://www.walmart.com/' },
+    { id: 1, title: 'SheIn', desc: 'A Shein oferece produtos internacionais no Brasil com diversas promoções', url: 'https://pt.shein.com/' },
+    { id: 2, title: 'Amazon', desc: 'A Amazon oferece produtos internacionais no Brasil com promoções como o prime day', url: 'https://www.amazon.com.br/' },
+    { id: 3, title: 'Walmart', desc: 'Para que possa comparar preços, o Walmart fornece seus preços em dólar', url: 'https://www.walmart.com/' },
 ]
 
 const Conversoes = () => {
@@ -48,6 +49,9 @@ const Conversoes = () => {
 
     return (
         <main>
+            <Head>
+                <title>Navigate Buy</title>
+            </Head>
             <Navbar />
             <div className="text-center mt-10 select-none">
                 <div className="font-bold text-3xl mb-8">
@@ -113,13 +117,13 @@ const Conversoes = () => {
                 <div className="flex items-center justify-center space-x-4 md:space-x-24 mt-4 px-4 py-4 flex-wrap md:flex-nowrap">
                     <MdArrowBackIosNew />
                     {sites.map((sites) => (
-                    <div key={sites.id} className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
-                        <p className="text-center font-semibold mb-4">{sites.title}</p>
-                        <div className="text-center mb-4">
-                            <p>A Shein oferece produtos internacionais no Brasil com diversas promoções</p>
+                        <div key={sites.id} className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0">
+                            <p className="text-center font-semibold mb-4">{sites.title}</p>
+                            <div className="text-center mb-4">
+                                <p>A Shein oferece produtos internacionais no Brasil com diversas promoções</p>
+                            </div>
+                            <Link href={sites.url} className="text-black underline">Acessar</Link>
                         </div>
-                        <Link href={sites.url} className="text-black underline">Acessar</Link>
-                    </div>
                     ))}
                     <MdArrowForwardIos />
                 </div>

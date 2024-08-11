@@ -9,6 +9,6 @@ def install_and_import(package):
         print(f"Instalando {package}...")
         subprocess.run(["pip", "install", package])
 if __name__ == "__main__":
-    packages = ["flask", "flask_cors", "flask_login", "mysql", "mysql-connector"]
+    packages = ["flask", "flask_cors", "flask_login", "mysql", "mysql-connector", "bcrypt"]
     for package in packages:
         install_and_import(package)    
