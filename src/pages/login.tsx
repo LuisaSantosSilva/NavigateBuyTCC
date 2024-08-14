@@ -84,7 +84,7 @@ const Login = () => {
             Preencha com os seus dados
           </p>
           <form className="space-y-10 w-full max-w-lg mx-auto" onSubmit={handleSubmit}>
-            <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_user.png"
@@ -103,7 +103,7 @@ const Login = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_senha.png"

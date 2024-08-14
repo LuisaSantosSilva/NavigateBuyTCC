@@ -120,7 +120,7 @@ const Cadastro = () => {
             Preencha seus dados
           </p>
           <form onSubmit={handleRegister} className="space-y-8 w-full max-w-lg mx-auto">
-            <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_user.png"
@@ -140,7 +140,7 @@ const Cadastro = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_email.png"
@@ -160,7 +160,7 @@ const Cadastro = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-3 mb-6">
+            <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_senha.png"
@@ -175,7 +175,7 @@ const Cadastro = () => {
                   onBlur={() => handleBlur('password')}
                   className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
                   shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('password')}`}
-                  placeholder="Senha"
+                  placeholder="Senha (min: 8 caracteres) "
                   required
                 />
               </div>
