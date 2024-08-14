@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Categorias from "../components/categorias";
 
@@ -22,21 +23,21 @@ const navbar = () => {
     <nav>
       <div className="bg-white">
         <div className="flex items-center h-16 px-6 sm:px-6 lg:px-8">
-          <div className="flex items-start">
-            <Link href="/">
+          <div className="flex flex-row items-start">
+            <Link href="/" className="flex-row flex">
               <img src={"./img/logo lupa.png"} alt="Logo" className="w-12 md:w-18 sm:w-16 sm:h-10 md:h-10" />
+              <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold sm:block select-none">
+                <span className="text-navigateblue">
+                  Navigate
+                  <span className="text-navigategreen">Buy</span>
+                </span>
+              </div>
             </Link>
-            <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold sm:block select-none">
-              <span className="text-navigateblue">
-                Navigate
-                <span className="text-navigategreen">Buy</span>
-              </span>
-            </div>
           </div>
-          <form className="w-40 relative mx-auto sm:w-[300px] md:w-[500px]">
-            <div className="relative text-white">
-              <input type="search" placeholder="Buscar produto" className="w-full p-4 rounded-full bg-navigategreen placeholder-white" />
-              <button className="absolute right-1 top-1/2 -translate-y-1/2 p-4 bg-green-800 rounded-full">
+          <form className="w-auto relative mx-auto sm:w-[300px] md:w-[500px]">
+            <div className="relative flex justify-between w-[600px] bg-green-800 rounded-full text-white">
+              <input type="search" placeholder="Buscar produto" className="w-[520px] p-3 rounded-full border border-navigategreen placeholder-black" />
+              <button className="absolute right-1 text-2xl top-1/2 -translate-y-1/2 p-2 w-16 flex justify-center items-center h-full  rounded-full">
                 <AiOutlineSearch />
               </button>
             </div>
@@ -60,8 +61,8 @@ const navbar = () => {
             <div className="hidden md:block">
               <div className="ml-4 flex items-center space-x-4">
                 <Link href="#" onClick={handleClick} className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
-                  <AiOutlineMenu />
                   <span className="ml-2">Categorias</span>
+                  <MdKeyboardArrowDown className="text-xl" />
                 </Link>
                 {showComponent && (<Categorias />)}
                 <Link href="/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
