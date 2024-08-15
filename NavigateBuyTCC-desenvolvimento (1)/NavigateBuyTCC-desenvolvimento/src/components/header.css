@@ -1,0 +1,14 @@
+.largeInputOnDesktop {
+    width: 500px; 
+  }
+
+    .footer {
+    position: fixed;
+    bottom: 0;
+  }
+  
+  @media (max-width: 800px) {
+    .largeInputOnDesktop {
+      width: 100%;
+    }
+  }
