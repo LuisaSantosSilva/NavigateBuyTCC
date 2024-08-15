@@ -81,72 +81,66 @@ const Home = () => {
     <>
       <Navbar />
       <header className='overflow-y-hidden select-none'>
-        <div className="max-w-screen-2xl mx-auto px-4 overflow-x-hidden">
-          <div className='text-center space-y-4 md:space-y-6'>
-            <h2 className={`text-lg md:text-2xl lg:text-3xl font-extrabold mt-10`}>
-              <strong className={`text-outline`}>
-                Navegue com <strong className={`text-outline text-green-700 ${poppins.className}`}>simplicidade</strong> e pesquise com mais <strong className={`text-navigateblue ${poppins.className}`}>segurança</strong>
-              </strong>
-            </h2>
-            <p className={`text-sm sm:text-base md:text-lg lg:text-xl ${poppins.className}`}>
-              Aqui você pode comparar preços, analisar
-              avaliações de outros consumidores <br />
-              e encontrar as melhores ofertas em lojas
-              populares com boa reputação
-            </p>
+        <div className="flex justify-center items-center mx-auto py-32 bg-navigateblue">
+          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-10 md:space-y-0 md:space-x-28 max-w-screen-2xl">
+            <div className='text-center md:text-left space-y-10 flex-1 max-w-lg'>
+              <h1 className={`text-4xl font-medium`}>
+                <strong className={`text-outline text-white ${poppins.className}`}>
+                  Navegue com simplicidade e pesquise com mais segurança
+                </strong>
+              </h1>
+              <p className={`text-sm sm:text-base md:text-sm lg:text-base text-white ${poppins.className}`}>
+                Aqui você pode comparar preços, analisar avaliações de outros consumidores e
+                encontrar as melhores ofertas em lojas populares com boa reputação
+              </p>
+            </div>
+            <img src="" alt="Exemplo" className="max-w-lg object-cover md:mt-0 mt-10" />
           </div>
-
-          <div className='mt-8'>
-            <p className={`text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12 ${poppins.className}`}>Principais lojas e motores de busca online</p>
-
-            <div className='relative flex items-center'>
-              {showArrows && (
-                <>
-                  <button
-                    className={`absolute left-0 top-1/2 transform -translate-y-1/2 ${canScrollLeft ?
-                      'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
-                    onClick={scrollLeft}
-                    disabled={!canScrollLeft}
-                  >
-                    &lt;
-                  </button>
-
-                  <button
-                    className={`absolute right-0 top-1/2 transform -translate-y-1/2 ${canScrollRight ?
-                      'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
-                    onClick={scrollRight}
-                    disabled={!canScrollRight}>
-                    &gt;
-                  </button>
-                </>
-              )}
-
-              <div
-                ref={scrollContainerRef}
-                className={`flex space-x-8 md:space-x-10 lg:space-x-14 py-4 mx-4 h-32 ${isScrollable ? 'overflow-x-auto' : 'overflow-hidden'}`}
-                style={{ scrollbarWidth: isScrollable ? 'thin' : 'none' }} >
-                {cards.map((card) => (
-                  <div
-                    key={card.id}
-                    className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-green-700
+        </div>
+        <div className='mt-8 bg-white'>
+          <p className={`text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12 ${poppins.className}`}>Principais lojas e motores de busca online</p>
+          <div className='relative flex items-center'>
+            {showArrows && (
+              <>
+                <button
+                  className={`absolute left-0 top-1/2 transform -translate-y-1/2 ${canScrollLeft ?
+                    'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
+                  onClick={scrollLeft}
+                  disabled={!canScrollLeft}
+                >
+                  &lt;
+                </button>
+                <button
+                  className={`absolute right-0 top-1/2 transform -translate-y-1/2 ${canScrollRight ?
+                    'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
+                  onClick={scrollRight}
+                  disabled={!canScrollRight}>
+                  &gt;
+                </button>
+              </>
+            )}
+            <div
+              ref={scrollContainerRef}
+              className={`flex space-x-8 md:space-x-10 lg:space-x-14 py-4 mx-4 h-32 ${isScrollable ? 'overflow-x-auto' : 'overflow-hidden'}`}
+              style={{ scrollbarWidth: isScrollable ? 'thin' : 'none' }} >
+              {cards.map((card) => (
+                <div
+                  key={card.id}
+                  className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-green-700
                      hover:border-navigateblue hover:shadow-sm hover:shadow-navigateblue min-w-[300px] md:min-w-[240px] lg:min-w-[440px] p-4 bg-white shadow-sm shadow-green-700 rounded-2xl flex-col justify-center'>
-                    <h3 className={`text-base md:text-lg lg:text-xl font-extrabold ${poppins.className} text-center`}>{card.title}</h3>
-                    <a href={card.url} target="_blank" rel="noopener noreferrer">
-                      <p className={`text-gray-500 text-sm md:text-base lg:text-xl flex justify-center mr-5 ${poppins.className}`}>Acessar</p>
-                    </a>
-                  </div>
-                ))}
-              </div>
+                  <h3 className={`text-base md:text-lg lg:text-xl font-extrabold ${poppins.className} text-center`}>{card.title}</h3>
+                  <a href={card.url} target="_blank" rel="noopener noreferrer">
+                    <p className={`text-gray-500 text-sm md:text-base lg:text-xl flex justify-center mr-5 ${poppins.className}`}>Acessar</p>
+                  </a>
+                </div>
+              ))}
             </div>
-
-            <div className='mt-8 mx-4 ml-12'>
-              <h2 className={`text-left text-lg md:text-xl lg:text-2xl ${poppins.className}`}>Ideias de categorias de pesquisas</h2>
-            </div>
-
-            <Cards />
-
-            <ConteudoInferior />
           </div>
+          <div className='mt-8 mx-4 ml-12'>
+            <h2 className={`text-left text-lg md:text-xl lg:text-2xl ${poppins.className}`}>Ideias de categorias de pesquisas</h2>
+          </div>
+          <Cards />
+          <ConteudoInferior />
         </div>
       </header>
       <Footer />

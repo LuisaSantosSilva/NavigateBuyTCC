@@ -22,11 +22,15 @@ const navbar = () => {
   return (
     <nav>
       <div className="bg-white">
-        <div className="flex items-center h-16 px-6 sm:px-6 lg:px-8">
-          <div className="flex flex-row items-start">
-            <Link href="/" className="flex-row flex">
-              <img src={"./img/logo lupa.png"} alt="Logo" className="w-12 md:w-18 sm:w-16 sm:h-10 md:h-10" />
-              <div className="lg:text-3xl md:text-2xl min-[400px]:text-xl md:mb-0 mb-2 font-semibold sm:block select-none">
+        <div className="flex items-center h-16 px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center">
+              <img
+                src="./img/logo lupa.png"
+                alt="Logo"
+                className="w-12 sm:w-16 md:w-18"
+              />
+              <div className="ml-2 lg:text-3xl md:text-2xl text-xl font-semibold">
                 <span className="text-navigateblue">
                   Navigate
                   <span className="text-navigategreen">Buy</span>
@@ -34,15 +38,19 @@ const navbar = () => {
               </div>
             </Link>
           </div>
-          <form className="w-auto relative mx-auto sm:w-[300px] md:w-[500px]">
-            <div className="relative flex justify-between w-[600px] bg-green-800 rounded-full text-white">
-              <input type="search" placeholder="Buscar produto" className="w-[520px] p-3 rounded-full border border-navigategreen placeholder-black" />
-              <button className="absolute right-1 text-2xl top-1/2 -translate-y-1/2 p-2 w-16 flex justify-center items-center h-full  rounded-full">
+          <form className="relative flex flex-1 max-w-lg mx-auto">
+            <div className="flex flex-1 md:pr-16 pr-10 rounded-full text-white bg-navigategreen">
+              <input
+                type="search"
+                placeholder="Buscar produto"
+                className="w-full p-3 pl-6 rounded-full border border-navigategreen text-black outline-navigategreen placeholder-black"
+              />
+              <button className="absolute right-2 top-1/2 -translate-y-1/2 p-3 flex justify-center text-2xl rounded-full bg-navigategreen hover:bg-green-900">
                 <AiOutlineSearch />
               </button>
             </div>
           </form>
-          <div className="space-x-7 font-semibold hidden xl:flex select-none items-center">
+          <div className="hidden xl:flex space-x-7 font-semibold items-center">
             <Link href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Favoritos
             </Link>
