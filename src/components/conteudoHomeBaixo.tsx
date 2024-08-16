@@ -1,7 +1,6 @@
 import React from "react";
 import { poppins } from "../app/fonts";
 import "../components/header.css";
-import "../components/home.css";
 
 const ConteudoInferior = () => {
   return (
