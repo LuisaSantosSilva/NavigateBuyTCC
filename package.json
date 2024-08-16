@@ -15,11 +15,13 @@
     "@next/font": "^14.2.5",
     "axios": "^1.7.4",
     "flask": "^0.2.10",
+    "framer-motion": "^11.3.28",
     "heroicons": "^2.1.5",
     "next": "^14.2.5",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "react-intersection-observer": "^9.13.0",
     "react-router-dom": "^6.25.1"
   },
   "devDependencies": {

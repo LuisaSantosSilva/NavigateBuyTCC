@@ -1,10 +1,11 @@
-import Link from "next/link";
-import Head from "next/head";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Link from "next/link";
+import Head from "next/head";
+import Animated from "../utils/animacoes";
+import "../app/globals.css";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { MdArrowForwardIos, MdArrowBackIosNew, MdArrowDropDown } from "react-icons/md";
-import "../app/globals.css";
 import React, { useState } from "react";
 
 const formatNumber = (num: number) => {
@@ -142,7 +143,12 @@ const Conversoes = () => {
                     </div>
                 )}
                 <div className="flex justify-start ml-12 max-[450px]:justify-center">
-                    <p className="text-2xl">Principais Lojas internacionais online</p>
+                    <Animated
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}>
+                        <p className="text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12">Principais lojas internacionais online</p>
+                    </Animated>
                 </div>
                 <div className="flex items-center justify-center space-x-4 md:space-x-24 mt-4 px-4 py-4 flex-wrap md:flex-nowrap">
                     <MdArrowBackIosNew />

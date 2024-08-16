@@ -1,6 +1,6 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import Favoritedcard from "@/components/favoritedcard";
+import Favoritedcard from "@/components/favorited-card";
 import "../app/globals.css";
 import React from 'react'
 import Head from "next/head";

@@ -3,7 +3,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { poppins } from "../app/fonts";
 import "../app/globals.css";
-import "../components/header.css";
+import Animated from '../utils/animacoes';
 import Cards from '../components/homecard';
 import ConteudoInferior from '../components/conteudoHomeBaixo';
 import Navbar from "../components/navbar";
@@ -21,7 +21,7 @@ const Home = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [showArrows, setShowArrows] = useState(false);
-  const [isScrollable, setIsScrollable] = useState(false); // Estado para controlar a rolagem
+  const [isScrollable, setIsScrollable] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   const updateScrollState = () => {
@@ -83,22 +83,32 @@ const Home = () => {
       <header className='overflow-y-hidden select-none'>
         <div className="flex justify-center items-center mx-auto py-32 bg-navigateblue">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-10 md:space-y-0 md:space-x-28 max-w-screen-2xl">
-            <div className='text-center md:text-left space-y-10 flex-1 max-w-lg'>
-              <h1 className={`text-4xl font-medium`}>
-                <strong className={`text-outline text-white ${poppins.className}`}>
-                  Navegue com simplicidade e pesquise com mais segurança
-                </strong>
-              </h1>
-              <p className={`text-sm sm:text-base md:text-sm lg:text-base text-white ${poppins.className}`}>
-                Aqui você pode comparar preços, analisar avaliações de outros consumidores e
-                encontrar as melhores ofertas em lojas populares com boa reputação
-              </p>
-            </div>
+            <Animated
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}>
+              <div className='text-center md:text-left space-y-10 flex-1 max-w-lg'>
+                <h1 className={`text-4xl font-medium`}>
+                  <strong className={`text-outline text-white ${poppins.className}`}>
+                    Navegue com simplicidade e pesquise com mais segurança
+                  </strong>
+                </h1>
+                <p className={`text-sm sm:text-base md:text-sm lg:text-base text-white ${poppins.className}`}>
+                  Aqui você pode comparar preços, analisar avaliações de outros consumidores e
+                  encontrar as melhores ofertas em lojas populares com boa reputação
+                </p>
+              </div>
+            </Animated>
             <img src="" alt="Exemplo" className="max-w-lg object-cover md:mt-0 mt-10" />
           </div>
         </div>
         <div className='mt-8 bg-white'>
-          <p className={`text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12 ${poppins.className}`}>Principais lojas e motores de busca online</p>
+          <Animated
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}>
+            <p className={`text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12 ${poppins.className}`}>Principais lojas e motores de busca online</p>
+          </Animated>
           <div className='relative flex items-center'>
             {showArrows && (
               <>
@@ -137,7 +147,9 @@ const Home = () => {
             </div>
           </div>
           <div className='mt-8 mx-4 ml-12'>
-            <h2 className={`text-left text-lg md:text-xl lg:text-2xl ${poppins.className}`}>Ideias de categorias de pesquisas</h2>
+            <Animated initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+              <h2 className={`text-left text-lg md:text-xl lg:text-2xl ${poppins.className}`}>Ideias de categorias de pesquisas</h2>
+            </Animated>
           </div>
           <Cards />
           <ConteudoInferior />

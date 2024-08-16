@@ -1,6 +1,6 @@
 import React from "react";
 import { poppins } from "../app/fonts";
-import "../components/header.css";
+import Animated from "../utils/animacoes";
 
 const ConteudoInferior = () => {
   return (
@@ -25,17 +25,26 @@ const ConteudoInferior = () => {
               </button>
             </a>
           </div>
-          <div className="flex items-center max-w-xl text-justify p-8 mx-auto rounded-2xl shadow-md border border-navigategreen shadow-navigategreen bg-white">
-            <h2 className={`text-xl`}>
-              Nossa primeira recomendação é consultar a lista
-              do <strong className="text-navigategreen">Procon-SP</strong> chamada 'Evite esses Sites', onde é
-              possível verificar os sites que a própria Fundação
-              de Proteção e Defesa do Consumidor recomenda evitar.
-            </h2>
-          </div>
+          <Animated
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1, type: 'spring', stiffness: 100 }}>
+            <div className="flex items-center max-w-xl text-justify p-14 mx-auto rounded-2xl shadow-md border border-navigategreen shadow-navigategreen bg-white">
+              <h2 className={`text-xl`}>
+                Nossa primeira recomendação é consultar a lista
+                do <strong className="text-navigategreen">Procon-SP</strong> chamada 'Evite esses Sites', onde é
+                possível verificar os sites que a própria Fundação
+                de Proteção e Defesa do Consumidor recomenda evitar.
+              </h2>
+            </div>
+          </Animated>
         </div>
         <div className="mt-16 text-center flex flex-row">
-          <div className="flex items-center max-w-xl text-justify p-8 mx-auto rounded-2xl shadow-md border border-navigateblue shadow-navigateblue bg-white">
+          <Animated
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            transition={{ duration: 1, type: 'spring', stiffness: 100 }}>
+          <div className="flex items-center max-w-xl text-justify p-14 mx-auto rounded-2xl shadow-md border border-navigateblue shadow-navigateblue bg-white">
             <h2 className={`text-xl`}>
               A segunda recomendação é verificar a URL do
               site de compras. Para isso, você pode copiar o
@@ -44,6 +53,7 @@ const ConteudoInferior = () => {
               porcentagem de segurança do site.
             </h2>
           </div>
+          </Animated>
           <div className="rounded-2xl p-16 px-20 text-white bg-navigateblue">
             <h2 className="font-extrabold text-2xl">Acesse e tenha mais segurança</h2>
             <hr className="mt-3" />

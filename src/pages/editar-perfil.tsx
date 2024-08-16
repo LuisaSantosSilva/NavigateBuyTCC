@@ -1,10 +1,9 @@
-import React from 'react';
-import { poppins } from "../app/fonts";
-import "../components/header.css";
-import "../app/globals.css";
 import Navbar from "../components/navbar";
 import Footer from '@/components/footer';
+import "../app/globals.css";
 import Head from 'next/head';
+import React from 'react';
+import { poppins } from "../app/fonts";
 
 const Editar = () => {
   return (
@@ -29,7 +28,7 @@ const Editar = () => {
               id="nome-completo"
               type="text"
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border 
-              border-black focus:outline-none focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out largeInputOnDesktop"
+              border-black focus:outline-none focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out"
             />
             <img
               src="../img/icon editar.png"
@@ -47,7 +46,7 @@ const Editar = () => {
               id="email"
               type="email"
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border border-black focus:outline-none
-                 focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out largeInputOnDesktop"
+                 focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out"
             />
           </div>
 
@@ -59,7 +58,7 @@ const Editar = () => {
               id="senha"
               type="password"
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border border-black focus:outline-none 
-                focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out largeInputOnDesktop"
+                focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out"
             />
             <img
               src="../img/icon editar.png"

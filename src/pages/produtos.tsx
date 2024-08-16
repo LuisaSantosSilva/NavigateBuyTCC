@@ -1,12 +1,12 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Card from "../components/card";
-import React from "react";
 import Head from "next/head";
+import "../app/globals.css";
+import React from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { AiOutlineArrowDown } from "react-icons/ai";
-import "../app/globals.css";
 
 const produtos: React.FC = () => {
   return (

@@ -1,11 +1,10 @@
 "use client";
-
-import React, { useState, useEffect } from 'react';
-import { poppins } from "../app/fonts";
 import Head from 'next/head';
 import Link from 'next/link';
 import "../app/globals.css";
 import "./login.css";
+import React, { useState, useEffect } from 'react';
+import { poppins } from "../app/fonts";
 
 const Cadastro = () => {
   const [isClient, setIsClient] = useState(false);
@@ -112,7 +111,7 @@ const Cadastro = () => {
         </div>
       </div>
       <div className="flex-1 bg-white flex flex-col items-center justify-center form-container">
-        <div className="max-w-6xl mx-auto p-6 sm:p-8 md:text-[10] md:mt-[80px] lg:p-12">
+        <div className="max-w-6xl mx-auto p-6 md:text-[10] md:mt-[80px] lg:p-8">
           <h1 className={`text-2xl sm:text-3xl md:text-[7] md:mt-[20px] lg:text-3xl text-center font-extrabold ${poppins.className}`}>
             Crie sua conta
           </h1>
@@ -120,7 +119,7 @@ const Cadastro = () => {
             Preencha seus dados
           </p>
           <form onSubmit={handleRegister} className="space-y-8 w-full max-w-lg mx-auto">
-            <div className="flex flex-wrap -mx-8 mb-6">
+            <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_user.png"
@@ -140,7 +139,7 @@ const Cadastro = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-8 mb-6">
+            <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_email.png"
@@ -160,7 +159,7 @@ const Cadastro = () => {
                 />
               </div>
             </div>
-            <div className="flex flex-wrap -mx-8 mb-6">
+            <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_senha.png"
@@ -183,7 +182,7 @@ const Cadastro = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="mt-4 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-slate-900 text-white font-semibold 
+                className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-slate-900 text-white font-semibold 
                 transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900">
                 Cadastrar
               </button>

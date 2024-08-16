@@ -1,9 +1,9 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import Resposta from "../components/respostaavaliacao";
+import Resposta from "../components/resposta-avaliacao";
+import Head from "next/head";
 import "../app/globals.css";
 import React, { useState } from "react";
-import Head from "next/head";
 
 const avaliação = () => {
   const [showComponent, setShowComponent] = useState(false);

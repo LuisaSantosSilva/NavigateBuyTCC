@@ -1,10 +1,10 @@
-import React, { useState, FormEvent } from 'react';
-import { useRouter } from 'next/router';
 import axios from 'axios';
 import Head from 'next/head';
 import Link from 'next/link';
 import "../app/globals.css";
 import "./login.css";
+import React, { useState, FormEvent } from 'react';
+import { useRouter } from 'next/router';
 
 const Login = () => {
   const [username, setUsername] = useState('');
