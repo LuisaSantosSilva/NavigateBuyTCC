@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import Resposta from "../components/resposta-avaliacao";
 import Head from "next/head";
 import "../app/globals.css";
+import { AiOutlineSearch } from "react-icons/ai";
 import React, { useState } from "react";
 
 const avaliação = () => {
@@ -17,9 +18,9 @@ const avaliação = () => {
       <Head>
         <title>Navigate Buy</title>
       </Head>
-      <Navbar />
+      <Navbar/>
       <div className="text-center mt-10 select-none">
-        <div className="font-bold text-3xl mb-8">
+        <div className="font-bold text-4xl mb-8">
           <p>
             Analise as
             <span className="text-navigateblue"> avaliações</span> e
@@ -28,37 +29,37 @@ const avaliação = () => {
           </p>
           <p>outros sobre o que você precisa</p>
         </div>
-        <div className="text-xl mb-14">
+        <div className="font-semibold text-2xl mb-14">
           <p>
             Busque na barra abaixo e caso precise adicione o nome da loja para
             uma pesquisa mais apurada
           </p>
         </div>
-        <div className="flex flex-row max-[400px]:flex-col justify-center max-[400px]:items-center">
+        <div className="flex flex-row justify-center mb-14 max-[400px]:flex-col max-[400px]:items-center">
           <form className="w-40 relative text-black sm:w-[300px] md:w-[500px] max-[400px]:mb-8 min-[400px]:mr-8">
-            <div className="relative">
+            <div className="w-full p-4 rounded-full bg-white shadow-md shadow-navigateblue border border-navigateblue">
               <input
                 type="search"
                 placeholder="Adicione aqui o nome do produto que deseja analisar"
-                className="w-full p-4 rounded-full bg-white placeholder-black shadow-sm shadow-navigategreen border-2 border-black"
+                className="outline-none w-full"
               />
             </div>
           </form>
 
-          <form className="w-40 mb-6 relative text-black sm:w-[300px] md:w-[500px]">
-            <div className="relative">
+          <form className="w-40 relative text-black sm:w-[300px] md:w-[500px]">
+            <div className="w-full p-4 rounded-full bg-white outline-none shadow-md shadow-navigateblue border border-navigateblue">
               <input
                 type="search"
-                placeholder="Adicione aqui o local de compra desse produto"
-                className="w-full p-4 rounded-full bg-white placeholder-black shadow-sm shadow-navigategreen border-2 border-black"
+                placeholder="Adicione aqui o local de compra desse produto (se desejar)"
+                className="outline-none w-full"
               />
             </div>
           </form>
         </div>
-        <button className="inline-flex justify-center mb-16 rounded-2xl bg-navigateblue px-16 py-2 text-lg font-semibold text-white hover:bg-blue-600" onClick={handleClick}>Buscar</button>
-        {showComponent && (<Resposta />)}
+        <button className="inline-flex justify-center mb-10 rounded-2xl bg-navigategreen px-16 py-3 text-lg font-semibold text-white transition duration-1000 ease-in-out hover:bg-green-200 hover:text-slate-900 hover:border-slate-900" onClick={handleClick}>Buscar</button>
+        {showComponent && (<Resposta/>)}
       </div>
-      <Footer />
+      <Footer/>
     </main>
   );
 };
