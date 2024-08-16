@@ -81,35 +81,35 @@ const Home = () => {
     <>
       <Navbar />
       <header className='overflow-y-hidden select-none'>
-        <div className="flex justify-center items-center mx-auto py-32 bg-navigateblue">
-          <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-10 md:space-y-0 md:space-x-28 max-w-screen-2xl">
+        <div className="flex justify-center items-center mx-auto lg:py-44 md:py-20 bg-navigateblue">
+          <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center space-y-10 md:space-x-28 max-w-screen-2xl">
             <Animated
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}>
-              <div className='text-center md:text-left space-y-10 flex-1 max-w-lg'>
-                <h1 className={`text-4xl font-medium`}>
-                  <strong className={`text-outline text-white ${poppins.className}`}>
+              <div className='text-center lg:text-left space-y-14 flex-1'>
+                <h1 className={`lg:text-5xl md:text-2xl font-medium`}>
+                  <strong className={`text-outline text-white leading-normal ${poppins.className}`}>
                     Navegue com simplicidade e pesquise com mais segurança
                   </strong>
                 </h1>
-                <p className={`text-sm sm:text-base md:text-sm lg:text-base text-white ${poppins.className}`}>
+                <p className={`text-sm md:text-sm lg:text-lg text-white ${poppins.className}`}>
                   Aqui você pode comparar preços, analisar avaliações de outros consumidores e
                   encontrar as melhores ofertas em lojas populares com boa reputação
                 </p>
               </div>
             </Animated>
-            <img src="" alt="Exemplo" className="max-w-lg object-cover md:mt-0 mt-10" />
+            <img src={'../img/note.png'} alt="Exemplo" className="lg:max-w-xl md:max-w-sm object-cover md:mt-0 mt-10" />
           </div>
         </div>
-        <div className='mt-8 bg-white'>
+        <div className='mt-8 mx-24 bg-white'>
           <Animated
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}>
-            <p className={`text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12 ${poppins.className}`}>Principais lojas e motores de busca online</p>
+            <p className={`text-left text-lg md:text-xl lg:text-2xl mb-2 ${poppins.className}`}>Principais lojas e motores de busca online</p>
           </Animated>
-          <div className='relative flex items-center'>
+          <div className='relative flex items-center mx-20'>
             {showArrows && (
               <>
                 <button
@@ -136,7 +136,7 @@ const Home = () => {
               {cards.map((card) => (
                 <div
                   key={card.id}
-                  className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-green-700
+                  className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-navigategreen
                      hover:border-navigateblue hover:shadow-sm hover:shadow-navigateblue min-w-[300px] md:min-w-[240px] lg:min-w-[440px] p-4 bg-white shadow-sm shadow-green-700 rounded-2xl flex-col justify-center'>
                   <h3 className={`text-base md:text-lg lg:text-xl font-extrabold ${poppins.className} text-center`}>{card.title}</h3>
                   <a href={card.url} target="_blank" rel="noopener noreferrer">
@@ -146,9 +146,9 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <div className='mt-8 mx-4 ml-12'>
+          <div className='mt-14'>
             <Animated initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <h2 className={`text-left text-lg md:text-xl lg:text-2xl ${poppins.className}`}>Ideias de categorias de pesquisas</h2>
+              <h2 className={`text-left text-lg md:text-xl lg:text-2xl mb-2 ${poppins.className}`}>Ideias de categorias de pesquisas</h2>
             </Animated>
           </div>
           <Cards />

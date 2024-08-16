@@ -11,6 +11,7 @@ const avaliação = () => {
   const handleClick = () => {
     setShowComponent(true);
   };
+
   return (
     <main>
       <Head>

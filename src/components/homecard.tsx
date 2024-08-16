@@ -4,7 +4,7 @@ import { poppins } from "../app/fonts";
 const Cards = () => {
   return (
     <div className="overflow-x-auto">
-        <div className="flex flex-wrap space-x-4 py-4 px-4 mx-4 justify-center gap-4">
+        <div className="flex flex-wrap space-x-4 px-4 py-4 justify-center gap-12">
 
           {/* Card 1 */}
           <div className="flex-none w-[250px] h-[280px] flex items-center justify-center">
