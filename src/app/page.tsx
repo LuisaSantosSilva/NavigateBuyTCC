@@ -99,7 +99,12 @@ const Home = () => {
                 </p>
               </div>
             </Animated>
-            <img src={'../img/note.png'} alt="Exemplo" className="lg:max-w-xl md:max-w-sm object-cover md:mt-0 mt-10" />
+            <Animated
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}>
+              <img src={'../img/note.png'} alt="Exemplo" className="lg:max-w-xl md:max-w-sm object-cover md:mt-0 mt-10" />
+            </Animated>
           </div>
         </div>
         <div className='mt-8 mx-24 bg-white'>

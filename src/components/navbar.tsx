@@ -30,7 +30,7 @@ const navbar = () => {
                 alt="Logo"
                 className="w-12 sm:w-16 md:w-18"
               />
-              <div className="ml-2 lg:text-3xl md:text-2xl text-xl font-semibold">
+              <div className="ml-2 text-3xl lg:text-3xl md:text-2xl font-semibold">
                 <span className="text-navigateblue">
                   Navigate
                   <span className="text-navigategreen">Buy</span>
@@ -38,7 +38,7 @@ const navbar = () => {
               </div>
             </Link>
           </div>
-          <form className="relative flex flex-1 max-w-lg mx-auto">
+          <form className="relative flex flex-1 max-w-lg mx-auto max-[768px]:hidden">
             <div className="flex flex-1 md:pr-16 pr-10 rounded-full text-white bg-navigategreen">
               <input
                 type="search"
@@ -54,10 +54,10 @@ const navbar = () => {
             <Link href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Favoritos
             </Link>
-            <Link href="/cadastro" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
-              Entrar / Cadastrar-se
+            <Link href="/login" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+              Entrar
             </Link>
-            <Link href="/editar-perfil" className="p-2 rounded-full bg-navigateblue text-white hover:text-navigategreen">
+            <Link href="/editar-perfil" className="p-2 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen text-white hover:text-navigategreen">
               <AiOutlineUser className="text-2xl" />
             </Link>
           </div>
@@ -74,25 +74,31 @@ const navbar = () => {
                 </Link>
                 {showComponent && (<Categorias />)}
                 <Link href="/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
-                  Avaliações e comentários de consumidores
+                  <span className="hidden min-[1250px]:inline">Avaliações e comentários de consumidores</span>
+                  <span className="inline min-[1250px]:hidden">Avaliações</span>
                 </Link>
                 <Link href="/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
-                  <span className="ml-2">Conversões monetárias</span>
+                  <span className="ml-2 hidden min-[1250px]:inline">Conversões monetárias</span>
+                  <span className="ml-2 inline min-[1250px]:hidden">Conversões</span>
                 </Link>
                 <div className="flex items-center space-x-4 min-[1250px]:hidden">
                   <Link href="/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Favoritos
                   </Link>
                   <Link href="/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
-                    Entrar / Cadastrar-se
+                    Entrar
+                  </Link>
+                  <Link href="/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                    Cadastrar-se
                   </Link>
                   <Link href="/editar-perfil" className="p-2 hover:bg-white hover:text-black text-white">
                     <AiOutlineUser className="text-2xl" />
-                  </Link></div>
+                  </Link>
+                </div>
               </div>
             </div>
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center flex-grow">
               <button className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white text-white hover:text-white" onClick={toggleNavbar}>
                 {isClick ? (
                   <AiOutlineMenu />
@@ -100,6 +106,18 @@ const navbar = () => {
                   <AiOutlineMenu />
                 )}
               </button>
+              <form className="relative flex flex-1 max-w-sm mx-auto">
+                <div className="flex flex-1 pr-16 rounded-full text-white bg-navigategreen">
+                  <input
+                    type="search"
+                    placeholder="Buscar produto"
+                    className="w-full p-3 pl-6 rounded-full border border-navigategreen text-black outline-navigategreen placeholder-black"
+                  />
+                  <button className="absolute right-2 top-1/2 -translate-y-1/2 p-3 flex justify-center text-2xl rounded-full bg-navigategreen hover:bg-green-900">
+                    <AiOutlineSearch />
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -110,7 +128,7 @@ const navbar = () => {
                 Categorias
               </Link>
               <Link href="/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
-                Avaliações e comentários de consumidores
+                Avaliações
               </Link>
               <Link href="/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Conversões monetárias
@@ -119,7 +137,10 @@ const navbar = () => {
                 Favoritos
               </Link>
               <Link href="/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
-                Entrar / Cadastrar-se
+                Entrar
+              </Link>
+              <Link href="/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+                Cadastrar-se
               </Link>
               <Link href="/editar-perfil" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Perfil
