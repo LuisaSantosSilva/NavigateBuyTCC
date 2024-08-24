@@ -1,7 +1,6 @@
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import Card from "../components/card";
-import Head from "next/head";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import Card from "@/components/card";
 import "../app/globals.css";
 import React from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
@@ -11,9 +10,6 @@ import { AiOutlineArrowDown } from "react-icons/ai";
 const produtos: React.FC = () => {
   return (
     <main>
-      <Head>
-        <title>Navigate Buy</title>
-      </Head>
       <Navbar />
       <div className="flex justify-center p-8">
         <h2 className="text-xl text-black">

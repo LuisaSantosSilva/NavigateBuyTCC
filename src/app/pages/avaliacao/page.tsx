@@ -1,9 +1,7 @@
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
-import Resposta from "../components/resposta-avaliacao";
-import Head from "next/head";
-import "../app/globals.css";
-import { AiOutlineSearch } from "react-icons/ai";
+"use client";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import Resposta from "@/components/resposta-avaliacao";
 import React, { useState } from "react";
 
 const avaliação = () => {
@@ -15,9 +13,6 @@ const avaliação = () => {
 
   return (
     <main>
-      <Head>
-        <title>Navigate Buy</title>
-      </Head>
       <Navbar/>
       <div className="text-center mt-10 select-none">
         <div className="font-bold text-4xl mb-8">

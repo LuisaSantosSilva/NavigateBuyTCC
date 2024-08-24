@@ -1,10 +1,8 @@
 "use client";
-import Head from 'next/head';
 import Link from 'next/link';
-import "../app/globals.css";
-import "./login.css";
+import "./cadastro.css";
 import React, { useState, useEffect } from 'react';
-import { poppins } from "../app/fonts";
+import { poppins } from "@/app/fonts";
 
 const Cadastro = () => {
   const [isClient, setIsClient] = useState(false);
@@ -83,9 +81,6 @@ const Cadastro = () => {
 
   return (
     <header className="flex flex-col md:flex-row h-screen">
-      <Head>
-        <title>Navigate Buy</title>
-      </Head>
       <div className="w-full md:w-1/2 h-full overflow-hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
         <div className="max-w-md p-4 sm:p-8 md:p-10 lg:p-12 text-center text-white">
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10">
@@ -103,7 +98,7 @@ const Cadastro = () => {
               conta agora mesmo!
             </p>
           </div>
-          <Link href="/login">
+          <Link href="../cadastro_login/login">
             <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-32 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-transparent text-white font-semibold border-white transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent">
               Entrar
             </button>

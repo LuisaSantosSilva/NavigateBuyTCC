@@ -1,9 +1,8 @@
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+"use client";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import Link from "next/link";
-import Head from "next/head";
-import Animated from "../utils/animacoes";
-import "../app/globals.css";
+import Animated from "@/utils/animacoes";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { MdArrowForwardIos, MdArrowBackIosNew, MdArrowDropDown } from "react-icons/md";
 import React, { useState } from "react";
@@ -50,9 +49,6 @@ const Conversoes = () => {
 
     return (
         <main>
-            <Head>
-                <title>Navigate Buy</title>
-            </Head>
             <Navbar />
             <div className="text-center select-none">
                 <div className="mt-10">

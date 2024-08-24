@@ -26,7 +26,7 @@ const navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <img
-                src="./img/logo lupa.png"
+                src="../img/logo lupa.png"
                 alt="Logo"
                 className="w-12 sm:w-16 md:w-18"
               />
@@ -51,13 +51,13 @@ const navbar = () => {
             </div>
           </form>
           <div className="hidden xl:flex space-x-7 font-semibold items-center">
-            <Link href="/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+            <Link href="../perfil/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Favoritos
             </Link>
-            <Link href="/login" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+            <Link href="../cadastro_login/login" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Entrar
             </Link>
-            <Link href="/editar-perfil" className="p-2 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen text-white hover:text-navigategreen">
+            <Link href="../perfil/editar" className="p-2 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen text-white hover:text-navigategreen">
               <AiOutlineUser className="text-2xl" />
             </Link>
           </div>
@@ -73,26 +73,26 @@ const navbar = () => {
                   <MdKeyboardArrowDown className="text-xl" />
                 </Link>
                 {showComponent && (<Categorias />)}
-                <Link href="/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="../pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <span className="hidden min-[1250px]:inline">Avaliações e comentários de consumidores</span>
                   <span className="inline min-[1250px]:hidden">Avaliações</span>
                 </Link>
-                <Link href="/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="../pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
                   <span className="ml-2 hidden min-[1250px]:inline">Conversões monetárias</span>
                   <span className="ml-2 inline min-[1250px]:hidden">Conversões</span>
                 </Link>
                 <div className="flex items-center space-x-4 min-[1250px]:hidden">
-                  <Link href="/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="../perfil/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Favoritos
                   </Link>
-                  <Link href="/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="../cadastro_login/login" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Entrar
                   </Link>
-                  <Link href="/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="../cadastro_login/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Cadastrar-se
                   </Link>
-                  <Link href="/editar-perfil" className="p-2 hover:bg-white hover:text-black text-white">
+                  <Link href="../perfil/editar" className="p-2 hover:bg-white hover:text-black text-white">
                     <AiOutlineUser className="text-2xl" />
                   </Link>
                 </div>
@@ -127,22 +127,22 @@ const navbar = () => {
               <Link href="/categorias" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Categorias
               </Link>
-              <Link href="/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="../pages/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Avaliações
               </Link>
-              <Link href="/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="../pages/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Conversões monetárias
               </Link>
-              <Link href="/favoritos" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="../perfil/favoritos" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Favoritos
               </Link>
-              <Link href="/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="../cadastro_login/login" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Entrar
               </Link>
-              <Link href="/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="../cadastro_login/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Cadastrar-se
               </Link>
-              <Link href="/editar-perfil" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="../perfil/editar" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Perfil
               </Link>
             </div>

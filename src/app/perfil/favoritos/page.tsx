@@ -1,16 +1,11 @@
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import Favoritedcard from "@/components/favorited-card";
-import "../app/globals.css";
 import React from 'react'
-import Head from "next/head";
 
 const favoritos = () => {
     return (
         <main>
-            <Head>
-                <title>Navigate Buy</title>
-            </Head>
             <Navbar />
             <div className="text-center mt-10">
                 <div className="font-bold text-lg mb-8">

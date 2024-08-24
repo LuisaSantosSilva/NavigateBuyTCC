@@ -10,7 +10,7 @@ const favoritedcard = () => {
             <div className="col-span-2 flex items-start gap-4">
               <div className="w-40 h-40 max-sm:w-24 max-sm:h-24 shrink-0 p-2">
                 <img
-                  src={"./img/Fone Amazon 2.png"}
+                  src={"../img/Fone Amazon 2.png"}
                   className="w-full h-full"
                 />
               </div>
@@ -34,7 +34,7 @@ const favoritedcard = () => {
               </div>
             </div>
             <div className="flex flex-col items-end max-[400px]:text-xs">
-              <img src={"./img/icon coração pintado.png"} alt="Heart" />
+              <img src={"../img/icon coração pintado.png"} alt="Heart" />
               <div className="mt-24">
                 <p>Deseja receber alertas via email?</p>
                 <div className="flex mt-4">
@@ -53,7 +53,7 @@ const favoritedcard = () => {
             <div className="col-span-2 flex items-start gap-4">
               <div className="w-40 h-40 max-sm:w-24 max-sm:h-24 shrink-0 p-2">
                 <img
-                  src={"./img/Fone Amazon 2.png"}
+                  src={"../img/Fone Amazon 2.png"}
                   className="w-full h-full"
                 />
               </div>
@@ -78,7 +78,7 @@ const favoritedcard = () => {
               </div>
             </div>
             <div className="flex flex-col items-end max-[400px]:text-xs">
-              <img src={"./img/icon coração pintado.png"} alt="Heart" />
+              <img src={"../img/icon coração pintado.png"} alt="Heart" />
               <div className="mt-24">
                 <p>Deseja receber alertas via email?</p>
                 <div className="flex mt-4">

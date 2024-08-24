@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from 'react';
-import { poppins } from "../app/fonts";
+import { poppins } from "./fonts";
 import "../app/globals.css";
 import Animated from '../utils/animacoes';
 import Cards from '../components/homecard';

@@ -1,10 +1,9 @@
+"use client";
 import axios from 'axios';
-import Head from 'next/head';
 import Link from 'next/link';
-import "../app/globals.css";
 import "./login.css";
 import React, { useState, FormEvent } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -72,9 +71,6 @@ const Login = () => {
 
   return (
     <header className="flex flex-col md:flex-row h-screen">
-      <Head>
-        <title>Navigate Buy</title>
-      </Head>
       <div className="flex-1 w-full h-full bg-white flex flex-col items-center justify-center form-container">
         <div className="max-w-6xl mx-auto p-8">
           <h1 className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl text-center font-extrabold">
@@ -154,7 +150,7 @@ const Login = () => {
             Caso não tenha uma<br />conta faça seu<br />
             cadastro agora mesmo!
           </p>
-          <Link href="/cadastro">
+          <Link href="../cadastro_login/cadastro">
             <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-20 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-transparent text-white font-semibold border-white transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent btn-ajuste">
               Cadastre-se
             </button>

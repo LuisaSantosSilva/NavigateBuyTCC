@@ -32,10 +32,10 @@ const Footer = () => {
           <Link href="#" className="block mb-2 hover:text-navigategreen">
             Buscar Produto
           </Link>
-          <Link href="/avaliacao" className="block mb-2 hover:text-navigategreen">
+          <Link href="../pages/avaliacao" className="block mb-2 hover:text-navigategreen">
             Avaliações e comentários de consumidores
           </Link>
-          <Link href="/conversoes" className="block hover:text-navigategreen">
+          <Link href="../pages/conversoes" className="block hover:text-navigategreen">
             Conversões Monetárias
           </Link>
         </div>

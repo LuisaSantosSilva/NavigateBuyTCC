@@ -1,16 +1,11 @@
-import Navbar from "../components/navbar";
+import Navbar from "@/components/navbar";
 import Footer from '@/components/footer';
-import "../app/globals.css";
-import Head from 'next/head';
 import React from 'react';
-import { poppins } from "../app/fonts";
+import { poppins } from "@/app/fonts";
 
 const Editar = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Head>
-        <title>Navigate Buy</title>
-      </Head>
       <Navbar/>
       <header className="flex-grow"> {/* Permite o crescimento do conteúdo para empurrar o footer para baixo */}
         <h2 className={`text-center font-extrabold mt-10 text-3xl sm:text-2xl md:text-3xl ${poppins.className}`}>
