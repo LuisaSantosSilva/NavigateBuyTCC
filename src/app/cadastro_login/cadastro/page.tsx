@@ -41,7 +41,7 @@ const Cadastro = () => {
 
       const data = await response.json();
       alert(data.message || 'Usuário cadastrado com sucesso!');
-      window.location.href = '/login';
+      window.location.href = '../cadastro_login/login';
     } catch (error) {
       console.error('Erro na solicitação:', error);
       alert('Erro ao registrar usuário. Por favor, tente novamente.');
@@ -138,7 +138,7 @@ const Cadastro = () => {
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_email.png"
-                  alt=""
+                  alt="icon email"
                   className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-5"
                 />
                 <input
@@ -158,7 +158,7 @@ const Cadastro = () => {
               <div className="w-full px-3 relative">
                 <img
                   src="../img/icon_senha.png"
-                  alt=""
+                  alt="icon senha"
                   className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-6"
                 />
                 <input

@@ -7,25 +7,25 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="flex flex-grow justify-center space-x-56 items-center py-12">
-        <div className="text-xl font-semibold mb-9">
+      <div className="flex flex-grow justify-center space-x-56 items-center py-12 max-[650px]:space-x-10">
+        <div className="text-lg font-semibold mb-9 max-[650px]:text-sm">
           Conheça mais sobre nós:
           <div className="flex mt-5 space-x-6 items-center">
             <Link href="https://www.instagram.com/navigatebuy/">
-              <FaInstagram size={50}/>
+              <FaInstagram className="text-4xl max-[650px]:text-xl" />
             </Link>
             <Link href="https://github.com/LuisaSantosSilva/NavigateBuyTCC/">
-              <FaGithub size={50}/>
+              <FaGithub className="text-4xl max-[650px]:text-xl" />
             </Link>
             <Link href="mailto:navigatebuy@gmail.com">
-              <MdEmail size={50}/>
+              <MdEmail className="text-4xl max-[650px]:text-xl" />
             </Link>
             <Link href="https://linktr.ee/navigatebuy">
-              <GoPaperclip size={50}/>
+              <GoPaperclip className="text-4xl max-[650px]:text-xl" />
             </Link>
           </div>
         </div>
-        <div className="text-lg">
+        <div className="text-lg max-[650px]:text-sm">
           <p className="block mb-2 font-semibold">
             Destaques
           </p>
@@ -33,16 +33,18 @@ const Footer = () => {
             Buscar Produto
           </Link>
           <Link href="../pages/avaliacao" className="block mb-2 hover:text-navigategreen">
-            Avaliações e comentários de consumidores
+            <span className="hidden min-[1250px]:inline">Avaliações e comentários de consumidores</span>
+            <span className="inline min-[1250px]:hidden">Avaliações</span>
           </Link>
           <Link href="../pages/conversoes" className="block hover:text-navigategreen">
-            Conversões Monetárias
+            <span className="hidden min-[1250px]:inline">Conversões monetárias</span>
+            <span className="inline min-[1250px]:hidden">Conversões</span>
           </Link>
         </div>
       </div>
-      <hr className="border-none bg-gradient-to-r from-navigateblue to-navigategreen h-2 w-4/5 mx-auto"/>
+      <hr className="border-none bg-gradient-to-r from-navigateblue to-navigategreen h-2 w-4/5 mx-auto" />
       <div className="flex justify-center items-center mt-10">
-        <h3 className="text-xl font-bold">
+        <h3 className="text-xl font-bold max-[650px]:text-sm">
           Todos os direitos reservados a Navigate Buy © 2024
         </h3>
       </div>

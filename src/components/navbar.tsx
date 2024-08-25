@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Categorias from "../components/categorias";
@@ -101,7 +101,7 @@ const navbar = () => {
             <div className="md:hidden flex items-center flex-grow">
               <button className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white text-white hover:text-white" onClick={toggleNavbar}>
                 {isClick ? (
-                  <AiOutlineMenu />
+                  <AiOutlineClose />
                 ) : (
                   <AiOutlineMenu />
                 )}
