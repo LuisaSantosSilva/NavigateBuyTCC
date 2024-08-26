@@ -5,6 +5,7 @@ import Link from "next/link";
 import Animated from "@/utils/animacoes";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { MdArrowForwardIos, MdArrowBackIosNew, MdArrowDropDown } from "react-icons/md";
+import { poppins } from "@/app/fonts";
 import React, { useState } from "react";
 
 const formatNumber = (num: number) => {
@@ -51,25 +52,25 @@ const Conversoes = () => {
         <main>
             <Navbar />
             <div className="text-center select-none">
-                <div className="mt-10">
-                    <p className="font-bold text-3xl">
+                <div className="mt-20">
+                    <p className={`font-bold text-4xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
                         Compare e analise o valor das
                         <span className="text-navigategreen"> moedas</span> entre
                         <span className="text-navigateblue"> países</span> em tempo real
                     </p>
-                    <p className="text-2xl mt-4">Faça abaixo a conversão monetária com o valor que deseja</p>
+                    <p className="text-2xl mt-10 max-[1000px]:text-xl">Faça abaixo a conversão monetária com o valor que deseja</p>
                 </div>
                 <div className="flex justify-center items-center mt-16">
                     <div className="flex items-center space-x-8">
                         <div className="text-xl">
-                            <p>De:</p>
+                            <p>Selecione a moeda pela qual deseja converter:</p>
                         </div>
                         <Menu as="div" className="relative inline-block text-left">
-                            <MenuButton className="inline-flex w-52 justify-center rounded-3xl px-8 py-2 text-lg cursor-default bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
+                            <MenuButton className="inline-flex justify-center rounded-3xl px-8 py-4 text-lg cursor-default bg-navigateblue text-white max-[450px]:px-3 max-[400px]:py-2">
                                 <p>
                                     {fromCurrency === "USD"
-                                        ? "Dólares (USD)"
-                                        : "Euros (EUR)"}
+                                        ? "Dólar Americano"
+                                        : "Euros"}
                                 </p>
                                 <MdArrowDropDown aria-hidden="true" className="h-5 w-5 mt-1 ml-1 text-white" />
                             </MenuButton>
@@ -98,36 +99,40 @@ const Conversoes = () => {
                                 </MenuItem>
                             </MenuItems>
                         </Menu>
-                        <div className="text-xl">
-                            <p>Para:</p>
-                        </div>
-                        <Menu as="div" className="relative inline-block text-left">
-                            <MenuButton className="inline-flex w-full justify-center rounded-3xl px-8 py-2 text-lg cursor-default bg-navigategreen text-white max-[450px]:px-3 max-[400px]:py-2">
-                                <p>Real Brasileiro (BRL)</p>
-                            </MenuButton>
-                        </Menu>
                     </div>
                 </div>
                 <div className="flex justify-center text-xl mt-12">
-                    <p className="mr-6">Quantidade em valor:</p>
+                    <p className="mr-6 mt-2">Quantidade em valor:</p>
                     <input
                         type="number"
                         step="0.01"
                         value={amount === 0 ? "" : amount}
                         onChange={(e) => setAmount(parseFloat(e.target.value))}
                         placeholder="ex: 1,00"
-                        className="mb-2 rounded-2xl px-1 py-1 border-2 text-center placeholder-opacity-40 font-semibold placeholder-black border-navigateblue bg-white text-black"
+                        className="mb-2 rounded-2xl w-36 px-1 py-2 border text-center placeholder-opacity-40 font-semibold shadow-md shadow-navigateblue placeholder-black border-navigateblue bg-white text-black"
                     />
+                </div>
+                <div className="flex justify-center items-center mt-12">
+                    <div className="flex items-center space-x-8">
+                        <div className="text-xl">
+                            <p>Selecione a moeda pela qual será convertida:</p>
+                        </div>
+                        <Menu as="div" className="relative inline-block text-left">
+                            <MenuButton className="inline-flex w-full justify-center rounded-3xl px-8 py-4 text-lg cursor-default bg-navigateblue text-white max-[450px]:px-3 max-[400px]:py-2">
+                                <p>Real Brasileiro (BRL)</p>
+                            </MenuButton>
+                        </Menu>
+                    </div>
                 </div>
                 <button
                     onClick={handleConversion}
-                    className="inline-flex justify-center mt-7 mb-12 rounded-2xl bg-navigateblue px-8 py-3 text-xl font-semibold text-white hover:bg-blue-600"
+                    className="inline-flex justify-center mt-10 mb-12 rounded-2xl bg-navigategreen px-10 py-3 text-xl font-semibold text-white hover:bg-green-600"
                 >
                     Converter
                 </button>
                 {result !== null && (
                     <div className="flex justify-center">
-                        <p className="text-xl">
+                        <p className="text-2xl">
                             <span className="font-bold">Resultado: </span>R${" "}
                             {result !== null ? formatNumber(result) : "0,00"}
                         </p>
@@ -146,23 +151,23 @@ const Conversoes = () => {
                         <p className="text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12">Principais lojas internacionais online</p>
                     </Animated>
                 </div>
-                <div className="flex items-center justify-center space-x-4 md:space-x-24 mt-4 px-4 py-4 flex-wrap md:flex-nowrap">
-                    <MdArrowBackIosNew />
-                    {sites.map((sites) => (
+                <div className="flex flex-col xl:flex-row items-center justify-center space-x-4 md:space-x-8 px-16 md:px-32 py-4 xl:py-8">
+                    <MdArrowBackIosNew className="text-3xl md:text-4xl cursor-pointer hidden xl:block"/>
+                    {sites.map((site) => (
                         <div
-                            key={sites.id}
-                            className="rounded-2xl border shadow-md border-navigategreen shadow-navigategreen bg-white text-xl w-full md:w-80 h-auto p-4 md:p-6 mb-4 md:mb-0"
+                            key={site.id}
+                            className="rounded-2xl border shadow-lg text-2xl p-4 mt-10 md:p-8 mb-6 md:mb-0 border-navigategreen shadow-navigategreen bg-white"
                         >
-                            <p className="text-center font-semibold mb-4">{sites.title}</p>
-                            <div className="text-center mb-4">
-                                <p>{sites.desc}</p>
+                            <p className="text-center font-bold mb-6">{site.title}</p>
+                            <div className="text-center mb-6">
+                                <p>{site.desc}</p>
                             </div>
-                            <Link href={sites.url} className="text-black underline">
+                            <Link href={site.url} className="text-gray-700 hover:text-black block text-center font-semibold">
                                 Acessar
                             </Link>
                         </div>
                     ))}
-                    <MdArrowForwardIos />
+                    <MdArrowForwardIos className="text-3xl md:text-4xl cursor-pointer hidden xl:block"/>
                 </div>
             </div>
             <Footer />

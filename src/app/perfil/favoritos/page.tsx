@@ -1,18 +1,19 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Favoritedcard from "@/components/favorited-card";
+import Favoritedcard from "@/components/favoritedCard";
+import { poppins } from "@/app/fonts";
 import React from 'react'
 
 const favoritos = () => {
     return (
         <main>
             <Navbar />
-            <div className="text-center mt-10">
-                <div className="font-bold text-lg mb-8">
+            <div className="text-center mt-20">
+                <div className={`font-bold text-3xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
                     <p>Aqui você pode acessar os produtos que
-                        <span className="text-navigategreen"> favoritou</span> e
+                        <span className="text-navigategreen"> favoritou</span>
                     </p>
-                    <p> escolher receber
+                    <p> e escolher receber
                         <span className="text-navigateblue"> alertas</span> sobre eles
                     </p>
                 </div>

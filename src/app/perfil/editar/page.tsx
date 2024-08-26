@@ -6,12 +6,12 @@ import { poppins } from "@/app/fonts";
 const Editar = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar/>
-      <header className="flex-grow"> {/* Permite o crescimento do conteúdo para empurrar o footer para baixo */}
-        <h2 className={`text-center font-extrabold mt-10 text-3xl sm:text-2xl md:text-3xl ${poppins.className}`}>
+      <Navbar />
+      <header className="flex-grow">
+        <h2 className={`text-center font-extrabold mt-20 text-4xl ${poppins.className}`}>
           Perfil
         </h2>
-        <p className={`text-center mt-2 text-xl sm:text-lg md:text-xl ${poppins.className}`}>
+        <p className={`text-center mt-2 text-3xl ${poppins.className}`}>
           Olá ${ }
         </p>
         <div className="relative mb-8 space-y-6 max-w-md mx-auto px-4">
@@ -23,7 +23,7 @@ const Editar = () => {
               id="nome-completo"
               type="text"
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border 
-              border-black focus:outline-none focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out"
+              border-navigateblue shadow-md shadow-navigateblue"
             />
             <img
               src="../img/icon editar.png"
@@ -40,8 +40,8 @@ const Editar = () => {
             <input
               id="email"
               type="email"
-              className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border border-black focus:outline-none
-                 focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out"
+              className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border
+                 border-navigateblue shadow-md shadow-navigateblue"
             />
           </div>
 
@@ -52,8 +52,8 @@ const Editar = () => {
             <input
               id="senha"
               type="password"
-              className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border border-black focus:outline-none 
-                focus:border-green-700 shadow-md shadow-green-700 hover:shadow-slate-900 transition duration-500 ease-in-out"
+              className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border
+                border-navigateblue shadow-md shadow-navigateblue"
             />
             <img
               src="../img/icon editar.png"
@@ -63,16 +63,15 @@ const Editar = () => {
             />
           </div>
         </div>
-        <div className="text-center space-x-6 sm:space-x-4">
-          <button type='submit' className="mt-6 py-4 px-8 sm:py-2 sm:px-11 text-xl sm:text-base rounded-full border-2
-           bg-slate-900 text-white font-semibold transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900">
+        <div className="text-center space-x-10">
+          <button type='submit' className="mt-6 py-3 px-12 text-xl rounded-full border-2 bg-navigategreen text-white font-semibold
+            transition duration-1000 ease-in-out hover:bg-transparent hover:text-black hover:border-black">
             Editar
           </button>
 
-          <button className="mt-6 mb-10 py-3 px-8 sm:py-2 sm:px-8 text-xl sm:text-base rounded-full border-2 
-            bg-transparent border-slate-900 shadow-md shadow-slate-900
-            text-slate-900 font-semibold transition duration-1000 ease-in-out hover:bg-slate-900 hover:text-white hover:border-slate-900">
-            Deslogar
+          <button type='submit' className="mt-6 mb-10 py-3 px-12 text-xl rounded-full border-2 border-transparent bg-gray-600
+            text-white font-semibold transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-black">
+            Sair
           </button>
         </div>
       </header>
