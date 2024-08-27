@@ -3,6 +3,7 @@ import Link from 'next/link';
 import "./cadastro.css";
 import Modal from '@/components/Modal';
 import React, { useState, useEffect } from 'react';
+import { MdKeyboardArrowLeft } from "react-icons/md";
 import { poppins } from "@/app/fonts";
 
 const Cadastro = () => {
@@ -18,7 +19,7 @@ const Cadastro = () => {
   const [showModal, setShowModal] = useState(false);
 
   const handleModal = () => {
-      setShowModal(true);
+    setShowModal(true);
   };
 
   useEffect(() => {
@@ -111,11 +112,12 @@ const Cadastro = () => {
           </Link>
         </div>
       </div>
-      <div className="flex-1 flex flex-col items-center justify-center form-container bg-white">
-        <div className="max-w-6xl mx-auto p-6 md:text-[10] md:mt-[80px] lg:p-8">
-          <a href="/" className="text-base sm:text-lg md:text-xl lg:text-2xl inline min-[1245px]:hidden text-black">
-            Voltar ao início
-          </a>
+      <div className="flex-1 flex flex-col items-start justify-center bg-white">
+        <a href="/" className="flex flex-row text-base sm:text-lg md:text-xl lg:text-2xl ml-5 min-[1245px]:hidden text-black">
+          <MdKeyboardArrowLeft size={30} />
+          Voltar ao início
+        </a>
+        <div className="max-w-6xl mx-auto p-6 md:text-[10]">
           <div className='mb-28'>
             <h1 className={`text-2xl sm:text-3xl md:text-[7] md:mt-[20px] lg:text-3xl text-center font-extrabold ${poppins.className}`}>
               Crie sua conta
@@ -193,6 +195,9 @@ const Cadastro = () => {
                 onClick={handleModal}>
                 Cadastrar
               </button>
+              <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
+                <h1>Já tem cadastro? <Link href={"../cadastro_login/login"}><span className='underline hover:text-black text-gray-600'>Entrar na conta</span></Link></h1>
+              </div>
               {showModal && (<Modal />)}
             </div>
           </form>

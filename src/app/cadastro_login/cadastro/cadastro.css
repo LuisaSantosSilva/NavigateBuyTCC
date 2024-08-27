@@ -13,13 +13,3 @@
     width: 100%;
   }
 }
-
-@media (max-width: 1082px) {
-  .form-container {
-    width: 100%;
-    margin-top: 50vh; 
-  }
-  .btn-ajuste{
-    margin-bottom: 30px;
-  }
-}

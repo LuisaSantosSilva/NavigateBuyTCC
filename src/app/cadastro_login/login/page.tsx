@@ -4,6 +4,7 @@ import Link from 'next/link';
 import "./login.css";
 import React, { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -71,11 +72,12 @@ const Login = () => {
 
   return (
     <header className="flex flex-col md:flex-row h-screen select-none">
-      <div className="flex-1 w-full h-full flex flex-col items-center justify-center form-container bg-white">
-        <a href="/" className="text-base sm:text-lg md:text-xl lg:text-2xl inline min-[1245px]:hidden text-black">
+      <div className="flex-1 w-full h-full flex flex-col items-start justify-center bg-white">
+        <Link href="/" className="flex flex-row text-base sm:text-lg md:text-xl lg:text-2xl ml-5 min-[1245px]:hidden text-black">
+          <MdKeyboardArrowLeft size={30} />
           Voltar ao início
-        </a>
-        <div className="max-w-6xl mx-auto p-8">
+        </Link>
+        <div className="max-w-6xl mx-auto p-6">
           <div className='mb-28'>
             <h1 className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl text-center font-extrabold">
               Entre na sua conta
@@ -129,6 +131,9 @@ const Login = () => {
                 className="mt-4 py-3 sm:py-4 md:py-5 lg:py-6 px-6 sm:px-8 md:px-16 lg:px-28 text-2xl sm:text-2xl md:text-2xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold transition duration-1000 ease-in-out hover:bg-white hover:text-slate-900 hover:border-slate-900">
                 Entrar
               </button>
+              <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
+                <h1>Não tem cadastro? <Link href={"../cadastro_login/cadastro"}><span className='underline hover:text-black text-gray-600'>Cadastre-se</span></Link></h1>
+              </div>
             </div>
             {message && (
               <div className="mt-4 text-center text-red-500">

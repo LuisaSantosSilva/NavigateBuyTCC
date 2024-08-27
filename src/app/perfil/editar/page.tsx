@@ -1,6 +1,6 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import Footer from '@/components/Footer';
+import Navbar from "@/components/navbar";
+import Footer from '@/components/footer';
 import Avatar from '@/components/Avatar';
 import React, { useRef, useState } from 'react';
 import { enableInput } from "@/utils/habilitarInput";
