@@ -1,6 +1,6 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 import Animated from "@/utils/animacoes";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";

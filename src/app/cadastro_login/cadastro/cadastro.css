@@ -2,12 +2,6 @@
     width: 600px; 
   }
 
-.header-black {
-  width: 25%;
-  height: 100vh; 
-  position: relative;
-}
-
 .form-container {
   position: relative;
   z-index: 10; 
@@ -21,14 +15,6 @@
 }
 
 @media (max-width: 1082px) {
-  .header-black {
-    width: 100%;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    height: 50vh; 
-  }
-
   .form-container {
     width: 100%;
     margin-top: 50vh; 

@@ -70,15 +70,20 @@ const Login = () => {
   };
 
   return (
-    <header className="flex flex-col md:flex-row h-screen">
-      <div className="flex-1 w-full h-full bg-white flex flex-col items-center justify-center form-container">
+    <header className="flex flex-col md:flex-row h-screen select-none">
+      <div className="flex-1 w-full h-full flex flex-col items-center justify-center form-container bg-white">
+        <a href="/" className="text-base sm:text-lg md:text-xl lg:text-2xl inline min-[1245px]:hidden text-black">
+          Voltar ao início
+        </a>
         <div className="max-w-6xl mx-auto p-8">
-          <h1 className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl text-center font-extrabold">
-            Entre na sua conta
-          </h1>
-          <p className="text-xl sm:text-xl md:text-2xl lg:text2xl text-center mb-8">
-            Preencha com os seus dados
-          </p>
+          <div className='mb-28'>
+            <h1 className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl text-center font-extrabold">
+              Entre na sua conta
+            </h1>
+            <p className="text-xl sm:text-xl md:text-2xl lg:text2xl text-center mb-8">
+              Preencha com os seus dados
+            </p>
+          </div>
           <form className="space-y-10 w-full max-w-lg mx-auto" onSubmit={handleSubmit}>
             <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
@@ -121,7 +126,7 @@ const Login = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="mt-4 py-3 sm:py-4 md:py-5 lg:py-6 px-6 sm:px-8 md:px-16 lg:px-28 text-2xl sm:text-2xl md:text-2xl lg:text-2xl rounded-full border-2 bg-slate-900 text-white font-semibold transition duration-1000 ease-in-out hover:bg-white hover:text-slate-900 hover:border-slate-900">
+                className="mt-4 py-3 sm:py-4 md:py-5 lg:py-6 px-6 sm:px-8 md:px-16 lg:px-28 text-2xl sm:text-2xl md:text-2xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold transition duration-1000 ease-in-out hover:bg-white hover:text-slate-900 hover:border-slate-900">
                 Entrar
               </button>
             </div>
@@ -134,7 +139,7 @@ const Login = () => {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 h-full overflow-hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
+      <div className="w-full md:w-1/4 max-[1245px]:hidden h-full overflow-hidden bg-black bg-no-repeat flex items-center justify-center relative">
         <div className="absolute top-5 sm:top-6 md:top-8 lg:top-10 left-3 sm:left-4 md:left-5 lg:left-6">
           <a href="/" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl text-white hover:text-slate-300 transition duration-500 ease-in-out">
             <img src="../img/setinha(login_cadastro).png" alt="" className="w-5 sm:w-6 md:w-7 lg:w-8 h-5 sm:h-6 md:h-7 lg:h-8 mr-2 hidden sm:block" />

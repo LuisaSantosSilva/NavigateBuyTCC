@@ -4,10 +4,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { poppins } from "./fonts";
 import "../app/globals.css";
 import Animated from '../utils/animacoes';
-import Cards from '../components/homecard';
+import Cards from '../components/homeCard';
 import ConteudoInferior from '../components/conteudoHomeBaixo';
-import Navbar from "../components/navbar";
-import Footer from "../components/footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const cards = [
   { id: 1, title: 'Reclame Aqui', url: 'https://www.reclameaqui.com.br' },

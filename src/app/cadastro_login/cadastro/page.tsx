@@ -80,8 +80,8 @@ const Cadastro = () => {
   }
 
   return (
-    <header className="flex flex-col md:flex-row h-screen">
-      <div className="w-full md:w-1/2 h-full overflow-hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
+    <header className="flex flex-col md:flex-row h-screen select-none">
+      <div className="w-full md:w-1/4 h-full overflow-hidden max-[1245px]:hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
         <div className="max-w-md p-4 sm:p-8 md:p-10 lg:p-12 text-center text-white">
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10">
             <a href="/" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl hover:text-slate-300 transition duration-500 ease-in-out">
@@ -105,14 +105,19 @@ const Cadastro = () => {
           </Link>
         </div>
       </div>
-      <div className="flex-1 bg-white flex flex-col items-center justify-center form-container">
+      <div className="flex-1 flex flex-col items-center justify-center form-container bg-white">
         <div className="max-w-6xl mx-auto p-6 md:text-[10] md:mt-[80px] lg:p-8">
-          <h1 className={`text-2xl sm:text-3xl md:text-[7] md:mt-[20px] lg:text-3xl text-center font-extrabold ${poppins.className}`}>
-            Crie sua conta
-          </h1>
-          <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-center mb-8 ${poppins.className}`}>
-            Preencha seus dados
-          </p>
+          <a href="/" className="text-base sm:text-lg md:text-xl lg:text-2xl inline min-[1245px]:hidden text-black">
+            Voltar ao início
+          </a>
+          <div className='mb-28'>
+            <h1 className={`text-2xl sm:text-3xl md:text-[7] md:mt-[20px] lg:text-3xl text-center font-extrabold ${poppins.className}`}>
+              Crie sua conta
+            </h1>
+            <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-center mb-8 ${poppins.className}`}>
+              Preencha seus dados
+            </p>
+          </div>
           <form onSubmit={handleRegister} className="space-y-8 w-full max-w-lg mx-auto">
             <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
@@ -177,7 +182,7 @@ const Cadastro = () => {
             <div className="text-center">
               <button
                 type="submit"
-                className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-slate-900 text-white font-semibold 
+                className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold 
                 transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900">
                 Cadastrar
               </button>

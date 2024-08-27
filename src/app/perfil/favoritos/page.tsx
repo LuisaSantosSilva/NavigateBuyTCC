@@ -1,5 +1,5 @@
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Favoritedcard from "@/components/favoritedCard";
 import { poppins } from "@/app/fonts";
 import React from 'react'

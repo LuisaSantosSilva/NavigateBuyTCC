@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
-import Categorias from "../components/categorias";
+import Categorias from "../components/Categorias";
 
 const navbar = () => {
   const [isClick, setisClick] = useState(false);
