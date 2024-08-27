@@ -1,7 +1,7 @@
 import React from "react";
 import { poppins } from "../app/fonts";
 
-const Cards = () => {
+const Cards: React.FC = () => {
   return (
     <div className="overflow-x-auto">
         <div className="flex flex-wrap space-x-4 px-4 py-4 justify-center gap-12">

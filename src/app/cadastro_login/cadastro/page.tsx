@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import "./cadastro.css";
+import Modal from '@/components/Modal';
 import React, { useState, useEffect } from 'react';
 import { poppins } from "@/app/fonts";
 
@@ -14,6 +15,11 @@ const Cadastro = () => {
     email: false,
     password: false,
   });
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModal = () => {
+      setShowModal(true);
+  };
 
   useEffect(() => {
     setIsClient(true);
@@ -183,9 +189,11 @@ const Cadastro = () => {
               <button
                 type="submit"
                 className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold 
-                transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900">
+                transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900"
+                onClick={handleModal}>
                 Cadastrar
               </button>
+              {showModal && (<Modal />)}
             </div>
           </form>
         </div>

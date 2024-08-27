@@ -6,10 +6,10 @@ import React, { useState } from "react";
 import { poppins } from "@/app/fonts";
 
 const avaliação = () => {
-  const [showComponent, setShowComponent] = useState(false);
+  const [showAvaliacao, setShowAvaliacao] = useState(false);
 
   const handleClick = () => {
-    setShowComponent(true);
+    setShowAvaliacao(true);
   };
 
   return (
@@ -53,7 +53,7 @@ const avaliação = () => {
           </form>
         </div>
         <button className="inline-flex justify-center mb-10 rounded-2xl bg-navigategreen px-16 py-3 text-lg font-semibold text-white transition duration-1000 ease-in-out border hover:bg-green-200 hover:text-slate-900 hover:border-slate-900" onClick={handleClick}>Buscar</button>
-        {showComponent && (<Resposta />)}
+        {showAvaliacao && (<Resposta />)}
       </div>
       <Footer />
     </main>

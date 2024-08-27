@@ -2,7 +2,7 @@ import React from "react";
 import { poppins } from "../app/fonts";
 import Animated from "../utils/animacoes";
 
-const ConteudoInferior = () => {
+const ConteudoInferior: React.FC = () => {
   return (
     <>
       <div className="flex flex-col items-center mt-20">

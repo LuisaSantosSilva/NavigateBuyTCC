@@ -1,6 +1,6 @@
 import React from "react";
 
-const favoritedcard = () => {
+const favoritedcard: React.FC = () => {
   return (
     <div className="max-w-5xl max-md:max-w-xl mx-auto py-4">
       <div className="grid md:grid-cols-2 gap-4 mt-16">

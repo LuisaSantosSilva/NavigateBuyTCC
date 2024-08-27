@@ -4,7 +4,7 @@ import { FaInstagram, FaGithub } from "react-icons/fa6";
 import { GoPaperclip } from "react-icons/go";
 import React from "react";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white">
       <div className="flex flex-grow justify-center space-x-56 items-center py-12 max-[650px]:space-x-10">

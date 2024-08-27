@@ -1,7 +1,7 @@
 import React from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-const respostaavaliacao = () => {
+const respostaavaliacao: React.FC = () => {
     return (
         <main>
             <div className="text-center text-2xl max-[400px]:text-lg mt-3 max-w-5xl mx-auto">

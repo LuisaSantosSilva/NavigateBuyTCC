@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 
-const avatar = () => {
+const avatar: React.FC = () => {
 
     const [avatar, setAvatar] = useState<string>('../img/icon_user.png');
     const fileInputRef = useRef<HTMLInputElement>(null);

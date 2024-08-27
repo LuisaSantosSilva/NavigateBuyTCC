@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { poppins } from "../app/fonts";      
 
-const Categorias = () => {
+const Categorias: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);

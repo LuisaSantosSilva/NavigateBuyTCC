@@ -6,7 +6,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import Categorias from "../components/Categorias";
 
-const navbar = () => {
+const navbar: React.FC = () => {
   const [isClick, setisClick] = useState(false);
 
   const toggleNavbar = () => {
