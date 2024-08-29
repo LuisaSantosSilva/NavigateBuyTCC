@@ -4,16 +4,16 @@ import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
-import Categorias from "../components/Categorias";
+import LogoAnimation from "../utils/logoAnimacao";
+import Categorias from "./categorias";
 
 const navbar: React.FC = () => {
   const [isClick, setisClick] = useState(false);
+  const [showComponent, setShowComponent] = useState(false);
 
   const toggleNavbar = () => {
     setisClick(!isClick);
   };
-
-  const [showComponent, setShowComponent] = useState(false);
 
   const handleClick = () => {
     setShowComponent((prev) => !prev);
@@ -25,17 +25,29 @@ const navbar: React.FC = () => {
         <div className="flex items-center h-16 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img
-                src="../img/logo lupa.png"
-                alt="Logo"
-                className="w-12 sm:w-16 md:w-18"
-              />
-              <div className="ml-2 text-3xl lg:text-3xl md:text-2xl font-semibold">
-                <span className="text-navigateblue">
-                  Navigate
-                  <span className="text-navigategreen">Buy</span>
-                </span>
-              </div>
+              <LogoAnimation
+                initial={{ x: 0 }}
+                animate={{ x: ['0%', '320%', '0%'] }}
+                transition={{ duration: 2 }}
+              >
+                <img
+                  src="../img/logo lupa.png"
+                  alt="Logo"
+                  className="w-12 sm:w-16 md:w-18"
+                />
+              </LogoAnimation>
+              <LogoAnimation
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 1] }}
+                transition={{ duration: 1, delay: 2}}
+              >
+                <div className="ml-2 text-3xl lg:text-3xl md:text-2xl font-semibold">
+                  <span className="text-navigateblue">
+                    Navigate
+                    <span className="text-navigategreen">Buy</span>
+                  </span>
+                </div>
+              </LogoAnimation>
             </Link>
           </div>
           <form className="relative flex flex-1 max-w-lg mx-auto max-[768px]:hidden">
