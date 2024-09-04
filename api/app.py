@@ -118,7 +118,7 @@ def register_user():
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json 
-    username = data.get('username')  
+    email = data.get('email')  
     password = data.get('password')  
     
     connection = get_db_connection()
@@ -128,15 +128,15 @@ def login():
     cursor = None
     try:
         cursor = connection.cursor(dictionary=True)
-        query = "SELECT id, username, password FROM users WHERE username=%s"
-        cursor.execute(query, (username,))  
+        query = "SELECT id, email, password FROM users WHERE email=%s"
+        cursor.execute(query, (email,))  
         user = cursor.fetchone()
         
         if user:
-            user_id, user_username, user_password = user['id'], user['username'], user['password']
+            user_id, user_email, user_password = user['id'], user['email'], user['password']
 
             if user_password == password:
-                user_obj = User(user_id, user_username, user_password)
+                user_obj = User(user_id, user_email, user_password)
                 login_user(user_obj)
                 return jsonify({"message": "Login bem sucedido"}), 200
             else:
@@ -149,8 +149,34 @@ def login():
         if connection and connection.is_connected():
             connection.close()
 
+@app.route('/logout', methods=['POST'])
+def logout():
+    data = request.json
+    username = data.get('username')  
+   
+    connection = get_db_connection()
+    if connection is None:
+        return jsonify({"message": "Erro ao conectar ao banco de dados"}), 500
+   
+    cursor = None
+    try:
+        cursor = connection.cursor(dictionary=True)
+        query = "SELECT * FROM users WHERE username=%s"
+        cursor.execute(query, (username,))  
+        user = cursor.fetchone()
+ 
+        user_id, user_username, user_password = user['id'], user['username'], user['password']
+        user_obj = User(user_id, user_username, user_password)
+        logout_user(user_obj)
+        return jsonify({'message': 'Logout realizado com sucesso!'}), 200
+    finally:
+        if cursor:
+            cursor.close()
+        if connection and connection.is_connected():
+            connection.close()            
+
 # Rota para o endpoint editar-perfil
-@app.route('/perfil', methods=['PUT'])
+@app.route('/editar-perfil', methods=['PUT'])
 def editar_perfil():
 
     data = request.get_json()
@@ -179,6 +205,42 @@ def editar_perfil():
     except Error as e:
         print(f"Erro ao executar consulta: {e}")
         return jsonify({"message": "Erro ao editar seu perfil", "Tente novamente": str(e)}), 500
+    finally:
+        if cursor:
+            cursor.close()
+        if connection and connection.is_connected():
+            connection.close()
+
+# Rota para o endpoint buscar dados do perfil
+@app.route('/perfil', methods=['GET'])
+def get_perfil():
+    username = request.args.get('username')
+    email = request.args.get('email')
+    password = request.args.get('password')
+
+    if not username and not email and not password:
+        return jsonify({'error': 'Pelo menos um parâmetro é necessário.'}), 400
+
+    connection = get_db_connection()
+    if connection is None:
+        return jsonify({"message": "Erro ao conectar ao banco de dados"}), 500
+
+    cursor = None
+    try:
+        cursor = connection.cursor(dictionary=True)
+        query = "SELECT * FROM users WHERE username=%s OR email=%s OR password=%s"
+        cursor.execute(query, (username, email, password))
+        user = cursor.fetchone()
+
+        if user:
+            return jsonify({
+                'username': user['username'],
+                'email': user['email']
+            }), 200
+        return jsonify({'error': 'Usuário não encontrado.'}), 404
+    except Error as e:
+        print(f"Erro ao executar consulta: {e}")
+        return jsonify({"message": "Erro ao inserir dados do seu perfil", "Tente novamente": str(e)}), 500
     finally:
         if cursor:
             cursor.close()

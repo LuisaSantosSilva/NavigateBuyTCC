@@ -7,11 +7,11 @@ import { useRouter } from 'next/navigation';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [touched, setTouched] = useState({
-    username: false,
+    email: false,
     password: false,
   });
   const router = useRouter();
@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       const response = await axios.post('http://localhost:5000/login', {
-        username,
+        email,
         password,
       }, {
         headers: {
@@ -53,8 +53,8 @@ const Login = () => {
     const isTouched = touched[field as keyof typeof touched];
     let isValid = false;
 
-    if (field === 'username') {
-      isValid = username.length > 0;
+    if (field === 'email') {
+      isValid = email.includes('@') && email.includes('.');
     } else if (field === 'password') {
       isValid = password.length >= 8;
     }
@@ -90,19 +90,19 @@ const Login = () => {
             <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
                 <img
-                  src="../img/icon_user.png"
+                  src="../img/icon_email.png"
                   alt=""
                   className="absolute left-3 sm:left-4 md:left-5 lg:left-6 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-6"
                 />
                 <input
-                  id="username"
+                  id="email"
                   type="text"
-                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('username')}`}
+                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('email')}`}
                   placeholder="Nome"
                   required
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  onBlur={() => handleBlur('username')}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onBlur={() => handleBlur('email')}
                 />
               </div>
             </div>
