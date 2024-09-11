@@ -81,14 +81,14 @@ const Home = () => {
     <>
       <Navbar />
       <header className='overflow-y-hidden select-none'>
-        <div className="flex justify-center items-center mx-auto lg:py-44 md:py-20 bg-navigateblue">
-          <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center space-y-10 md:space-x-28 max-w-screen-2xl">
+        <div className="flex justify-center items-center mx-auto max-w-full lg:py-44 md:py-20 bg-navigateblue">
+          <div className="flex flex-col lg:flex-row justify-center lg:justify-between items-center">
             <Animated
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}>
-              <div className='text-center lg:text-left space-y-14 flex-1'>
-                <h1 className={`lg:text-5xl md:text-2xl font-medium`}>
+              <div className='text-center lg:text-left ml-0 md:ml-10 space-y-14 flex-1'>
+                <h1 className={`lg:mt-0 mt-10 text-4xl font-medium`}>
                   <strong className={`text-outline text-white leading-normal ${poppins.className}`}>
                     Navegue com simplicidade e pesquise com mais segurança
                   </strong>

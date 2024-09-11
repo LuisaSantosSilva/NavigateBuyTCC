@@ -28,7 +28,7 @@ const Editar = () => {
     // Função para buscar dados do usuário
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/perfil', { withCredentials: true });
+        const response = await axios.get('http://localhost:5000/app/perfil', { withCredentials: true });
         setEmail(response.data.email || '');
         setUsername(response.data.username || '');
       } catch (error) {
@@ -43,7 +43,7 @@ const Editar = () => {
     const profileUpdateData = { username, email, password };
  
     try {
-      const response = await axios.post('http://localhost:5000/editar-perfil', profileUpdateData, { withCredentials: true });
+      const response = await axios.post('http://localhost:5000/app/editar-perfil', profileUpdateData, { withCredentials: true });
       console.log('Perfil atualizado com sucesso:', response.data);
       alert('Perfil atualizado com sucesso!');
     } catch (error) {

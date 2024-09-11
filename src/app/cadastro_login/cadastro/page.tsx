@@ -28,9 +28,9 @@ const Cadastro = () => {
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch('http://localhost:5000/useradd', {
+      const response = await fetch('http://localhost:5000/app/useradd', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,19 +41,22 @@ const Cadastro = () => {
           password,
         }),
       });
-
+  
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro desconhecido ao registrar usuário.');
       }
-
+  
       const data = await response.json();
       alert(data.message || 'Usuário cadastrado com sucesso!');
       window.location.href = '../cadastro_login/login';
+  
     } catch (error) {
-      console.error('Erro na solicitação:', error);
-      alert('Erro ao registrar usuário. Por favor, tente novamente.');
+      console.error('Erro ao registrar usuário:', error);
+      alert(error);
     }
   };
+  
 
   const handleBlur = (field: string) => {
     setTouched({ ...touched, [field]: true });
@@ -198,7 +201,6 @@ const Cadastro = () => {
               <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
                 <h1>Já tem cadastro? <Link href={"../cadastro_login/login"}><span className='underline hover:text-black text-gray-600'>Entrar na conta</span></Link></h1>
               </div>
-              {showModal && (<Modal />)}
             </div>
           </form>
         </div>

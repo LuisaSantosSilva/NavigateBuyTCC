@@ -24,14 +24,14 @@ def cadastrar():
         return jsonify({"message": "A senha deve ter pelo menos 8 caracteres."}), 400
     
     if User.query.filter_by(email=email).first():
-        return jsonify({"message": "E-mail já cadastrado."}), 400
+        return jsonify({"error": "E-mail já cadastrado."}), 400
     
     user = User(username=username, email=email, failed_attempts=0, last_attempt=datetime.now())
     user.set_password(password) 
 
     db.session.add(user)
     db.session.commit()
-    return jsonify({"Usuário cadastrado com sucesso!"}), 201
+    return jsonify({"message": "Usuário cadastrado com sucesso!"}), 201
 
 @api.route('/login', methods=['POST'])
 def login():
@@ -68,7 +68,7 @@ def get_perfil():
         }), 200
     return jsonify({'error': 'Usuário não encontrado.'}), 404
 
-@api.route('/perfil', methods=['POST'])
+@api.route('/editar-perfil', methods=['POST'])
 def editar_perfil():
     if 'user_id' not in session:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
@@ -84,7 +84,9 @@ def editar_perfil():
     if password:
         user.set_password(password)
 
-    db.session.commit()
+    user = User.query.filter_by(username=username, password=password)
+
+    db.session.commit(user)
     return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
 
 @api.route('/logout', methods=['POST'])

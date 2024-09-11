@@ -20,28 +20,29 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/login', {
-        email,
-        password,
-      }, {
+      const response = await fetch('http://localhost:5000/app/login', {
+        method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
       });
 
-      // Verificação se ocorreu erro no login
-      if (response.status === 200) {
-        setMessage(response.data.message);
-        router.push('/'); // Redireciona para a página inicial
-      } else {
-        setMessage(response.data.message);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro desconhecido ao tentar logar.');
       }
+  
+      const data = await response.json();
+      alert(data.message || 'Login realizado com sucesso!');
+      window.location.href = '../';
+  
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        setMessage(error.response?.data?.message || 'Erro ao conectar ao servidor.');
-      } else {
-        setMessage('Erro desconhecido.');
-      }
+      console.error('Erro ao logar:', error);
+      alert(error);
     }
   };
 
@@ -98,7 +99,7 @@ const Login = () => {
                   id="email"
                   type="text"
                   className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('email')}`}
-                  placeholder="Nome"
+                  placeholder="Email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
