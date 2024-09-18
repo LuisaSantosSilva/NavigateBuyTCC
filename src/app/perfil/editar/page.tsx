@@ -13,26 +13,32 @@ const Editar = () => {
   const [password, setPassword] = useState<string>('');
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUserProfile = async () => {
       try {
-        const response = await fetch("http://localhost:5000/app/perfil", {
+        console.log("Buscando perfil do usuário...");
+        const response = await fetch("http://localhost:5000/app/editar-perfil", {
           method: "GET",
           credentials: "include",
         });
 
-        if (!response.ok) throw new Error("Erro ao carregar dados do usuário.");
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error("Erro da API:", errorData);  // Log do erro
+          throw new Error(errorData.error || "Erro ao buscar perfil");
+        }
 
         const data = await response.json();
-        setEmail(data.email || "");
-        setUsername(data.username || "");
+        setUsername(data.username);
+        setEmail(data.email);
       } catch (error) {
-        console.error("Erro ao buscar dados do usuário:", error);
-        alert("Erro ao carregar dados do usuário.");
+        console.error("Erro ao buscar perfil:", error);
+        alert("Erro ao buscar perfil");
       }
     };
 
-    fetchUserData();
+    fetchUserProfile();
   }, []);
+
 
   const handleEditProfile = async () => {
     const profileUpdateData = { username, email, password };

@@ -104,22 +104,22 @@ const produtos: React.FC = () => {
         <div className="flex space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
           <label className="cursor-pointer">
             <input type="radio" name="options" className="hidden peer" />
-            <div className="w-3 h-3 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
+            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
           </label>
 
           <label className="cursor-pointer">
             <input type="radio" name="options" className="hidden peer" />
-            <div className="w-3 h-3 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
+            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
           </label>
 
           <label className="cursor-pointer">
             <input type="radio" name="options" className="hidden peer" />
-            <div className="w-3 h-3 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
+            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
           </label>
 
           <label className="cursor-pointer">
             <input type="radio" name="options" className="hidden peer" />
-            <div className="w-3 h-3 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
+            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
           </label>
         </div>
       </div>

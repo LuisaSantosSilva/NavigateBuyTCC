@@ -55,40 +55,37 @@ def login():
             db.session.commit()
             return jsonify({'error': 'Email ou senha incorretos.'}), 401
 
-@api.route('/perfil', methods=['GET'])
-def get_perfil():
-    if 'user_id' not in session:
-        return jsonify({'error': 'Usuário não autenticado.'}), 401
-    
-    user = User.query.get(session['user_id'])
-    
-    if user:
-        return jsonify({
-            'username': user.username,
-            'email': user.email
-        }), 200
-    return jsonify({'error': 'Usuário não encontrado.'}), 404
-
-@api.route('/editar-perfil', methods=['POST'])
+@api.route('/editar-perfil', methods=['GET', 'POST'])
 def editar_perfil():
     if 'user_id' not in session:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
 
     user = User.query.get(session['user_id'])
-    if not user:
+    
+    if request.method == 'GET':
+        if user:
+            return jsonify({
+                'username': user.username,
+                'email': user.email
+            }), 200
         return jsonify({'error': 'Usuário não encontrado.'}), 404
 
-    data = request.get_json()
-    username = data.get('username')
-    password = data.get('password')
+    if request.method == 'POST':
+        if not user:
+            return jsonify({'error': 'Usuário não encontrado.'}), 404
+        
+        data = request.get_json()
+        username = data.get('username')
+        password = data.get('password')
 
-    if password:
-        user.set_password(password)
+        if username:
+            user.username = username
+        if password:
+            user.set_password(password)
 
-    user = User.query.filter_by(username=username, password=password)
+        db.session.commit()
+        return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
 
-    db.session.commit(user)
-    return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
 
 @api.route('/logout', methods=['POST'])
 def logout():

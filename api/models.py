@@ -23,3 +23,20 @@ class ConfirmationCode(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(150), nullable=False)
     code = db.Column(db.String(6), nullable=False)
+
+'''
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(150) NOT NULL,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    failed_attempts INTEGER DEFAULT 0,
+    last_attempt TIMESTAMP
+);
+
+CREATE TABLE confirmations (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(150) NOT NULL,
+    code VARCHAR(6) NOT NULL
+);
+'''

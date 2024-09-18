@@ -86,13 +86,13 @@ const navbar: React.FC = () => {
                 </Link>
                 {showComponent && (<Categorias />)}
                 <Link href="../pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
-                  <span className="hidden min-[1250px]:inline">Avaliações e comentários de consumidores</span>
+                  <span className="hidden min-[1250px]:inline">Buscar comentários de avalição</span>
                   <span className="inline min-[1250px]:hidden">Avaliações</span>
                 </Link>
                 <Link href="../pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
-                  <span className="ml-2 hidden min-[1250px]:inline">Conversões monetárias</span>
-                  <span className="ml-2 inline min-[1250px]:hidden">Conversões</span>
+                  <span className="ml-2 hidden min-[1250px]:inline">Comparar preços de produtos internacionais</span>
+                  <span className="ml-2 inline min-[1250px]:hidden">Comparar preços</span>
                 </Link>
                 <div className="flex items-center space-x-4 min-[1250px]:hidden">
                   <Link href="../perfil/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
@@ -140,10 +140,10 @@ const navbar: React.FC = () => {
                 Categorias
               </Link>
               <Link href="../pages/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
-                Avaliações
+                Buscar comentários de avalição
               </Link>
               <Link href="../pages/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
-                Conversões monetárias
+                Comparar preços de produtos internacionais
               </Link>
               <Link href="../perfil/favoritos" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Favoritos

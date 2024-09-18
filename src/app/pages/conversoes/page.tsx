@@ -54,16 +54,15 @@ const Conversoes = () => {
             <div className="text-center select-none">
                 <div className="mt-20">
                     <p className={`font-bold text-4xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
-                        Compare e analise o valor das
-                        <span className="text-navigategreen"> moedas</span> entre
-                        <span className="text-navigateblue"> países</span> em tempo real
+                        Compare e analise o valor dos
+                        <span className="text-navigategreen"> produtos internacionais</span><br />
+                        <span className="text-navigateblue"> em tempo real</span> e calcule suas taxas
                     </p>
-                    <p className="text-2xl mt-10 max-[1000px]:text-xl">Faça abaixo a conversão monetária com o valor que deseja</p>
                 </div>
                 <div className="flex justify-center items-center mt-16">
                     <div className="flex items-center space-x-8">
                         <div className="text-xl">
-                            <p>Selecione a moeda pela qual deseja converter:</p>
+                            <p>Selecione a moeda do produto pela qual deseja converter:</p>
                         </div>
                         <Menu as="div" className="relative inline-block text-left">
                             <MenuButton className="inline-flex justify-center rounded-3xl px-8 py-4 text-lg cursor-default bg-navigateblue text-white max-[450px]:px-3 max-[400px]:py-2">
@@ -102,7 +101,7 @@ const Conversoes = () => {
                     </div>
                 </div>
                 <div className="flex justify-center text-xl mt-12">
-                    <p className="mr-6 mt-2">Quantidade em valor:</p>
+                    <p className="mr-6 mt-2">Adicione aqui o preço do produto:</p>
                     <input
                         type="number"
                         step="0.01"
@@ -115,7 +114,7 @@ const Conversoes = () => {
                 <div className="flex justify-center items-center mt-12">
                     <div className="flex items-center space-x-8">
                         <div className="text-xl">
-                            <p>Selecione a moeda pela qual será convertida:</p>
+                            <p>Selecione a moeda do produto pela qual será convertida:</p>
                         </div>
                         <Menu as="div" className="relative inline-block text-left">
                             <MenuButton className="inline-flex w-full justify-center rounded-3xl px-8 py-4 text-lg cursor-default bg-navigateblue text-white max-[450px]:px-3 max-[400px]:py-2">
@@ -131,7 +130,7 @@ const Conversoes = () => {
                     Converter
                 </button>
                 {result !== null && (
-                    <div className="flex justify-center">
+                    <div className="flex justify-center mb-10">
                         <p className="text-2xl">
                             <span className="font-bold">Resultado: </span>R${" "}
                             {result !== null ? formatNumber(result) : "0,00"}
@@ -143,7 +142,7 @@ const Conversoes = () => {
                         <p className="text-xl text-red-500">{error}</p>
                     </div>
                 )}
-                <div className="flex justify-start ml-12 max-[450px]:justify-center">
+                <div className="flex justify-start ml-32 max-[450px]:justify-center">
                     <Animated
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -151,7 +150,7 @@ const Conversoes = () => {
                         <p className="text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12">Principais lojas internacionais online</p>
                     </Animated>
                 </div>
-                <div className="flex flex-col xl:flex-row items-center justify-center space-x-4 md:space-x-8 px-16 md:px-32 py-4 xl:py-8">
+                <div className="flex flex-col xl:flex-row items-center justify-center space-x-4 md:space-x-8 px-16 md:px-32 py-4 xl:py-8 mb-10">
                     <MdArrowBackIosNew className="text-3xl md:text-4xl cursor-pointer hidden xl:block"/>
                     {sites.map((site) => (
                         <div
