@@ -1,20 +1,16 @@
 "use client";
-import axios from 'axios';
 import Link from 'next/link';
 import "./login.css";
 import React, { useState, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
   const [touched, setTouched] = useState({
     email: false,
     password: false,
   });
-  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -136,11 +132,6 @@ const Login = () => {
                 <h1>Não tem cadastro? <Link href={"../cadastro_login/cadastro"}><span className='underline hover:text-black text-gray-600'>Cadastre-se</span></Link></h1>
               </div>
             </div>
-            {message && (
-              <div className="mt-4 text-center text-red-500">
-                {message}
-              </div>
-            )}
           </form>
         </div>
       </div>

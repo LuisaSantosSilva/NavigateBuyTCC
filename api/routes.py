@@ -59,8 +59,9 @@ def login():
 def get_perfil():
     if 'user_id' not in session:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
-
+    
     user = User.query.get(session['user_id'])
+    
     if user:
         return jsonify({
             'username': user.username,

@@ -5,72 +5,82 @@ import Avatar from '@/components/Avatar';
 import React, { useEffect, useState } from 'react';
 import { enableInput } from "@/utils/habilitarInput";
 import { poppins } from "@/app/fonts";
-import axios from "axios";
- 
+
 const Editar = () => {
- 
+
   const [username, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
- 
+
   useEffect(() => {
-    // Recupera dados armazenados localmente, se existirem
-    const storedEmail = localStorage.getItem('userEmail');
-    const storedPassword = localStorage.getItem('userPassword');
- 
-    if (storedEmail) setEmail(storedEmail);
-    if (storedPassword) setPassword(storedPassword);
- 
-    // Remove os dados do localStorage após recuperá-los
-    localStorage.removeItem('userEmail');
-    localStorage.removeItem('userPassword');
- 
-    // Função para buscar dados do usuário
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/app/perfil', { withCredentials: true });
-        setEmail(response.data.email || '');
-        setUsername(response.data.username || '');
+        const response = await fetch("http://localhost:5000/app/perfil", {
+          method: "GET",
+          credentials: "include",
+        });
+
+        if (!response.ok) throw new Error("Erro ao carregar dados do usuário.");
+
+        const data = await response.json();
+        setEmail(data.email || "");
+        setUsername(data.username || "");
       } catch (error) {
-        console.error('Erro ao buscar dados do usuário:', error);
+        console.error("Erro ao buscar dados do usuário:", error);
+        alert("Erro ao carregar dados do usuário.");
       }
     };
- 
+
     fetchUserData();
   }, []);
- 
+
   const handleEditProfile = async () => {
     const profileUpdateData = { username, email, password };
- 
+
     try {
-      const response = await axios.post('http://localhost:5000/app/editar-perfil', profileUpdateData, { withCredentials: true });
-      console.log('Perfil atualizado com sucesso:', response.data);
-      alert('Perfil atualizado com sucesso!');
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.error('Erro ao atualizar perfil:', error.response?.data);
-        alert(error.response?.data?.error || 'Erro ao atualizar perfil');
-      } else {
-        console.error('Erro desconhecido ao atualizar perfil:', error);
-        alert('Erro desconhecido ao atualizar perfil');
+      const response = await fetch("http://localhost:5000/app/editar-perfil", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(profileUpdateData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Erro ao atualizar perfil");
       }
+
+      const data = await response.json();
+      alert("Perfil atualizado com sucesso!");
+      console.log("Perfil atualizado com sucesso:", data);
+    } catch (error) {
+      console.error("Erro ao atualizar perfil:", error);
+      alert("Erro ao atualizar perfil");
     }
   };
- 
+
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:5000/logout', {}, { withCredentials: true });
-      alert('Deslogado com sucesso');
-      window.location.href = '/login';
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        alert(error.response?.data?.message || 'Erro ao fazer logout');
-      } else {
-        alert('Erro desconhecido ao fazer logout');
+      const response = await fetch("/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Erro ao fazer logout");
       }
+
+      alert("Deslogado com sucesso");
+      window.location.href = "/login";
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
+      alert("Erro ao fazer logout");
     }
   };
- 
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -104,7 +114,7 @@ const Editar = () => {
               onClick={() => enableInput('nome-completo')}
             />
           </div>
- 
+
           <div className="relative flex flex-col mb-6">
             <label htmlFor="email" className={`mb-2 text-left text-xl ${poppins.className}`}>
               E-mail:
@@ -119,7 +129,7 @@ const Editar = () => {
               disabled
             />
           </div>
- 
+
           <div className="relative flex flex-col mb-6">
             <label htmlFor="senha" className={`mb-2 text-left text-xl ${poppins.className}`}>
               Senha:
@@ -151,7 +161,7 @@ const Editar = () => {
           >
             Editar
           </button>
- 
+
           <button
             type='submit'
             className="mt-6 mb-10 py-3 px-12 text-xl rounded-full border-2 border-transparent bg-gray-600
@@ -166,5 +176,5 @@ const Editar = () => {
     </div>
   );
 };
- 
+
 export default Editar;

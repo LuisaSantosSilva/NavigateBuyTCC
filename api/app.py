@@ -9,8 +9,11 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "OPTIONS"], "supports_credentials": True}})
 
 # Configurações do Flask
-app.secret_key = os.getenv('SECRET_KEY')
-app.config.from_object(Config)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/bdnavigate'
+app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
+app.config['SESSION_COOKIE_SECURE'] = False  
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
     
 # Inicializando o SQLAlchemy
 db.init_app(app)    
