@@ -55,37 +55,39 @@ def login():
             db.session.commit()
             return jsonify({'error': 'Email ou senha incorretos.'}), 401
 
-@api.route('/editar-perfil', methods=['GET', 'POST'])
+@api.route('/perfil', methods=['GET'])
+def get_perfil():
+    user_id = session.get("user_id")
+    if not user_id:
+        return jsonify({'error': 'Usuário não autenticado.'}), 401
+    
+    user = User.query.filter_by(id=user_id).first()
+    return jsonify({
+            'username': user.username,
+            'email': user.email
+        }), 200
+
+@api.route('/editar-perfil', methods=['PUT'])
 def editar_perfil():
-    if 'user_id' not in session:
+    user_id = session.get("user_id")
+    if not user_id:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
 
-    user = User.query.get(session['user_id'])
-    
-    if request.method == 'GET':
-        if user:
-            return jsonify({
-                'username': user.username,
-                'email': user.email
-            }), 200
-        return jsonify({'error': 'Usuário não encontrado.'}), 404
+    user = User.query.filter_by(id=user_id).first()
 
-    if request.method == 'POST':
-        if not user:
-            return jsonify({'error': 'Usuário não encontrado.'}), 404
-        
-        data = request.get_json()
-        username = data.get('username')
-        password = data.get('password')
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
 
-        if username:
-            user.username = username
-        if password:
-            user.set_password(password)
+    if username:
+        user.username = username
+    if password:
+        user.set_password(password)
 
-        db.session.commit()
-        return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
+    user = User.query.filter_by(username=username, password=password)
 
+    db.session.commit()
+    return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
 
 @api.route('/logout', methods=['POST'])
 def logout():

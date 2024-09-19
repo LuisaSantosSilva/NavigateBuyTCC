@@ -5,7 +5,7 @@ import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "r
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import LogoAnimation from "../utils/logoAnimacao";
-import Categorias from "./categorias";
+import Categorias from "./Categorias";
 
 const navbar: React.FC = () => {
   const [isClick, setisClick] = useState(false);
@@ -50,7 +50,7 @@ const navbar: React.FC = () => {
               </LogoAnimation>
             </Link>
           </div>
-          <form className="relative flex flex-1 max-w-lg mx-auto max-[768px]:hidden">
+          <form className="relative flex flex-1 max-w-lg mx-auto max-[870px]:hidden">
             <div className="flex flex-1 md:pr-16 pr-10 rounded-full text-white bg-navigategreen">
               <input
                 type="search"
@@ -92,7 +92,7 @@ const navbar: React.FC = () => {
                 <Link href="../pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
                   <span className="ml-2 hidden min-[1250px]:inline">Comparar preços de produtos internacionais</span>
-                  <span className="ml-2 inline min-[1250px]:hidden">Comparar preços</span>
+                  <span className="ml-2 inline min-[1250px]:hidden">Comparação</span>
                 </Link>
                 <div className="flex items-center space-x-4 min-[1250px]:hidden">
                   <Link href="../perfil/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">

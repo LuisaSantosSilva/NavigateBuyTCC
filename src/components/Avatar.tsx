@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 
 const avatar: React.FC = () => {
 
-    const [avatar, setAvatar] = useState<string>('../img/icon_user.png');
+    const [avatar, setAvatar] = useState<string>('../img/logo lupa.png');
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {

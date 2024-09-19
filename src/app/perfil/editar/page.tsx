@@ -7,45 +7,37 @@ import { enableInput } from "@/utils/habilitarInput";
 import { poppins } from "@/app/fonts";
 
 const Editar = () => {
-
   const [username, setUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   useEffect(() => {
-    const fetchUserProfile = async () => {
+    (async () => {
       try {
-        console.log("Buscando perfil do usuário...");
-        const response = await fetch("http://localhost:5000/app/editar-perfil", {
+        const resp = await fetch("http://localhost:5000/app/perfil", {
           method: "GET",
           credentials: "include",
         });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.error("Erro da API:", errorData);  // Log do erro
-          throw new Error(errorData.error || "Erro ao buscar perfil");
+        if (!resp.ok) {
+          throw new Error();
         }
-
-        const data = await response.json();
-        setUsername(data.username);
-        setEmail(data.email);
+        const data = await resp.json();
+        setUsername(data.username || "");
+        setEmail(data.email || "");
       } catch (error) {
-        console.error("Erro ao buscar perfil:", error);
-        alert("Erro ao buscar perfil");
+        console.error(error);
+        alert("Usuário não autenticado");
+        window.location.href = '../cadastro_login/login';
       }
-    };
-
-    fetchUserProfile();
-  }, []);
-
+    })();
+  }, []);  
 
   const handleEditProfile = async () => {
     const profileUpdateData = { username, email, password };
 
     try {
       const response = await fetch("http://localhost:5000/app/editar-perfil", {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -69,7 +61,7 @@ const Editar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("/logout", {
+      const response = await fetch("http://localhost:5000/app/logout", {
         method: "POST",
         credentials: "include",
       });
@@ -80,10 +72,10 @@ const Editar = () => {
       }
 
       alert("Deslogado com sucesso");
-      window.location.href = "/login";
+      window.location.href = '../cadastro_login/login';
     } catch (error) {
       console.error("Erro ao fazer logout:", error);
-      alert("Erro ao fazer logout");
+      window.location.href = '../cadastro_login/login';
     }
   };
 
@@ -95,7 +87,7 @@ const Editar = () => {
           Perfil
         </h2>
         <p className={`text-center mt-5 text-3xl ${poppins.className}`}>
-          Olá ${username}
+          Olá {username}
         </p>
         <Avatar />
         <div className="relative mb-8 space-y-10 max-w-2xl mx-auto px-4">
@@ -144,9 +136,10 @@ const Editar = () => {
               id="senha"
               type="password"
               value={password}
+              placeholder="Se não quiser alterar a senha, deixe em branco"
               onChange={(e) => setPassword(e.target.value)}
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border
-                border-navigateblue shadow-md shadow-navigateblue"
+                border-navigateblue shadow-md shadow-navigateblue placeholder-gray-600"
               disabled
             />
             <img

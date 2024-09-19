@@ -6,14 +6,14 @@ from models import db
 from routes import api
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "OPTIONS"], "supports_credentials": True}})
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "PUT", "OPTIONS"]}})
 
 # Configurações do Flask
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/bdnavigate'
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
 app.config['SESSION_COOKIE_SECURE'] = False  
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+app.config.from_object(Config)
     
 # Inicializando o SQLAlchemy
 db.init_app(app)    
