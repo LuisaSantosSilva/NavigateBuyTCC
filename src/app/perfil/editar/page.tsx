@@ -8,6 +8,7 @@ import { poppins } from "@/app/fonts";
 
 const Editar = () => {
   const [username, setUsername] = useState<string>('');
+  const [currentUsername, setCurrentUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -23,6 +24,7 @@ const Editar = () => {
         }
         const data = await resp.json();
         setUsername(data.username || "");
+        setCurrentUsername(data.username || "");
         setEmail(data.email || "");
       } catch (error) {
         console.error(error);
@@ -87,7 +89,7 @@ const Editar = () => {
           Perfil
         </h2>
         <p className={`text-center mt-5 text-3xl ${poppins.className}`}>
-          Olá {username}
+          Olá {currentUsername}
         </p>
         <Avatar />
         <div className="relative mb-8 space-y-10 max-w-2xl mx-auto px-4">

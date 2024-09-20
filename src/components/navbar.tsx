@@ -50,7 +50,7 @@ const navbar: React.FC = () => {
               </LogoAnimation>
             </Link>
           </div>
-          <form className="relative flex flex-1 max-w-lg mx-auto max-[870px]:hidden">
+          <form className="relative flex flex-1 max-w-lg mx-auto max-lg:hidden">
             <div className="flex flex-1 md:pr-16 pr-10 rounded-full text-white bg-navigategreen">
               <input
                 type="search"
@@ -78,7 +78,7 @@ const navbar: React.FC = () => {
       <div className="bg-black select-none">
         <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <div className="ml-4 flex items-center space-x-4">
                 <Link href="#" onClick={handleClick} className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <span className="ml-2">Categorias</span>
@@ -86,15 +86,15 @@ const navbar: React.FC = () => {
                 </Link>
                 {showComponent && (<Categorias />)}
                 <Link href="../pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
-                  <span className="hidden min-[1250px]:inline">Buscar comentários de avalição</span>
-                  <span className="inline min-[1250px]:hidden">Avaliações</span>
+                  <span className="hidden xl:inline">Buscar comentários de avalição</span>
+                  <span className="inline xl:hidden">Avaliações</span>
                 </Link>
                 <Link href="../pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
-                  <span className="ml-2 hidden min-[1250px]:inline">Comparar preços de produtos internacionais</span>
-                  <span className="ml-2 inline min-[1250px]:hidden">Comparação</span>
+                  <span className="ml-2 hidden xl:inline">Comparar preços de produtos internacionais</span>
+                  <span className="ml-2 inline xl:hidden">Comparação</span>
                 </Link>
-                <div className="flex items-center space-x-4 min-[1250px]:hidden">
+                <div className="flex items-center space-x-4 xl:hidden">
                   <Link href="../perfil/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Favoritos
                   </Link>
@@ -102,7 +102,7 @@ const navbar: React.FC = () => {
                     Entrar
                   </Link>
                   <Link href="../cadastro_login/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
-                    Cadastrar-se
+                    Cadastrar
                   </Link>
                   <Link href="../perfil/editar" className="p-2 hover:bg-white hover:text-black text-white">
                     <AiOutlineUser className="text-2xl" />
@@ -110,7 +110,7 @@ const navbar: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="md:hidden flex items-center flex-grow">
+            <div className="lg:hidden flex items-center flex-grow">
               <button className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white text-white hover:text-white" onClick={toggleNavbar}>
                 {isClick ? (
                   <AiOutlineClose />

@@ -80,7 +80,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <header className='overflow-y-hidden select-none'>
+      <header className='overflow-hidden select-none'>
         <div className="flex justify-center items-center mx-auto lg:py-44 md:py-20 bg-navigateblue">
           <div className="flex flex-col lg:flex-row justify-center items-center">
             <Animated
@@ -88,12 +88,12 @@ const Home = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}>
               <div className='text-center lg:text-left ml-0 md:ml-10 space-y-14 p-28'>
-                <h1 className={`lg:mt-0 mt-10 text-5xl font-medium leading-normal`}>
+                <h1 className={`lg:mt-0 mt-10 text-5xl max-xl:text-4xl font-medium leading-normal`}>
                   <strong className={`text-outline text-white ${poppins.className}`}>
                     Navegue com simplicidade e pesquise com mais segurança
                   </strong>
                 </h1>
-                <p className={`text-sm md:text-sm lg:text-2xl leading-normal text-white ${poppins.className}`}>
+                <p className={`text-xl leading-normal text-white ${poppins.className}`}>
                   Aqui você pode comparar preços, analisar avaliações de outros consumidores e
                   encontrar as melhores ofertas em lojas populares com boa reputação
                 </p>

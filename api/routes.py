@@ -10,6 +10,7 @@ import smtplib
 # Definindo um blueprint para agrupar as rotas
 api = Blueprint('api', __name__)
 
+# Rota para cadastro do usuário
 @api.route('/useradd', methods=['POST'])
 def cadastrar():
     data = request.get_json()
@@ -33,6 +34,7 @@ def cadastrar():
     db.session.commit()
     return jsonify({"message": "Usuário cadastrado com sucesso!"}), 201
 
+# Rota para o usuário acessar com sua conta
 @api.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -55,6 +57,7 @@ def login():
             db.session.commit()
             return jsonify({'error': 'Email ou senha incorretos.'}), 401
 
+# Rota para o sistema obter os dados do usuário que estiver na sessão
 @api.route('/perfil', methods=['GET'])
 def get_perfil():
     user_id = session.get("user_id")
@@ -67,6 +70,7 @@ def get_perfil():
             'email': user.email
         }), 200
 
+# Rota para o usuário editar suas informações
 @api.route('/editar-perfil', methods=['PUT'])
 def editar_perfil():
     user_id = session.get("user_id")
@@ -89,6 +93,7 @@ def editar_perfil():
     db.session.commit()
     return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
 
+# Rota para o usuário sair de sua conta
 @api.route('/logout', methods=['POST'])
 def logout():
     session.pop('user_id', None)
@@ -104,7 +109,6 @@ def enviar_email(destinatario, assunto, corpo):
     msg['To'] = destinatario
     msg['Subject'] = assunto
     
-    # Garantir que o corpo do e-mail esteja em UTF-8
     corpo_email = MIMEText(corpo.encode('utf-8'), 'html', 'utf-8')
     msg.attach(corpo_email)
 
@@ -117,7 +121,7 @@ def enviar_email(destinatario, assunto, corpo):
     except Exception as e:
         print(f"Erro ao enviar email: {e}")
 
-# Adiciona suporte para requisições OPTIONS
+# Rota para o usuário resetar sua senha
 @api.route('/request-password-reset', methods=['OPTIONS', 'POST'])
 def request_password_reset():
     if request.method == 'OPTIONS':
