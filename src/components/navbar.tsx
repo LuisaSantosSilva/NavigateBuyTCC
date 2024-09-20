@@ -22,7 +22,7 @@ const navbar: React.FC = () => {
   return (
     <nav>
       <div className="bg-white">
-        <div className="flex items-center h-16 px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-16 px-4 sm:px-6 lg:px-8 select-none">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <LogoAnimation
