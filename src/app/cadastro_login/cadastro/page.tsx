@@ -16,21 +16,19 @@ const Cadastro = () => {
     email: false,
     password: false,
   });
-  const [showModal, setShowModal] = useState(false);
+  const [showCodeModal, setShowCodeModal] = useState(false);
+  const [confirmationCode, setConfirmationCode] = useState('');
+  const [emailConfirmed, setEmailConfirmed] = useState(false);
 
-  const handleModal = () => {
-    setShowModal(true);
-  };
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const cadastrarUsuario = async (e: React.FormEvent) => {
     e.preventDefault();
-  
     try {
-      const response = await fetch('http://localhost:5000/app/useradd', {
+      const response = await fetch('http://localhost:5000/app/cadastrar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,24 +39,49 @@ const Cadastro = () => {
           password,
         }),
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro ao cadastrar usuário, por favor, tente novamente!.');
+        throw new Error(errorData.message || 'Erro ao cadastrar usuário, por favor, tente novamente.');
       }
-  
+
       const data = await response.json();
-      alert(data.message || 'Usuário cadastrado com sucesso!');
-      window.location.href = '../cadastro_login/login';
-  
+      alert(data.message);
+      setShowCodeModal(true);
     } catch (error) {
-      console.error('Erro ao registrar usuário:', error);
+      console.error('Erro ao cadastrar usuário:', error);
       alert(error);
     }
   };
-  
 
-  const handleBlur = (field: string) => {
+  const confirmarCodigo = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/app/confirmar_codigo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          code: confirmationCode,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Código inválido.');
+      }
+
+      setEmailConfirmed(true);
+      alert('Código confirmado!');
+      setShowCodeModal(false);
+    } catch (error) {
+      console.error('Erro ao confirmar código:', error);
+      alert(error);
+    }
+  };
+
+  const exibirBlur = (field: string) => {
     setTouched({ ...touched, [field]: true });
   };
 
@@ -91,6 +114,9 @@ const Cadastro = () => {
 
   return (
     <header className="flex flex-col md:flex-row h-screen select-none">
+      {showCodeModal && (
+        <Modal onClose={() => setShowCodeModal(false)} onConfirm={confirmarCodigo} setCode={setConfirmationCode} />
+      )}
       <div className="w-full md:w-1/4 h-full overflow-hidden max-[1245px]:hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
         <div className="max-w-md p-4 sm:p-8 md:p-10 lg:p-12 text-center text-white">
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10">
@@ -129,7 +155,7 @@ const Cadastro = () => {
               Preencha seus dados
             </p>
           </div>
-          <form onSubmit={handleRegister} className="space-y-8 w-full max-w-lg mx-auto">
+          <form onSubmit={cadastrarUsuario} className="space-y-8 w-full max-w-lg mx-auto">
             <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
                 <img
@@ -142,7 +168,7 @@ const Cadastro = () => {
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  onBlur={() => handleBlur('username')}
+                  onBlur={() => exibirBlur('username')}
                   className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
                   shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('username')}`}
                   placeholder="Digite seu nome completo"
@@ -162,7 +188,7 @@ const Cadastro = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  onBlur={() => handleBlur('email')}
+                  onBlur={() => exibirBlur('email')}
                   className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
                   shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('email')}`}
                   placeholder="Email"
@@ -182,7 +208,7 @@ const Cadastro = () => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  onBlur={() => handleBlur('password')}
+                  onBlur={() => exibirBlur('password')}
                   className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
                   shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('password')}`}
                   placeholder="Senha (min: 8 caracteres) "
@@ -195,7 +221,7 @@ const Cadastro = () => {
                 type="submit"
                 className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold 
                 transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900"
-                onClick={handleModal}>
+              >
                 Cadastrar
               </button>
               <div className='mt-5 text-xl min-[1245px]:hidden text-black'>

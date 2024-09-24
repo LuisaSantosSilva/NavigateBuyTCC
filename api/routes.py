@@ -3,7 +3,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from itsdangerous import URLSafeTimedSerializer
 from models import User, ConfirmationCode, db
-from datetime import datetime, timedelta
 import random
 import smtplib
 
@@ -11,28 +10,83 @@ import smtplib
 api = Blueprint('api', __name__)
 
 # Rota para cadastro do usuário
-@api.route('/useradd', methods=['POST'])
+@api.route('/cadastrar', methods=['POST'])
 def cadastrar():
     data = request.get_json()
     username = data.get('username')
     email = data.get('email')
     password = data.get('password') 
 
-    if not username or not email or not password:
-            return jsonify({"message": "Todos os campos são obrigatórios!"}), 400
-        
-    if len(password) < 8:
-        return jsonify({"message": "A senha deve ter pelo menos 8 caracteres."}), 400
-    
     if User.query.filter_by(email=email).first():
         return jsonify({"error": "E-mail já cadastrado."}), 400
     
-    user = User(username=username, email=email, failed_attempts=0, last_attempt=datetime.now())
-    user.set_password(password) 
+    if not username or not email or not password:
+                return jsonify({"message": "Todos os campos são obrigatórios!"}), 400
+            
+    if len(password) < 8:
+        return jsonify({"message": "A senha deve ter pelo menos 8 caracteres."}), 400
+        
+    session['username'] = username
+    session['email'] = email
+    session['password'] = password
 
-    db.session.add(user)
-    db.session.commit()
-    return jsonify({"message": "Usuário cadastrado com sucesso!"}), 201
+    code = f'{random.randint(100000, 999999):06d}'
+    
+    existing_code = ConfirmationCode.query.filter_by(email=email).first()
+
+    if existing_code:
+        existing_code.code = code
+    else:
+        new_code = ConfirmationCode(email=email, code=code)
+        db.session.add(new_code)
+        db.session.commit()
+
+        # Enviar o código por e-mail
+        corpo_email = f"""
+            <h3>Código de Confirmação</h3>
+            <p>Seu código de confirmação é: <strong>{code}</strong></p>
+            <p>Use este código para confirmar o seu e-mail.</p>
+            """
+        enviar_email(email, "Código de Confirmação - Navigate Buy", corpo_email)
+    return jsonify({"message": "Código de confirmação enviado para o seu e-mail."}), 200
+
+# Rota para confirmar o código
+@api.route('/confirmar_codigo', methods=['POST'])
+def confirm_code():
+    data = request.get_json()
+    email = data.get('email')
+    code = data.get('code').strip()
+    username = data.get('username')
+    password = data.get('password')
+
+    if not code:
+        return jsonify({"error": "O código é necessário!."}), 400
+
+    confirmation = ConfirmationCode.query.filter_by(code=code).first()
+
+    if confirmation:
+        
+        username = session.get('username')
+        email = session.get('email')
+        password = session.get('password')
+
+        if not username or not email or not password:
+            return jsonify({"error": "Dados de usuário não encontrados."}), 400
+
+        user = User(username=username, email=email)
+        user.set_password(password) 
+
+        db.session.add(user)
+        db.session.delete(confirmation)
+        db.session.commit()
+
+        session.pop('username', None)
+        session.pop('email', None)
+        session.pop('password', None)
+
+        return jsonify({"message": "Usuário cadastrado com sucesso!."}), 200
+    else:
+        return jsonify({"error": "Código de confirmação inválido."}), 400
 
 # Rota para o usuário acessar com sua conta
 @api.route('/login', methods=['POST'])
@@ -43,18 +97,11 @@ def login():
 
     user = User.query.filter_by(email=email).first()
     if user:
-        if user.failed_attempts >= 5 and user.last_attempt > datetime.now() - timedelta(minutes=15):
-            return jsonify({'error': 'Muitas tentativas falhas. Tente novamente mais tarde.'}), 429
-
         if user.check_password(password):
             session['user_id'] = user.id
-            user.failed_attempts = 0
             db.session.commit()
             return jsonify({'message': 'Login realizado com sucesso!'}), 200
         else:
-            user.failed_attempts += 1
-            user.last_attempt = datetime.now()
-            db.session.commit()
             return jsonify({'error': 'Email ou senha incorretos.'}), 401
 
 # Rota para o sistema obter os dados do usuário que estiver na sessão
@@ -184,26 +231,29 @@ def reset_password():
         return jsonify({"error": "Usuário não encontrado."}), 404        
 
 # Rota para enviar o código de confirmação
-@api.route('/send_code', methods=['OPTIONS', 'POST'])
+@api.route('/enviar_codigo', methods=['OPTIONS', 'POST'])
 def send_code():
     if request.method == 'OPTIONS':
         return '', 200
     data = request.get_json()
     email = data.get('email')
+
     if not email:
         return jsonify({"error": "E-mail é obrigatório."}), 400
-    user = User.query.filter_by(email=email).first()
-    if not user:
-        return jsonify({"error": "E-mail não encontrado."}), 404
+    
     # Gerar o código de confirmação
     code = f'{random.randint(100000, 999999):06d}'
+
     existing_code = ConfirmationCode.query.filter_by(email=email).first()
+
     if existing_code:
         existing_code.code = code
     else:
         new_code = ConfirmationCode(email=email, code=code)
         db.session.add(new_code)
+
     db.session.commit()
+
     # Enviar o código por e-mail
     corpo_email = f"""
     <h3>Código de Confirmação</h3>
@@ -212,23 +262,3 @@ def send_code():
     """
     enviar_email(email, "Código de Confirmação - Navigate Buy", corpo_email)
     return jsonify({"message": "Código de confirmação enviado para o seu e-mail."}), 200
-
-# Rota para confirmar o código
-@api.route('/confirm_code', methods=['POST'])
-def confirm_code():
-    data = request.get_json()
-    email = data.get('email')
-    code = data.get('code')
-
-    if not email or not code:
-        return jsonify({"error": "Dados insuficientes."}), 400
-
-    confirmation = ConfirmationCode.query.filter_by(email=email, code=code).first()
-
-    if confirmation:
-        # Remover o código após confirmação bem-sucedida
-        db.session.delete(confirmation)
-        db.session.commit()
-        return jsonify({"message": "Código confirmado com sucesso."}), 200
-    else:
-        return jsonify({"error": "Código de confirmação inválido."}), 400
