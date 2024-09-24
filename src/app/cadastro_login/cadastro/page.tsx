@@ -17,8 +17,7 @@ const Cadastro = () => {
     password: false,
   });
   const [showCodeModal, setShowCodeModal] = useState(false);
-  const [confirmationCode, setConfirmationCode] = useState('');
-  const [emailConfirmed, setEmailConfirmed] = useState(false);
+  const [code, setConfirmationCode] = useState('');
 
 
   useEffect(() => {
@@ -33,6 +32,7 @@ const Cadastro = () => {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: "include",
         body: JSON.stringify({
           username,
           email,
@@ -55,15 +55,16 @@ const Cadastro = () => {
   };
 
   const confirmarCodigo = async () => {
+    console.log("Code:", code);
     try {
       const response = await fetch('http://localhost:5000/app/confirmar_codigo', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: "include",
         body: JSON.stringify({
-          email,
-          code: confirmationCode,
+          code,
         }),
       });
 
@@ -72,7 +73,6 @@ const Cadastro = () => {
         throw new Error(errorData.message || 'Código inválido.');
       }
 
-      setEmailConfirmed(true);
       alert('Código confirmado!');
       setShowCodeModal(false);
     } catch (error) {
@@ -92,7 +92,7 @@ const Cadastro = () => {
     if (field === 'username') {
       isValid = username.length > 0;
     } else if (field === 'email') {
-      isValid = email.includes('@') && email.includes('.');
+      isValid = email.includes('@') && email.includes('.com');
     } else if (field === 'password') {
       isValid = password.length >= 8;
     }

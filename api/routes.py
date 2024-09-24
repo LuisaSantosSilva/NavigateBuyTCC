@@ -55,7 +55,7 @@ def cadastrar():
 def confirm_code():
     data = request.get_json()
     email = data.get('email')
-    code = data.get('code').strip()
+    code = data.get('code')
     username = data.get('username')
     password = data.get('password')
 
@@ -65,7 +65,6 @@ def confirm_code():
     confirmation = ConfirmationCode.query.filter_by(code=code).first()
 
     if confirmation:
-        
         username = session.get('username')
         email = session.get('email')
         password = session.get('password')
