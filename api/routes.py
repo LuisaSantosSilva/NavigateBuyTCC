@@ -9,7 +9,7 @@ import smtplib
 # Definindo um blueprint para agrupar as rotas
 api = Blueprint('api', __name__)
 
-# Rota para cadastro do usuário
+# Rota para cadastro do usuário e enviar o código de confirmação
 @api.route('/cadastrar', methods=['POST'])
 def cadastrar():
     data = request.get_json()
@@ -167,17 +167,18 @@ def enviar_email(destinatario, assunto, corpo):
     except Exception as e:
         print(f"Erro ao enviar email: {e}")
 
-# Rota para o usuário resetar sua senha
-@api.route('/request-password-reset', methods=['OPTIONS', 'POST'])
+# Rota para o usuário enviar o email que irá alterar sua senha
+@api.route('/solicitar-email-senha', methods=['OPTIONS', 'POST'])
 def request_password_reset():
     if request.method == 'OPTIONS':
         return '', 200
 
     data = request.get_json()
+    email = data['email']
+
     if not data or 'email' not in data:
         return jsonify({"error": "Dados de entrada inválidos."}), 400
 
-    email = data['email']
     user = User.query.filter_by(email=email).first()
 
     if user:
@@ -227,37 +228,4 @@ def reset_password():
         db.session.commit()
         return jsonify({"message": "Senha redefinida com sucesso."}), 200
     else:
-        return jsonify({"error": "Usuário não encontrado."}), 404        
-
-# Rota para enviar o código de confirmação
-@api.route('/enviar_codigo', methods=['OPTIONS', 'POST'])
-def send_code():
-    if request.method == 'OPTIONS':
-        return '', 200
-    data = request.get_json()
-    email = data.get('email')
-
-    if not email:
-        return jsonify({"error": "E-mail é obrigatório."}), 400
-    
-    # Gerar o código de confirmação
-    code = f'{random.randint(100000, 999999):06d}'
-
-    existing_code = ConfirmationCode.query.filter_by(email=email).first()
-
-    if existing_code:
-        existing_code.code = code
-    else:
-        new_code = ConfirmationCode(email=email, code=code)
-        db.session.add(new_code)
-
-    db.session.commit()
-
-    # Enviar o código por e-mail
-    corpo_email = f"""
-    <h3>Código de Confirmação</h3>
-    <p>Seu código de confirmação é: <strong>{code}</strong></p>
-    <p>Use este código para confirmar o seu e-mail.</p>
-    """
-    enviar_email(email, "Código de Confirmação - Navigate Buy", corpo_email)
-    return jsonify({"message": "Código de confirmação enviado para o seu e-mail."}), 200
+        return jsonify({"error": "Usuário não encontrado."}), 404

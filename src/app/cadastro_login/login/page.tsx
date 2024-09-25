@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import "./login.css";
+import Modal from '@/components/ModalMessage';
 import React, { useState, FormEvent } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
@@ -11,10 +12,10 @@ const Login = () => {
     email: false,
     password: false,
   });
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
 
-  const handleSubmit = async (e: FormEvent) => {
+  const fazerLogin = async (e: FormEvent) => {
     e.preventDefault();
-
     try {
       const response = await fetch('http://localhost:5000/app/login', {
         method: 'POST',
@@ -39,6 +40,32 @@ const Login = () => {
   
     } catch (error) {
       console.error('Erro ao logar:', error);
+      alert(error);
+    }
+  };
+
+  const alterarSenha = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/app/solicitar-email-senha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          email
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro desconhecido ao enviar email.');
+      }
+  
+      const data = await response.json();
+      alert(data.message || 'Mensagem de confirmação enviada para o seu email!');
+    } catch (error) {
+      console.error('Erro ao enviar o email:', error);
       alert(error);
     }
   };
@@ -70,6 +97,9 @@ const Login = () => {
 
   return (
     <header className="flex flex-col md:flex-row h-screen select-none">
+      {showPasswordModal && (
+        <Modal onClose={() => setShowPasswordModal(false)} onConfirm={alterarSenha} setCode={setEmail} />
+      )}
       <div className="flex-1 w-full h-full flex flex-col items-start justify-center bg-white">
         <Link href="/" className="flex flex-row text-base sm:text-lg md:text-xl lg:text-2xl ml-5 min-[1245px]:hidden text-black">
           <MdKeyboardArrowLeft size={30} />
@@ -84,7 +114,7 @@ const Login = () => {
               Preencha com os seus dados
             </p>
           </div>
-          <form className="space-y-10 w-full max-w-lg mx-auto" onSubmit={handleSubmit}>
+          <form className="space-y-10 w-full max-w-lg mx-auto" onSubmit={fazerLogin}>
             <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
                 <img
@@ -131,6 +161,10 @@ const Login = () => {
               </button>
               <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
                 <h1>Não tem cadastro? <Link href={"../cadastro_login/cadastro"}><span className='underline hover:text-black text-gray-600'>Cadastre-se</span></Link></h1>
+                <h1>ou <span className='underline hover:text-black text-gray-600'>Esqueci minha senha</span></h1>
+              </div>
+              <div className='mt-5 text-xl max-[1245px]:hidden text-black'>
+                <h1>Esqueceu sua senha? Você pode alterá-la <span className='underline hover:text-black text-gray-600'>Aqui</span></h1>
               </div>
             </div>
           </form>

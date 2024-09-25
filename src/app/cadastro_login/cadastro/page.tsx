@@ -55,7 +55,6 @@ const Cadastro = () => {
   };
 
   const confirmarCodigo = async () => {
-    console.log("Code:", code);
     try {
       const response = await fetch('http://localhost:5000/app/confirmar_codigo', {
         method: 'POST',
