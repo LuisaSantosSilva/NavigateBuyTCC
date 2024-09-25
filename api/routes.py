@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request, session
+from flask import Blueprint, current_app, jsonify, request, session
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from itsdangerous import URLSafeTimedSerializer
@@ -18,13 +18,13 @@ def cadastrar():
     password = data.get('password') 
 
     if User.query.filter_by(email=email).first():
-        return jsonify({"error": "E-mail já cadastrado."}), 400
+        return jsonify({"E-mail já cadastrado."}), 400
     
     if not username or not email or not password:
-                return jsonify({"message": "Todos os campos são obrigatórios!"}), 400
+                return jsonify({"Todos os campos são obrigatórios!"}), 400
             
     if len(password) < 8:
-        return jsonify({"message": "A senha deve ter pelo menos 8 caracteres."}), 400
+        return jsonify({"A senha deve ter pelo menos 8 caracteres."}), 400
         
     session['username'] = username
     session['email'] = email
@@ -168,27 +168,24 @@ def enviar_email(destinatario, assunto, corpo):
         print(f"Erro ao enviar email: {e}")
 
 # Rota para o usuário enviar o email que irá alterar sua senha
-@api.route('/solicitar-email-senha', methods=['OPTIONS', 'POST'])
+@api.route('/solicitar-email-senha', methods=['POST'])
 def request_password_reset():
-    if request.method == 'OPTIONS':
-        return '', 200
-
     data = request.get_json()
-    email = data['email']
+    email = data.get('email')
 
-    if not data or 'email' not in data:
-        return jsonify({"error": "Dados de entrada inválidos."}), 400
+    if not email:
+        return jsonify({"Dados de entrada inválidos."}), 400
 
     user = User.query.filter_by(email=email).first()
 
     if user:
         # Criação do serializer com a chave secreta da aplicação
-        serializer = URLSafeTimedSerializer(api.config['SECRET_KEY'])
+        serializer = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
 
         # Gerando o token para o e-mail do usuário
         token = serializer.dumps(email, salt='password-reset-salt')
 
-        link_redefinicao = f"http://localhost:3000/redefinir_senha?email={token}"
+        link_redefinicao = f"http://localhost:3000/cadastro_login/login/redefinirSenha?token={token}&email={email}"
         corpo_email = f"""
         <h3>Redefinição de Senha</h3>
         <p>Clique no botão abaixo para redefinir sua senha:</p>
@@ -201,7 +198,7 @@ def request_password_reset():
     else:
         return jsonify({"error": "Email não encontrado."}), 404
     
-# Endpoint para redefinir a senha
+# Rota para redefinir a senha
 @api.route('/reset_password', methods=['POST'])
 def reset_password():
     data = request.get_json()
@@ -209,20 +206,21 @@ def reset_password():
     new_password = data.get('password')
     token = data.get('token')
 
-    if not email or not new_password:
+    if not email or not new_password or not token:
         return jsonify({"error": "Dados insuficientes."}), 400
+
+    serializer = URLSafeTimedSerializer(api.config['SECRET_KEY'])
+
+    try:
+        email_from_token = serializer.loads(token, salt='password-reset-salt', max_age=3600)
+    except Exception:
+        return jsonify({"error": "Token inválido ou expirado."}), 400
+    if email_from_token != email:
+        return jsonify({"error": "Email do token não corresponde ao email fornecido."}), 400
 
     user = User.query.filter_by(email=email).first()
 
     if user:
-        serializer = URLSafeTimedSerializer(api.config['SECRET_KEY'])
-
-        try:
-            email_from_token = serializer.loads(token, salt='password-reset-salt', max_age=3600)
-        except Exception:
-            return jsonify({"error": "Token inválido ou expirado."}), 400
-        if email_from_token != email:
-            return jsonify({"error": "Email do token não corresponde ao email fornecido."}), 400
         
         user.set_password(new_password)
         db.session.commit()

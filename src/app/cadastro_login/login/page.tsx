@@ -7,6 +7,7 @@ import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 const Login = () => {
   const [email, setEmail] = useState('');
+  const [emailMessage, setEmailMessage] = useState('');
   const [password, setPassword] = useState('');
   const [touched, setTouched] = useState({
     email: false,
@@ -53,7 +54,7 @@ const Login = () => {
         },
         credentials: "include",
         body: JSON.stringify({
-          email
+          emailMessage
         }),
       });
 
@@ -79,7 +80,7 @@ const Login = () => {
     let isValid = false;
 
     if (field === 'email') {
-      isValid = email.includes('@') && email.includes('.');
+      isValid = email.includes('@gmail') && email.includes('.com');
     } else if (field === 'password') {
       isValid = password.length >= 8;
     }
@@ -98,7 +99,7 @@ const Login = () => {
   return (
     <header className="flex flex-col md:flex-row h-screen select-none">
       {showPasswordModal && (
-        <Modal onClose={() => setShowPasswordModal(false)} onConfirm={alterarSenha} setCode={setEmail} />
+        <Modal onClose={() => setShowPasswordModal(false)} onConfirm={alterarSenha} setCode={setEmailMessage} />
       )}
       <div className="flex-1 w-full h-full flex flex-col items-start justify-center bg-white">
         <Link href="/" className="flex flex-row text-base sm:text-lg md:text-xl lg:text-2xl ml-5 min-[1245px]:hidden text-black">
@@ -161,10 +162,10 @@ const Login = () => {
               </button>
               <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
                 <h1>Não tem cadastro? <Link href={"../cadastro_login/cadastro"}><span className='underline hover:text-black text-gray-600'>Cadastre-se</span></Link></h1>
-                <h1>ou <span className='underline hover:text-black text-gray-600'>Esqueci minha senha</span></h1>
+                <h1>ou <span className='underline hover:text-black text-gray-600' onClick={() => setShowPasswordModal(true)}>Esqueci minha senha</span></h1>
               </div>
               <div className='mt-5 text-xl max-[1245px]:hidden text-black'>
-                <h1>Esqueceu sua senha? Você pode alterá-la <span className='underline hover:text-black text-gray-600'>Aqui</span></h1>
+                <h1>Esqueceu sua senha? Você pode alterá-la <span className='underline hover:text-black text-gray-600' onClick={() => setShowPasswordModal(true)}>Aqui</span></h1>
               </div>
             </div>
           </form>

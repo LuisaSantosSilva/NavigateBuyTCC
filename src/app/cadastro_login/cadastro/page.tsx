@@ -74,6 +74,7 @@ const Cadastro = () => {
 
       alert('Código confirmado!');
       setShowCodeModal(false);
+      window.location.href = '../cadastro_login/login';
     } catch (error) {
       console.error('Erro ao confirmar código:', error);
       alert(error);
@@ -91,7 +92,7 @@ const Cadastro = () => {
     if (field === 'username') {
       isValid = username.length > 0;
     } else if (field === 'email') {
-      isValid = email.includes('@') && email.includes('.com');
+      isValid = email.includes('@gmail') && email.includes('.com');
     } else if (field === 'password') {
       isValid = password.length >= 8;
     }
