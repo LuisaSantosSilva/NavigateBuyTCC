@@ -168,17 +168,21 @@ def enviar_email(destinatario, assunto, corpo):
         print(f"Erro ao enviar email: {e}")
 
 # Rota para o usuário enviar o email que irá alterar sua senha
-@api.route('/solicitar-email-senha', methods=['POST'])
+@api.route('/solicitar-email', methods=['POST'])
 def request_password_reset():
     data = request.get_json()
     email = data.get('email')
 
     if not email:
-        return jsonify({"Dados de entrada inválidos."}), 400
+        return jsonify({"error": "Dados de entrada inválidos."}), 400
 
     user = User.query.filter_by(email=email).first()
 
     if user:
+
+        if user.password_reset_requested:
+            return jsonify({"error": "Uma solicitação de redefinição de senha já foi feita."}), 400
+
         # Criação do serializer com a chave secreta da aplicação
         serializer = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
 
@@ -194,36 +198,35 @@ def request_password_reset():
         """
 
         enviar_email(email, "Redefinição de Senha - Navigate Buy", corpo_email)
+        user.password_reset_requested = True
+        db.session.commit()
         return jsonify({"message": "Email de redefinição de senha enviado."}), 200
     else:
-        return jsonify({"error": "Email não encontrado."}), 404
+        return jsonify({"error": "Email não encontrado."}), 400
     
 # Rota para redefinir a senha
-@api.route('/reset_password', methods=['POST'])
-def reset_password():
+@api.route('/mudar-senha', methods=['POST'])
+def alterar_senha():
     data = request.get_json()
     email = data.get('email')
-    new_password = data.get('password')
-    token = data.get('token')
+    nova_senha = data.get('password')
 
-    if not email or not new_password or not token:
-        return jsonify({"error": "Dados insuficientes."}), 400
-
-    serializer = URLSafeTimedSerializer(api.config['SECRET_KEY'])
-
-    try:
-        email_from_token = serializer.loads(token, salt='password-reset-salt', max_age=3600)
-    except Exception:
-        return jsonify({"error": "Token inválido ou expirado."}), 400
-    if email_from_token != email:
-        return jsonify({"error": "Email do token não corresponde ao email fornecido."}), 400
-
+    if not email or not nova_senha:
+        return jsonify({"error": "Dados de entrada inválidos."}), 400
+    
+    if len(nova_senha) < 8:
+        return jsonify({"A senha deve ter pelo menos 8 caracteres."}), 400
+    
     user = User.query.filter_by(email=email).first()
 
-    if user:
-        
-        user.set_password(new_password)
-        db.session.commit()
-        return jsonify({"message": "Senha redefinida com sucesso."}), 200
-    else:
-        return jsonify({"error": "Usuário não encontrado."}), 404
+    if not user:
+        return jsonify({"error": "Email não encontrado."}), 400
+    
+    if not user.password_reset_requested:
+        return jsonify({"Token de alteração inválido."}), 400
+
+    user.set_password(nova_senha)
+    user.password_reset_requested = False
+    db.session.commit()
+
+    return jsonify({"message": "Senha alterada com sucesso."}), 200

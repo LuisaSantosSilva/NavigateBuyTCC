@@ -3,11 +3,12 @@ import Link from 'next/link';
 import "./cadastro.css";
 import Modal from '@/components/Modal';
 import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { poppins } from "@/app/fonts";
 
 const Cadastro = () => {
-  const [isClient, setIsClient] = useState(false);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,16 +17,14 @@ const Cadastro = () => {
     email: false,
     password: false,
   });
+  const [loading, setLoading] = useState<boolean>(false);
   const [showCodeModal, setShowCodeModal] = useState(false);
   const [code, setConfirmationCode] = useState('');
 
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
+  // Função para cadastrar usuário
   const cadastrarUsuario = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch('http://localhost:5000/app/cadastrar', {
         method: 'POST',
@@ -46,14 +45,16 @@ const Cadastro = () => {
       }
 
       const data = await response.json();
-      alert(data.message);
+      toast.success(data.message, { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
       setShowCodeModal(true);
     } catch (error) {
-      console.error('Erro ao cadastrar usuário:', error);
-      alert(error);
+      toast.error('Erro ao cadastrar usuário, tente novamente', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    } finally {
+      setLoading(false);
     }
   };
 
+  // Função para inserir e confirmar código passado ao email
   const confirmarCodigo = async () => {
     try {
       const response = await fetch('http://localhost:5000/app/confirmar_codigo', {
@@ -71,13 +72,13 @@ const Cadastro = () => {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Código inválido.');
       }
-
-      alert('Código confirmado!');
+      toast.success('Código confirmado!', { position: "bottom-left", hideProgressBar: true, theme: "dark" });
       setShowCodeModal(false);
-      window.location.href = '../cadastro_login/login';
+      setTimeout(() => {
+        window.location.href = '../cadastro_login/login';
+      }, 3000);
     } catch (error) {
-      console.error('Erro ao confirmar código:', error);
-      alert(error);
+      toast.error('Código incorreto! Tente novamente', { position: "bottom-left", autoClose: 2000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
   };
 
@@ -108,15 +109,12 @@ const Cadastro = () => {
     return "border-navigategreen shadow-navigategreen";
   };
 
-  if (!isClient) {
-    return null;
-  }
-
   return (
     <header className="flex flex-col md:flex-row h-screen select-none">
       {showCodeModal && (
         <Modal onClose={() => setShowCodeModal(false)} onConfirm={confirmarCodigo} setCode={setConfirmationCode} />
       )}
+      <ToastContainer />
       <div className="w-full md:w-1/4 h-full overflow-hidden max-[1245px]:hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
         <div className="max-w-md p-4 sm:p-8 md:p-10 lg:p-12 text-center text-white">
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10">
@@ -222,7 +220,7 @@ const Cadastro = () => {
                 className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold 
                 transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900"
               >
-                Cadastrar
+                {loading ? 'Cadastrando...' : 'Cadastrar'}
               </button>
               <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
                 <h1>Já tem cadastro? <Link href={"../cadastro_login/login"}><span className='underline hover:text-black text-gray-600'>Entrar na conta</span></Link></h1>

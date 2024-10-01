@@ -3,18 +3,21 @@ import Link from 'next/link';
 import "./login.css";
 import Modal from '@/components/ModalMessage';
 import React, { useState, FormEvent } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 const Login = () => {
   const [email, setEmail] = useState('');
-  const [emailMessage, setEmailMessage] = useState('');
   const [password, setPassword] = useState('');
   const [touched, setTouched] = useState({
     email: false,
     password: false,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [emailMessage, setEmailMessage] = useState('');
 
+  // Função para fazer login
   const fazerLogin = async (e: FormEvent) => {
     e.preventDefault();
     try {
@@ -36,42 +39,41 @@ const Login = () => {
       }
   
       const data = await response.json();
-      alert(data.message || 'Login realizado com sucesso!');
-      window.location.href = '../';
-  
+      toast.success('Login realizado com sucesso!', { position: "bottom-left", hideProgressBar: true,closeOnClick: true, pauseOnHover: true, theme: "dark" });
+      setTimeout(() => {
+        window.location.href = '../';
+      }, 2000);
     } catch (error) {
-      console.error('Erro ao logar:', error);
-      alert(error);
+      toast.error('Erro ao fazer login, tente novamente', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
   };
 
+  // Função para alterar senha
   const alterarSenha = async () => {
     try {
-      const response = await fetch('http://localhost:5000/app/solicitar-email-senha', {
+      const response = await fetch('http://localhost:5000/app/solicitar-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: "include",
         body: JSON.stringify({
-          emailMessage
+          email: emailMessage
         }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro desconhecido ao enviar email.');
+        throw new Error(errorData.message || 'Erro ao enviar email, tente novamente.');
       }
   
       const data = await response.json();
-      alert(data.message || 'Mensagem de confirmação enviada para o seu email!');
+      toast.success('Mensagem de confirmação enviada para o seu email!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error) {
-      console.error('Erro ao enviar o email:', error);
-      alert(error);
+      toast.error('Erro ao enviar o email:', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
   };
 
-  const handleBlur = (field: string) => {
+  const exibirBlur = (field: string) => {
     setTouched({ ...touched, [field]: true });
   };
 
@@ -101,6 +103,7 @@ const Login = () => {
       {showPasswordModal && (
         <Modal onClose={() => setShowPasswordModal(false)} onConfirm={alterarSenha} setCode={setEmailMessage} />
       )}
+      <ToastContainer />
       <div className="flex-1 w-full h-full flex flex-col items-start justify-center bg-white">
         <Link href="/" className="flex flex-row text-base sm:text-lg md:text-xl lg:text-2xl ml-5 min-[1245px]:hidden text-black">
           <MdKeyboardArrowLeft size={30} />
@@ -131,7 +134,7 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  onBlur={() => handleBlur('email')}
+                  onBlur={() => exibirBlur('email')}
                 />
               </div>
             </div>
@@ -150,7 +153,7 @@ const Login = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  onBlur={() => handleBlur('password')}
+                  onBlur={() => exibirBlur('password')}
                 />
               </div>
             </div>
@@ -165,7 +168,7 @@ const Login = () => {
                 <h1>ou <span className='underline hover:text-black text-gray-600' onClick={() => setShowPasswordModal(true)}>Esqueci minha senha</span></h1>
               </div>
               <div className='mt-5 text-xl max-[1245px]:hidden text-black'>
-                <h1>Esqueceu sua senha? Você pode alterá-la <span className='underline hover:text-black text-gray-600' onClick={() => setShowPasswordModal(true)}>Aqui</span></h1>
+                <h1>Esqueceu sua senha? Você pode alterá-la <span className='underline cursor-pointer hover:text-black text-gray-600' onClick={() => setShowPasswordModal(true)}>Aqui</span></h1>
               </div>
             </div>
           </form>

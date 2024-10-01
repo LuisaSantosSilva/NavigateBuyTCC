@@ -3,6 +3,8 @@ import Navbar from "@/components/navbar";
 import Footer from '@/components/footer';
 import Avatar from '@/components/Avatar';
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { enableInput } from "@/utils/habilitarInput";
 import { poppins } from "@/app/fonts";
 
@@ -12,29 +14,37 @@ const Editar = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  // Efeito para receber dados do perfil
   useEffect(() => {
-    (async () => {
+    const fetchData = async () => {
       try {
-        const resp = await fetch("http://localhost:5000/app/perfil", {
+        const response = await fetch("http://localhost:5000/app/perfil", {
           method: "GET",
           credentials: "include",
         });
-        if (!resp.ok) {
-          throw new Error();
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || "Erro ao encontrar um perfil");
         }
-        const data = await resp.json();
+
+        const data = await response.json();
         setUsername(data.username || "");
         setCurrentUsername(data.username || "");
         setEmail(data.email || "");
       } catch (error) {
-        console.error(error);
-        alert("Usuário não autenticado");
-        window.location.href = '../cadastro_login/login';
+        toast.error('Usuário não autenticado, faça Login', {position: "top-center", hideProgressBar: true, theme: "dark"});
+        setTimeout(() => {
+          window.location.href = '../cadastro_login/login';
+        }, 3000);
       }
-    })();
-  }, []);  
+    };
 
-  const handleEditProfile = async () => {
+    fetchData();
+  }, []);
+
+  // Função para editar perfil
+  const habilitarEditarPerfil = async () => {
     const profileUpdateData = { username, email, password };
 
     try {
@@ -53,15 +63,14 @@ const Editar = () => {
       }
 
       const data = await response.json();
-      alert("Perfil atualizado com sucesso!");
-      console.log("Perfil atualizado com sucesso:", data);
+      toast.success("Perfil atualizado com sucesso!", { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error) {
-      console.error("Erro ao atualizar perfil:", error);
-      alert("Erro ao atualizar perfil");
+      toast.error('Erro ao atualizar perfil', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
   };
 
-  const handleLogout = async () => {
+  // Função para logout
+  const habilitarLogout = async () => {
     try {
       const response = await fetch("http://localhost:5000/app/logout", {
         method: "POST",
@@ -73,11 +82,12 @@ const Editar = () => {
         throw new Error(errorData.message || "Erro ao fazer logout");
       }
 
-      alert("Deslogado com sucesso");
-      window.location.href = '../cadastro_login/login';
+      toast.success('Deslogado com sucesso', { position: "top-center", closeOnClick: true, pauseOnHover: true, theme: "dark" });
+      setTimeout(() => {
+        window.location.href = '../cadastro_login/login';
+      }, 2000);
     } catch (error) {
-      console.error("Erro ao fazer logout:", error);
-      window.location.href = '../cadastro_login/login';
+      toast.error('Erro ao fazer logout, tente novamente mais tarde', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
   };
 
@@ -85,6 +95,7 @@ const Editar = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <header className="flex-grow">
+        <ToastContainer />
         <h2 className={`text-center font-extrabold mt-20 text-4xl ${poppins.className}`}>
           Perfil
         </h2>
@@ -126,7 +137,7 @@ const Editar = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border
                  border-navigateblue shadow-md shadow-navigateblue"
-              disabled
+              readOnly
             />
           </div>
 
@@ -158,7 +169,7 @@ const Editar = () => {
             type='submit'
             className="mt-6 py-3 px-12 text-xl rounded-full border-2 bg-navigategreen text-white font-semibold
             transition duration-1000 ease-in-out hover:bg-transparent hover:text-black hover:border-black"
-            onClick={handleEditProfile}
+            onClick={habilitarEditarPerfil}
           >
             Editar
           </button>
@@ -167,7 +178,7 @@ const Editar = () => {
             type='submit'
             className="mt-6 mb-10 py-3 px-12 text-xl rounded-full border-2 border-transparent bg-gray-600
             text-white font-semibold transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-black"
-            onClick={handleLogout}
+            onClick={habilitarLogout}
           >
             Sair
           </button>

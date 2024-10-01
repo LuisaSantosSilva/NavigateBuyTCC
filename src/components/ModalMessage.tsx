@@ -18,10 +18,10 @@ const Modal: React.FC<ModalProps> = ({ onClose, onConfirm, setCode }) => {
         </p>
         <div className='flex flex-row space-x-10 mt-10 md:mt-20'>
           <input
-            type="text"
+            type="email"
             onChange={(e) => setCode && setCode(e.target.value)}
             className='px-5 py-3 md:px-10 md:py-6 rounded-3xl border-4 border-navigateblue'
-            placeholder="Código de confirmação"
+            placeholder="Email"
           />
           <button
             className='px-5 py-2 md:px-10 md:py-2 rounded-3xl text-lg text-white bg-navigategreen'

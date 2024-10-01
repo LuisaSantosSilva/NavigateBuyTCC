@@ -1,39 +1,39 @@
 "use client";
 import React, { useState, FormEvent } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ResetPassword: React.FC = () => {
     const [newPassword, setNewPassword] = useState<string>('');
-    const [message, setMessage] = useState<string>('');
+    const [email, setEmail] = useState('');
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!newPassword) {
-            setMessage('Nova senha e e-mail são obrigatórios.');
-            return;
-        }
 
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5000/app/reset_password', {
+            const response = await fetch('http://localhost:5000/app/mudar-senha', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                credentials: "include",
-                body: JSON.stringify({ password: newPassword }),
+                body: JSON.stringify({ email, password: newPassword }),
             });
 
             if (!response.ok) {
-                throw new Error('Erro ao redefinir a senha. Tente novamente.');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Erro ao redefinir a senha. Tente novamente.');
             }
 
-            setMessage('Senha redefinida com sucesso.');
-            window.location.href = '../cadastro_login/login'
+            toast.success('Senha redefinida com sucesso!', { position: "bottom-left", hideProgressBar: true, theme: "dark" });
+            setTimeout(() => {
+                window.location.href = '../login';
+            }, 3000);
         } catch (error) {
-            setMessage(error instanceof Error ? error.message : 'Ocorreu um erro desconhecido.');
+            toast.error('Erro ao alterar senha, tente novamente', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
         } finally {
             setLoading(false);
         }
@@ -42,6 +42,7 @@ const ResetPassword: React.FC = () => {
     return (
         <header className="flex flex-col md:flex-row h-screen">
             <div className="flex-1 w-full h-full bg-white flex flex-col items-center justify-center">
+                <ToastContainer />
                 <div className="max-w-6xl mx-auto p-8">
                     <h1 className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl text-center font-extrabold">
                         Redefinir Senha
@@ -51,13 +52,25 @@ const ResetPassword: React.FC = () => {
                     </p>
                     <form className="space-y-10 w-full max-w-lg mx-auto" onSubmit={handleSubmit}>
                         <div className="flex flex-wrap -mx-8 mb-6">
+                            <div className="w-full px-3 relative mb-10">
+                                <input
+                                    type="email"
+                                    className="py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 
+                                    pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border
+                                    border-black focus:outline-none shadow-md transition duration-500 ease-in-out"
+                                    placeholder="Email"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
                             <div className="w-full px-3 relative">
                                 <input
                                     type="password"
                                     className="py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 
                                     pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border
                                     border-black focus:outline-none shadow-md transition duration-500 ease-in-out"
-                                    placeholder="Nova Senha"
+                                    placeholder="Nova Senha (min: 8 caracteres)"
                                     required
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
@@ -69,18 +82,13 @@ const ResetPassword: React.FC = () => {
                                 type="submit"
                                 className={`mt-4 py-3 sm:py-4 md:py-5 lg:py-6 px-6 sm:px-8 md:px-16 lg:px-28 
                                     text-2xl sm:text-2xl md:text-2xl lg:text-2xl rounded-full border-2 
-                                    ${loading ? 'bg-gray-500' : 'bg-slate-900'} text-white font-semibold transition duration-1000 
+                                    ${loading ? 'bg-green-500' : 'bg-navigategreen'} text-white font-semibold transition duration-1000 
                                     ease-in-out hover:bg-white hover:text-slate-900 hover:border-slate-900`}
                                 disabled={loading}
                             >
                                 {loading ? 'Redefinindo...' : 'Redefinir Senha'}
                             </button>
                         </div>
-                        {message && (
-                            <div className="mt-4 text-center text-red-500">
-                                {message}
-                            </div>
-                        )}
                     </form>
                 </div>
             </div>
