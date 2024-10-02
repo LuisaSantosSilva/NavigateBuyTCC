@@ -1,11 +1,28 @@
+"use client";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Card from "@/components/card";
-import React from "react";
+import fone from "../../../../api/mercadolivre/fone.json";
+import React, { useState } from "react";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const produtos: React.FC = () => {
+  const [page, setPage] = useState(0);
+
+  const limiteProdutos = 12;
+  const produtosVisiveis = fone.slice(0, (page + 1) * limiteProdutos);
+  const produtos = fone.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
+
+  const handlePageChange = (selectedPage: number) => {
+    setPage(selectedPage);
+    scrollToTop();
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <main>
       <Navbar />
@@ -15,7 +32,7 @@ const produtos: React.FC = () => {
         </h2>
       </div>
       <div className="flex justify-center mt-20 space-x-20 max-[650px]:flex-col max-[650px]:items-center max-[650px]:space-x-0">
-        <h3 className="text-xl text-center mt-3 font-bold text-black">Mais de 50 resultados</h3>
+        <h3 className="text-xl text-center mt-3 font-bold text-black">Mostrando {produtosVisiveis.length} de {fone.length} resultados</h3>
         <Menu as="div" className="relative inline-block text-left max-[650px]:mt-5">
           <div>
             <MenuButton className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-blue-800">
@@ -49,78 +66,32 @@ const produtos: React.FC = () => {
         </Menu>
       </div>
       <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
-        <Card
-          imageSrc="../img/Fone MagaLu.png"
-          heartIconSrc="../img/icon coração pintado.png"
-          productDescription="Fone de Ouvido Esportivo Pulse PH333 - com Microfone Branco"
-          brandName="Magazine Luiza"
-          price="R$ 39,10" />
-        <Card
-          imageSrc="../img/Fone Mercado livre.png"
-          heartIconSrc="../img/icon coração.png"
-          productDescription="Fone de ouvido on-ear AKG K414 P preto"
-          brandName="Mercado Livre"
-          price="R$ 228,27" />
-        <Card
-          imageSrc="../img/Fone Casas Bahia.png"
-          heartIconSrc="../img/icon coração.png"
-          productDescription="Fones de Ouvido JBL Wave Buds Preto"
-          brandName="Casas Bahia"
-          price="R$ 236,55" />
-        <Card
-          imageSrc="../img/Fone Amazon.png"
-          heartIconSrc="../img/icon coração.png"
-          productDescription="JBL, Fone de Ouvido Sem Fio, Bluetooth, Wave Flex TWS - Preto"
-          brandName="Amazon"
-          price="R$ 331,19" />
-      </div>
-      <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
-        <Card
-          imageSrc="../img/Fone Americanas.png"
-          heartIconSrc="../img/icon coração.png"
-          productDescription="Fone De Ouvido Bluetooth Sem Fio tws Compatível com Todos Celulares Microfone embutido"
-          brandName="Americanas"
-          price="R$ 30,71" />
-        <Card
-          imageSrc="../img/Fone Amazon 2.png"
-          heartIconSrc="../img/icon coração.png"
-          productDescription="Fone De Ouvido Sem Fio Bluetooth 5.3 Compatível iPhone Android Linha Premium AGOLD FN-BT10"
-          brandName="Amazon"
-          price="R$ 94,95" />
-        <Card
-          imageSrc="../img/Fone Mercado Livre 2.png"
-          heartIconSrc="../img/icon coração pintado.png"
-          productDescription="Fone de ouvido over-ear gamer Havit H2232D 2xP2, RGB - Preto"
-          brandName="Mercado livre"
-          price="R$ 103,55" />
-        <Card
-          imageSrc="../img/Fone Casas Bahia 2.png"
-          heartIconSrc="../img/icon coração.png"
-          productDescription="Fone de Ouvido Sem Fio Samsung Galaxy Buds FE - Branco"
-          brandName="Mercado livre"
-          price="R$ 381,65" />
+        {produtos.map((produto) => (
+          <Card
+            key={produto.link}
+            imageSrc={produto.imagem}
+            heartIconSrc="../img/icon coração.png"
+            productDescription={produto.título}
+            brandName="Mercado Livre"
+            price={`R$ ${produto.preço}${produto.centavos ? `,${produto.centavos}` : ''}`}
+            link={produto.link}
+          />
+        ))}
       </div>
       <div className="flex mt-10 justify-center items-center">
         <div className="flex space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
-          <label className="cursor-pointer">
-            <input type="radio" name="options" className="hidden peer" />
-            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
-          </label>
-
-          <label className="cursor-pointer">
-            <input type="radio" name="options" className="hidden peer" />
-            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
-          </label>
-
-          <label className="cursor-pointer">
-            <input type="radio" name="options" className="hidden peer" />
-            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
-          </label>
-
-          <label className="cursor-pointer">
-            <input type="radio" name="options" className="hidden peer" />
-            <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
-          </label>
+          {[...Array(Math.ceil(fone.length / limiteProdutos))].map((_, index) => (
+            <label key={index} className="cursor-pointer">
+              <input
+                type="radio"
+                name="options"
+                className="hidden peer"
+                onChange={() => handlePageChange(index)}
+                checked={page === index}
+              />
+              <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
+            </label>
+          ))}
         </div>
       </div>
       <div className="p-16">

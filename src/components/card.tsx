@@ -6,13 +6,19 @@ interface CardProps {
   productDescription: string;
   brandName: string;
   price: string;
+  link: string;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link }) => {
+
+  const redirecionar = () => {
+    window.location.href = link;
+  };
+
   return (
     <section className="mx-auto mt-16 mb-5">
       <div className="w-72 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border-2 border-navigateblue bg-white shadow-navigateblue">
-        <div className="relative flex justify-center items-center h-40 overflow-hidden">
+        <div className="relative flex justify-center items-center h-64 overflow-hidden">
           <img
             src={imageSrc}
             alt="Product"
@@ -39,7 +45,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
               Por {price}
             </p>
             <div className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen">
-              <button>Acessar</button>
+              <button onClick={redirecionar}>Acessar</button>
             </div>
           </div>
         </div>

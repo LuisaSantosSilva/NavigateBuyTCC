@@ -3,7 +3,7 @@ import scrapy
 class MlSpider(scrapy.Spider):
     name = 'ml'
 
-    start_urls = ['https://lista.mercadolivre.com.br/oleo-de-bebe']
+    start_urls = ['https://lista.mercadolivre.com.br/fone']
 
     def parse(self, response, **kwargs):
         for i in response.xpath('//li[@class="ui-search-layout__item shops__layout-item ui-search-layout__stack"]'):
