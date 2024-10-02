@@ -3,7 +3,7 @@ import scrapy
 class MlSpider(scrapy.Spider):
     name = 'ml'
 
-    start_urls = ['https://lista.mercadolivre.com.br/fone']
+    start_urls = ['https://lista.mercadolivre.com.br/oleo-de-bebe']
 
     def parse(self, response, **kwargs):
         for i in response.xpath('//li[@class="ui-search-layout__item shops__layout-item ui-search-layout__stack"]'):
@@ -18,7 +18,7 @@ class MlSpider(scrapy.Spider):
             promo_price = i.xpath('.//s[@class="andes-money-amount andes-money-amount--previous"]/span[@class="andes-money-amount__fraction"]/text()').get(default='').strip()
             promo_cents = i.xpath('.//s[@class="andes-money-amount andes-money-amount--previous"]/span[@class="andes-money-amount__cents"]/text()').get(default='').strip()
 
-            image = i.xpath('.//img[@class="ui-search-result-image__element"]/@href').get(default='').strip()
+            image = i.xpath('.//img[contains(@class, "ui-search-result-image__element")]/@src').get(default='').strip()
             title = i.xpath('.//a[@class="ui-search-link__title-card ui-search-link"]/text()').get(default='').strip()
             link = i.xpath('.//a[@class="ui-search-link__title-card ui-search-link"]/@href').get(default='').strip()
             stars = i.xpath('.//span[@class="ui-search-reviews__rating-number"]/text()').get(default='').strip()
