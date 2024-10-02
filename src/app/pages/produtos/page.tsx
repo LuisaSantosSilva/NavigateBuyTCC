@@ -9,18 +9,59 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const produtos: React.FC = () => {
   const [page, setPage] = useState(0);
+  const [opcaoFiltro, setOpcaoFiltro] = useState("relevancia");
+  const [textoFitro, setTextoFiltro] = useState("Filtrar por relevância");
 
   const limiteProdutos = 12;
   const produtosVisiveis = fone.slice(0, (page + 1) * limiteProdutos);
-  const produtos = fone.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
+
+  const precoTotal = (produto: { preço: any; centavos: any; título?: string; link?: string; estrelas?: string; avaliações?: string; imagem?: string; }) => {
+    const price = parseFloat(produto.preço.replace('.', ''));
+    const cents = produto.centavos ? parseFloat(`0.${produto.centavos}`) : 0;
+    return price + cents;
+  }
+
+  const sortedProdutos = [...fone].sort((a, b) => {
+    if (opcaoFiltro === "menor-preco") {
+      return precoTotal(a) - precoTotal(b);
+    }
+    if (opcaoFiltro === "maior-preco") {
+      return precoTotal(b) - precoTotal(a);
+    }
+    return 0;
+  });
+
+  const produtos = sortedProdutos.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
+
+  const voltarTopo = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handlePageChange = (selectedPage: number) => {
     setPage(selectedPage);
-    scrollToTop();
+    voltarTopo();
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const handleSortChange = (option: string) => {
+    setOpcaoFiltro(option);
+    setPage(0);
+    voltarTopo();
+
+    switch (option) {
+      case "menor-preco":
+        setTextoFiltro("Filtrar por menor preço");
+        break;
+      case "maior-preco":
+        setTextoFiltro("Filtrar por maior preço");
+        break;
+      case "avaliacao":
+        setTextoFiltro("Filtrar por melhor avaliação")
+        break;
+      case "relevância":
+      default:
+        setTextoFiltro("Filtrar por maior relevância");
+        break;
+    }
   };
 
   return (
@@ -36,29 +77,29 @@ const produtos: React.FC = () => {
         <Menu as="div" className="relative inline-block text-left max-[650px]:mt-5">
           <div>
             <MenuButton className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-blue-800">
-              Filtrar por maior relevância
+              {textoFitro}
               <ChevronDownIcon aria-hidden="true" className="ml-2 w-7 text-white" />
             </MenuButton>
           </div>
 
           <MenuItems transition className="absolute right-0 z-10 mt-2 w-full origin-top-right rounded-2xl text-lg text-center border-2 shadow-md shadow-navigateblue text-black bg-white border-navigateblue transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in">
             <MenuItem>
-              <a href="#" className="block py-2 data-[focus]:font-bold border-b border-navigateblue">
+              <a href="#" onClick={() => handleSortChange("relevancia")} className="block py-2 data-[focus]:font-bold border-b border-navigateblue">
                 Filtrar por maior relevância
               </a>
             </MenuItem>
             <MenuItem>
-              <a href="#" className="block py-2 data-[focus]:font-bold border-b border-navigateblue">
+              <a href="#" onClick={() => handleSortChange("menor-preco")} className="block py-2 data-[focus]:font-bold border-b border-navigateblue">
                 Filtrar por menor preço
               </a>
             </MenuItem>
             <MenuItem>
-              <a href="#" className="block py-2 data-[focus]:font-bold border-b border-navigateblue">
+              <a href="#" onClick={() => handleSortChange("maior-preco")} className="block py-2 data-[focus]:font-bold border-b border-navigateblue">
                 Filtrar por maior preço
               </a>
             </MenuItem>
             <MenuItem>
-              <a href="#" className="block py-2 data-[focus]:font-bold">
+              <a href="#" onClick={() => handleSortChange("avaliacao")} className="block py-2 data-[focus]:font-bold">
                 Filtrar por melhor avaliação
               </a>
             </MenuItem>
