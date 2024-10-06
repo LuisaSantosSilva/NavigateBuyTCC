@@ -1,7 +1,7 @@
 import scrapy
 
 class MrsSpider(scrapy.Spider):
-    name = 'mrs'
+    name = 'roupa'
     start_urls = [
         # Roupa
         "https://www.marisa.com.br/roupas/feminino/c/camisas",
