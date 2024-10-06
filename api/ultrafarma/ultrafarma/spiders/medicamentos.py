@@ -2,8 +2,13 @@ import scrapy
 
 
 class UfSpider(scrapy.Spider):
-    name = "uf"
-    start_urls = ["https://www.ultrafarma.com.br/categoria/medicamentos"]
+    name = "medicamentos"
+    start_urls = [
+        # Medicamentos e Bem-Estar
+        "https://www.ultrafarma.com.br/categoria/medicamentos",
+        "https://www.ultrafarma.com.br/categoria/genericos",
+        "https://www.ultrafarma.com.br/categoria/saude-e-bem-estar",
+        ]
 
     def parse(self, response, **kwargs):
         for i in response.xpath('//div[@class="product-wrapper in-stock"]'):
