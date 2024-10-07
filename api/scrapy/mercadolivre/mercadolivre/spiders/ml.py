@@ -484,26 +484,28 @@ class MlSpider(scrapy.Spider):
             image = i.xpath('.//img/@src').get(default='').strip()
             title = i.xpath('.//h2/a/text()').get(default='').strip()
             stars = i.xpath('.//span[@class="ui-search-reviews__rating-number"]/text()').get(default='0.0').strip()
-            avaliations = i.xpath('.//span[@class="ui-search-reviews__amount"]/text()').get(default='(0)').strip()
+            evaluations = i.xpath('.//span[@class="ui-search-reviews__amount"]/text()').get(default='(0)').strip()
 
-            if promo_price:
+            if promo_price and all([promo_price, title, link, stars, evaluations, image]):
                 total_price = f"{promo_price},{promo_cents}" if promo_cents else promo_price
                 item = {
                     'preço promocional': total_price,
                     'título': title,
                     'link': link,
+                    'loja': 'mercado livre',
                     'estrelas': stars,
-                    'avaliações': avaliations,
+                    'avaliações': evaluations,
                     'imagem': image
                 }
-            else:
+            elif all([price, title, link, stars, evaluations, image]):
                 total_price = f"{price},{cents}" if cents else price
                 item = {
                     'preço': total_price,
                     'título': title,
                     'link': link,
+                    'loja': 'mercado livre',
                     'estrelas': stars,
-                    'avaliações': avaliations,
+                    'avaliações': evaluations,
                     'imagem': image
                 }
 

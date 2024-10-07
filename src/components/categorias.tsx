@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { poppins } from "../app/fonts";      
 
-const Categorias: React.FC = () => {
+const Categorias: React.FC<{ onCategorySelect: (category: string) => void }> = ({ onCategorySelect }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -65,8 +65,8 @@ const Categorias: React.FC = () => {
           </div>
           <hr className="border border-black" />
           <ul className="py-2">
-            <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-green-700 rounded-lg cursor-pointer">
-              <a href="">Acessório</a>
+            <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-green-700 rounded-lg cursor-pointer" onClick={() => onCategorySelect('Acessorios')}>
+              Acessório
             </li>
             <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-[#0E023B] rounded-lg cursor-pointer">
               <a href="">Bebês</a>

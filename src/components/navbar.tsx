@@ -7,9 +7,14 @@ import { BiTransfer } from "react-icons/bi";
 import LogoAnimation from "../utils/logoAnimacao";
 import Categorias from "./Categorias";
 
-const navbar: React.FC = () => {
+interface NavbarProps {
+  onCategorySelect: (selectedCategory: string) => void;
+}
+
+const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
   const [isClick, setisClick] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
+  const [categoriaSelecionada, setcategoriaSelecionada] = useState('');
 
   const toggleNavbar = () => {
     setisClick(!isClick);
@@ -17,6 +22,11 @@ const navbar: React.FC = () => {
 
   const handleClick = () => {
     setShowComponent((prev) => !prev);
+  };
+
+  const handleCategoryChange = (category: string) => {
+    setcategoriaSelecionada(category);
+    setShowComponent(false);
   };
 
   return (
@@ -84,7 +94,7 @@ const navbar: React.FC = () => {
                   <span className="ml-2">Categorias</span>
                   <MdKeyboardArrowDown className="text-xl" />
                 </Link>
-                {showComponent && (<Categorias />)}
+                {showComponent && (<Categorias onCategorySelect={handleCategoryChange} />)}
                 <Link href="../pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <span className="hidden xl:inline">Buscar comentários de avalição</span>
                   <span className="inline xl:hidden">Avaliações</span>
