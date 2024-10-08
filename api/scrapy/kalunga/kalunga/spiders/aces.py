@@ -28,8 +28,6 @@ class KalungaSpider(scrapy.Spider):
                 product_image = i.xpath('.//source/@data-srcset').get()
 
             product_image = product_image.strip() if product_image else 'Imagem não disponível'
-
-            # Captura o preço e a avaliação do produto
             price_value = i.xpath('.//span[@class="blocoproduto__text blocoproduto__text--bold blocoproduto__price"]/text()').get(default='').strip()
             stars = i.xpath('.//span[@class="reviews__star_text ps-2"]/text()').get(default='').strip()
 
@@ -42,7 +40,6 @@ class KalungaSpider(scrapy.Spider):
                 'Imagem do Produto': product_image
             }
 
-        # Verificar se há uma próxima página e navegar
         next_page = response.xpath('//a[@rel="next"]/@href').get()
         if next_page:
             self.logger.info(f'Seguindo para a próxima página: {next_page}')

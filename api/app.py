@@ -1,7 +1,6 @@
 import os
 from flask import Flask
 from flask_cors import CORS
-from config import Config
 from models import db
 from routes import api
 
@@ -13,7 +12,6 @@ app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
 app.config['SESSION_COOKIE_SECURE'] = False  
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
-app.config.from_object(Config)
     
 # Inicializando o SQLAlchemy
 db.init_app(app)    

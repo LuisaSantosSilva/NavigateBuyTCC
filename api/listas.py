@@ -33,6 +33,10 @@ def juntar_arquivos(caminho_arquivo, saida_arquivo):
         print(f"Ocorreu um erro - {e}")
 
 project_root = os.path.dirname(os.path.abspath(__file__))
+listas_json_dir = os.path.join(project_root, 'listasJson')
+
+if not os.path.exists(listas_json_dir):
+    os.makedirs(listas_json_dir)
 
 # Categoria Acessorios
 acessorios_paths = [
@@ -46,7 +50,7 @@ acessorios_paths = [
     os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Acessorio.json')
 ]
 
-juntar_arquivos(acessorios_paths, os.path.join(project_root, 'Acessorios.json'))
+juntar_arquivos(acessorios_paths, os.path.join(listas_json_dir, 'Acessorios.json'))
 
 # Categoria Bebes
 bebes_paths = [
@@ -59,7 +63,7 @@ bebes_paths = [
     os.path.join(project_root, 'scrapy', 'oboticario', 'data', 'Bebes.json')
 ]
 
-juntar_arquivos(bebes_paths, os.path.join(project_root, 'Bebes.json'))
+juntar_arquivos(bebes_paths, os.path.join(listas_json_dir, 'Bebes.json'))
 
 # Categoria Beleza
 beleza_paths = [
@@ -71,7 +75,7 @@ beleza_paths = [
     os.path.join(project_root, 'scrapy', 'ultrafarma', 'data', 'beleza.json')
 ]
 
-juntar_arquivos(beleza_paths, os.path.join(project_root, 'Beleza.json'))
+juntar_arquivos(beleza_paths, os.path.join(listas_json_dir, 'Beleza.json'))
 
 # Categoria Decoracao
 decoracao_paths = [
@@ -84,7 +88,7 @@ decoracao_paths = [
     os.path.join(project_root, 'scrapy', 'marisa', 'data', 'decoracao.json')
 ]    
 
-juntar_arquivos(decoracao_paths, os.path.join(project_root, 'Decoracao.json'))
+juntar_arquivos(decoracao_paths, os.path.join(listas_json_dir, 'Decoracao.json'))
 
 # Categoria Eletrodomestico
 eletrodomestico_paths = [
@@ -96,7 +100,7 @@ eletrodomestico_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Eletrodomestico.json')
 ]
 
-juntar_arquivos(eletrodomestico_paths, os.path.join(project_root, 'Eletrodomesticos.json'))
+juntar_arquivos(eletrodomestico_paths, os.path.join(listas_json_dir, 'Eletrodomesticos.json'))
 
 # Categoria Esporte
 esporte_paths = [
@@ -108,7 +112,7 @@ esporte_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Esporte.json')
 ]
 
-juntar_arquivos(esporte_paths, os.path.join(project_root, 'Esporte.json'))
+juntar_arquivos(esporte_paths, os.path.join(listas_json_dir, 'Esporte.json'))
 
 # Categoria Informatica
 informatica_paths = [
@@ -120,7 +124,7 @@ informatica_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Informatica.json')
 ]    
 
-juntar_arquivos(informatica_paths, os.path.join(project_root, 'Informatica.json'))
+juntar_arquivos(informatica_paths, os.path.join(listas_json_dir, 'Informatica.json'))
 
 # Categoria Lazer
 lazer_paths = [
@@ -132,7 +136,7 @@ lazer_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Lazer.json')
 ]
 
-juntar_arquivos(lazer_paths, os.path.join(project_root, 'Lazer.json'))
+juntar_arquivos(lazer_paths, os.path.join(listas_json_dir, 'Lazer.json'))
 
 # Categoria Mercado e Farmacia
 mercadoFarmacia_paths = [
@@ -145,7 +149,7 @@ mercadoFarmacia_paths = [
     os.path.join(project_root, 'scrapy', 'ultrafarma', 'data', 'medicamentos.json')    
 ]
 
-juntar_arquivos(mercadoFarmacia_paths, os.path.join(project_root, 'MercadoFarmacia.json'))
+juntar_arquivos(mercadoFarmacia_paths, os.path.join(listas_json_dir, 'MercadoFarmacia.json'))
 
 # Categoria Papelaria
 papelaria_paths = [
@@ -157,7 +161,7 @@ papelaria_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Papelaria.json')
 ]
 
-juntar_arquivos(papelaria_paths, os.path.join(project_root, 'Papelaria.json'))
+juntar_arquivos(papelaria_paths, os.path.join(listas_json_dir, 'Papelaria.json'))
 
 # Categoria Pets
 pets_paths = [
@@ -168,7 +172,7 @@ pets_paths = [
     os.path.join(project_root, 'scrapy', 'oboticario', 'data', 'Pets.json')
 ]    
 
-juntar_arquivos(pets_paths, os.path.join(project_root, 'Pets.json'))
+juntar_arquivos(pets_paths, os.path.join(listas_json_dir, 'Pets.json'))
 
 # Categoria Roupas
 roupas_paths = [
@@ -182,7 +186,7 @@ roupas_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Roupa.json')
 ]
 
-juntar_arquivos(roupas_paths, os.path.join(project_root, 'Roupas.json'))
+juntar_arquivos(roupas_paths, os.path.join(listas_json_dir, 'Roupas.json'))
 
 # Categoria Sapato
 sapato_paths = [
@@ -194,4 +198,4 @@ sapato_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Sapato.json')
 ]
 
-juntar_arquivos(sapato_paths, os.path.join(project_root, 'Sapato.json'))
+juntar_arquivos(sapato_paths, os.path.join(listas_json_dir, 'Sapato.json'))
