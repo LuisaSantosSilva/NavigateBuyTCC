@@ -14,7 +14,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes, estrelas }) => {
 
   const redirecionar = () => {
-    window.location.href = link;
+    window.open(link, '_blank');
   };
 
   return (

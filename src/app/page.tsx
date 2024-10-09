@@ -23,7 +23,6 @@ const Home = () => {
   const [showArrows, setShowArrows] = useState(false);
   const [isScrollable, setIsScrollable] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-  const [page, setPage] = useState(0);
   const [categoria, setCategoria] = useState("Acessórios");
 
   const updateScrollState = () => {
