@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import "./cadastro.css";
 import Modal from '@/components/Modal';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MdKeyboardArrowLeft } from "react-icons/md";

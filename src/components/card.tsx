@@ -44,7 +44,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
             Ver avaliações de consumidores
           </a>
           <p className="text-xl font-semibold cursor-auto mt-1 text-black">
-            Por {price}
+            Por R$ {price}
           </p>
           <div className="flex mb-2">
             <p className="mt-2">{avaliacoes} avaliação(ções) do site</p>

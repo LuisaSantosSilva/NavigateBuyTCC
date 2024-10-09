@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 interface Produto {
   título: string;
@@ -24,7 +25,7 @@ interface ProdutosJson {
 const Categorias: React.FC = () => {
   const [page, setPage] = useState(0);
   const [opcaoFiltro, setOpcaoFiltro] = useState("relevância");
-  const [textoFiltro, setTextoFiltro] = useState("Filtrar por relevância");
+  const [textoFiltro, setTextoFiltro] = useState("Selecione o filtro desejado");
   const [categoria, setCategoria] = useState("Acessórios");
   const params = useParams();
 
@@ -64,20 +65,42 @@ const Categorias: React.FC = () => {
     if (categoriaParam) {
       setCategoria(decodeURIComponent(categoriaParam));
     }
-  }, [params]);  
+  }, [params]);
 
   const produtosDaCategoria = produtosJson[categoria] || [];
 
   const filtrarProdutos = (produtos: Produto[], filtro: string) => {
+    const converterPrecoParaNumero = (preco: string) => {
+      let precoLimpo = preco.replace(/\./g, '').replace(',', '.');
+      return parseFloat(precoLimpo);
+    };
+
+    const converterAvaliacoesParaNumero = (avaliacao: string) => {
+      return parseInt(avaliacao.replace(/\./g, '').replace(',', ''), 10);
+    };
+
+    const ordenarPorEstrelas = (produtos: Produto[]) => {
+      return [...produtos].sort((a, b) => parseFloat(a.estrelas) - parseFloat(b.estrelas));
+    };
+
+    const ordenarPorAvaliacoes = (produtos: Produto[]) => {
+      return [...produtos].sort((a, b) => converterAvaliacoesParaNumero(a.avaliações) - converterAvaliacoesParaNumero(b.avaliações));
+    };
+
     switch (filtro) {
-      case "precoCrescente":
-        return [...produtos].sort((a, b) => parseFloat(a.preço) - parseFloat(b.preço));
-      case "precoDecrescente":
-        return [...produtos].sort((a, b) => parseFloat(b.preço) - parseFloat(a.preço));
+      case "menor-preco":
+        return [...produtos].sort((a, b) => converterPrecoParaNumero(a.preço) - converterPrecoParaNumero(b.preço));
+      case "maior-preco":
+        return [...produtos].sort((a, b) => converterPrecoParaNumero(b.preço) - converterPrecoParaNumero(a.preço));
+      case "relevancia":
+        return ordenarPorAvaliacoes(produtos);
+      case "estrelas":
+        return ordenarPorEstrelas(produtos);
       default:
         return produtos;
     }
   };
+
 
   const produtosFiltrados = filtrarProdutos(produtosDaCategoria, opcaoFiltro);
   const produtosVisiveis = produtosFiltrados.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
@@ -108,7 +131,7 @@ const Categorias: React.FC = () => {
       case "avaliacao":
         setTextoFiltro("Filtrar por melhor avaliação");
         break;
-      case "relevância":
+      case "relevancia":
       default:
         setTextoFiltro("Filtrar por maior relevância");
         break;
@@ -203,19 +226,42 @@ const Categorias: React.FC = () => {
         )}
       </div>
       <div className="flex mt-10 justify-center items-center">
-        <div className="flex space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
-          {[...Array(Math.ceil(produtosFiltrados.length / limiteProdutos))].map((_, index) => (
-            <label key={index} className="cursor-pointer">
-              <input
-                type="radio"
-                name="options"
-                className="hidden peer"
-                onChange={() => handlePageChange(index)}
-                checked={page === index}
-              />
-              <div className="w-2 h-2 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
-            </label>
-          ))}
+        <div className="flex items-center space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
+          {page > 0 && (
+            <button onClick={() => handlePageChange(page - 1)} className="text-white">
+              <MdKeyboardArrowLeft size={20} color="black" className="bg-white rounded-full ring-2"/>
+            </button>
+          )}
+          {Array.from({ length: Math.ceil(produtosFiltrados.length / limiteProdutos) }).map((_, index) => {
+            if (
+              index < 5 ||
+              index === page ||
+              index >= Math.ceil(produtosFiltrados.length / limiteProdutos) - 4
+            ) {
+              return (
+                <label key={index} className="cursor-pointer flex items-center">
+                  <input
+                    type="radio"
+                    name="options"
+                    className="hidden peer"
+                    onChange={() => handlePageChange(index)}
+                    checked={page === index}
+                  />
+                  <div className="w-4 h-4 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
+                </label>
+              );
+            } else if (index === 5 && page > 5) {
+              return <span key={index} className="text-white flex items-center">...</span>;
+            } else if (index === Math.ceil(produtosFiltrados.length / limiteProdutos) - 6 && page < Math.ceil(produtosFiltrados.length / limiteProdutos) - 6) {
+              return <span key={index} className="text-white flex items-center">...</span>;
+            }
+            return null;
+          })}
+          {page < Math.ceil(produtosFiltrados.length / limiteProdutos) - 1 && (
+            <button onClick={() => handlePageChange(page + 1)} className="text-white flex items-center">
+              <MdKeyboardArrowRight size={20} color="black" className="bg-white rounded-full ring-2"/>
+            </button>
+          )}
         </div>
       </div>
       <div className="p-16">
