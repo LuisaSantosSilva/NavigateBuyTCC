@@ -8,6 +8,7 @@ import { MdArrowForwardIos, MdArrowBackIosNew, MdArrowDropDown } from "react-ico
 import { poppins } from "@/app/fonts";
 import React, { useState } from "react";
 
+
 const formatNumber = (num: number) => {
     return new Intl.NumberFormat("pt-BR", {
         minimumFractionDigits: 2,
@@ -16,18 +17,33 @@ const formatNumber = (num: number) => {
 };
 
 const sites = [
-    { id: 1, title: 'SHEIN', desc: 'A Shein oferece produtos internacionais no Brasil com diversas promoções', url: 'https://pt.shein.com/' },
-    { id: 2, title: 'Amazon', desc: 'A Amazon oferece produtos internacionais no Brasil com promoções como o prime day', url: 'https://www.amazon.com.br/' },
-    { id: 3, title: 'Walmart', desc: 'Para que possa comparar preços, o Walmart fornece seus preços em dólar', url: 'https://www.walmart.com/' },
+    { id: 1, title: 'Shein', desc: 'A Shein oferece produtos internacionais no Brasil com diversas promoções', continente: 'Ásia', moeda: 'Multimoedas', url: 'https://pt.shein.com/' },
+    { id: 2, title: 'Amazon', desc: 'A Amazon oferece produtos internacionais no Brasil com promoções como o prime day', continente: 'América do Norte', moeda: 'Multimoedas', url: 'https://www.amazon.com.br/' },
+    { id: 3, title: 'Walmart', desc: 'O Walmart oferece preços em dólar, permitindo que você compare preços facilmente', continente: 'América do Norte', moeda: 'Multimoedas', url: 'https://www.walmart.com/' },
 ]
 
+
+
 const Conversoes = () => {
+
     const [amount, setAmount] = useState<number>(0);
     const [fromCurrency, setFromCurrency] = useState<string>("USD");
     const [toCurrency] = useState<string>("BRL");
     const [result, setResult] = useState<number | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [categoria, setCategoria] = useState("Acessórios");
+
+    const calculateImportTax = ( ) => {
+        let tax = 0;
+
+        if (amount <= 50) {
+            tax = amount * 0.20;
+        } else if (amount > 50 && amount <= 3000) {
+            tax = (amount * 0.60) - 20;
+        }
+
+        return tax > 0 ? tax : 0;
+    };
 
     const handleConversion = async () => {
         if (isNaN(amount) || amount <= 0) {
@@ -42,22 +58,25 @@ const Conversoes = () => {
             const data = await response.json();
             const rate = data[`${fromCurrency}${toCurrency}`].bid;
             setResult(amount * parseFloat(rate));
+            calculateImportTax(); 
             setError(null);
         } catch (error) {
             setError("Erro ao buscar dados de conversão.");
             setResult(null);
         }
-    };   
+
+    };
+
 
     return (
         <main>
-            <Navbar onCategorySelect={setCategoria} />
+        <Navbar onCategorySelect={setCategoria} />   
             <div className="text-center select-none">
                 <div className="mt-20">
                     <p className={`font-bold text-4xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
-                        Compare e analise o valor dos
-                        <span className="text-navigategreen"> produtos internacionais</span><br />
-                        <span className="text-navigateblue"> em tempo real</span> e calcule suas taxas
+                        Compare e analise o valor dos 
+                        <span className="text-navigateblue"> produtos </span>internacionais<br />
+                        <span className="text-navigategreen"> em tempo real</span> e calcule taxas
                     </p>
                 </div>
                 <div className="flex justify-center items-center mt-16">
@@ -65,24 +84,37 @@ const Conversoes = () => {
                         <div className="text-xl">
                             <p>Selecione a moeda do produto pela qual deseja converter:</p>
                         </div>
-                        <Menu as="div" className="relative inline-block text-left">
+                        
+                        <Menu as="div" className="relative inline-block text-left"> 
                             <MenuButton className="inline-flex justify-center rounded-3xl px-8 py-4 text-lg cursor-default bg-navigateblue text-white max-[450px]:px-3 max-[400px]:py-2">
                                 <p>
-                                    {fromCurrency === "USD"
-                                        ? "Dólar Americano"
-                                        : "Euros"}
+                                    {(() => {
+                                        switch (fromCurrency) {
+                                            case "USD":
+                                                return "Dólar Americano";
+                                            case "EUR":
+                                                return "Euros";
+                                            case "GBP":
+                                                return "Libra Esterlina"; 
+                                            case "JPY":
+                                                return "Iene Japonês";
+                                            case "CHF":
+                                                return " Franco Suíço";
+                                            default:
+                                                return "Moeda Desconhecida"; 
+                                        }
+                                    })()}
                                 </p>
                                 <MdArrowDropDown aria-hidden="true" className="h-5 w-5 mt-1 ml-1 text-white" />
                             </MenuButton>
-                            <MenuItems className="absolute mt-2 w-48 origin-top-left bg-white divide-y divide-gray-400 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <MenuItems className="absolute mt-2 w-48 origin-top-left bg-white divide-y divide-gray-400 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                                 <MenuItem>
                                     {({ active }) => (
                                         <button
                                             onClick={() => setFromCurrency("USD")}
-                                            className={`${active ? "bg-navigateblue text-white" : "text-black"
-                                                } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                            className={`${active ? "bg-navigateblue text-white" : "text-black"} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                         >
-                                            Dólares (USD)
+                                            Dólar Americano (USD)
                                         </button>
                                     )}
                                 </MenuItem>
@@ -90,15 +122,45 @@ const Conversoes = () => {
                                     {({ active }) => (
                                         <button
                                             onClick={() => setFromCurrency("EUR")}
-                                            className={`${active ? "bg-navigateblue text-white" : "text-black"
-                                                } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                            className={`${active ? "bg-navigateblue text-white" : "text-black"} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                         >
                                             Euros (EUR)
                                         </button>
                                     )}
                                 </MenuItem>
+                                <MenuItem>
+                                    {({ active }) => (
+                                        <button
+                                            onClick={() => setFromCurrency("GBP")}
+                                            className={`${active ? "bg-navigateblue text-white" : "text-black"} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                        >
+                                            Libra Esterlina (GBP)
+                                        </button>
+                                    )}
+                                </MenuItem>
+                                <MenuItem>
+                                    {({ active }) => (
+                                        <button
+                                            onClick={() => setFromCurrency("JPY")}
+                                            className={`${active ? "bg-navigateblue text-white" : "text-black"} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                        >
+                                            Iene Japonês (JPY)
+                                        </button>
+                                    )}
+                                </MenuItem>
+                                <MenuItem>
+                                    {({ active }) => (
+                                        <button
+                                            onClick={() => setFromCurrency("CHF")}
+                                            className={`${active ? "bg-navigateblue text-white" : "text-black"} group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                        >
+                                            Franco Suíço (CHF)
+                                        </button>
+                                    )}
+                                </MenuItem>
                             </MenuItems>
                         </Menu>
+
                     </div>
                 </div>
                 <div className="flex justify-center text-xl mt-12">
@@ -130,27 +192,70 @@ const Conversoes = () => {
                 >
                     Converter
                 </button>
-                {result !== null && (
-                    <div className="flex justify-center mb-10">
-                        <p className="text-2xl">
-                            <span className="font-bold">Resultado: </span>R${" "}
-                            {result !== null ? formatNumber(result) : "0,00"}
-                        </p>
-                    </div>
-                )}
-                {error && (
-                    <div className="flex justify-center">
-                        <p className="text-xl text-red-500">{error}</p>
-                    </div>
-                )}
-                <div className="flex justify-start ml-32 max-[450px]:justify-center">
+
+            {result !== null && (
+                <div className="flex flex-col items-center mb-10">
+                    <p className="text-2xl">
+                        <span className="font-bold">Resultado da conversão: </span>R${" "}
+                        {formatNumber(result)}
+                    </p>
+                    <p className={fromCurrency === "USD" ? "text-2xl" : "text-lg"}>
+                    <span className="font-bold">Valor aproximado com taxa de importação: </span>
+                    {fromCurrency === "USD" 
+                        ? `R$ ${formatNumber(result + calculateImportTax())}` 
+                        : "No Brasil o cálculo de importação precisa ser feito com dólar americano (USD)."
+                    }
+                </p>
+                    <p className="mr-6 mt-2">(sem o acréscimo do custo de frete e seguro até a entrada no Brasil no aduaneiro)</p>
+                </div>
+            )}
+            {error && (
+                <div className="flex justify-center">
+                    <p className="text-xl text-red-500">{error}</p>
+                </div>
+            )}
+
+                <Animated
+                    initial={{ opacity: 0, y: 10 }} 
+                    animate={{ opacity: 1, y: 0 }}   
+                    transition={{ duration: 1 }} >
+                        
+                        <div className="mt-20">
+                            <p className={`font-bold text-3xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
+                                Quer saber mais sobre
+                                <span className="text-navigateblue"> taxas</span> de
+                                <span className="text-navigategreen"> importação </span><br />
+                                e como são calculadas?
+                            </p>
+                        </div>
+
+                        <a
+                        href="https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/preciso-pagar-impostos-nas-compras-internacionais/quanto-pagarei-de-imposto#:~:text=A%20base%20de%20c%C3%A1lculo%20do,valor%20do%20seguro%20do%20transporte."
+                        target="_blank" rel="noopener noreferrer">
+                            <button
+                                className="inline-flex justify-center mt-4 mb-4 rounded-3xl bg-navigategreen px-6 py-2 text-xl font-semibold text-white hover:bg-green-600"
+                            >Acessar</button>
+                        </a>
+
+                        <div className="flex justify-center">
+                            <img
+                                src="/img/globo.png"
+                                alt="imagem globo terrestre"
+                                className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl"
+                            />
+                        </div>
+                </Animated>
+
+                <div className='relative flex items-center mx-20'>
                     <Animated
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}>
-                        <p className="text-left text-lg md:text-xl lg:text-2xl mx-4 ml-12">Principais lojas internacionais online</p>
+
+                            <h2 className={`text-left text-lg md:text-xl lg:text-2xl mb-2 ${poppins.className}`}>Principais lojas internacionais online </h2>
                     </Animated>
-                </div>
+                    </div>
+
                 <div className="flex flex-col xl:flex-row items-center justify-center space-x-4 md:space-x-8 px-16 md:px-32 py-4 xl:py-8 mb-10">
                     <MdArrowBackIosNew className="text-3xl md:text-4xl cursor-pointer hidden xl:block"/>
                     {sites.map((site) => (
@@ -159,11 +264,21 @@ const Conversoes = () => {
                             className="rounded-2xl border shadow-lg text-2xl p-4 mt-10 md:p-8 mb-6 md:mb-0 border-navigategreen shadow-navigategreen bg-white"
                         >
                             <p className="text-center font-bold mb-6">{site.title}</p>
-                            <div className="text-center mb-6">
-                                <p>{site.desc}</p>
+
+                            <div className="text-center mb-8">
+                                <p className="text-lg">{site.desc}</p> 
                             </div>
-                            <Link href={site.url} className="text-gray-700 hover:text-black block text-center font-semibold">
-                                Acessar
+                            <div className="text-left mb-6">
+                                <p className="text-base">Continente de origem: </p>
+                                <p className="text-base font-semibold">{site.continente}</p>
+                            </div>
+                            <div className="text-left mb-6">
+                                <p className="text-base">Moeda da loja: </p>
+                                <p className="text-base font-semibold">{site.moeda}</p>
+                            </div>
+
+                            <Link href={site.url} className="text-gray-700 hover:text-black block text-center">
+                                <p className="text-lg">Acessar</p> 
                             </Link>
                         </div>
                     ))}
