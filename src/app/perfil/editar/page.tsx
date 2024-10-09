@@ -13,6 +13,7 @@ const Editar = () => {
   const [currentUsername, setCurrentUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [categoria, setCategoria] = useState("Acessórios");
 
   // Efeito para receber dados do perfil
   useEffect(() => {
@@ -93,7 +94,7 @@ const Editar = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <Navbar onCategorySelect={setCategoria}/>
       <header className="flex-grow">
         <ToastContainer />
         <h2 className={`text-center font-extrabold mt-20 text-4xl ${poppins.className}`}>

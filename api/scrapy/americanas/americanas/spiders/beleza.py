@@ -29,7 +29,7 @@ class MlSpider(scrapy.Spider):
             #stars = len(i.xpath('.//div[contains(@class, "src__FilledStars")]'))
 
             if link and not link.startswith(('http://', 'https://')):
-                link = f'https://www.americanas.com.br/{link}'
+                link = f'https://www.americanas.com.br{link}'
 
             yield {
                 'preço': i.xpath('.//span[contains(@class, "styles__PromotionalPrice")]/text()').get(default='').strip(),

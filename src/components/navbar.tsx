@@ -1,12 +1,54 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import LogoAnimation from "../utils/logoAnimacao";
 import Categorias from "./Categorias";
+
+interface Produto {
+  título: string;
+}
+
+interface ProdutosJson {
+  [key: string]: Produto[];
+}
+
+const loadProducts = async () => {
+  const acessoriosData: Produto[] = await import('@/../api/listasJson/Acessorios.json');
+  const bebesData: Produto[] = await import('@/../api/listasJson/Bebes.json');
+  const belezaData: Produto[] = await import('@/../api/listasJson/Beleza.json');
+  const decoracaoData: Produto[] = await import('@/../api/listasJson/Decoracao.json');
+  const eletroData: Produto[] = await import('@/../api/listasJson/Eletrodomesticos.json');
+  const esporteData: Produto[] = await import('@/../api/listasJson/Esporte.json');
+  const infoData: Produto[] = await import('@/../api/listasJson/Informatica.json');
+  const lazerData: Produto[] = await import('@/../api/listasJson/Lazer.json');
+  const mercadoData: Produto[] = await import('@/../api/listasJson/MercadoFarmacia.json');
+  const papelariaData: Produto[] = await import('@/../api/listasJson/Papelaria.json');
+  const petsData: Produto[] = await import('@/../api/listasJson/Pets.json');
+  const roupasData: Produto[] = await import('@/../api/listasJson/Roupas.json');
+  const sapatoData: Produto[] = await import('@/../api/listasJson/Sapato.json');
+
+  const produtosJson: ProdutosJson = {
+    Acessórios: acessoriosData,
+    Bebês: bebesData,
+    Beleza: belezaData,
+    Decoração: decoracaoData,
+    Eletrodomésticos: eletroData,
+    Esporte: esporteData,
+    Informática: infoData,
+    Lazer: lazerData,
+    "Mercado e Farmácia": mercadoData,
+    Papelaria: papelariaData,
+    Pets: petsData,
+    Roupas: roupasData,
+    Sapato: sapatoData
+  };
+
+  return produtosJson;
+}
 
 interface NavbarProps {
   onCategorySelect: (selectedCategory: string) => void;
@@ -15,10 +57,18 @@ interface NavbarProps {
 const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
   const [isClick, setisClick] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const [categoriaSelecionada, setcategoriaSelecionada] = useState('');
 
   const router = useRouter();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const produtos = await loadProducts();
+    };
+    fetchData();
+  }, []);
+  
   const toggleNavbar = () => {
     setisClick(!isClick);
   };
@@ -32,6 +82,11 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
     setShowComponent(false);
   
     router.push(`/produtos/${encodeURIComponent(category)}`);
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push(`/pesquisa?query=${encodeURIComponent(searchTerm)}`);
   };
 
   return (
@@ -65,11 +120,13 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
               </LogoAnimation>
             </Link>
           </div>
-          <form className="relative flex flex-1 max-w-lg mx-auto max-lg:hidden">
+          <form onSubmit={handleSearchSubmit} className="relative flex flex-1 max-w-lg mx-auto max-lg:hidden">
             <div className="flex flex-1 md:pr-16 pr-10 rounded-full text-white bg-navigategreen">
               <input
                 type="search"
                 placeholder="Buscar produto"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full p-3 pl-6 rounded-full border border-navigategreen text-black outline-navigategreen placeholder-black"
               />
               <button className="absolute right-2 top-1/2 -translate-y-1/2 p-3 flex justify-center text-2xl rounded-full bg-navigategreen hover:bg-green-900">

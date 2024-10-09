@@ -1,5 +1,4 @@
 import React from "react";
-import { PiStar } from "react-icons/pi";
 
 interface CardProps {
   imageSrc: string;
@@ -48,7 +47,12 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           </p>
           <div className="flex mb-2">
             <p className="mt-2">{avaliacoes} avaliação(ções) do site</p>
-            <p className="mt-2 ml-20">{estrelas}</p><PiStar color="yellow" size={40}/>
+            {parseFloat(estrelas) > 0.0 && (
+              <>
+                <p className="mt-2 ml-20">{estrelas}</p>
+                <img src="../img/Star.png" className="py-1" alt="Estrela" />
+              </>
+            )}
           </div>  
           <button className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={redirecionar}>Acessar</button>
         </div>
