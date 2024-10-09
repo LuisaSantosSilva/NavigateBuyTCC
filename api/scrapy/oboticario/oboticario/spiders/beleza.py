@@ -56,11 +56,11 @@ class ObtSpider(scrapy.Spider):
                 continue  
 
             yield {
-                'Loja': 'Oboticario',
-                'Preço': price_value,
-                'Título': product_title,
-                'Link do Produto': product_link,
-                'Imagem do Produto': product_image if product_image else 'sem img'
+                'loja': 'Oboticario',
+                'preço': price_value,
+                'título': product_title,
+                'link': product_link,
+                'imagem': product_image if product_image else 'sem img'
             }
 
         next_page = response.xpath('//a[contains(@class, "pagination-next")]/@href').get()

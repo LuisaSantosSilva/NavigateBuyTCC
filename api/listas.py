@@ -46,8 +46,9 @@ acessorios_paths = [
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Acessorios.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Acessorio.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Acessorio.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Acessorio.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Acessorio.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Acessorio.json')
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Acessorio.json')
 ]
 
 juntar_arquivos(acessorios_paths, os.path.join(listas_json_dir, 'Acessorios.json'))
@@ -56,7 +57,7 @@ juntar_arquivos(acessorios_paths, os.path.join(listas_json_dir, 'Acessorios.json
 bebes_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'bebes.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Bebes.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Bebes.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Bebes.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Bebes.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Bebes.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Bebes.json'),
@@ -69,6 +70,7 @@ juntar_arquivos(bebes_paths, os.path.join(listas_json_dir, 'Bebes.json'))
 beleza_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'beleza.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Beleza.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Beleza.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Beleza.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Beleza.json'),
     os.path.join(project_root, 'scrapy', 'oboticario', 'data', 'Beleza.json'),
@@ -81,7 +83,7 @@ juntar_arquivos(beleza_paths, os.path.join(listas_json_dir, 'Beleza.json'))
 decoracao_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'decoracao.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Decoracao.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Decoracao.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Decoracao.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Decoracao.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Decoracao.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Decoracao.json'),
@@ -94,7 +96,6 @@ juntar_arquivos(decoracao_paths, os.path.join(listas_json_dir, 'Decoracao.json')
 eletrodomestico_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'eletrodomestico.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Eletrodomestico.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Eletrodomestico.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Eletrodomestico.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Eletrodomestico.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Eletrodomestico.json')
@@ -106,7 +107,6 @@ juntar_arquivos(eletrodomestico_paths, os.path.join(listas_json_dir, 'Eletrodome
 esporte_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'esporte.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Esporte.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Esporte.json'),
     os.path.join(project_root, 'scrapy', 'centauro', 'data', 'esporte.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Esporte.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Esporte.json')
@@ -118,7 +118,6 @@ juntar_arquivos(esporte_paths, os.path.join(listas_json_dir, 'Esporte.json'))
 informatica_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'informatica.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Informatica.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Informatica.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Informatica.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Informatica.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Informatica.json')
@@ -130,7 +129,6 @@ juntar_arquivos(informatica_paths, os.path.join(listas_json_dir, 'Informatica.js
 lazer_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'lazer.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Lazer.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Lazer.json'),
     os.path.join(project_root, 'scrapy', 'centauro', 'data', 'lazer.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Lazer.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Lazer.json')
@@ -142,7 +140,8 @@ juntar_arquivos(lazer_paths, os.path.join(listas_json_dir, 'Lazer.json'))
 mercadoFarmacia_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'MF.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Mercado_Farmacia.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Mercado_Farmacia.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Mercado_Farmacia.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Mercado_Farmacia.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Mercado_Farmacia.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Mercado_Farmacia.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Mercado_Farmacia.json'),
@@ -155,7 +154,6 @@ juntar_arquivos(mercadoFarmacia_paths, os.path.join(listas_json_dir, 'MercadoFar
 papelaria_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'papelaria.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Papelaria.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Papelaria.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Papelaria.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Papelaria.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Papelaria.json')
@@ -177,8 +175,8 @@ juntar_arquivos(pets_paths, os.path.join(listas_json_dir, 'Pets.json'))
 # Categoria Roupas
 roupas_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'roupa.json'),
-    os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Roupas.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Roupas.json'),
+    os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Roupa.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Roupas.json'),
     os.path.join(project_root, 'scrapy', 'centauro', 'data', 'roupa.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Roupas.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Roupas.json'),
@@ -192,7 +190,7 @@ juntar_arquivos(roupas_paths, os.path.join(listas_json_dir, 'Roupas.json'))
 sapato_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'sapato.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Sapato.json'),
-    os.path.join(project_root, 'scrapy', 'CEA', 'data', 'Sapato.json'),
+    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Sapato.json'),
     os.path.join(project_root, 'scrapy', 'centauro', 'data', 'sapato.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Sapato.json'),
     os.path.join(project_root, 'scrapy', 'mercadolivre', 'data', 'Sapato.json')

@@ -7,9 +7,10 @@ interface CardProps {
   brandName: string;
   price: string;
   link: string;
+  avaliacoes: string;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes }) => {
 
   const redirecionar = () => {
     window.location.href = link;
@@ -17,7 +18,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
 
   return (
     <section className="mx-auto mt-16 mb-5">
-      <div className="w-72 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border-2 border-navigateblue bg-white shadow-navigateblue">
+      <div className="w-96 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border-2 border-navigateblue bg-white shadow-navigateblue">
         <div className="relative flex justify-center items-center h-64 overflow-hidden">
           <img
             src={imageSrc}
@@ -31,23 +32,19 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           />
         </div>
         <div className="py-2 px-4 h-56 flex flex-col justify-between">
-            <p className="text-base text-black block hover:overflow-scroll overflow-hidden">
-              {productDescription}
-            </p>
-            <span className="text-black font-bold uppercase text-base block mt-2">
-              {brandName}
-            </span>
-          <a href="#" className="text-sm underline block mt-1">
+          <p className="text-lg text-black block hover:overflow-scroll overflow-hidden">
+            {productDescription}
+          </p>
+          <span className="text-black font-bold uppercase text-lg block mt-2">
+            {brandName}
+          </span>
+          <a href="#" className="text-base underline block mt-1">
             Ver avaliações de consumidores
           </a>
-          <div>
-            <p className="text-lg font-semibold cursor-auto my-3 text-black">
-              Por {price}
-            </p>
-            <div className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen">
-              <button onClick={redirecionar}>Acessar</button>
-            </div>
-          </div>
+          <p className="text-xl font-semibold cursor-auto my-3 text-black">
+            Por {price}
+          </p>
+          <button className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={redirecionar}>Acessar</button>
         </div>
       </div>
     </section>

@@ -46,23 +46,23 @@ class MagaluSpider(scrapy.Spider):
 
             if price_value:
                 yield {
-                    'Loja': 'Magazine Luiza',
-                    'Preço com Desconto': price_value,
-                    'Título': product_title,
-                    'Link do Produto': product_link,
-                    'Estrelas': stars,
-                    'Avaliações': evaluations,
-                    'Imagem do Produto': product_image
+                    'loja': 'Magazine Luiza',
+                    'preço': price_value,
+                    'título': product_title,
+                    'link': product_link,
+                    'estrelas': stars,
+                    'avaliações': evaluations,
+                    'imagem': product_image
                 }
             else:
                 yield {
-                    'Loja': 'Magazine Luiza',
-                    'Preço Original': price_original,
-                    'Título': product_title,
-                    'Link do Produto': product_link,
-                    'Estrelas': stars,
-                    'Avaliações': evaluations,
-                    'Imagem do Produto': product_image
+                    'loja': 'Magazine Luiza',
+                    'preço': price_original,
+                    'título': product_title,
+                    'link': product_link,
+                    'estrelas': stars,
+                    'avaliações': evaluations,
+                    'imagem': product_image
                 }
 
         next_page = response.xpath('//a[@data-testid="arrow-right"]/@href').get()

@@ -57,13 +57,13 @@ class CasasBSpider(scrapy.Spider):
         price_value = self.clean_price(price_text)
 
         yield {
-            'Loja': 'Casas Bahia',
-            'Preço do produto': price_value,
-            'Título': response.meta['title'],
-            'Link do Produto': response.url,
-            'Estrelas': response.meta['stars'],
-            'Avaliações': response.meta['avaliation'],
-            'Imagem do Produto': response.meta['image']
+            'loja': 'Casas Bahia',
+            'preço': price_value,
+            'título': response.meta['title'],
+            'link': response.url,
+            'estrelas': response.meta['stars'],
+            'avaliações': response.meta['avaliation'],
+            'imagem': response.meta['image']
         }
 
     def clean_price(self, price_str):

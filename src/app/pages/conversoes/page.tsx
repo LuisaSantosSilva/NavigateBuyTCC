@@ -27,6 +27,7 @@ const Conversoes = () => {
     const [toCurrency] = useState<string>("BRL");
     const [result, setResult] = useState<number | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [categoria, setCategoria] = useState("Acessórios");
 
     const handleConversion = async () => {
         if (isNaN(amount) || amount <= 0) {
@@ -46,11 +47,11 @@ const Conversoes = () => {
             setError("Erro ao buscar dados de conversão.");
             setResult(null);
         }
-    };
+    };   
 
     return (
         <main>
-            <Navbar />
+            <Navbar onCategorySelect={setCategoria} />
             <div className="text-center select-none">
                 <div className="mt-20">
                     <p className={`font-bold text-4xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>

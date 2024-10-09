@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -16,6 +17,8 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
   const [showComponent, setShowComponent] = useState(false);
   const [categoriaSelecionada, setcategoriaSelecionada] = useState('');
 
+  const router = useRouter();
+
   const toggleNavbar = () => {
     setisClick(!isClick);
   };
@@ -27,6 +30,8 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
   const handleCategoryChange = (category: string) => {
     setcategoriaSelecionada(category);
     setShowComponent(false);
+  
+    router.push(`/produtos/${encodeURIComponent(category)}`);
   };
 
   return (
@@ -41,7 +46,7 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
                 transition={{ duration: 2 }}
               >
                 <img
-                  src="../img/logo lupa.png"
+                  src="/img/logo lupa.png"
                   alt="Logo"
                   className="w-12 sm:w-16 md:w-18"
                 />
@@ -95,7 +100,7 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
                   <MdKeyboardArrowDown className="text-xl" />
                 </Link>
                 {showComponent && (<Categorias onCategorySelect={handleCategoryChange} />)}
-                <Link href="../pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="/pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <span className="hidden xl:inline">Buscar comentários de avalição</span>
                   <span className="inline xl:hidden">Avaliações</span>
                 </Link>

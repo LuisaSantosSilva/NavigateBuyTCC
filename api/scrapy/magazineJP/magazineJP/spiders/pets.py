@@ -40,13 +40,13 @@ class MagaluSpider(scrapy.Spider):
                 evaluations = ''
 
             yield {
-                'Loja': 'Magazine Luiza',
-                'Título': product_title,
-                'Preço': price_value,
-                'Link do Produto': product_link,
-                'Estrelas': stars,
-                'Avaliações': evaluations,
-                'Imagem do Produto': product_image
+                'loja': 'Magazine Luiza',
+                'título': product_title,
+                'preço': price_value,
+                'link': product_link,
+                'estrelas': stars,
+                'avaliações': evaluations,
+                'imagem': product_image
             }
 
         next_page = response.xpath('//a[@data-testid="arrow-right"]/@href').get()
