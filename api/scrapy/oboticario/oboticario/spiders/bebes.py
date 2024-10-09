@@ -43,6 +43,8 @@ class ObtSpider(scrapy.Spider):
                 'preço': price_value,
                 'título': product_title,
                 'link': product_link,
+                'Estrelas': '0.0',
+                'avaliações': 'sem',
                 'imagem': product_image if product_image else 'sem img'
             }
 

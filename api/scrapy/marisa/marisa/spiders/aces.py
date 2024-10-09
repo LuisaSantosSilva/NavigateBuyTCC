@@ -30,6 +30,6 @@ class MrsSpider(scrapy.Spider):
                 'link': link,
                 'loja': 'marisa',
                 'estrelas': i.xpath('.//div[contains(@class, "avg-rating")]/text()').get(default='0.0').strip(),
-                'avaliações': i.xpath('.//div[contains(@class, "review-count")]/text()').get(default='(0)').strip(),
+                'avaliações': i.xpath('.//div[contains(@class, "review-count")]/text()').get(default='sem').strip(),
                 'imagem': i.xpath('.//meta[@itemprop="image"]/@content').get(default=''),
             }

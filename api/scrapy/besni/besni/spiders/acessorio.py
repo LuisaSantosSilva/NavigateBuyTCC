@@ -38,6 +38,8 @@ class BesniSpider(scrapy.Spider):
                         'preço': price_value.strip(),
                         'título': product_title.strip(),
                         'link': response.urljoin(product_link),
+                        'estrelas': '0.0',
+                        'avaliações': 'sem',
                         'imagem': product_image.strip(),
                     }
 
@@ -61,5 +63,7 @@ class BesniSpider(scrapy.Spider):
                 'preço': product_price.strip(),
                 'título': product_title.strip(),
                 'link': response.url,
+                'estrelas': '0.0',
+                'avaliações': 'sem',
                 'imagem': product_image.strip(),
             }

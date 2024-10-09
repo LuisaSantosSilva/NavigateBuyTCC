@@ -29,6 +29,7 @@ class KalungaSpider(scrapy.Spider):
                 'título': product_title,
                 'link': product_link,
                 'estrelas': stars,
+                'avaliações': 'sem',
                 'imagem': product_image
             }
 

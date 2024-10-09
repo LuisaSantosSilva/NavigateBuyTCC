@@ -14,6 +14,7 @@ interface Produto {
   link: string;
   loja: string;
   avaliações: string;
+  estrelas: string;
 }
 
 interface ProdutosJson {
@@ -194,6 +195,7 @@ const Categorias: React.FC = () => {
               price={produto.preço}
               link={produto.link}
               avaliacoes={produto.avaliações}
+              estrelas={produto.estrelas}
             />
           ))
         ) : (

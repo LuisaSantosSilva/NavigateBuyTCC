@@ -33,7 +33,7 @@ class CasasBSpider(scrapy.Spider):
             else:
                 stars = ''
 
-            avaliation = ' '.join(i.xpath('.//span[@class="product-card__reviews-count-text"]//text()').getall()).strip()
+            avaliation = ' '.join(i.xpath('.//span[@class="product-card__reviews-count-text"]//text()').getall(default='sem')).strip()
 
             yield response.follow(product_link, callback=self.parse_product, meta={
                 'image': product_image,

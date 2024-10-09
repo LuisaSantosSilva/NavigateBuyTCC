@@ -248,7 +248,7 @@ class MlSpider(scrapy.Spider):
 
             image = i.xpath('.//img[@decoding="sync"]/@src').get()
             title = i.xpath('.//h2/a/text()').get(default='').strip()
-            evaluation_text = i.xpath('.//span[@class="andes-visually-hidden"]/text()').get(default='').strip()
+            evaluation_text = i.xpath('.//span[@class="andes-visually-hidden"]/text()').get(default='sem').strip()
             if evaluation_text:
                 match = re.search(r'Avaliação (\d+\.\d+) de 5\. \(([\d,]+) avaliações\)', evaluation_text)
 
@@ -257,16 +257,16 @@ class MlSpider(scrapy.Spider):
                     evaluations = match.group(2)
                 else:
                     stars = '0.0'
-                    evaluations = '0'
+                    evaluations = 'sem'
             else:
                 stars = '0.0'  
-                evaluations = '0'
+                evaluations = 'sem'
                 if match:
                     stars = match.group(1)
                     evaluations = match.group(2)
                 else:
                     stars = '0.0'
-                    evaluations = '0'
+                    evaluations = 'sem'
             #stars = i.xpath('.//span[@class="poly-reviews__rating"]/text()').get(default='0.0').strip()
             #evaluations = i.xpath('.//span[@class="poly-reviews__total"]/text()').get(default='(0)').strip()
 

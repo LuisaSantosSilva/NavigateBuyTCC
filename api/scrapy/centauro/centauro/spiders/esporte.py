@@ -38,7 +38,7 @@ class MlSpider(scrapy.Spider):
                     'título': title,
                     'link': link,
                     'loja': 'centauro',
-                    # 'estrelas': stars,
-                    # 'avaliações': avaliations,
+                    'estrelas': '0.0',
+                    'avaliações': 'sem',
                     'imagem': image
                 }

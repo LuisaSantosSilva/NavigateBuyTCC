@@ -30,8 +30,8 @@ class MagaluSpider(scrapy.Spider):
 
             price_value = price_vl.replace('R$', '').strip()  
 
-            stars_text = i.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='').strip()
-            evaluations_text = i.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='').strip()
+            stars_text = i.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='0.0').strip()
+            evaluations_text = i.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='sem').strip()
 
             if stars_text:
                 stars = stars_text.split()[0]

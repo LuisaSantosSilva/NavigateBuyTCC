@@ -1,4 +1,5 @@
 import React from "react";
+import { PiStar } from "react-icons/pi";
 
 interface CardProps {
   imageSrc: string;
@@ -8,9 +9,10 @@ interface CardProps {
   price: string;
   link: string;
   avaliacoes: string;
+  estrelas: string;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes, estrelas }) => {
 
   const redirecionar = () => {
     window.location.href = link;
@@ -23,7 +25,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           <img
             src={imageSrc}
             alt="Product"
-            className="w-fit h-fit object-cover"
+            className="w-52 h-fit object-cover"
           />
           <img
             src={heartIconSrc}
@@ -31,7 +33,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
             className="absolute top-2 right-2 w-6"
           />
         </div>
-        <div className="py-2 px-4 h-56 flex flex-col justify-between">
+        <div className="py-2 px-5 h-64 flex flex-col justify-between">
           <p className="text-lg text-black block hover:overflow-scroll overflow-hidden">
             {productDescription}
           </p>
@@ -41,9 +43,13 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           <a href="#" className="text-base underline block mt-1">
             Ver avaliações de consumidores
           </a>
-          <p className="text-xl font-semibold cursor-auto my-3 text-black">
+          <p className="text-xl font-semibold cursor-auto mt-1 text-black">
             Por {price}
           </p>
+          <div className="flex mb-2">
+            <p className="mt-2">{avaliacoes} avaliação(ções) do site</p>
+            <p className="mt-2 ml-20">{estrelas}</p><PiStar color="yellow" size={40}/>
+          </div>  
           <button className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={redirecionar}>Acessar</button>
         </div>
       </div>

@@ -38,7 +38,7 @@ class MlSpider(scrapy.Spider):
                     'título': i.xpath('.//p[@class="Typographystyled__Paragraph-sc-bdxvrr-1 knvuZc ProductCard-styled__Title-sc-97c94e5e-3 hzAjfq"]/text()').get(default='').strip(),
                     'link': link,
                     'loja': 'centauro',
-                    # 'estrelas': stars,
-                    # 'avaliações': avaliations,
+                    'estrelas': '0.0',
+                    'avaliações': 'sem',
                     'imagem': i.xpath('.//img[@decoding="async"]/@src').get(default='').strip()
                 }

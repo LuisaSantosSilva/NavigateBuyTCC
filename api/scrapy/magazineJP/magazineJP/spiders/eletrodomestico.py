@@ -28,8 +28,8 @@ class MagaluSpider(scrapy.Spider):
             product_title = product.xpath('.//h2[@data-testid="product-title"]/text()').get(default='').strip()
             price_original = product.xpath('.//p[@data-testid="price-original"]/text()').get(default='').strip()
             price_value = product.xpath('.//p[@data-testid="price-value"]/text()').get(default='').strip().replace('R$', '').strip()
-            stars_text = product.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='').strip()
-            evaluations_text = product.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='').strip()
+            stars_text = product.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='0.0').strip()
+            evaluations_text = product.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='sem').strip()
 
             if stars_text:
                 stars = stars_text.split()[0]
