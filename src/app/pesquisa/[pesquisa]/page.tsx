@@ -60,6 +60,7 @@ const Pesquisa: React.FC = () => {
 
   const filtrarProdutos = (produtos: Produto[], filtro: string) => {
     const converterPrecoParaNumero = (preco: string) => {
+      if (!preco) return Number.MAX_VALUE;
       let precoLimpo = preco.replace(/\./g, '').replace(',', '.');
       return parseFloat(precoLimpo);
     };
@@ -81,9 +82,7 @@ const Pesquisa: React.FC = () => {
         return [...produtos].sort((a, b) => {
           const estrelasA = converterEstrelasParaNumero(a.estrelas || "0.0");
           const estrelasB = converterEstrelasParaNumero(b.estrelas || "0.0");
-          const avaliacoesA = converterAvaliacoesParaNumero(a.avaliações || "sem");
-          const avaliacoesB = converterAvaliacoesParaNumero(b.avaliações || "sem");
-          return estrelasB - estrelasA || avaliacoesB - avaliacoesA;
+          return estrelasB - estrelasA;
         });
       case "avaliaçao":
         return [...produtos].sort((a, b) => {
@@ -107,11 +106,6 @@ const Pesquisa: React.FC = () => {
   const produtosFiltrados = produtosJson.filter((produto) =>
     normalizeText(produto.título).includes(normalizeText(searchTerm))
   );
-
-  const produtosOrdenados = filtrarProdutos(produtosFiltrados, opcaoFiltro);
-  const produtosVisiveis = produtosOrdenados.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
-  const totalProdutosExibidos = Math.min(produtosOrdenados.length, (page + 1) * limiteProdutos);
-
 
   const voltarTopo = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -143,6 +137,10 @@ const Pesquisa: React.FC = () => {
         break;
     }
   };
+  
+  const produtosOrdenados = filtrarProdutos(produtosFiltrados, opcaoFiltro);
+  const produtosVisiveis = produtosOrdenados.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
+  const totalProdutosExibidos = Math.min(produtosOrdenados.length, (page + 1) * limiteProdutos);
 
   return (
     <main>
