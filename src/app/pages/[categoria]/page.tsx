@@ -38,7 +38,7 @@ interface ProdutosJson {
 
 const Categorias: React.FC = () => {
   const [page, setPage] = useState(0);
-  const [opcaoFiltro, setOpcaoFiltro] = useState("relevância");
+  const [opcaoFiltro, setOpcaoFiltro] = useState("");
   const [textoFiltro, setTextoFiltro] = useState("Selecione o filtro desejado");
   const [categoria, setCategoria] = useState("Acessórios");
   const params = useParams();
@@ -76,16 +76,12 @@ const Categorias: React.FC = () => {
       return parseFloat(precoLimpo);
     };
 
-    const converterAvaliacoesParaNumero = (avaliacao: string) => {
-      return parseInt(avaliacao.replace(/\./g, '').replace(',', ''), 10);
+    const converterAvaliacoesParaNumero = (avaliacoes: string) => {
+      return avaliacoes === "sem" ? 0 : parseInt(avaliacoes.replace(/\D/g, ''));
     };
 
-    const ordenarPorEstrelas = (produtos: Produto[]) => {
-      return [...produtos].sort((a, b) => parseFloat(b.estrelas ?? "0") - parseFloat(a.estrelas ?? "0"));
-    };
-
-    const ordenarPorAvaliacoes = (produtos: Produto[]) => {
-      return [...produtos].sort((a, b) => converterAvaliacoesParaNumero(b.avaliações ?? "0") - converterAvaliacoesParaNumero(a.avaliações ?? "0"));
+    const converterEstrelasParaNumero = (estrelas: string) => {
+      return parseFloat(estrelas);
     };
 
     switch (filtro) {
@@ -93,15 +89,25 @@ const Categorias: React.FC = () => {
         return [...produtos].sort((a, b) => converterPrecoParaNumero(a.preço) - converterPrecoParaNumero(b.preço));
       case "maior-preco":
         return [...produtos].sort((a, b) => converterPrecoParaNumero(b.preço) - converterPrecoParaNumero(a.preço));
-      case "estrelas":
-        return ordenarPorAvaliacoes(produtos);
-      case "revelância":
-        return ordenarPorEstrelas(produtos);
+      case "relevancia":
+        return [...produtos].sort((a, b) => {
+          const estrelasA = converterEstrelasParaNumero(a.estrelas || "0.0");
+          const estrelasB = converterEstrelasParaNumero(b.estrelas || "0.0");
+          const avaliacoesA = converterAvaliacoesParaNumero(a.avaliações || "sem");
+          const avaliacoesB = converterAvaliacoesParaNumero(b.avaliações || "sem");
+
+          return estrelasB - estrelasA || avaliacoesB - avaliacoesA;
+        });
+      case "avaliacao":
+        return [...produtos].sort((a, b) => {
+          const avaliacoesA = converterAvaliacoesParaNumero(a.avaliações || "sem");
+          const avaliacoesB = converterAvaliacoesParaNumero(b.avaliações || "sem");
+          return avaliacoesB - avaliacoesA;
+        });
       default:
         return produtos;
     }
   };
-
 
   const produtosFiltrados = filtrarProdutos(produtosDaCategoria, opcaoFiltro);
   const produtosVisiveis = produtosFiltrados.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
@@ -129,12 +135,11 @@ const Categorias: React.FC = () => {
       case "maior-preco":
         setTextoFiltro("Filtrar por maior preço");
         break;
+      case "relevancia":
+        setTextoFiltro("Filtrar por maior relevância");
+        break;
       case "avaliacao":
         setTextoFiltro("Filtrar por melhor avaliação");
-        break;
-      case "relevancia":
-      default:
-        setTextoFiltro("Filtrar por maior relevância");
         break;
     }
   };
@@ -203,9 +208,9 @@ const Categorias: React.FC = () => {
           </Menu.Items>
         </Menu>
       </div>
-      <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
-        {produtosVisiveis.length > 0 ? (
-          produtosVisiveis.map((produto) => (
+      {produtosVisiveis.length > 0 ? (
+        <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
+          {produtosVisiveis.map((produto) => (
             <Card
               key={produto.link}
               imageSrc={produto.imagem}
@@ -217,11 +222,13 @@ const Categorias: React.FC = () => {
               avaliacoes={produto.avaliações ?? "0"}
               estrelas={produto.estrelas ?? "0"}
             />
-          ))
-        ) : (
-          <p className=" flex mt-2 justify-center text-center text-xl">Nenhum produto encontrado, tente novamente por favor.</p>
-        )}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="flex justify-center items-center w-full h-64">
+          <p className="text-xl text-navigateblue">Nenhum produto encontrado.</p>
+        </div>
+      )}
       <div className="flex mt-10 justify-center items-center">
         <div className="flex items-center space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
 
@@ -229,7 +236,7 @@ const Categorias: React.FC = () => {
         <div className="flex items-center space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
           {page > 0 && (
             <a onClick={() => handlePageChange(page - 1)} className="text-white">
-              <MdKeyboardArrowLeft size={20} color="black" className="bg-white rounded-full ring-2"/>
+              <MdKeyboardArrowLeft size={20} color="black" className="bg-white rounded-full ring-2" />
             </a>
           )}
           {Array.from({ length: Math.ceil(produtosFiltrados.length / limiteProdutos) }).map((_, index) => {
@@ -259,7 +266,7 @@ const Categorias: React.FC = () => {
           })}
           {page < Math.ceil(produtosFiltrados.length / limiteProdutos) - 1 && (
             <a onClick={() => handlePageChange(page + 1)} className="text-white flex items-center">
-              <MdKeyboardArrowRight size={20} color="black" className="bg-white rounded-full ring-2"/>
+              <MdKeyboardArrowRight size={20} color="black" className="bg-white rounded-full ring-2" />
             </a>
           )}
         </div>

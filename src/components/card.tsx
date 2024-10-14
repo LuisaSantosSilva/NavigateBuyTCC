@@ -46,7 +46,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
             Por R$ {price}
           </p>
           <div className="flex mb-2">
-            <p className="mt-2">{avaliacoes} avaliação(ções) do site</p>
+            <p className="mt-2">{avaliacoes} avaliações do site</p>
             {parseFloat(estrelas) > 0.0 && (
               <>
                 <p className="mt-2 ml-20">{estrelas}</p>
