@@ -81,12 +81,12 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
     setcategoriaSelecionada(category);
     setShowComponent(false);
   
-    router.push(`/produtos/${encodeURIComponent(category)}`);
+    router.push(`/pages/${encodeURIComponent(category)}`);
   };
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/pesquisa?query=${encodeURIComponent(searchTerm)}`);
+    router.push(`/pesquisa/pesquisa/?query=${encodeURIComponent(searchTerm)}`);
   };
 
   return (

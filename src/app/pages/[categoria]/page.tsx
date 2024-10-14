@@ -8,14 +8,28 @@ import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
+import acessoriosData from '@/../api/listasJson/Acessorios.json';
+import bebesData from '@/../api/listasJson/Bebes.json';
+import belezaData from '@/../api/listasJson/Beleza.json';
+import decoracaoData from '@/../api/listasJson/Decoracao.json';
+import eletroData from '@/../api/listasJson/Eletrodomesticos.json';
+import esporteData from '@/../api/listasJson/Esporte.json';
+import infoData from '@/../api/listasJson/Informatica.json';
+import lazerData from '@/../api/listasJson/Lazer.json';
+import mercadoData from '@/../api/listasJson/MercadoFarmacia.json';
+import papelariaData from '@/../api/listasJson/Papelaria.json';
+import petsData from '@/../api/listasJson/Pets.json';
+import roupasData from '@/../api/listasJson/Roupas.json';
+import sapatoData from '@/../api/listasJson/Sapato.json';
+
 interface Produto {
   título: string;
   preço: string;
   imagem: string;
   link: string;
   loja: string;
-  avaliações: string;
-  estrelas: string;
+  avaliações?: string;
+  estrelas?: string;
 }
 
 interface ProdutosJson {
@@ -31,19 +45,6 @@ const Categorias: React.FC = () => {
 
   const limiteProdutos = 12;
 
-  const acessoriosData: Produto[] = require('@/../api/listasJson/Acessorios.json');
-  const bebesData: Produto[] = require('@/../api/listasJson/Bebes.json');
-  const belezaData: Produto[] = require('@/../api/listasJson/Beleza.json');
-  const decoracaoData: Produto[] = require('@/../api/listasJson/Decoracao.json');
-  const eletroData: Produto[] = require('@/../api/listasJson/Eletrodomesticos.json');
-  const esporteData: Produto[] = require('@/../api/listasJson/Esporte.json');
-  const infoData: Produto[] = require('@/../api/listasJson/Informatica.json');
-  const lazerData: Produto[] = require('@/../api/listasJson/Lazer.json');
-  const mercadoData: Produto[] = require('@/../api/listasJson/MercadoFarmacia.json');
-  const papelariaData: Produto[] = require('@/../api/listasJson/Papelaria.json');
-  const petsData: Produto[] = require('@/../api/listasJson/Pets.json');
-  const roupasData: Produto[] = require('@/../api/listasJson/Roupas.json');
-  const sapatoData: Produto[] = require('@/../api/listasJson/Sapato.json');
   const produtosJson: ProdutosJson = {
     Acessórios: acessoriosData,
     Bebês: bebesData,
@@ -80,11 +81,11 @@ const Categorias: React.FC = () => {
     };
 
     const ordenarPorEstrelas = (produtos: Produto[]) => {
-      return [...produtos].sort((a, b) => parseFloat(a.estrelas) - parseFloat(b.estrelas));
+      return [...produtos].sort((a, b) => parseFloat(b.estrelas ?? "0") - parseFloat(a.estrelas ?? "0"));
     };
 
     const ordenarPorAvaliacoes = (produtos: Produto[]) => {
-      return [...produtos].sort((a, b) => converterAvaliacoesParaNumero(a.avaliações) - converterAvaliacoesParaNumero(b.avaliações));
+      return [...produtos].sort((a, b) => converterAvaliacoesParaNumero(b.avaliações ?? "0") - converterAvaliacoesParaNumero(a.avaliações ?? "0"));
     };
 
     switch (filtro) {
@@ -92,9 +93,9 @@ const Categorias: React.FC = () => {
         return [...produtos].sort((a, b) => converterPrecoParaNumero(a.preço) - converterPrecoParaNumero(b.preço));
       case "maior-preco":
         return [...produtos].sort((a, b) => converterPrecoParaNumero(b.preço) - converterPrecoParaNumero(a.preço));
-      case "relevancia":
-        return ordenarPorAvaliacoes(produtos);
       case "estrelas":
+        return ordenarPorAvaliacoes(produtos);
+      case "revelância":
         return ordenarPorEstrelas(produtos);
       default:
         return produtos;
@@ -162,7 +163,6 @@ const Categorias: React.FC = () => {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="#"
                   onClick={() => handleSortChange("relevancia")}
                   className={`block py-2 ${active ? 'font-bold' : ''} border-b border-navigateblue`}
                 >
@@ -173,7 +173,6 @@ const Categorias: React.FC = () => {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="#"
                   onClick={() => handleSortChange("menor-preco")}
                   className={`block py-2 ${active ? 'font-bold' : ''} border-b border-navigateblue`}
                 >
@@ -184,7 +183,6 @@ const Categorias: React.FC = () => {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="#"
                   onClick={() => handleSortChange("maior-preco")}
                   className={`block py-2 ${active ? 'font-bold' : ''} border-b border-navigateblue`}
                 >
@@ -195,7 +193,6 @@ const Categorias: React.FC = () => {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="#"
                   onClick={() => handleSortChange("avaliacao")}
                   className={`block py-2 ${active ? 'font-bold' : ''}`}
                 >
@@ -212,25 +209,28 @@ const Categorias: React.FC = () => {
             <Card
               key={produto.link}
               imageSrc={produto.imagem}
-              heartIconSrc="/img/icon coração.png"
+              heartIconSrc="/img/icon-coraçao.png"
               productDescription={produto.título}
               brandName={produto.loja}
               price={produto.preço}
               link={produto.link}
-              avaliacoes={produto.avaliações}
-              estrelas={produto.estrelas}
+              avaliacoes={produto.avaliações ?? "0"}
+              estrelas={produto.estrelas ?? "0"}
             />
           ))
         ) : (
-          <p className="text-center text-lg">Nenhum produto encontrado.</p>
+          <p className=" flex mt-2 justify-center text-center text-xl">Nenhum produto encontrado, tente novamente por favor.</p>
         )}
       </div>
       <div className="flex mt-10 justify-center items-center">
         <div className="flex items-center space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
+
+        </div>
+        <div className="flex items-center space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
           {page > 0 && (
-            <button onClick={() => handlePageChange(page - 1)} className="text-white">
+            <a onClick={() => handlePageChange(page - 1)} className="text-white">
               <MdKeyboardArrowLeft size={20} color="black" className="bg-white rounded-full ring-2"/>
-            </button>
+            </a>
           )}
           {Array.from({ length: Math.ceil(produtosFiltrados.length / limiteProdutos) }).map((_, index) => {
             if (
@@ -258,9 +258,9 @@ const Categorias: React.FC = () => {
             return null;
           })}
           {page < Math.ceil(produtosFiltrados.length / limiteProdutos) - 1 && (
-            <button onClick={() => handlePageChange(page + 1)} className="text-white flex items-center">
+            <a onClick={() => handlePageChange(page + 1)} className="text-white flex items-center">
               <MdKeyboardArrowRight size={20} color="black" className="bg-white rounded-full ring-2"/>
-            </button>
+            </a>
           )}
         </div>
       </div>
