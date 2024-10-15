@@ -7,7 +7,6 @@ import { poppins } from "@/app/fonts";
 
 const avaliação = () => {
   const [showAvaliacao, setShowAvaliacao] = useState(false);
-  const [categoria, setCategoria] = useState("Acessórios");
 
   const handleClick = () => {
     setShowAvaliacao(true);
@@ -15,7 +14,7 @@ const avaliação = () => {
 
   return (
     <main>
-      <Navbar onCategorySelect={setCategoria} />
+      <Navbar />
       <div className="text-center mt-20 select-none">
         <div className={`font-bold text-4xl max-[1000px]:text-2xl leading-snug mb-8 ${poppins.className}`}>
           <p>

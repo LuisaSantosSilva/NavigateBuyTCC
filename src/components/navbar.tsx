@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "react-icons/ai";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
@@ -50,11 +50,10 @@ const loadProducts = async () => {
   return produtosJson;
 }
 
-interface NavbarProps {
-  onCategorySelect: (selectedCategory: string) => void;
-}
 
-const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
+
+const navbar: React.FC= () => {
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
   const [isClick, setisClick] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -125,6 +124,7 @@ const navbar: React.FC<NavbarProps> = ({ onCategorySelect }) => {
               <input
                 type="search"
                 placeholder="Buscar produto"
+                ref={searchInputRef}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full p-3 pl-6 rounded-full border border-navigategreen text-black outline-navigategreen placeholder-black"

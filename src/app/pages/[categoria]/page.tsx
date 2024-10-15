@@ -2,6 +2,7 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import Card from "@/components/card";
+import "./categoria.css";
 import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { Menu } from "@headlessui/react";
@@ -112,6 +113,7 @@ const Categorias: React.FC = () => {
   const produtosFiltrados = filtrarProdutos(produtosDaCategoria, opcaoFiltro);
   const produtosVisiveis = produtosFiltrados.slice(page * limiteProdutos, (page + 1) * limiteProdutos);
   const totalProdutosExibidos = Math.min(produtosFiltrados.length, (page + 1) * limiteProdutos);
+  const totalPaginas = Math.ceil(produtosFiltrados.length / limiteProdutos);
 
 
   const voltarTopo = () => {
@@ -144,9 +146,61 @@ const Categorias: React.FC = () => {
     }
   };
 
+  const renderPagination = () => {
+    const itemsPaginacao = [];
+    const comecoPage = Math.floor(page / 5) * 5;
+    const fimPagina = Math.min(comecoPage + 4, totalPaginas - 1);
+
+    if (comecoPage > 0) {
+      itemsPaginacao.push(
+        <div key="prev-ellipsis" className="flex items-center">
+          <span
+            className="bloco-nav cursor-pointer ml-2"
+            onClick={() => handlePageChange(comecoPage - 1)}>
+            ...
+          </span>
+          <span className="h-12 w-[2px] bg-navigateblue ml-2  hidden md:block"></span>
+        </div>
+      );
+    }
+
+    for (let index = comecoPage; index <= fimPagina; index++) {
+      itemsPaginacao.push(
+        <label key={index} className="flex items-center relative">
+          <input
+            type="radio"
+            name="options"
+            className="hidden peer"
+            onChange={() => handlePageChange(index)}
+            checked={page === index}
+          />
+          <div className={`bloco-nav ${page === index ? 'bloco-nav-selecionado' : ''}`}>
+            {index + 1}
+          </div>
+          {index < fimPagina && (<span className="linha-divisoria h-12 w-[2px] bg-[#0C0440]"></span>
+          )}
+        </label>
+      );
+    }
+
+    if (fimPagina < totalPaginas - 1) {
+      itemsPaginacao.push(
+        <div key="next-ellipsis" className="flex items-center">
+          <span className="h-12 w-[2px] bg-navigateblue mr-2 hidden md:block"></span>
+          <span className="bloco-nav cursor-pointer mr-2"
+            onClick={() => handlePageChange(fimPagina + 1)}>
+            ...
+          </span>
+        </div>
+      );
+    }
+
+    return itemsPaginacao;
+  };
+
   return (
     <main>
-      <Navbar onCategorySelect={setCategoria} />
+      <Navbar />
       <div className="flex justify-center mt-20">
         <h2 className="text-2xl text-black">
           Categoria selecionada foi <span className="font-bold">“{categoria}”</span>
@@ -229,44 +283,19 @@ const Categorias: React.FC = () => {
           <p className="text-xl text-navigateblue">Nenhum produto encontrado.</p>
         </div>
       )}
-      <div className="flex mt-10 justify-center items-center">
-        <div className="flex items-center space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
-
-        </div>
-        <div className="flex items-center space-x-5 p-4 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen">
+      <div className="flex flex-col items-center mt-10">
+        <div className="flex justify-center items-center">
           {page > 0 && (
-            <a onClick={() => handlePageChange(page - 1)} className="text-white">
-              <MdKeyboardArrowLeft size={20} color="black" className="bg-white rounded-full ring-2" />
+            <a onClick={() => handlePageChange(page - 1)} className="text-white seta-nav mr-2">
+              <MdKeyboardArrowLeft size={35} />
             </a>
           )}
-          {Array.from({ length: Math.ceil(produtosFiltrados.length / limiteProdutos) }).map((_, index) => {
-            if (
-              index < 5 ||
-              index === page ||
-              index >= Math.ceil(produtosFiltrados.length / limiteProdutos) - 4
-            ) {
-              return (
-                <label key={index} className="cursor-pointer flex items-center">
-                  <input
-                    type="radio"
-                    name="options"
-                    className="hidden peer"
-                    onChange={() => handlePageChange(index)}
-                    checked={page === index}
-                  />
-                  <div className="w-4 h-4 rounded-full bg-transparent ring-2 ring-white peer-checked:bg-white peer-hover:bg-white transition-colors duration-200"></div>
-                </label>
-              );
-            } else if (index === 5 && page > 5) {
-              return <span key={index} className="text-white flex items-center">...</span>;
-            } else if (index === Math.ceil(produtosFiltrados.length / limiteProdutos) - 6 && page < Math.ceil(produtosFiltrados.length / limiteProdutos) - 6) {
-              return <span key={index} className="text-white flex items-center">...</span>;
-            }
-            return null;
-          })}
-          {page < Math.ceil(produtosFiltrados.length / limiteProdutos) - 1 && (
-            <a onClick={() => handlePageChange(page + 1)} className="text-white flex items-center">
-              <MdKeyboardArrowRight size={20} color="black" className="bg-white rounded-full ring-2" />
+          <div className="flex items-center barra-nav">
+            {renderPagination()}
+          </div>
+          {page < totalPaginas - 1 && (
+            <a onClick={() => handlePageChange(page + 1)}>
+              <MdKeyboardArrowRight size={20} className="seta-nav-esq ml-2" />
             </a>
           )}
         </div>
@@ -278,7 +307,7 @@ const Categorias: React.FC = () => {
         </div>
       </div>
       <Footer />
-    </main>
+    </main >
   );
 };
 

@@ -4,7 +4,17 @@ import { FaInstagram, FaGithub } from "react-icons/fa6";
 import { GoPaperclip } from "react-icons/go";
 import React from "react";
 
+
 const Footer: React.FC = () => {
+
+  const handleSearchFocus = () => {
+    const navbar = document.querySelector("nav");
+    const searchInput = navbar?.querySelector("input[type='search']") as HTMLInputElement;
+    if (searchInput) {
+      searchInput.focus();
+    }
+  };
+
   return (
     <footer className="bg-black text-white">
       <div className="flex flex-grow justify-center space-x-56 items-center py-12 max-[650px]:space-x-10">
@@ -29,7 +39,7 @@ const Footer: React.FC = () => {
           <p className="block mb-2 font-semibold">
             Destaques
           </p>
-          <Link href="#" className="block mb-2 hover:text-navigategreen">
+          <Link href="#" onClick={handleSearchFocus} className="block mb-2 hover:text-navigategreen">
             Buscar Produto
           </Link>
           <Link href="../pages/avaliacao" className="block mb-2 hover:text-navigategreen">

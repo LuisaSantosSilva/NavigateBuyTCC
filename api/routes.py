@@ -43,7 +43,7 @@ def cadastrar():
 
         # Enviar o código por e-mail
         corpo_email = f"""
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
             <!-- Cabeçalho -->
             <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: white;">
                 <h2 style="margin: 0;">Código de Confirmação</h2><hr style="width: 50%; color: white;">
@@ -90,7 +90,7 @@ def cadastrar():
                 <!-- Direitos reservados -->
                 <div style="background: black; padding: 20px; text-align: center; color: white;">
                     <hr style="width:75%; height:3px; border-width:0; background: linear-gradient(to right, #0c0440, #0C8249);">
-                    <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p>
+                    <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p><br>
                     <p style="font-size: 12px; margin: 0;">Trabalho de Conclusão de Curso</p>
                 </div>
             </div>    
@@ -240,7 +240,7 @@ def request_password_reset():
 
         link_redefinicao = f"http://localhost:3000/cadastro_login/login/redefinirSenha?token={token}&email={email}"
         corpo_email = f"""
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
             <!-- Cabeçalho -->
             <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: white;">
                 <h2 style="margin: 0;">Redefinição de Senha</h2><hr style="width: 50%; color: white;">
@@ -272,7 +272,7 @@ def request_password_reset():
                 <!-- Botão de Redefinição -->
                 <div style="padding: 20px; text-align: center;">
                     <h3 style="color: black;">Clique no botão abaixo para redefinir sua senha:</h3>
-                    <a href="{link_redefinicao}" style="padding: 10px 20px; background-color: #0C8249; color: white; text-decoration: none; border-radius: 5px;">Redefinir Senha</a>
+                    <a href="{link_redefinicao}" style="padding: 10px 20px; background-color: #0C8249; color: white; border-radius: 5px;">Redefinir Senha</a>
                     <p style="font-size: 18px; color: black;">Use este link para redefinir sua senha.</p>
                     <p style="font-size: 18px; color: black;">Se você não solicitou a redefinição de senha, por favor, ignore este email.</p>
                 </div>
@@ -290,7 +290,7 @@ def request_password_reset():
                 <!-- Direitos reservados -->
                 <div style="background: black; padding: 20px; text-align: center; color: white;">
                     <hr style="width:75%; height:3px; border-width:0; background: linear-gradient(to right, #0c0440, #0C8249);">
-                    <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p>
+                    <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p><br>
                     <p style="font-size: 12px; margin: 0;">Trabalho de Conclusão de Curso</p>
                 </div>
             </div>    
