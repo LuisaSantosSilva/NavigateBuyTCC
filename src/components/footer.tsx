@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white">
       <div className="flex flex-grow justify-center space-x-56 items-center py-12 max-[650px]:space-x-10">
-        <div className="text-lg font-semibold mb-9 max-[650px]:text-sm">
+        <div className="text-lg font-semibold mb-4 max-[650px]:text-sm">
           Conheça mais sobre nós:
           <div className="flex mt-5 space-x-6 items-center">
             <Link href="https://www.instagram.com/navigatebuy/">
@@ -33,8 +33,14 @@ const Footer: React.FC = () => {
             <Link href="https://linktr.ee/navigatebuy">
               <GoPaperclip className="text-4xl max-[650px]:text-xl" />
             </Link>
+          </div>        
+          <div className="mt-4">
+            <Link href="../pages/termos_de_uso" className="hover:text-navigategreen">
+              Acesse nossos termos de uso
+            </Link>
           </div>
         </div>
+
         <div className="text-lg max-[650px]:text-sm">
           <p className="block mb-2 font-semibold">
             Destaques

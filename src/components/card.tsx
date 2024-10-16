@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface CardProps {
   imageSrc: string;
@@ -12,6 +12,16 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes, estrelas }) => {
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
 
   const redirecionar = () => {
     window.open(link, '_blank');
@@ -23,12 +33,14 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
         <div className="relative flex justify-center items-center h-64 overflow-hidden">
           <img
             src={imageSrc}
-            alt="Product"
+            alt="Produto"
             className="w-52 h-fit object-cover"
           />
           <img
-            src={heartIconSrc}
-            alt="Heart"
+            src={hovered ? "/img/icon-coraçao-pintado.png" : heartIconSrc}
+            alt="Coração"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className="absolute top-2 right-2 w-6"
           />
         </div>
