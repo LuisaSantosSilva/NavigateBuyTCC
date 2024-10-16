@@ -4,11 +4,14 @@ import Footer from "@/components/footer";
 import Card from "@/components/card";
 import "./categoria.css";
 import { useParams } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Chart, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
+import 'chart.js/auto';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
+{/* Listas Json de produtos */ }
 import acessoriosData from '@/../api/listasJson/Acessorios.json';
 import bebesData from '@/../api/listasJson/Bebes.json';
 import belezaData from '@/../api/listasJson/Beleza.json';
@@ -23,6 +26,7 @@ import petsData from '@/../api/listasJson/Pets.json';
 import roupasData from '@/../api/listasJson/Roupas.json';
 import sapatoData from '@/../api/listasJson/Sapato.json';
 
+{/* Parâmetros dos produtos */ }
 interface Produto {
   título: string;
   preço: string;
@@ -37,15 +41,21 @@ interface ProdutosJson {
   [key: string]: Produto[];
 }
 
+{/* Registro de elementos do gráfico */ }
+Chart.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
+
 const Categorias: React.FC = () => {
   const [page, setPage] = useState(0);
   const [opcaoFiltro, setOpcaoFiltro] = useState("");
   const [textoFiltro, setTextoFiltro] = useState("Selecione o filtro desejado");
-  const [categoria, setCategoria] = useState("Acessórios");
+  const [categoria, setCategoria] = useState("");
   const params = useParams();
+  const chartRef = useRef(null);
+  const [isChartVisible, setIsChartVisible] = useState(false);
 
   const limiteProdutos = 12;
 
+  {/* Listas opções de categorias de produtos */ }
   const produtosJson: ProdutosJson = {
     Acessórios: acessoriosData,
     Bebês: bebesData,
@@ -62,6 +72,7 @@ const Categorias: React.FC = () => {
     Sapato: sapatoData
   };
 
+  {/* Efeito para buscar categoria através da string */ }
   useEffect(() => {
     const categoriaParam = typeof params?.categoria === "string" ? params.categoria : params.categoria?.[0];
     if (categoriaParam) {
@@ -71,6 +82,7 @@ const Categorias: React.FC = () => {
 
   const produtosDaCategoria = produtosJson[categoria] || [];
 
+  {/* Função para filtragem de produtos */ }
   const filtrarProdutos = (produtos: Produto[], filtro: string) => {
     const converterPrecoParaNumero = (preco: string) => {
       let precoLimpo = preco.replace(/\./g, '').replace(',', '.');
@@ -116,15 +128,18 @@ const Categorias: React.FC = () => {
   const totalPaginas = Math.ceil(produtosFiltrados.length / limiteProdutos);
 
 
+  {/* Função de efeito suave */ }
   const voltarTopo = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  {/* Função para troca de página na navegação */ }
   const handlePageChange = (selectedPage: number) => {
     setPage(selectedPage);
     voltarTopo();
   };
 
+  {/* Função para troca de filtro */ }
   const handleSortChange = (option: string) => {
     setOpcaoFiltro(option);
     setPage(0);
@@ -146,6 +161,7 @@ const Categorias: React.FC = () => {
     }
   };
 
+  {/* Função para rendereizar a paginação */ }
   const renderPagination = () => {
     const itemsPaginacao = [];
     const comecoPage = Math.floor(page / 5) * 5;
@@ -177,7 +193,7 @@ const Categorias: React.FC = () => {
           <div className={`bloco-nav ${page === index ? 'bloco-nav-selecionado' : ''}`}>
             {index + 1}
           </div>
-          {index < fimPagina && (<span className="linha-divisoria h-12 w-[2px] bg-[#0C0440]"></span>
+          {index < fimPagina && (<span className="linha-divisoria h-12 w-[2px] bg-navigateblue"></span>
           )}
         </label>
       );
@@ -198,9 +214,103 @@ const Categorias: React.FC = () => {
     return itemsPaginacao;
   };
 
+  {/* Função para calcular os preços mais caros e mais baratos */ }
+  const calcularPrecos = (produtos: Produto[]) => {
+    const converterPrecoParaNumero = (preco: string) => {
+      let precoLimpo = preco.replace(/\./g, '').replace(',', '.');
+      return parseFloat(precoLimpo);
+    };
+
+    const precos = produtos.map((produto) => converterPrecoParaNumero(produto.preço));
+    const menorPreco = Math.min(...precos);
+    const maiorPreco = Math.max(...precos);
+
+    const somaDosPrecos = precos.reduce((acc, preco) => acc + preco, 0);
+    const mediaPreco = somaDosPrecos / precos.length;
+
+    return { menorPreco, maiorPreco, mediaPreco };
+  };
+
+  {/* Efeito para renderizar o gráfico de linha com os preços */ }
+  useEffect(() => {
+    const produtosDaCategoria = produtosJson[categoria] || [];
+    const { menorPreco, maiorPreco, mediaPreco } = calcularPrecos(produtosDaCategoria);
+
+    if (chartRef.current) {
+      setIsChartVisible(true);const chart = new Chart(chartRef.current!, {
+      type: 'line',
+      data: {
+        labels: ['Mais Barato', 'Média', 'Mais Caro'],
+        datasets: [
+          {
+            label: `Preços em ${categoria}`,
+            data: [menorPreco, mediaPreco, maiorPreco],
+            borderColor: '#000000',
+            backgroundColor: '#007f00',
+            borderWidth: 2,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true,
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false,
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+          },
+          x: {
+            beginAtZero: false,
+            grid: {
+              tickColor: 'blue'
+            },
+            ticks: {
+              color: 'green',
+            }
+          }
+        },
+        transitions: {
+          show: {
+            animations: {
+              x: {
+                from: 0
+              },
+              y: {
+                from: 0
+              }
+            }
+          },
+          hide: {
+            animations: {
+              x: {
+                to: 0
+              },
+              y: {
+                to: 0
+              }
+            }
+          }
+        }
+      },
+    }); 
+    return () => {
+      chart.destroy();
+    };
+    }
+
+  }, [categoria]);
+
   return (
     <main>
       <Navbar />
+      {/* Título */ }
       <div className="flex justify-center mt-20">
         <h2 className="text-2xl text-black">
           Categoria selecionada foi <span className="font-bold">“{categoria}”</span>
@@ -210,6 +320,7 @@ const Categorias: React.FC = () => {
         <h3 className="text-xl text-center mt-3 font-bold text-black">
           Mostrando {totalProdutosExibidos} de {produtosDaCategoria.length} resultados
         </h3>
+        {/* Menu de filtros */ }
         <Menu as="div" className="relative inline-block text-left max-[650px]:mt-5">
           <div>
             <Menu.Button className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-blue-800">
@@ -262,6 +373,7 @@ const Categorias: React.FC = () => {
           </Menu.Items>
         </Menu>
       </div>
+      {/* Mapeamento dos produtos */ }
       {produtosVisiveis.length > 0 ? (
         <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
           {produtosVisiveis.map((produto) => (
@@ -283,6 +395,7 @@ const Categorias: React.FC = () => {
           <p className="text-xl text-navigateblue">Nenhum produto encontrado.</p>
         </div>
       )}
+      {/* Navegação */ }
       <div className="flex flex-col items-center mt-10">
         <div className="flex justify-center items-center">
           {page > 0 && (
@@ -300,11 +413,12 @@ const Categorias: React.FC = () => {
           )}
         </div>
       </div>
+      {/* Tabela */ }
       <div className="p-16">
-        <p className="text-center text-xl font-bold">Valores que custam os produtos</p>
-        <div className="flex justify-center">
-          <img src={"/img/tabela.png"} alt="" />
-        </div>
+        <h2 className="text-center text-xl font-bold mt-4 mb-4">
+          Preços de produtos na categoria {categoria}
+        </h2>
+        <canvas ref={chartRef} className={`rounded-xl ${isChartVisible ? "bg-gray-300" : ""}`}></canvas>
       </div>
       <Footer />
     </main >

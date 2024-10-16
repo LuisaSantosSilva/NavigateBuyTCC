@@ -1,14 +1,13 @@
 "use client";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import React, { useState } from "react";
+import React from "react";
 import { poppins } from "@/app/fonts";
 
 const termos_de_uso = () => {
-    const [categoria, setCategoria] = useState("Acessórios");
   return (
     <main >
-        <Navbar onCategorySelect={setCategoria} />
+        <Navbar />
         <div className="text-center mt-20 select-none px-4 md:px-20">
             <h1 className={`font-bold text-4xl max-[1000px]:text-2xl leading-snug mb-8 ${poppins.className}`}>
             Termos de Uso e Serviço do <span className="text-navigateblue">Navigate</span> <span className="text-navigategreen">Buy</span>

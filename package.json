@@ -14,6 +14,7 @@
     "@heroicons/react": "^2.1.5",
     "@next/font": "^14.2.5",
     "axios": "^1.7.4",
+    "chart.js": "^4.4.5",
     "flask": "^0.2.10",
     "framer-motion": "^11.3.28",
     "heroicons": "^2.1.5",
