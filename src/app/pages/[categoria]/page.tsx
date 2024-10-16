@@ -414,7 +414,7 @@ const Categorias: React.FC = () => {
         </div>
       </div>
       {/* Tabela */ }
-      <div className="p-16">
+      <div className="px-40 p-5">
         <h2 className="text-center text-xl font-bold mt-4 mb-4">
           Preços de produtos na categoria {categoria}
         </h2>

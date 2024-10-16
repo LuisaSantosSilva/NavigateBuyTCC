@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
 
   return (
     <section className="mx-auto my-5">
-      <div className="w-full sm:w-60 md:w-72 max-[1300px]:w-80 max-[1600px]:w-96 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border-2 border-navigateblue bg-white shadow-navigateblue">
+      <div className="w-full sm:w-60 md:w-80 max-[1300px]:w-80 max-[1600px]:w-96 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border-2 border-navigateblue bg-white shadow-navigateblue">
         <div className="relative flex justify-center items-center h-64 overflow-hidden">
           <img
             src={imageSrc}
@@ -60,7 +60,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
             <p className="mt-2">{avaliacoes} avaliações do site</p>
             {parseFloat(estrelas) > 0.0 && (
               <>
-                <p className="mt-2 ml-20">{estrelas}</p>
+                <p className="mt-2 ml-6">{estrelas}</p>
                 <img src="../img/Star.png" className="py-1" alt="Estrela" />
               </>
             )}

@@ -4,7 +4,7 @@
     background-color: white;
     border: 2px solid #06a558;
     border-radius: 15px;
-    height: 4.375rem; 
+    height: 3.375rem; 
     width: 3.75rem;   
     padding: 0.625rem;
     display: flex;
@@ -39,7 +39,7 @@
     font-size: 1.5625rem; 
     color: black;
     width: 3.75rem;  
-    height: 3.75rem; 
+    height: 2.75rem; 
     display: flex;
     align-items: center;
     justify-content: center;
