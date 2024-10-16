@@ -22,14 +22,13 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
     setHovered(false);
   };
 
-
   const redirecionar = () => {
     window.open(link, '_blank');
   };
 
   return (
-    <section className="mx-auto mt-16 mb-5">
-      <div className="w-96 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border-2 border-navigateblue bg-white shadow-navigateblue">
+    <section className="mx-auto my-5">
+      <div className="w-full sm:w-60 md:w-72 max-[1300px]:w-80 max-[1600px]:w-96 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl border-2 border-navigateblue bg-white shadow-navigateblue">
         <div className="relative flex justify-center items-center h-64 overflow-hidden">
           <img
             src={imageSrc}

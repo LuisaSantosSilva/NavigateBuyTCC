@@ -371,7 +371,7 @@ const Pesquisa: React.FC = () => {
       </div>
       {/* Mapeamento dos produtos */ }
       {produtosVisiveis.length > 0 ? (
-        <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
+        <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[600px]:grid-cols-1">
           {produtosVisiveis.map((produto) => (
             <Card
               key={produto.link}
