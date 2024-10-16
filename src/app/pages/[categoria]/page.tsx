@@ -243,11 +243,11 @@ const Categorias: React.FC = () => {
         labels: ['Mais Barato', 'Média', 'Mais Caro'],
         datasets: [
           {
-            label: `Preços em ${categoria}`,
+            label: `Preços em "${categoria}" R$`,
             data: [menorPreco, mediaPreco, maiorPreco],
             borderColor: '#000000',
             backgroundColor: '#007f00',
-            borderWidth: 2,
+            borderWidth: 2
           },
         ],
       },
@@ -415,7 +415,7 @@ const Categorias: React.FC = () => {
       </div>
       {/* Tabela */ }
       <div className="px-40 p-5">
-        <h2 className="text-center text-xl font-bold mt-4 mb-4">
+        <h2 className="text-center text-xl font-bold mt-10 mb-4">
           Preços de produtos na categoria {categoria}
         </h2>
         <canvas ref={chartRef} className={`rounded-xl ${isChartVisible ? "bg-gray-300" : ""}`}></canvas>

@@ -239,7 +239,7 @@ const Pesquisa: React.FC = () => {
           labels: ['Mais Barato', 'Média', 'Mais Caro'],
           datasets: [
             {
-              label: `Preços em ${searchTerm}`,
+              label: `Preços em "${searchTerm}" R$`,
               data: [menorPreco, mediaPreco, maiorPreco],
               borderColor: '#000000',
               backgroundColor: '#007f00',
@@ -261,11 +261,15 @@ const Pesquisa: React.FC = () => {
           scales: {
             y: {
               beginAtZero: false,
+              grid: {
+                color: 'black',
+              }
             },
             x: {
               beginAtZero: false,
               grid: {
-                tickColor: 'blue'
+                tickColor: 'blue',
+                color: 'black',
               },
               ticks: {
                 color: 'green',
@@ -411,8 +415,8 @@ const Pesquisa: React.FC = () => {
       </div>
       {/* Tabela */ }
       <div className="px-40 p-5">
-        <h2 className="text-center text-2xl font-bold mt-4 mb-4">
-          Preços de produtos na categoria {searchTerm}
+        <h2 className="text-center text-2xl font-bold mt-10 mb-4">
+          Preços de produtos em "{searchTerm}"
         </h2>
         <canvas ref={chartRef} className={`rounded-xl ${isChartVisible ? "bg-gray-300" : ""}`}></canvas>
       </div>

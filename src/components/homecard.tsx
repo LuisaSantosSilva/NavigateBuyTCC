@@ -4,11 +4,10 @@ import Link from "next/link";
 
 const Cards: React.FC = () => {
   return (
-    <div className="overflow-x-auto">
         <div className="flex flex-wrap space-x-4 px-4 py-4 justify-center gap-12">
 
           {/* Card 1 */}
-          <div className="flex-none w-[250px] h-[280px] flex items-center justify-center">
+          <div className="flex-none w-[283px] h-[280px] flex items-center justify-center">
             <div className='border border-green-700 hover:border-slate-900 hover:shadow-lg hover:shadow-slate-900 w-full h-full p-4 bg-white shadow-md shadow-green-700 rounded-2xl flex flex-col items-center justify-center'>
               <div className="flex items-center justify-center flex-grow">
                 <Link href="../pages/Informática">
@@ -20,7 +19,7 @@ const Cards: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="flex-none w-[250px] h-[280px] flex items-center justify-center">
+          <div className="flex-none w-[283px] h-[280px] flex items-center justify-center">
             <div className='border border-slate-900 hover:border-green-700 hover:shadow-lg hover:shadow-green-700 w-full h-full p-4 bg-white shadow-md shadow-slate-900 rounded-2xl flex flex-col items-center justify-center'>
               <div className="flex items-center justify-center flex-grow">
                 <Link href="../pages/Lazer">
@@ -32,7 +31,7 @@ const Cards: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="flex-none w-[250px] h-[280px] flex items-center justify-center">
+          <div className="flex-none w-[283px] h-[280px] flex items-center justify-center">
             <div className='border border-green-700 hover:border-slate-900 hover:shadow-lg hover:shadow-slate-900 w-full h-full p-4 bg-white shadow-md shadow-green-700 rounded-2xl flex flex-col items-center justify-center'>
               <div className="flex items-center justify-center flex-grow">
                 <Link href="../pages/Decoração">
@@ -44,7 +43,7 @@ const Cards: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="flex-none w-[250px] h-[280px] flex items-center justify-center">
+          <div className="flex-none w-[283px] h-[280px] flex items-center justify-center">
             <div className='border border-slate-900 hover:border-green-700 hover:shadow-lg hover:shadow-green-700 w-full h-full p-4 bg-white shadow-md shadow-slate-900 rounded-2xl flex flex-col items-center justify-center'>
               <div className="flex items-center justify-center flex-grow">
                 <Link href="../pages/Beleza">
@@ -56,7 +55,7 @@ const Cards: React.FC = () => {
           </div>
 
           {/* Card 5 */}
-          <div className="flex-none w-[250px] h-[280px] flex items-center justify-center">
+          <div className="flex-none w-[283px] h-[280px] flex items-center justify-center">
             <div className='border border-green-700 hover:border-slate-900 hover:shadow-lg hover:shadow-slate-900 w-full h-full p-4 bg-white shadow-md shadow-green-700 rounded-2xl flex flex-col items-center justify-center'>
               <div className="flex items-center justify-center flex-grow">
                 <Link href="../pages/Eletrodomésticos">
@@ -68,8 +67,6 @@ const Cards: React.FC = () => {
           </div>
 
         </div>
-      </div>
-
   );
 };
 

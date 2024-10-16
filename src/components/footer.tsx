@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
               <GoPaperclip className="text-4xl max-[650px]:text-xl" />
             </Link>
           </div>        
-            <Link href="../pages/termos_de_uso" className="hover:text-navigategreen">
+            <Link href="../pages/termos_de_uso" className="flex hover:text-navigategreen">
               Acesse nossos termos de uso
             </Link>
         </div>
