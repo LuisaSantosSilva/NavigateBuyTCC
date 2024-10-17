@@ -7,6 +7,8 @@ import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { Chart, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
 import 'chart.js/auto';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
@@ -227,13 +229,13 @@ const Pesquisa: React.FC = () => {
     return { menorPreco, maiorPreco, mediaPreco };
   };
 
-    {/* Efeito para renderizar o gráfico de linha com os preços */ }
-    useEffect(() => {
-      const produtosPesquisados = produtosFiltrados || [];
-      const { menorPreco, maiorPreco, mediaPreco } = calcularPrecos(produtosPesquisados);
-  
-      if (chartRef.current) {
-        setIsChartVisible(true);const chart = new Chart(chartRef.current!, {
+  {/* Efeito para renderizar o gráfico de linha com os preços */ }
+  useEffect(() => {
+    const produtosPesquisados = produtosFiltrados || [];
+    const { menorPreco, maiorPreco, mediaPreco } = calcularPrecos(produtosPesquisados);
+
+    if (chartRef.current) {
+      setIsChartVisible(true); const chart = new Chart(chartRef.current!, {
         type: 'line',
         data: {
           labels: ['Mais Barato', 'Média', 'Mais Caro'],
@@ -299,19 +301,43 @@ const Pesquisa: React.FC = () => {
             }
           }
         },
-      }); 
+      });
       return () => {
         chart.destroy();
       };
+    }
+
+  }, [searchTerm]);
+
+  const handleSaveProduct = async (produto: Produto) => {
+    try {
+      const response = await fetch('http://localhost:5000/app/favoritar_produto', {
+        method: 'POST',
+        credentials: "include",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(produto),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao favoritar o produto, tente novamente.');
       }
-  
-    }, [searchTerm]);
+
+      const data = await response.json();
+      toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    } catch (error) {
+      toast.error('Você deve estar em sua conta para favoritar um produto!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    }
+  };
 
   return (
     <main>
       <Navbar />
-      {/* Título */ }
+      {/* Título */}
       <div className="flex justify-center mt-20">
+      <ToastContainer />
         <h2 className="text-2xl text-black">
           A pesquisa feita foi <span className="font-bold">“{searchTerm}”</span>
         </h2>
@@ -320,7 +346,7 @@ const Pesquisa: React.FC = () => {
         <h3 className="text-xl text-center mt-3 font-bold text-black">
           Mostrando {totalProdutosExibidos} de {produtosFiltrados.length} resultados
         </h3>
-        {/* Menu de filtros */ }
+        {/* Menu de filtros */}
         <Menu as="div" className="relative inline-block text-left max-[650px]:mt-5">
           <div>
             <Menu.Button className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-blue-800">
@@ -373,7 +399,7 @@ const Pesquisa: React.FC = () => {
           </Menu.Items>
         </Menu>
       </div>
-      {/* Mapeamento dos produtos */ }
+      {/* Mapeamento dos produtos */}
       {produtosVisiveis.length > 0 ? (
         <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[600px]:grid-cols-1">
           {produtosVisiveis.map((produto) => (
@@ -387,6 +413,7 @@ const Pesquisa: React.FC = () => {
               link={produto.link}
               avaliacoes={produto.avaliações ?? "0"}
               estrelas={produto.estrelas ?? "0"}
+              onSave={() => handleSaveProduct(produto)}
             />
           ))}
         </div>
@@ -395,7 +422,7 @@ const Pesquisa: React.FC = () => {
           <p className="text-xl text-navigateblue">Nenhum produto encontrado.</p>
         </div>
       )}
-      {/* Navegação */ }
+      {/* Navegação */}
       <div className="flex flex-col items-center mt-10">
         <div className="flex justify-center items-center">
           {page > 0 && (
@@ -413,7 +440,7 @@ const Pesquisa: React.FC = () => {
           )}
         </div>
       </div>
-      {/* Tabela */ }
+      {/* Tabela */}
       <div className="px-40 p-5">
         <h2 className="text-center text-2xl font-bold mt-10 mb-4">
           Preços de produtos em "{searchTerm}"

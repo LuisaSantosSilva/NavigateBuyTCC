@@ -192,7 +192,7 @@ const Login = () => {
             cadastro agora mesmo!
           </p>
           <Link href="../cadastro_login/cadastro">
-            <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-20 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-transparent text-white font-semibold border-white transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent btn-ajuste">
+            <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-20 text-sm sm:text-base md:text-lg lg:text-xl rounded-full border-2 bg-transparent text-white font-semibold border-white transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent btn-ajuste">
               Cadastre-se
             </button>
           </Link>

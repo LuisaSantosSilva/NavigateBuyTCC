@@ -7,6 +7,8 @@ import { useParams } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import { Chart, LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend } from 'chart.js';
 import 'chart.js/auto';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
@@ -307,11 +309,35 @@ const Categorias: React.FC = () => {
 
   }, [categoria]);
 
+  const handleSaveProduct = async (produto: Produto) => {
+    try {
+      const response = await fetch('http://localhost:5000/app/favoritar_produto', {
+        method: 'POST',
+        credentials: "include",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(produto),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao favoritar o produto, tente novamente.');
+      }
+
+      const data = await response.json();
+      toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    } catch (error) {
+      toast.error('Você deve estar em sua conta para favoritar um produto!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    }
+  };
+
   return (
     <main>
       <Navbar />
       {/* Título */ }
       <div className="flex justify-center mt-20">
+      <ToastContainer />
         <h2 className="text-2xl text-black">
           Categoria selecionada foi <span className="font-bold">“{categoria}”</span>
         </h2>
@@ -387,6 +413,7 @@ const Categorias: React.FC = () => {
               link={produto.link}
               avaliacoes={produto.avaliações ?? "0"}
               estrelas={produto.estrelas ?? "0"}
+              onSave={() => handleSaveProduct(produto)}
             />
           ))}
         </div>

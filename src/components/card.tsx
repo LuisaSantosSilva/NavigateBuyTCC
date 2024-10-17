@@ -9,9 +9,10 @@ interface CardProps {
   link: string;
   avaliacoes: string;
   estrelas: string;
+  onSave: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes, estrelas }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes, estrelas, onSave }) => {
   const [hovered, setHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -33,13 +34,14 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           <img
             src={imageSrc}
             alt="Produto"
-            className="w-52 h-fit object-cover"
+            className="w-56 h-full object-cover"
           />
           <img
             src={hovered ? "/img/icon-coraçao-pintado.png" : heartIconSrc}
             alt="Coração"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onClick={onSave}
             className="absolute top-2 right-2 w-6"
           />
         </div>
@@ -61,11 +63,11 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
             {parseFloat(estrelas) > 0.0 && (
               <>
                 <p className="mt-2 ml-6">{estrelas}</p>
-                <img src="../img/Star.png" className="py-1" alt="Estrela" />
+                <img src="/img/Star.png" className="py-1" alt="Estrela" />
               </>
             )}
           </div>  
-          <button className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={redirecionar}>Acessar</button>
+          <button className="inline-flex aria-label w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={redirecionar}>Acessar</button>
         </div>
       </div>
     </section>

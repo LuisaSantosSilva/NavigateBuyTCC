@@ -12,7 +12,7 @@ const favoritos = () => {
     const [currentUsername, setCurrentUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
     
-    // Efeito para receber dados do perfil
+    {/* Efeito para receber dados do perfil */}
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -68,4 +68,4 @@ const favoritos = () => {
     )
 }
 
-export default favoritos
+export default favoritos;

@@ -18,9 +18,9 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white">
       <div className="flex flex-grow justify-center space-x-56 items-center py-12 max-[650px]:space-x-10">
-        <div className="text-lg font-semibold mb-4 max-[650px]:text-sm">
+        <div className="text-lg font-semibold mb-9 max-[650px]:text-sm">
           Conheça mais sobre nós:
-          <div className="flex mt-5 mb-3 space-x-6 items-center">
+          <div className="flex mt-5 space-x-6 items-center">
             <Link href="https://www.instagram.com/navigatebuy/">
               <FaInstagram className="text-4xl max-[650px]:text-xl" />
             </Link>
@@ -33,12 +33,8 @@ const Footer: React.FC = () => {
             <Link href="https://linktr.ee/navigatebuy">
               <GoPaperclip className="text-4xl max-[650px]:text-xl" />
             </Link>
-          </div>        
-            <Link href="../pages/termos_de_uso" className="flex hover:text-navigategreen">
-              Acesse nossos termos de uso
-            </Link>
+          </div>
         </div>
-
         <div className="text-lg max-[650px]:text-sm">
           <p className="block mb-2 font-semibold">
             Destaques
@@ -55,6 +51,9 @@ const Footer: React.FC = () => {
             <span className="inline min-[1250px]:hidden">Conversões</span>
           </Link>
         </div>
+        <Link href="../pages/termos_de_uso" className="flex hover:text-navigategreen">
+          Acesse nossos termos de uso
+        </Link>
       </div>
       <hr className="border-none bg-gradient-to-r from-navigateblue to-navigategreen h-2 w-4/5 mx-auto" />
       <div className="flex justify-center items-center mt-10">

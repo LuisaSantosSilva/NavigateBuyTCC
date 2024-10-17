@@ -2,7 +2,7 @@ from flask import Blueprint, current_app, jsonify, request, session
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from itsdangerous import URLSafeTimedSerializer
-from models import User, ConfirmationCode, db
+from models import User, CodigoDeConfirmacao, Produtos, db
 import random
 import smtplib
 
@@ -32,12 +32,12 @@ def cadastrar():
 
     code = f'{random.randint(100000, 999999):06d}'
     
-    existing_code = ConfirmationCode.query.filter_by(email=email).first()
+    existing_code = CodigoDeConfirmacao.query.filter_by(email=email).first()
 
     if existing_code:
         existing_code.code = code
     else:
-        new_code = ConfirmationCode(email=email, code=code)
+        new_code = CodigoDeConfirmacao(email=email, code=code)
         db.session.add(new_code)
         db.session.commit()
 
@@ -111,7 +111,7 @@ def confirm_code():
     if not code:
         return jsonify({"error": "O código é necessário!."}), 400
 
-    confirmation = ConfirmationCode.query.filter_by(code=code).first()
+    confirmation = CodigoDeConfirmacao.query.filter_by(code=code).first()
 
     if confirmation:
         username = session.get('username')
@@ -330,3 +330,26 @@ def alterar_senha():
     db.session.commit()
 
     return jsonify({"message": "Senha alterada com sucesso."}), 200
+
+@api.route('/favoritar_produto', methods=['POST'])
+def favoritar():
+    user_id = session.get("user_id")
+    if not user_id:
+        return jsonify({'error': 'Usuário não autenticado.'}), 401
+
+    data = request.json
+    user_id = session['user_id']
+
+    produto = Produtos(
+        título=data['título'],
+        preço=data['preço'],
+        imagem=data['imagem'],
+        link=data['link'],
+        loja=data['loja'],
+        user_id=user_id
+    )
+
+    db.session.add(produto)
+    db.session.commit()
+
+    return jsonify({'message': 'Produto salvo com sucesso!'}), 200
