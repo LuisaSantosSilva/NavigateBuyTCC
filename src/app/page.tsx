@@ -81,7 +81,7 @@ const Home = () => {
     <>
       <Navbar />
       <header className='overflow-hidden select-none'>
-        <div className="flex justify-center items-center mx-auto lg:py-44 md:py-20 bg-navigateblue">
+        <div className="flex justify-center items-center mx-auto md:py-16 bg-navigateblue">
           <div className="flex flex-col lg:flex-row justify-center items-center">
             <Animated
               initial={{ opacity: 0, x: 50 }}
@@ -103,7 +103,7 @@ const Home = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}>
-              <img src={'../img/note.png'} alt="Exemplo" className="lg:max-w-xl md:max-w-sm object-cover md:mt-0 mt-10" />
+              <img src={'/img/note.png'} alt="Exemplo" className="lg:max-w-xl md:max-w-sm object-cover md:mt-0 mt-10" />
             </Animated>
           </div>
         </div>

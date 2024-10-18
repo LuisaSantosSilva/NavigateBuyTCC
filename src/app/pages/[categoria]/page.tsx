@@ -320,6 +320,14 @@ const Categorias: React.FC = () => {
         body: JSON.stringify(produto),
       });
 
+      if (response.status === 401) {
+        throw new Error('Você precisa estar logado para favoritar um produto.');
+      }
+  
+      if (response.status === 400) {
+        throw new Error('Este produto já foi favoritado.');
+      }
+  
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Erro ao favoritar o produto, tente novamente.');
@@ -327,8 +335,9 @@ const Categorias: React.FC = () => {
 
       const data = await response.json();
       toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
-    } catch (error) {
-      toast.error('Você deve estar em sua conta para favoritar um produto!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    } catch (error: unknown) {
+      const errorMessage = (error as Error).message;
+      toast.error(errorMessage, { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
   };
 

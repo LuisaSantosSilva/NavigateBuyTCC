@@ -340,6 +340,15 @@ def favoritar():
     data = request.json
     user_id = session['user_id']
 
+    produto_existente = Produtos.query.filter_by(
+        título=data['título'], 
+        link=data['link'], 
+        user_id=user_id
+    ).first()
+
+    if produto_existente:
+        return jsonify({'error': 'Produto já foi favoritado.'}), 400
+
     produto = Produtos(
         título=data['título'],
         preço=data['preço'],
@@ -352,4 +361,26 @@ def favoritar():
     db.session.add(produto)
     db.session.commit()
 
-    return jsonify({'message': 'Produto salvo com sucesso!'}), 200
+    return jsonify({'message': 'Produto favoritado com sucesso!'}), 200
+
+@api.route('/produtos_favoritos', methods=['GET'])
+def produtos_favoritos():
+    user_id = session.get("user_id")
+    if not user_id:
+        return jsonify({'error': 'Usuário não autenticado.'}), 401
+    
+    user_id = session['user_id']
+
+    produtos_favoritos = Produtos.query.filter_by(user_id=user_id).all()
+
+    favoritos = [{
+        "produto_id": favorito.id,
+        "titulo": favorito.título,
+        "preço": favorito.preço,
+        "imagem": favorito.imagem,
+        "link": favorito.link,
+        "loja": favorito.loja
+        }
+            for favorito in produtos_favoritos
+    ]
+    return jsonify(favoritos), 200

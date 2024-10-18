@@ -34,7 +34,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           <img
             src={imageSrc}
             alt="Produto"
-            className="w-56 h-full object-cover"
+            className="w-56 h-auto object-cover"
           />
           <img
             src={hovered ? "/img/icon-coraçao-pintado.png" : heartIconSrc}
