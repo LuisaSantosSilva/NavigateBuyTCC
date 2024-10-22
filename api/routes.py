@@ -45,50 +45,50 @@ def cadastrar():
         corpo_email = f"""
         <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
             <!-- Cabeçalho -->
-            <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: white;">
-                <h2 style="margin: 0;">Código de Confirmação</h2><hr style="width: 50%; color: white;">
+            <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: #FFFFFF;">
+                <h2 style="margin: 0;">Código de Confirmação</h2><hr style="width: 50%; color: #FFFFFF;">
             </div>
             <div style="background-color: #F5F5F5;">
                 <!-- Mensagem de boas-vindas -->
                 <div style="padding: 20px; text-align: center;">
-                    <h3 style="color: black;">Seja Bem Vindo(a) ao <span style="color: #0C0440;">Navigate <span style="color: #0C8249;">Buy</span> </span></h3>
+                    <h3 style="color: #000000;">Seja Bem Vindo(a) ao <span style="color: #0C0440;">Navigate <span style="color: #0C8249;">Buy</span> </span></h3>
                 </div>
                 
-                <hr style="width:100%; height:3px; border-width:0; background-color:black;">
+                <hr style="width:100%; height:3px; border-width:0; background-color:#000000;">
                 
                 <!-- Corpo do e-mail -->
                 <div style="padding: 20px; text-align: left;">
-                    <p style="font-size: 18px; font-weight: bold; color: black;">
+                    <p style="font-size: 18px; font-weight: bold; color: #000000;">
                         Olá, ficamos felizes de termos você conosco,
                     </p>
-                    <p style="font-size: 16px; color: black;">
+                    <p style="font-size: 16px; color: #000000;">
                         Aqui você pode comparar preços, analisar avaliações de outros consumidores e encontrar as melhores ofertas em lojas populares com boa reputação.
                     </p>
-                    <p style="font-size: 12px; color: black;">
+                    <p style="font-size: 12px; color: #000000;">
                         Ao utilizar nosso sistema, você concorda com nossos termos de uso. Não se esqueça de lê-los.
                     </p>
                 </div>
 
-                <hr style="width:75%; height:3px; border-width:0; background-color:black;">
+                <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
 
                 <!-- Código de confirmação -->
                 <div style="padding: 20px; text-align: center;">
-                    <h3 style="color: black;">Seu código de confirmação é: <strong style="color: #0C8249;">{code}</strong></h3>
-                    <p style="font-size: 18px; color: black;">Use este código para confirmar seu email.</p>
+                    <h3 style="color: #000000;">Seu código de confirmação é: <strong style="color: #0C8249;">{code}</strong></h3>
+                    <p style="font-size: 18px; color: #000000;">Use este código para confirmar seu email.</p>
                 </div>
 
-                <hr style="width:75%; height:3px; border-width:0; background-color:black;">
+                <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
 
                 <!-- Rodapé -->
                 <div style="padding: 18px; text-align: center;">
-                    <p style="font-size: 14px; font-weight: bold; color: black;">Navegue com simplicidade e pesquise com mais segurança!</p>
+                    <p style="font-size: 14px; font-weight: bold; color: #000000;">Navegue com simplicidade e pesquise com mais segurança!</p>
                     <div style="padding: 10px; text-align: left;">
-                        <p style="font-size: 14px; color: black;">Atenciosamente,<br>Equipe Navigate Buy</p>
+                        <p style="font-size: 14px; color: #000000;">Atenciosamente,<br>Equipe Navigate Buy</p>
                     </div>
                 </div>
                 
                 <!-- Direitos reservados -->
-                <div style="background: black; padding: 20px; text-align: center; color: white;">
+                <div style="background: #000000; padding: 20px; text-align: center; color: #FFFFFF;">
                     <hr style="width:75%; height:3px; border-width:0; background: linear-gradient(to right, #0c0440, #0C8249);">
                     <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p><br>
                     <p style="font-size: 12px; margin: 0;">Trabalho de Conclusão de Curso</p>
@@ -242,53 +242,53 @@ def request_password_reset():
         corpo_email = f"""
         <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
             <!-- Cabeçalho -->
-            <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: white;">
-                <h2 style="margin: 0;">Redefinição de Senha</h2><hr style="width: 50%; color: white;">
+            <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: #FFFFFF;">
+                <h2 style="margin: 0;">Redefinição de Senha</h2><hr style="width: 50%; color: #FFFFFF;">
             </div>
 
             <div style="background-color: #F5F5F5;">
                 <!-- Mensagem de boas-vindas -->
                 <div style="padding: 20px; text-align: center;">
-                    <h3 style="color: black;">Seja Bem Vindo(a) ao <span style="color: #0C0440;">Navigate <span style="color: #0C8249;">Buy</span> </span></h3>
+                    <h3 style="color: #000000;">Seja Bem Vindo(a) ao <span style="color: #0C0440;">Navigate <span style="color: #0C8249;">Buy</span> </span></h3>
                 </div>
                 
-                <hr style="width:100%; height:3px; border-width:0; background-color:black;">
+                <hr style="width:100%; height:3px; border-width:0; background-color:#000000;">
                 
                 <!-- Corpo do e-mail -->
                 <div style="padding: 20px; text-align: left;">
-                    <p style="font-size: 18px; font-weight: bold; color: black;">
+                    <p style="font-size: 18px; font-weight: bold; color: #000000;">
                         Olá, ficamos felizes de termos você conosco,
                     </p>
-                    <p style="font-size: 16px; color: black;">
+                    <p style="font-size: 16px; color: #000000;">
                         Aqui você pode comparar preços, analisar avaliações de outros consumidores e encontrar as melhores ofertas em lojas populares com boa reputação.
                     </p>
-                    <p style="font-size: 12px; color: black;">
+                    <p style="font-size: 12px; color: #000000;">
                         Ao utilizar nosso sistema, você concorda com nossos termos de uso. Não se esqueça de lê-los.
                     </p>
                 </div>
 
-                <hr style="width:75%; height:3px; border-width:0; background-color:black;">
+                <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
 
                 <!-- Botão de Redefinição -->
                 <div style="padding: 20px; text-align: center;">
-                    <h3 style="color: black;">Clique no botão abaixo para redefinir sua senha:</h3>
-                    <a href="{link_redefinicao}" style="padding: 10px 20px; background-color: #0C8249; color: white; border-radius: 5px;">Redefinir Senha</a>
-                    <p style="font-size: 18px; color: black;">Use este link para redefinir sua senha.</p>
-                    <p style="font-size: 18px; color: black;">Se você não solicitou a redefinição de senha, por favor, ignore este email.</p>
+                    <h3 style="color: #000000;">Clique no botão abaixo para redefinir sua senha:</h3>
+                    <a href="{link_redefinicao}" style="padding: 10px 20px; background-color: #0C8249; color: #FFFFFF; border-radius: 5px;">Redefinir Senha</a>
+                    <p style="font-size: 18px; color: #000000;">Use este link para redefinir sua senha.</p>
+                    <p style="font-size: 18px; color: #000000;">Se você não solicitou a redefinição de senha, por favor, ignore este email.</p>
                 </div>
 
-                <hr style="width:75%; height:3px; border-width:0; background-color:black;">
+                <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
 
                 <!-- Rodapé -->
                 <div style="padding: 18px; text-align: center;">
-                    <p style="font-size: 14px; font-weight: bold; color: black;">Navegue com simplicidade e pesquise com mais segurança!</p>
+                    <p style="font-size: 14px; font-weight: bold; color: #000000;">Navegue com simplicidade e pesquise com mais segurança!</p>
                     <div style="padding: 10px; text-align: left;">
-                        <p style="font-size: 14px; color: black;">Atenciosamente,<br>Equipe Navigate Buy</p>
+                        <p style="font-size: 14px; color: #000000;">Atenciosamente,<br>Equipe Navigate Buy</p>
                     </div>
                 </div>
                 
                 <!-- Direitos reservados -->
-                <div style="background: black; padding: 20px; text-align: center; color: white;">
+                <div style="background: #000000; padding: 20px; text-align: center; color: #FFFFFF;">
                     <hr style="width:75%; height:3px; border-width:0; background: linear-gradient(to right, #0c0440, #0C8249);">
                     <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p><br>
                     <p style="font-size: 12px; margin: 0;">Trabalho de Conclusão de Curso</p>
@@ -331,6 +331,7 @@ def alterar_senha():
 
     return jsonify({"message": "Senha alterada com sucesso."}), 200
 
+# Rota para favoritar produtos
 @api.route('/favoritar_produto', methods=['POST'])
 def favoritar():
     user_id = session.get("user_id")
@@ -363,18 +364,17 @@ def favoritar():
 
     return jsonify({'message': 'Produto favoritado com sucesso!'}), 200
 
+# Rota para exibir produtos favoritados
 @api.route('/produtos_favoritos', methods=['GET'])
 def produtos_favoritos():
     user_id = session.get("user_id")
     if not user_id:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
     
-    user_id = session['user_id']
-
     produtos_favoritos = Produtos.query.filter_by(user_id=user_id).all()
 
     favoritos = [{
-        "produto_id": favorito.id,
+        "id": favorito.id,
         "titulo": favorito.título,
         "preço": favorito.preço,
         "imagem": favorito.imagem,
@@ -384,3 +384,34 @@ def produtos_favoritos():
             for favorito in produtos_favoritos
     ]
     return jsonify(favoritos), 200
+
+# Rota para remover produtos favoritos
+@api.route('/desfavoritar_produto', methods=['DELETE'])
+def desfavoritar_produto():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'Usuário não autenticado.'}), 401
+    
+    data = request.json
+    produto_id = data.get('produto_id')
+
+    produto = Produtos.query.filter_by(id=produto_id, user_id=user_id).first()
+
+    if not produto:
+        return jsonify({'message': 'Produto não encontrado ou não favoritado.'}), 404
+
+    db.session.delete(produto)
+    db.session.commit()
+
+    return jsonify({'message': 'Produto desfavoritado com sucesso!'}), 200
+
+# Rota para enviar alerta ao email
+@api.route('/alerta_produto', methods=[''])
+def enviar_alerta():
+    user_id = session.get('user_id')
+    if not user_id:
+        return jsonify({'error': 'Usuário não autenticado.'}), 401
+    
+    user_id = session['user_id']
+
+    return jsonify

@@ -190,11 +190,14 @@ const navbar: React.FC= () => {
                   <AiOutlineMenu />
                 )}
               </button>
-              <form className="relative flex flex-1 max-w-sm mx-auto">
+              <form onSubmit={handleSearchSubmit} className="relative flex flex-1 max-w-sm mx-auto">
                 <div className="flex flex-1 pr-16 rounded-full text-white bg-navigategreen">
                   <input
                     type="search"
                     placeholder="Buscar produto"
+                    ref={searchInputRef}
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full p-3 pl-6 rounded-full border border-navigategreen text-black outline-navigategreen placeholder-black"
                   />
                   <button className="absolute right-2 top-1/2 -translate-y-1/2 p-3 flex justify-center text-2xl rounded-full bg-navigategreen hover:bg-green-900">

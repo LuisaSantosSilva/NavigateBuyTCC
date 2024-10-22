@@ -6,7 +6,7 @@ from models import db
 from routes import api
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "PUT", "OPTIONS"]}})
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "PUT", "OPTIONS", "DELETE"]}})
 
 # Configurações do Flask
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
