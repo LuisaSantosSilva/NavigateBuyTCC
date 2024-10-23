@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import Modal from '@/components/ModelFavorito';
 
 import acessoriosData from '@/../api/listasJson/Acessorios.json';
 import bebesData from '@/../api/listasJson/Bebes.json';
@@ -49,6 +50,8 @@ const Pesquisa: React.FC = () => {
   const searchTerm = searchParams.get('query') || '';
   const chartRef = useRef(null);
   const [isChartVisible, setIsChartVisible] = useState(false);
+  const [showFavModal, setShowFavModal] = useState(false);
+  const [produtoFavoritado, setProdutoFavoritado] = useState<Produto | null>(null);
 
   const limiteProdutos = 12;
 
@@ -309,6 +312,7 @@ const Pesquisa: React.FC = () => {
 
   }, [searchTerm]);
 
+  {/* Função para favoritar produtos */ }
   const handleSaveProduct = async (produto: Produto) => {
     try {
       const response = await fetch('http://localhost:5000/app/favoritar_produto', {
@@ -334,10 +338,21 @@ const Pesquisa: React.FC = () => {
       }
 
       const data = await response.json();
+      setProdutoFavoritado(produto);
+      setShowFavModal(true);
       toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error: unknown) {
       const errorMessage = (error as Error).message;
       toast.error(errorMessage, { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    }
+  };
+
+  const handleModalClose = (opt: boolean) => {
+    setShowFavModal(false);
+    if (opt) {
+      alert("Você escolheu receber alertas por e-mail!");
+    } else {
+      alert("Você escolheu não receber alertas por e-mail!");
     }
   };
 
@@ -347,6 +362,12 @@ const Pesquisa: React.FC = () => {
       {/* Título */}
       <div className="flex justify-center mt-20">
       <ToastContainer />
+      {showFavModal && (
+        <Modal
+        onConfirm={() => handleModalClose(true)}
+        onClose={() => handleModalClose(false)}
+        />
+      )}
         <h2 className="text-2xl text-black">
           A pesquisa feita foi <span className="font-bold">“{searchTerm}”</span>
         </h2>

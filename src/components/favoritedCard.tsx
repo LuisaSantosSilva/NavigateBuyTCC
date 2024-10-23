@@ -15,6 +15,7 @@ interface Produto {
 const favoritedcard: React.FC = () => {
 
   const [favoritos, setFavoritos] = useState<Produto[]>([]);
+  const [hoveredProductId, setHoveredProductId] = useState<number | null>(null);
 
   {/* Efeito para buscar os produtos favoritados */ }
   useEffect(() => {
@@ -44,7 +45,6 @@ const favoritedcard: React.FC = () => {
 
   {/* Função para remover os produtos favoritados */ }
   const handleUnfavoriteProduct = async (produtoId: number) => {
-    console.log('Produto ID:', produtoId);
     try {
       const response = await fetch('http://localhost:5000/app/desfavoritar_produto', {
         method: 'DELETE',
@@ -113,7 +113,12 @@ const favoritedcard: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex flex-col items-end max-[400px]:text-xs">
-                  <img src={"/img/icon-coraçao-pintado.png"} onClick={() => handleUnfavoriteProduct(produto.id)} alt="Heart" />
+                  <img
+                    src={hoveredProductId === produto.id ? "/img/icon-coraçao.png" : "/img/icon-coraçao-pintado.png"}
+                    onClick={() => handleUnfavoriteProduct(produto.id)}
+                    onMouseEnter={() => setHoveredProductId(produto.id)}
+                    onMouseLeave={() => setHoveredProductId(null)}
+                    alt="Heart" />
                   <div className="mt-24 max-[760px]:hidden">
                     <p className="text-lg font-bold">Deseja receber alertas via email?</p>
                     <div className="flex flex-row mt-4">

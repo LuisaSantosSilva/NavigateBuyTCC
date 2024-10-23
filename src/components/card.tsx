@@ -66,7 +66,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
                 <img src="/img/Star.png" className="py-1" alt="Estrela" />
               </>
             )}
-          </div>  
+          </div>
           <button className="inline-flex aria-label w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={redirecionar}>Acessar</button>
         </div>
       </div>

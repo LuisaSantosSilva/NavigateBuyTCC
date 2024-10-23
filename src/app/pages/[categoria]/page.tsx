@@ -309,6 +309,7 @@ const Categorias: React.FC = () => {
 
   }, [categoria]);
 
+  {/* Função para favoritar produtos */ }
   const handleSaveProduct = async (produto: Produto) => {
     try {
       const response = await fetch('http://localhost:5000/app/favoritar_produto', {
