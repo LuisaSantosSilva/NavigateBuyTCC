@@ -14,6 +14,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import Modal from '@/components/ModelFavorito';
 
+{/* Listas Json de produtos */ }
 import acessoriosData from '@/../api/listasJson/Acessorios.json';
 import bebesData from '@/../api/listasJson/Bebes.json';
 import belezaData from '@/../api/listasJson/Beleza.json';
@@ -349,11 +350,6 @@ const Pesquisa: React.FC = () => {
 
   const handleModalClose = (opt: boolean) => {
     setShowFavModal(false);
-    if (opt) {
-      alert("Você escolheu receber alertas por e-mail!");
-    } else {
-      alert("Você escolheu não receber alertas por e-mail!");
-    }
   };
 
   return (

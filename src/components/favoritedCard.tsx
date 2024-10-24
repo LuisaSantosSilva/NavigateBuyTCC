@@ -16,6 +16,7 @@ const favoritedcard: React.FC = () => {
 
   const [favoritos, setFavoritos] = useState<Produto[]>([]);
   const [hoveredProductId, setHoveredProductId] = useState<number | null>(null);
+  const [receberAlerta, setReceberAlerta] = useState<boolean | null>(null);
 
   {/* Efeito para buscar os produtos favoritados */ }
   useEffect(() => {
@@ -119,17 +120,23 @@ const favoritedcard: React.FC = () => {
                     onMouseEnter={() => setHoveredProductId(produto.id)}
                     onMouseLeave={() => setHoveredProductId(null)}
                     alt="Heart" />
-                  <div className="mt-24 max-[760px]:hidden">
+                  {/*<div className="mt-24 max-[760px]:hidden">
                     <p className="text-lg font-bold">Deseja receber alertas via email?</p>
                     <div className="flex flex-row mt-4">
-                      <button className="w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 rounded-full border-2 bg-white hover:bg-navigategreen border-black">
-                      </button>
-                      <p className="ml-2">Sim</p>
-                      <button className="w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 ml-4 rounded-full border-2 bg-white hover:bg-navigategreen border-black">
-                      </button>
-                      <p className="ml-2">Não</p>
+                        <button
+                            className={`w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 rounded-full border-2 ${receberAlerta === true ? 'bg-navigategreen' : 'bg-white'} hover:bg-navigategreen border-black`}
+                            onClick={() => setReceberAlerta(true)}
+                        >
+                        </button>
+                        <p className="ml-2">Sim</p>
+                        <button
+                            className={`w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 ml-4 rounded-full border-2 ${receberAlerta === false ? 'bg-navigategreen' : 'bg-white'} hover:bg-navigategreen border-black`}
+                            onClick={() => setReceberAlerta(false)}
+                        >
+                        </button>
+                        <p className="ml-2">Não</p>
                     </div>
-                  </div>
+                  </div>*/}
                 </div>
               </div>
               <hr className="border-black border" />

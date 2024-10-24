@@ -371,18 +371,18 @@ def favoritar():
 # Rota para receber alertas dos produtos favoritos
 @api.route('/enviar_alerta', methods=['POST'])
 def enviar_alerta_favoritos():
-    email = session.get('user_id')
-
-    if not email:
-        return jsonify({"error": "Usuário não está logado."}), 401
-
-    user = User.query.filter_by(email=email).first()
+    user_id = session.get("user_id")
+    if not user_id:
+        return jsonify({'error': 'Usuário não autenticado.'}), 401
+    
+    user = User.query.filter_by(id=user_id).first()
 
     if user is None:
         return jsonify({"error": "Usuário não encontrado."}), 404
 
     if user:
-        # Gerar conteúdo do e-mail
+        email = user.email
+        
         corpo_email = f"""
         <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
             <!-- Cabeçalho -->

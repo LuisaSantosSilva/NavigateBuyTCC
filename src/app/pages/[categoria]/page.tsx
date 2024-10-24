@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import Modal from '@/components/ModelFavorito';
 
 {/* Listas Json de produtos */ }
 import acessoriosData from '@/../api/listasJson/Acessorios.json';
@@ -54,6 +55,8 @@ const Categorias: React.FC = () => {
   const params = useParams();
   const chartRef = useRef(null);
   const [isChartVisible, setIsChartVisible] = useState(false);
+  const [showFavModal, setShowFavModal] = useState(false);
+  const [produtoFavoritado, setProdutoFavoritado] = useState<Produto | null>(null);
 
   const limiteProdutos = 12;
 
@@ -335,11 +338,17 @@ const Categorias: React.FC = () => {
       }
 
       const data = await response.json();
+      setProdutoFavoritado(produto);
+      setShowFavModal(true);
       toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error: unknown) {
       const errorMessage = (error as Error).message;
       toast.error(errorMessage, { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
+  };
+
+  const handleModalClose = (opt: boolean) => {
+    setShowFavModal(false);
   };
 
   return (
@@ -348,6 +357,12 @@ const Categorias: React.FC = () => {
       {/* Título */ }
       <div className="flex justify-center mt-20">
       <ToastContainer />
+      {showFavModal && (
+        <Modal
+        onConfirm={() => handleModalClose(true)}
+        onClose={() => handleModalClose(false)}
+        />
+      )}
         <h2 className="text-2xl text-black">
           Categoria selecionada foi <span className="font-bold">“{categoria}”</span>
         </h2>
