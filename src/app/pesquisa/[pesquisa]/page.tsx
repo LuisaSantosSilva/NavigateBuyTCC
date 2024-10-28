@@ -178,7 +178,7 @@ const Pesquisa: React.FC = () => {
             onClick={() => handlePageChange(comecoPage - 1)}>
             ...
           </span>
-          <span className="h-12 w-[2px] bg-navigateblue ml-2  hidden md:block"></span>
+          <span className="h-12 w-[2px] bg-navigateblue ml-2 hidden md:block"></span>
         </div>
       );
     }
@@ -335,7 +335,6 @@ const Pesquisa: React.FC = () => {
         chart.destroy();
       };
     }
-
   }, [searchTerm]);
 
   {/* Função para favoritar produtos */ }
@@ -376,6 +375,10 @@ const Pesquisa: React.FC = () => {
   const handleModalClose = (opt: boolean) => {
     setShowFavModal(false);
   };
+
+  useEffect(() => {
+    setPage(0);
+  }, [searchTerm]);
 
   return (
     <main>
