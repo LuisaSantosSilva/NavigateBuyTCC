@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import Modal from '@/components/ModelFavorito';
+import Modal from '@/components/ModalFavorito';
 
 {/* Listas Json de produtos */ }
 import acessoriosData from '@/../api/listasJson/Acessorios.json';
@@ -52,7 +52,8 @@ const Pesquisa: React.FC = () => {
   const chartRef = useRef(null);
   const [isChartVisible, setIsChartVisible] = useState(false);
   const [showFavModal, setShowFavModal] = useState(false);
-  const [produtoFavoritado, setProdutoFavoritado] = useState<Produto | null>(null);
+  const [produtoId, setProdutoId] = useState("");
+  const [sugestoes, setSugestoes] = useState<Produto[]>([]);
 
   const limiteProdutos = 12;
 
@@ -233,6 +234,30 @@ const Pesquisa: React.FC = () => {
     return { menorPreco, maiorPreco, mediaPreco };
   };
 
+  {/* Função para gerar sugestões de produtos */ }
+  const buscarSugestoes = () => {
+    const produtosComAvaliacoes = produtosJson.filter(produto =>
+      produto.avaliações && produto.avaliações !== "sem"
+    );
+
+    const sugestoesFiltradas = produtosComAvaliacoes
+      .sort((a, b) => {
+        const converterAvaliacoesParaNumero = (avaliacoes: string) => {
+          return avaliacoes === "sem" ? 0 : parseInt(avaliacoes.replace(/[()]/g, '').trim(), 10) || 0;
+        };
+        const avaliacoesA = converterAvaliacoesParaNumero(a.avaliações || "sem");
+        const avaliacoesB = converterAvaliacoesParaNumero(b.avaliações || "sem");
+        return avaliacoesB - avaliacoesA;
+      })
+      .slice(0, 8);
+
+    setSugestoes(sugestoesFiltradas);
+  };
+
+  useEffect(() => {
+    buscarSugestoes();
+  }, []);
+
   {/* Efeito para renderizar o gráfico de linha com os preços */ }
   useEffect(() => {
     const produtosPesquisados = produtosFiltrados || [];
@@ -328,18 +353,18 @@ const Pesquisa: React.FC = () => {
       if (response.status === 401) {
         throw new Error('Você precisa estar logado para favoritar um produto.');
       }
-  
+
       if (response.status === 400) {
         throw new Error('Este produto já foi favoritado.');
       }
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Erro ao favoritar o produto, tente novamente.');
       }
 
       const data = await response.json();
-      setProdutoFavoritado(produto);
+      setProdutoId(data.id);
       setShowFavModal(true);
       toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error: unknown) {
@@ -357,13 +382,14 @@ const Pesquisa: React.FC = () => {
       <Navbar />
       {/* Título */}
       <div className="flex justify-center mt-20">
-      <ToastContainer />
-      {showFavModal && (
-        <Modal
-        onConfirm={() => handleModalClose(true)}
-        onClose={() => handleModalClose(false)}
-        />
-      )}
+        <ToastContainer />
+        {showFavModal && (
+          <Modal
+            onConfirm={() => handleModalClose(true)}
+            onClose={() => handleModalClose(false)}
+            produtoId={produtoId}
+          />
+        )}
         <h2 className="text-2xl text-black">
           A pesquisa feita foi <span className="font-bold">“{searchTerm}”</span>
         </h2>
@@ -444,10 +470,28 @@ const Pesquisa: React.FC = () => {
           ))}
         </div>
       ) : (
-        <div className="flex justify-center items-center w-full h-64">
-          <p className="text-xl text-navigateblue">Nenhum produto encontrado.</p>
+        <div className="">
+          <p className="mt-10 text-center text-xl text-navigateblue">Nenhum produto encontrado.</p>
+          <h2 className="mt-5 text-center text-xl text-navigateblue">Não encontrou o que procurava? Dê uma olhada nos produtos mais bem avaliados!</h2>
+          <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[600px]:grid-cols-1">
+            {sugestoes.map((produto) => (
+              <Card
+                key={produto.link}
+                imageSrc={produto.imagem}
+                heartIconSrc="/img/icon-coraçao.png"
+                productDescription={produto.título}
+                brandName={produto.loja}
+                price={produto.preço}
+                link={produto.link}
+                avaliacoes={produto.avaliações ?? "0"}
+                estrelas={produto.estrelas ?? "0"}
+                onSave={() => handleSaveProduct(produto)}
+              />
+            ))}
+          </div>
         </div>
-      )}
+      )
+      }
       {/* Navegação */}
       <div className="flex flex-col items-center mt-10">
         <div className="flex justify-center items-center">
@@ -474,7 +518,7 @@ const Pesquisa: React.FC = () => {
         <canvas ref={chartRef} className={`rounded-xl ${isChartVisible ? "bg-gray-300" : ""}`}></canvas>
       </div>
       <Footer />
-    </main>
+    </main >
   );
 };
 

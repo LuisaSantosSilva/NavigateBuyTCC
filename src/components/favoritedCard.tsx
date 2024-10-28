@@ -5,18 +5,17 @@ import 'react-toastify/dist/ReactToastify.css';
 interface Produto {
   id: number;
   titulo: string;
-  descricao: string;
-  preço: string;
+  preco: string;
   imagem: string;
   link: string;
   loja: string;
+  receber_alerta: boolean;
 }
 
 const favoritedcard: React.FC = () => {
 
   const [favoritos, setFavoritos] = useState<Produto[]>([]);
   const [hoveredProductId, setHoveredProductId] = useState<number | null>(null);
-  const [receberAlerta, setReceberAlerta] = useState<boolean | null>(null);
 
   {/* Efeito para buscar os produtos favoritados */ }
   useEffect(() => {
@@ -35,7 +34,15 @@ const favoritedcard: React.FC = () => {
         }
 
         const data = await response.json();
-        setFavoritos(data);
+
+        console.log(data);
+
+        const favoritosComAlertas = data.map((produto: { receber_alerta: undefined; }) => ({
+          ...produto,
+          receber_alerta: produto.receber_alerta !== undefined ? produto.receber_alerta : false
+        }));
+
+        setFavoritos(favoritosComAlertas);
       } catch (error) {
         alert(`erro ao exibir: ${error}`)
       }
@@ -82,6 +89,47 @@ const favoritedcard: React.FC = () => {
     }
   };
 
+  const handleAlertPreferenceChange = async (produtoId: number, receber_alerta: boolean) => {
+    const novaPreferencia = !receber_alerta;
+    try {
+      const response = await fetch('http://localhost:5000/app/atualizar_alerta_produto', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ produto_id: produtoId, receber_alerta: novaPreferencia }),
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erro ao atualizar a preferência de alerta.');
+      }
+
+      setFavoritos((prevFavoritos) =>
+        prevFavoritos.map(produto =>
+          produto.id === produtoId ? { ...produto, receber_alerta: novaPreferencia } : produto
+        )
+      );
+
+      toast.success('Preferência de alerta atualizada com sucesso!', {
+        position: "bottom-right",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "dark"
+      });
+    } catch (error: any) {
+      toast.error(error.message, {
+        position: "bottom-left",
+        autoClose: 5000,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "dark"
+      });
+    }
+  };
+
   return (
     <div className="max-w-5xl max-md:max-w-xl mx-auto py-4">
       <ToastContainer />
@@ -106,11 +154,9 @@ const favoritedcard: React.FC = () => {
                       {produto.loja}
                     </p>
                     <p className="text-lg font-bold text-black cursor-auto my-3">
-                      Por R$ {produto.preço}
+                      Por R$ {produto.preco}
                     </p>
-                    <div className="inline-flex justify-center rounded-full bg-navigategreen w-48 py-2 text-base font-semibold text-white hover:bg-green-600">
-                      <button onClick={() => window.open(produto.link, '_blank')}>Acessar</button>
-                    </div>
+                    <button className="inline-flex justify-center rounded-full bg-navigategreen w-48 py-2 text-base font-semibold text-white hover:bg-green-600" onClick={() => window.open(produto.link, '_blank')}>Acessar</button>
                   </div>
                 </div>
                 <div className="flex flex-col items-end max-[400px]:text-xs">
@@ -120,23 +166,23 @@ const favoritedcard: React.FC = () => {
                     onMouseEnter={() => setHoveredProductId(produto.id)}
                     onMouseLeave={() => setHoveredProductId(null)}
                     alt="Heart" />
-                  {/*<div className="mt-24 max-[760px]:hidden">
+                  <div className="mt-24 max-[760px]:hidden">
                     <p className="text-lg font-bold">Deseja receber alertas via email?</p>
                     <div className="flex flex-row mt-4">
-                        <button
-                            className={`w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 rounded-full border-2 ${receberAlerta === true ? 'bg-navigategreen' : 'bg-white'} hover:bg-navigategreen border-black`}
-                            onClick={() => setReceberAlerta(true)}
-                        >
-                        </button>
-                        <p className="ml-2">Sim</p>
-                        <button
-                            className={`w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 ml-4 rounded-full border-2 ${receberAlerta === false ? 'bg-navigategreen' : 'bg-white'} hover:bg-navigategreen border-black`}
-                            onClick={() => setReceberAlerta(false)}
-                        >
-                        </button>
-                        <p className="ml-2">Não</p>
+                      <button
+                        className={`w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 rounded-full border-2 ${produto.receber_alerta === true ? 'bg-navigategreen' : 'bg-white'} hover:bg-navigategreen border-black`}
+                        onClick={() => handleAlertPreferenceChange(produto.id, true)}
+                      >
+                      </button>
+                      <p className="ml-2">Sim</p>
+                      <button
+                        className={`w-7 h-7 max-[400px]:w-6 max-[400px]:h-6 ml-4 rounded-full border-2 ${produto.receber_alerta === false ? 'bg-navigategreen' : 'bg-white'} hover:bg-navigategreen border-black`}
+                        onClick={() => handleAlertPreferenceChange(produto.id, false)}
+                      >
+                      </button>
+                      <p className="ml-2">Não</p>
                     </div>
-                  </div>*/}
+                  </div>
                 </div>
               </div>
               <hr className="border-black border" />

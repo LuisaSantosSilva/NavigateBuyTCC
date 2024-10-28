@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import Modal from '@/components/ModelFavorito';
+import Modal from '@/components/ModalFavorito';
 
 {/* Listas Json de produtos */ }
 import acessoriosData from '@/../api/listasJson/Acessorios.json';
@@ -57,6 +57,7 @@ const Categorias: React.FC = () => {
   const [isChartVisible, setIsChartVisible] = useState(false);
   const [showFavModal, setShowFavModal] = useState(false);
   const [produtoFavoritado, setProdutoFavoritado] = useState<Produto | null>(null);
+  const [produtoId, setProdutoId] = useState("");
 
   const limiteProdutos = 12;
 
@@ -242,72 +243,72 @@ const Categorias: React.FC = () => {
     const { menorPreco, maiorPreco, mediaPreco } = calcularPrecos(produtosDaCategoria);
 
     if (chartRef.current) {
-      setIsChartVisible(true);const chart = new Chart(chartRef.current!, {
-      type: 'line',
-      data: {
-        labels: ['Mais Barato', 'Média', 'Mais Caro'],
-        datasets: [
-          {
-            label: `Preços em "${categoria}" R$`,
-            data: [menorPreco, mediaPreco, maiorPreco],
-            borderColor: '#000000',
-            backgroundColor: '#007f00',
-            borderWidth: 2
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: true,
-          },
-          tooltip: {
-            mode: 'index',
-            intersect: false,
-          },
-        },
-        scales: {
-          y: {
-            beginAtZero: false,
-          },
-          x: {
-            beginAtZero: false,
-            grid: {
-              tickColor: 'blue'
+      setIsChartVisible(true); const chart = new Chart(chartRef.current!, {
+        type: 'line',
+        data: {
+          labels: ['Mais Barato', 'Média', 'Mais Caro'],
+          datasets: [
+            {
+              label: `Preços em "${categoria}" R$`,
+              data: [menorPreco, mediaPreco, maiorPreco],
+              borderColor: '#000000',
+              backgroundColor: '#007f00',
+              borderWidth: 2
             },
-            ticks: {
-              color: 'green',
-            }
-          }
+          ],
         },
-        transitions: {
-          show: {
-            animations: {
-              x: {
-                from: 0
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: true,
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: false,
+            },
+            x: {
+              beginAtZero: false,
+              grid: {
+                tickColor: 'blue'
               },
-              y: {
-                from: 0
+              ticks: {
+                color: 'green',
               }
             }
           },
-          hide: {
-            animations: {
-              x: {
-                to: 0
-              },
-              y: {
-                to: 0
+          transitions: {
+            show: {
+              animations: {
+                x: {
+                  from: 0
+                },
+                y: {
+                  from: 0
+                }
+              }
+            },
+            hide: {
+              animations: {
+                x: {
+                  to: 0
+                },
+                y: {
+                  to: 0
+                }
               }
             }
           }
-        }
-      },
-    }); 
-    return () => {
-      chart.destroy();
-    };
+        },
+      });
+      return () => {
+        chart.destroy();
+      };
     }
 
   }, [categoria]);
@@ -327,20 +328,21 @@ const Categorias: React.FC = () => {
       if (response.status === 401) {
         throw new Error('Você precisa estar logado para favoritar um produto.');
       }
-  
+
       if (response.status === 400) {
         throw new Error('Este produto já foi favoritado.');
       }
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Erro ao favoritar o produto, tente novamente.');
       }
 
       const data = await response.json();
-      setProdutoFavoritado(produto);
+      setProdutoId(data.id);
       setShowFavModal(true);
       toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+
     } catch (error: unknown) {
       const errorMessage = (error as Error).message;
       toast.error(errorMessage, { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
@@ -354,15 +356,16 @@ const Categorias: React.FC = () => {
   return (
     <main>
       <Navbar />
-      {/* Título */ }
+      {/* Título */}
       <div className="flex justify-center mt-20">
-      <ToastContainer />
-      {showFavModal && (
-        <Modal
-        onConfirm={() => handleModalClose(true)}
-        onClose={() => handleModalClose(false)}
-        />
-      )}
+        <ToastContainer />
+        {showFavModal && (
+          <Modal
+            onConfirm={() => handleModalClose(true)}
+            onClose={() => handleModalClose(false)}
+            produtoId={produtoId}
+          />
+        )}
         <h2 className="text-2xl text-black">
           Categoria selecionada foi <span className="font-bold">“{categoria}”</span>
         </h2>
@@ -371,7 +374,7 @@ const Categorias: React.FC = () => {
         <h3 className="text-xl text-center mt-3 font-bold text-black">
           Mostrando {totalProdutosExibidos} de {produtosDaCategoria.length} resultados
         </h3>
-        {/* Menu de filtros */ }
+        {/* Menu de filtros */}
         <Menu as="div" className="relative inline-block text-left max-[650px]:mt-5">
           <div>
             <Menu.Button className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-blue-800">
@@ -424,7 +427,7 @@ const Categorias: React.FC = () => {
           </Menu.Items>
         </Menu>
       </div>
-      {/* Mapeamento dos produtos */ }
+      {/* Mapeamento dos produtos */}
       {produtosVisiveis.length > 0 ? (
         <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
           {produtosVisiveis.map((produto) => (
@@ -447,7 +450,7 @@ const Categorias: React.FC = () => {
           <p className="text-xl text-navigateblue">Nenhum produto encontrado.</p>
         </div>
       )}
-      {/* Navegação */ }
+      {/* Navegação */}
       <div className="flex flex-col items-center mt-10">
         <div className="flex justify-center items-center">
           {page > 0 && (
@@ -465,7 +468,7 @@ const Categorias: React.FC = () => {
           )}
         </div>
       </div>
-      {/* Tabela */ }
+      {/* Tabela */}
       <div className="px-40 p-5">
         <h2 className="text-center text-xl font-bold mt-10 mb-4">
           Preços de produtos na categoria {categoria}

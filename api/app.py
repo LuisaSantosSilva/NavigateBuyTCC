@@ -3,10 +3,13 @@ from flask import Flask
 from flask_cors import CORS
 from config import Config
 from models import db
-from routes import api
+from routes import api, enviar_alerta_favoritos
+from apscheduler.schedulers.background import BackgroundScheduler
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "http://localhost:3000", "methods": ["GET", "POST", "PUT", "OPTIONS", "DELETE"]}})
+
+scheduler = BackgroundScheduler()
 
 # Configurações do Flask
 app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'default_secret_key')
@@ -20,6 +23,13 @@ db.init_app(app)
 
 # Registrando o blueprint
 app.register_blueprint(api, url_prefix='/app')
+
+def iniciar_agendador():
+    if not scheduler.running:
+        scheduler.add_job(enviar_alerta_favoritos, 'cron', day_of_week='fri', hour=20, minute=00)
+        scheduler.start()
+
+iniciar_agendador()
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

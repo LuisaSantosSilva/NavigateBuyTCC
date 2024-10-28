@@ -32,6 +32,7 @@ class Produtos(db.Model):
     imagem = db.Column(db.String(255), nullable=False)
     link = db.Column(db.String(255), nullable=False)
     loja = db.Column(db.String(255), nullable=False)
+    receber_alerta = db.Column(db.Boolean, default=True)
     user_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
 
 '''
@@ -57,6 +58,7 @@ CREATE TABLE produtos (
     link VARCHAR(255) NOT NULL,
     loja VARCHAR(255) NOT NULL,
     user_id INT NOT NULL,
+    receber_alerta BOOLEAN DEFAULT TRUE,
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 '''

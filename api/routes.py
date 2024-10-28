@@ -339,7 +339,6 @@ def favoritar():
         return jsonify({'error': 'Usuário não autenticado.'}), 401
 
     data = request.json
-    user_id = session['user_id']
 
     def normalizar_dado(dado: str) -> str:
         return dado.strip().lower()
@@ -366,80 +365,122 @@ def favoritar():
     db.session.add(produto)
     db.session.commit()
 
-    return jsonify({'message': 'Produto favoritado com sucesso!'}), 200
+    return jsonify({'message': 'Produto favoritado com sucesso!', 'id': produto.id}), 200
 
-# Rota para receber alertas dos produtos favoritos
-@api.route('/enviar_alerta', methods=['POST'])
-def enviar_alerta_favoritos():
+# Rota para o usuário escolher quais produtos ele deseja receber alerta
+@api.route('/atualizar_alerta_produto', methods=['POST'])
+def atualizar_alerta_produto():
     user_id = session.get("user_id")
+    data = request.get_json()
+    produto_id = data.get("produto_id")
+    receber_alerta = data.get("receber_alerta")
+
     if not user_id:
-        return jsonify({'error': 'Usuário não autenticado.'}), 401
+        return jsonify({"error": "Usuário não autenticado."}), 401
     
-    user = User.query.filter_by(id=user_id).first()
+    if receber_alerta is None:
+        return jsonify({"error": "Dados incompletos."}), 400
 
-    if user is None:
-        return jsonify({"error": "Usuário não encontrado."}), 404
+    produto = Produtos.query.filter_by(id=produto_id, user_id=user_id).first()
 
-    if user:
-        email = user.email
-        
-        corpo_email = f"""
-        <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
-            <!-- Cabeçalho -->
-            <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: #FFFFFF;">
-                <h2 style="margin: 0;">Alertas de Produtos Favoritados</h2><hr style="width: 50%; color: #FFFFFF;">
-            </div>
+    if not produto:
+        return jsonify({"error": "Produto não encontrado ou não pertence ao usuário."}), 404
 
-            <div style="background-color: #F5F5F5;">
-                <!-- Mensagem principal -->
-                <div style="padding: 20px; text-align: center;">
-                    <h3 style="color: #000000;">Novidades sobre seus produtos favoritos no <span style="color: #0C0440;">Navigate <span style="color: #0C8249;">Buy</span></span></h3>
-                </div>
-                
-                <hr style="width:100%; height:3px; border-width:0; background-color:#000000;">
+    produto.receber_alerta = receber_alerta
+    db.session.commit()
 
-                <!-- Corpo do e-mail -->
-                <div style="padding: 20px; text-align: left;">
-                    <p style="font-size: 18px; font-weight: bold; color: #000000;">
-                        Olá, {user.username}!
-                    </p>
-                    <p style="font-size: 16px; color: #000000;">
-                        Aqui estão as últimas atualizações sobre seus produtos favoritos. Não perca as melhores ofertas disponíveis este mês!
-                    </p>
-                </div>
+    return jsonify({"message": "Preferência de alerta atualizada com sucesso."}), 200
 
-                <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
+# Função para enviar alertas de produtos favoritados
+def enviar_alerta_favoritos():
+    from app import app
+    with app.app_context():
+        usuarios = User.query.all()
 
-                <!-- Botão de ver favoritos -->
-                <div style="padding: 20px; text-align: center;">
-                    <a href="http://localhost:3000/perfil/favoritos" style="padding: 10px 20px; background-color: #0C8249; color: #FFFFFF; border-radius: 5px;">Ver Produtos Favoritos</a>
-                </div>
+        for user in usuarios:
+            favoritos = Produtos.query.filter_by(user_id=user.id, receber_alerta=True).all()
+            email = user.email
 
-                <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
+            if favoritos:
+            
+                produtos_lista = ''.join(
+                    f"""
+                    <tr style="background-color: #F9F9F9; border-bottom: 1px solid #DDDDDD;">
+                        <td style="padding: 10px; text-align: center;">
+                            <img src="{produto.imagem}" alt="{produto.título}" style="width: 60px; height: auto; border-radius: 5px;">
+                        </td>
+                        <td style="padding: 10px;">{produto.título}</td>
+                        <td style="padding: 10px; text-align: right; font-weight: bold; color: #0C0440;">R$ {produto.preço}</td>
+                    </tr>
+                    """ for produto in favoritos
+                )
 
-                <!-- Rodapé -->
-                <div style="padding: 18px; text-align: center;">
-                    <p style="font-size: 14px; font-weight: bold; color: #000000;">Navegue com simplicidade e pesquise com mais segurança!</p>
-                    <div style="padding: 10px; text-align: left;">
-                        <p style="font-size: 14px; color: #000000;">Atenciosamente,<br>Equipe Navigate Buy</p>
-                    </div>
-                </div>
-                
-                <!-- Direitos reservados -->
-                <div style="background: #000000; padding: 20px; text-align: center; color: #FFFFFF;">
-                    <hr style="width:75%; height:3px; border-width:0; background: linear-gradient(to right, #0c0440, #0C8249);">
-                    <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p><br>
-                    <p style="font-size: 12px; margin: 0;">Trabalho de Conclusão de Curso</p>
-                </div>
-            </div>    
-        </div>    
-        """
+                corpo_email = f"""
+                    <div style="font-family: Arial, sans-serif; max-width: 700px; margin: 0 auto; padding: 20px;">
+                        <!-- Cabeçalho -->
+                        <div style="background: linear-gradient(to right, #0c0440, #0C8249); padding: 20px; text-align: center; color: #FFFFFF;">
+                            <h2 style="margin: 0;">Alertas de Produtos Favoritados</h2><hr style="width: 50%; color: #FFFFFF;">
+                        </div>
 
-        # Enviar o e-mail
-        enviar_email(email, "Alertas de Produtos Favoritados - Navigate Buy", corpo_email)
-        return jsonify({"message": "Alerta de favoritos enviado por e-mail."}), 200
-    else:
-        return jsonify({"error": "Usuário não encontrado."}), 400
+                        <div style="background-color: #F5F5F5;">
+                            <!-- Mensagem principal -->
+                            <div style="padding: 20px; text-align: center;">
+                                <h3 style="color: #000000;">Novidades sobre seus produtos favoritos no <span style="color: #0C0440;">Navigate <span style="color: #0C8249;">Buy</span></span></h3>
+                            </div>
+                            
+                            <hr style="width:100%; height:3px; border-width:0; background-color:#000000;">
+
+                            <!-- Corpo do e-mail -->
+                            <div style="padding: 20px; text-align: left;">
+                                <p style="font-size: 18px; font-weight: bold; color: #000000;">
+                                    Olá, {user.username}!
+                                </p>
+                                <p style="font-size: 16px; color: #000000;">
+                                    Aqui estão as últimas atualizações sobre seus produtos favoritos. Não perca as melhores ofertas disponíveis este mês!
+                                </p>
+                                <!-- Tabela de produtos -->
+                                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                                    <thead>
+                                        <tr style="background-color: #0C8249; color: #FFFFFF; text-align: left;">
+                                            <th style="padding: 10px; width: 80px;">Imagem</th>
+                                            <th style="padding: 10px;">Título</th>
+                                            <th style="padding: 10px; text-align: right;">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {produtos_lista}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
+
+                            <!-- Botão de ver favoritos -->
+                            <div style="padding: 20px; text-align: center;">
+                                <a href="http://localhost:3000/perfil/favoritos" style="padding: 10px 20px; background-color: #0C8249; color: #FFFFFF; border-radius: 5px;">Ver Produtos Favoritos</a>
+                            </div>
+
+                            <hr style="width:75%; height:3px; border-width:0; background-color:#000000;">
+
+                            <!-- Rodapé -->
+                            <div style="padding: 18px; text-align: center;">
+                                <p style="font-size: 14px; font-weight: bold; color: #000000;">Navegue com simplicidade e pesquise com mais segurança!</p>
+                                <div style="padding: 10px; text-align: left;">
+                                    <p style="font-size: 14px; color: #000000;">Atenciosamente,<br>Equipe Navigate Buy</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Direitos reservados -->
+                            <div style="background: #000000; padding: 20px; text-align: center; color: #FFFFFF;">
+                                <hr style="width:75%; height:3px; border-width:0; background: linear-gradient(to right, #0c0440, #0C8249);">
+                                <p style="font-size: 12px; margin: 0;">Todos os direitos reservados a Navigate Buy © 2024</p><br>
+                                <p style="font-size: 12px; margin: 0;">Trabalho de Conclusão de Curso</p>
+                            </div>
+                        </div>    
+                    </div>    
+                    """
+                enviar_email(email, "Alerta - Navigate Buy", corpo_email)
+    return jsonify({"message": "Alerta de favoritos enviado por e-mail."}), 200
 
 # Rota para exibir produtos favoritados
 @api.route('/produtos_favoritos', methods=['GET'])
@@ -453,10 +494,11 @@ def produtos_favoritos():
     favoritos = [{
         "id": favorito.id,
         "titulo": favorito.título,
-        "preço": favorito.preço,
+        "preco": favorito.preço,
         "imagem": favorito.imagem,
         "link": favorito.link,
-        "loja": favorito.loja
+        "loja": favorito.loja,
+        "receber_alerta": favorito.receber_alerta
         }
             for favorito in produtos_favoritos
     ]
