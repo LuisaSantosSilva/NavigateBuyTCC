@@ -366,9 +366,18 @@ const Pesquisa: React.FC = () => {
       setProdutoId(data.id);
       setShowFavModal(true);
       toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
-    } catch (error: unknown) {
-      const errorMessage = (error as Error).message;
-      toast.error(errorMessage, { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    } catch (error: any) {
+      if (error.message === "Faile to fetch" || error.error.message.includes("NetworkError")) {
+        toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+        setTimeout(() => {
+          window.location.href = '../';
+        }, 2500);
+      } else {
+        toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+        setTimeout(() => {
+          window.location.href = '../';
+        }, 2500);
+      }
     }
   };
 
@@ -404,7 +413,7 @@ const Pesquisa: React.FC = () => {
         {/* Menu de filtros */}
         <Menu as="div" className="relative inline-block text-left max-[650px]:mt-5">
           <div>
-            <Menu.Button className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-blue-800">
+            <Menu.Button className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-white hover:text-navigateblue">
               {textoFiltro}
               <ChevronDownIcon aria-hidden="true" className="ml-2 w-7 text-white" />
             </Menu.Button>

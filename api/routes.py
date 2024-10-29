@@ -3,8 +3,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from itsdangerous import URLSafeTimedSerializer
 from models import User, CodigoDeConfirmacao, Produtos, db
-import random
-import smtplib
+import json, subprocess, uuid, smtplib, random, os
 
 # Definindo um blueprint para agrupar as rotas
 api = Blueprint('api', __name__)
@@ -523,3 +522,44 @@ def desfavoritar_produto():
     db.session.commit()
 
     return jsonify({'message': 'Produto desfavoritado com sucesso!'}), 200
+
+# Rota para buscar avaliações de produtos
+@api.route('/avaliacao', methods=['POST'])
+def scrape():
+    data = request.json
+    produto = data.get("produto")
+    loja = data.get("loja")
+    
+    output_file = f"output_{uuid.uuid4()}.json"
+    project_dir = '../api/reclameAqui'
+
+    scrapy_command = [
+        'scrapy', 'crawl', 'RA',
+        '-a', f'produto={produto}'
+    ]
+    
+    if loja:
+        scrapy_command.append('-a')
+        scrapy_command.append(f'loja={loja}')
+    
+    scrapy_command.extend(['-o', output_file])
+    
+    try:
+        result = subprocess.run(scrapy_command, cwd=project_dir, capture_output=True, text=True)
+        
+        print("Comando executado:", scrapy_command)
+
+        if result.returncode != 0:
+            raise subprocess.CalledProcessError(result.returncode, result.cmd)
+
+        with open(output_file, 'r') as file:
+            data = json.load(file)
+        
+        os.remove(output_file)
+
+        return jsonify(data)
+        
+    except subprocess.CalledProcessError as e:
+        return jsonify({'error': 'Erro ao executar o Scrapy', 'details': str(e)})
+    except Exception as e:
+        return jsonify({'error': 'Ocorreu um erro inesperado', 'details': str(e)})

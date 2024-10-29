@@ -55,8 +55,8 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 SELENIUM_DRIVER_NAME = 'chrome'
-SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')  # Path to your chromedriver
-SELENIUM_DRIVER_ARGUMENTS=['--headless']  # Runs Chrome in headless mode
+SELENIUM_DRIVER_EXECUTABLE_PATH = which('chromedriver')
+SELENIUM_DRIVER_ARGUMENTS=['--headless']
 
 
 # Enable or disable spider middlewares

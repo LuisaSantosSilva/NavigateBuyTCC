@@ -52,7 +52,7 @@ const loadProducts = async () => {
 
 
 
-const navbar: React.FC= () => {
+const Navbar: React.FC = () => {
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const [isClick, setisClick] = useState(false);
   const [showComponent, setShowComponent] = useState(false);
@@ -67,7 +67,7 @@ const navbar: React.FC= () => {
     };
     fetchData();
   }, []);
-  
+
   const toggleNavbar = () => {
     setisClick(!isClick);
   };
@@ -79,7 +79,7 @@ const navbar: React.FC= () => {
   const handleCategoryChange = (category: string) => {
     setcategoriaSelecionada(category);
     setShowComponent(false);
-  
+
     router.push(`/pages/${encodeURIComponent(category)}`);
   };
 
@@ -108,7 +108,7 @@ const navbar: React.FC= () => {
               <LogoAnimation
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0, 1] }}
-                transition={{ duration: 1, delay: 2}}
+                transition={{ duration: 1, delay: 2 }}
               >
                 <div className="ml-2 text-3xl lg:text-3xl md:text-2xl font-semibold">
                   <span className="text-navigateblue">
@@ -135,13 +135,13 @@ const navbar: React.FC= () => {
             </div>
           </form>
           <div className="hidden xl:flex space-x-7 font-semibold items-center">
-            <Link href="../perfil/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+            <Link href="/perfil/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Favoritos
             </Link>
-            <Link href="../cadastro_login/login" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+            <Link href="/cadastro_login/login" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Entrar
             </Link>
-            <Link href="../perfil/editar" className="p-2 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen text-white hover:text-navigategreen">
+            <Link href="/perfil/editar" className="p-2 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen text-white hover:text-navigategreen">
               <AiOutlineUser className="text-2xl" />
             </Link>
           </div>
@@ -161,36 +161,36 @@ const navbar: React.FC= () => {
                   <span className="hidden xl:inline">Buscar comentários de avalição</span>
                   <span className="inline xl:hidden">Avaliações</span>
                 </Link>
-                <Link href="../pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="/pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
                   <span className="ml-2 hidden xl:inline">Comparar preços de produtos internacionais</span>
                   <span className="ml-2 inline xl:hidden">Comparação</span>
                 </Link>
                 <div className="flex items-center space-x-4 xl:hidden">
-                  <Link href="../perfil/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="/perfil/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Favoritos
                   </Link>
-                  <Link href="../cadastro_login/login" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="/cadastro_login/login" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Entrar
                   </Link>
-                  <Link href="../cadastro_login/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="/cadastro_login/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Cadastrar
                   </Link>
-                  <Link href="../perfil/editar" className="p-2 hover:bg-white hover:text-black text-white">
+                  <Link href="/perfil/editar" className="p-2 hover:bg-white hover:text-black text-white">
                     <AiOutlineUser className="text-2xl" />
                   </Link>
                 </div>
               </div>
             </div>
             <div className="lg:hidden flex items-center flex-grow">
-              <button className="inline-flex items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white text-white hover:text-white" onClick={toggleNavbar}>
+              <button className=" items-center justify-center p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white text-white hover:text-white" onClick={toggleNavbar}>
                 {isClick ? (
                   <AiOutlineClose />
                 ) : (
                   <AiOutlineMenu />
                 )}
               </button>
-              <form onSubmit={handleSearchSubmit} className="relative flex flex-1 max-w-sm mx-auto">
+              <form onSubmit={handleSearchSubmit} className="relative flex flex-1 max-w-xs mx-auto">
                 <div className="flex flex-1 pr-16 rounded-full text-white bg-navigategreen">
                   <input
                     type="search"
@@ -211,25 +211,27 @@ const navbar: React.FC= () => {
         {isClick && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-l sm:px-3">
-              <Link href="/categorias" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="#" onClick={handleClick} className="flex items-center rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
                 Categorias
+                <MdKeyboardArrowDown className="text-xl ml-1" />
               </Link>
-              <Link href="../pages/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              {showComponent && (<Categorias onCategorySelect={handleCategoryChange} />)}
+              <Link href="/pages/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Buscar comentários de avalição
               </Link>
-              <Link href="../pages/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/pages/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Comparar preços de produtos internacionais
               </Link>
-              <Link href="../perfil/favoritos" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/perfil/favoritos" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Favoritos
               </Link>
-              <Link href="../cadastro_login/login" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/cadastro_login/login" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Entrar
               </Link>
-              <Link href="../cadastro_login/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/cadastro_login/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Cadastrar-se
               </Link>
-              <Link href="../perfil/editar" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/perfil/editar" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Perfil
               </Link>
             </div>
@@ -240,4 +242,4 @@ const navbar: React.FC= () => {
   );
 };
 
-export default navbar;
+export default Navbar;

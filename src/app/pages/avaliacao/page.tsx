@@ -5,11 +5,39 @@ import Resposta from "@/components/respostaAvaliacao";
 import React, { useState } from "react";
 import { poppins } from "@/app/fonts";
 
+interface Resposta {
+  titulo: string;
+  descricao: string;
+  status: string;
+  tempo: string;
+  link: string;
+  loja: string;
+}
+
 const avaliação = () => {
   const [showAvaliacao, setShowAvaliacao] = useState(false);
+  const [produto, setProduto] = useState("");
+  const [loja, setLoja] = useState("");
+  const [resposta, setResposta] = useState<Resposta[]>([]);
 
-  const handleClick = () => {
-    setShowAvaliacao(true);
+  const handleClick = async () => {
+    const data = { produto, loja };
+
+    try {
+      const response = await fetch("http://localhost:5000/app/avaliacao", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      console.log("Resultado da API:", result);
+      setResposta(result);
+      setShowAvaliacao(true);
+    } catch (error) {
+      console.error("Erro ao buscar avaliações:", error);
+    }
   };
 
   return (
@@ -36,6 +64,8 @@ const avaliação = () => {
             <div className="w-full p-4 rounded-full bg-white shadow-md shadow-navigateblue border border-navigateblue">
               <input
                 type="search"
+                value={produto}
+                onChange={(e) => setProduto(e.target.value)}
                 placeholder="Adicione aqui o nome do produto que deseja analisar"
                 className="outline-none w-full"
               />
@@ -46,14 +76,19 @@ const avaliação = () => {
             <div className="w-full p-4 rounded-full bg-white outline-none shadow-md shadow-navigateblue border border-navigateblue">
               <input
                 type="search"
+                value={loja}
+                onChange={(e) => setLoja(e.target.value)}
                 placeholder="Adicione aqui o local de compra desse produto (se desejar)"
                 className="outline-none w-full"
               />
             </div>
           </form>
         </div>
-        <button className="inline-flex justify-center mb-10 rounded-2xl bg-navigategreen px-16 py-3 text-lg font-semibold text-white transition duration-1000 ease-in-out border hover:bg-green-200 hover:text-slate-900 hover:border-slate-900" onClick={handleClick}>Buscar</button>
-        {showAvaliacao && (<Resposta />)}
+        <button className="inline-flex justify-center mb-10 rounded-2xl bg-navigategreen px-16 py-3 text-lg font-semibold text-white transition duration-1000 ease-in-out border hover:bg-green-200 hover:text-slate-900 hover:border-slate-900"
+          onClick={handleClick}>
+          Buscar
+        </button>
+        {showAvaliacao && (<Resposta resposta={resposta} />)}
       </div>
       <Footer />
     </main>

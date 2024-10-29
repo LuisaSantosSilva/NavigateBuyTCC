@@ -44,7 +44,7 @@ const favoritedcard: React.FC = () => {
 
         setFavoritos(favoritosComAlertas);
       } catch (error) {
-        alert(`erro ao exibir: ${error}`)
+        console.log(`erro ao exibir: ${error}`)
       }
     };
 
