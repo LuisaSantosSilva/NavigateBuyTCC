@@ -1,7 +1,7 @@
 "use client";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Resposta from "@/components/respostaAvaliacao";
+import Resposta from "@/components/RespostaAvaliacao";
 import React, { useState } from "react";
 import { poppins } from "@/app/fonts";
 
