@@ -11,8 +11,8 @@ const favoritos = () => {
     const [username, setUsername] = useState<string>('');
     const [currentUsername, setCurrentUsername] = useState<string>('');
     const [email, setEmail] = useState<string>('');
-    
-    {/* Efeito para receber dados do perfil */}
+
+    {/* Efeito para receber dados do perfil */ }
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -32,19 +32,19 @@ const favoritos = () => {
                 setEmail(data.email || "");
             } catch (error: any) {
                 if (error.message === "Failed to fetch" || error.message.includes("NetworkError")) {
-                    toast.error('Erro de conexão: O servidor está offline. Tente novamente mais tarde.', { 
-                        position: "top-center", 
-                        hideProgressBar: true, 
-                        theme: "dark" 
+                    toast.error('Erro de conexão: O servidor está offline. Tente novamente mais tarde.', {
+                        position: "top-center",
+                        hideProgressBar: true,
+                        theme: "dark"
                     });
                     setTimeout(() => {
                         window.location.href = '../';
-                      }, 2500);
+                    }, 2500);
                 } else {
-                    toast.error('Usuário não autenticado, faça Login', { 
-                        position: "top-center", 
-                        hideProgressBar: true, 
-                        theme: "dark" 
+                    toast.error('Usuário não autenticado, faça Login', {
+                        position: "top-center",
+                        hideProgressBar: true,
+                        theme: "dark"
                     });
                     setTimeout(() => {
                         window.location.href = '../cadastro_login/login';
@@ -60,7 +60,7 @@ const favoritos = () => {
         <main>
             <Navbar />
             <div className="text-center mt-20">
-            <ToastContainer />
+                <ToastContainer limit={1} />
                 <div className={`font-bold text-3xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
                     <p>Aqui você pode acessar os produtos que
                         <span className="text-navigategreen"> favoritou</span>

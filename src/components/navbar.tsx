@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
               Favoritos
             </Link>
             <Link href="/cadastro_login/login" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
-              Entrar
+              Login
             </Link>
             <Link href="/perfil/editar" className="p-2 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen text-white hover:text-navigategreen">
               <AiOutlineUser className="text-2xl" />
@@ -158,7 +158,7 @@ const Navbar: React.FC = () => {
                 </Link>
                 {showComponent && (<Categorias onCategorySelect={handleCategoryChange} />)}
                 <Link href="/pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
-                  <span className="hidden xl:inline">Buscar comentários de avalição</span>
+                  <span className="hidden xl:inline">Buscar comentários de avaliação</span>
                   <span className="inline xl:hidden">Avaliações</span>
                 </Link>
                 <Link href="/pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
@@ -171,7 +171,7 @@ const Navbar: React.FC = () => {
                     Favoritos
                   </Link>
                   <Link href="/cadastro_login/login" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
-                    Entrar
+                    Login
                   </Link>
                   <Link href="/cadastro_login/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Cadastrar
@@ -217,7 +217,7 @@ const Navbar: React.FC = () => {
               </Link>
               {showComponent && (<Categorias onCategorySelect={handleCategoryChange} />)}
               <Link href="/pages/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
-                Buscar comentários de avalição
+                Buscar comentários de avaliação
               </Link>
               <Link href="/pages/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Comparar preços de produtos internacionais
@@ -226,7 +226,7 @@ const Navbar: React.FC = () => {
                 Favoritos
               </Link>
               <Link href="/cadastro_login/login" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
-                Entrar
+                Login
               </Link>
               <Link href="/cadastro_login/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Cadastrar-se

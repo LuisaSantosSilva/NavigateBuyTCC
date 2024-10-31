@@ -110,7 +110,7 @@ const Editar = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <header className="flex-grow">
-        <ToastContainer />
+        <ToastContainer limit={1} />
         <h2 className={`text-center font-extrabold mt-20 text-4xl ${poppins.className}`}>
           Perfil
         </h2>
