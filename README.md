@@ -44,14 +44,27 @@ Por que escolheram as cores azul e verde para a composição do projeto?
 > **Resp:** Seguindo a teoria das cores, o azul remete à segurança e o verde ao dinheiro. Juntando essas duas cores, temos cores análogas que trazem harmonia à composição de um site. Por se tratar de um site utilizado para pesquisas de compras online, essas duas cores trazem uma sensação de confiança e prosperidade, facilitando a navegação e incentivando as compras.
 </div>
 
-##
+<div align="center">
+ 
+  <h3> Foram adquiridos mais de </h3>
+   <h1>25.000 ofertas indexadas</h1>
+
+</div>
 
 <div align="center">
   
-  <h4>Alguns Layouts de tela:</h4>
+  <h4>Confira alguns Layouts das principais telas:</h4>
+  
+  <h5>Tela de cadastro dos Consumidores:</h5>
   <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/Layout%20Cadastro.png"><br>
+
+  <h5>Tela principal:</h5>
   <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/Layout%20Home.png"><br>
+
+  <h5>Tela de buscar produtos:</h5>
   <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/Layout%20Buscar%20produto.png"><br>
+
+  <h5>Tela de comentáros de avaliação:</h5>
   <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/Layout%20Avalia%C3%A7%C3%B5es%20e%20coment%C3%A1rios%20de%20consumidores.png">
 
 </div>
