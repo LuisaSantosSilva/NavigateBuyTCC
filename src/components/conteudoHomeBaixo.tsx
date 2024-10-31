@@ -3,10 +3,11 @@ import { poppins } from "../app/fonts";
 import Animated from "../utils/animacoes";
 
 const ConteudoInferior: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 767);
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);

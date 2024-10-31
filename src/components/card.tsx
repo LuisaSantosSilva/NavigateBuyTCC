@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Link from 'next/link';
 
 interface CardProps {
   imageSrc: string;
@@ -15,17 +16,8 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription, brandName, price, link, avaliacoes, estrelas, onSave }) => {
   const [hovered, setHovered] = useState(false);
 
-  const handleMouseEnter = () => {
-    setHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    setHovered(false);
-  };
-
-  const redirecionar = () => {
-    window.open(link, '_blank');
-  };
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => setHovered(false);
 
   return (
     <section className="mx-auto my-5">
@@ -52,9 +44,11 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           <span className="text-black font-bold uppercase text-lg block mt-2">
             {brandName}
           </span>
-          <a href="#" className="text-base underline block mt-1">
+          <Link
+            href={`../pages/avaliacao?productDescription=${encodeURIComponent(productDescription)}&brandName=${encodeURIComponent(brandName)}`}
+            className="text-base underline block mt-1">
             Ver avaliações de consumidores
-          </a>
+          </Link>
           <p className="text-xl font-semibold cursor-auto mt-1 text-black">
             Por R$ {price}
           </p>
@@ -67,7 +61,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
               </>
             )}
           </div>
-          <button className="inline-flex aria-label w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={redirecionar}>Acessar</button>
+          <button className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={() => window.open(link, '_blank')}>Acessar</button>
         </div>
       </div>
     </section>

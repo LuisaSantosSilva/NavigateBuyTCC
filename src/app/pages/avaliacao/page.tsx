@@ -4,8 +4,9 @@ import Footer from "@/components/footer";
 import Resposta from "@/components/RespostaAvaliacao";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { poppins } from "@/app/fonts";
+import { useSearchParams } from 'next/navigation';
 
 interface Resposta {
   titulo: string;
@@ -18,9 +19,12 @@ interface Resposta {
 
 const avaliação = () => {
   const [showAvaliacao, setShowAvaliacao] = useState(false);
+  const searchParams = useSearchParams();
+  const avaliarProduto = searchParams.get('productDescription')
+  const avaliarLoja = searchParams.get('brandName');
   const [loading, setLoading] = useState(false);
-  const [produto, setProduto] = useState("");
-  const [loja, setLoja] = useState("");
+  const [produto, setProduto] = useState(avaliarProduto || "");
+  const [loja, setLoja] = useState(avaliarLoja || "");
   const [resposta, setResposta] = useState<Resposta[]>([]);
   const [produtoBuscado, setProdutoBuscado] = useState("");
   const [lojaBuscada, setLojaBuscada] = useState("");

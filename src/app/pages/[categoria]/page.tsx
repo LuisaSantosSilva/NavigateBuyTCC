@@ -358,7 +358,8 @@ const Categorias: React.FC = () => {
     }
   };
 
-  const handleModalClose = (opt: boolean) => {
+  {/* Função para fechar modal favorito */ }
+  const handleModalFechar = (opt: boolean) => {
     setShowFavModal(false);
   };
 
@@ -370,8 +371,8 @@ const Categorias: React.FC = () => {
         <ToastContainer />
         {showFavModal && (
           <Modal
-            onConfirm={() => handleModalClose(true)}
-            onClose={() => handleModalClose(false)}
+            onConfirm={() => handleModalFechar(true)}
+            onClose={() => handleModalFechar(false)}
             produtoId={produtoId}
           />
         )}

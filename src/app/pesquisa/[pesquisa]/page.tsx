@@ -381,10 +381,12 @@ const Pesquisa: React.FC = () => {
     }
   };
 
-  const handleModalClose = (opt: boolean) => {
+  {/* Função para fechar modal favorito */ }
+  const handleModalFechar = (opt: boolean) => {
     setShowFavModal(false);
   };
 
+  {/* Efeito para retornar a primeira página após uma nova busca */ }
   useEffect(() => {
     setPage(0);
   }, [searchTerm]);
@@ -397,8 +399,8 @@ const Pesquisa: React.FC = () => {
         <ToastContainer />
         {showFavModal && (
           <Modal
-            onConfirm={() => handleModalClose(true)}
-            onClose={() => handleModalClose(false)}
+            onConfirm={() => handleModalFechar(true)}
+            onClose={() => handleModalFechar(false)}
             produtoId={produtoId}
           />
         )}
