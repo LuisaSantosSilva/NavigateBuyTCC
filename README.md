@@ -1,6 +1,9 @@
 # Navigate Buy
 
 Repositório criado para armazenar a codificação do Trabalho de Conclusão de Curso apresentado ao Curso Técnico em Desenvolvimento de Sistemas da Etec Zona Leste 2024.
+
+[![Branch Desenvolvimento](https://img.shields.io/badge/Acessar_branch_da_aplicação_prática_2024-0c8249?style=for-the-badge)](https://github.com/LuisaSantosSilva/NavigateBuyTCC/tree/desenvolvimento)
+
 ##
 
 <div align="justify">
@@ -17,7 +20,8 @@ informadas com base em avaliações de outros compradores, de sites como o
 Reclame aqui, análise de dados e gráficos e comparações de preços de diferentes lojas.
 </div>
 
-##
+Foram adquiridos mais de
+<h2>25.000 ofertas para busca de compras online</h2> 
 
 <div align="center">
   
@@ -42,13 +46,6 @@ Como serão feitas as coletas de dados?
 
 Por que escolheram as cores azul e verde para a composição do projeto?
 > **Resp:** Seguindo a teoria das cores, o azul remete à segurança e o verde ao dinheiro. Juntando essas duas cores, temos cores análogas que trazem harmonia à composição de um site. Por se tratar de um site utilizado para pesquisas de compras online, essas duas cores trazem uma sensação de confiança e prosperidade, facilitando a navegação e incentivando as compras.
-</div>
-
-<div align="center">
- 
-  <h3> Foram adquiridos mais de </h3>
-   <h1>25.000 ofertas indexadas</h1>
-
 </div>
 
 <div align="center">
