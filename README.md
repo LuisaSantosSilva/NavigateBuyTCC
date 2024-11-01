@@ -64,6 +64,9 @@ Por que escolheram as cores azul e verde para a composição do projeto?
   <h5>Tela de comentáros de avaliação:</h5>
   <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/Layout%20Avalia%C3%A7%C3%B5es%20e%20coment%C3%A1rios%20de%20consumidores.png">
 
+  <h5>Tela de coparação de produtos internacionais:</h5>
+  <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/Layout%20Compara%C3%A7%C3%A3o%20de%20produtos%20internacionais.png">
+
 </div>
 
 ##
