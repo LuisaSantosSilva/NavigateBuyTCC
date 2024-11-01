@@ -52,13 +52,13 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
           <p className="text-xl font-semibold cursor-auto mt-1 text-black">
             Por R$ {price}
           </p>
-          <div className="flex mb-2">
-            <p className="mt-2">{avaliacoes} avaliações do site</p>
+          <div className="mt-2 mb-2 flex flex-nowrap items-start gap-x-2 space-x-4">
+            <p className="text-sm">{avaliacoes} avaliações do site</p>
             {parseFloat(estrelas) > 0.0 && (
-              <>
-                <p className="mt-2 ml-6">{estrelas}</p>
-                <img src="/img/Star.png" className="py-1" alt="Estrela" />
-              </>
+              <div className="flex">
+                <p className="text-sm">{estrelas}</p>
+                <img src="/img/Star.png" className="" alt="Estrela" />
+              </div>
             )}
           </div>
           <button className="inline-flex w-full justify-center gap-x-1 rounded-xl px-7 py-2 text-base font-semibold text-white hover:bg-green-600 bg-navigategreen" onClick={() => window.open(link, '_blank')}>Acessar</button>

@@ -2,9 +2,12 @@ from flask import Blueprint, current_app, jsonify, request, session
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from itsdangerous import URLSafeTimedSerializer
+from werkzeug.utils import secure_filename
 from models import User, CodigoDeConfirmacao, Produtos, db
 from special import cadastro_corpo_email, redefinir_corpo_email, alerta_corpo_email
 import json, subprocess, uuid, smtplib, random, os
+
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 # Definindo um blueprint para agrupar as rotas
 api = Blueprint('api', __name__)
@@ -111,6 +114,10 @@ def get_perfil():
             'email': user.email
         }), 200
 
+# Verificador de extensão do avatar
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 # Rota para o usuário editar suas informações
 @api.route('/editar-perfil', methods=['PUT'])
 def editar_perfil():
@@ -119,18 +126,30 @@ def editar_perfil():
         return jsonify({'error': 'Usuário não autenticado.'}), 401
 
     user = User.query.filter_by(id=user_id).first()
+    if not user:
+        return jsonify({'error': 'Usuário não encontrado.'}), 404
 
-    data = request.get_json()
+    data = request.form
     username = data.get('username')
     password = data.get('password')
+    avatar = data.get('avatar')
 
     if username:
         user.username = username
     if password:
         user.set_password(password)
+    if avatar and allowed_file(avatar.filename):
+        avatar_filename = secure_filename(avatar.filename)
+        avatar_path = os.path.join(current_app.config['UPLOAD_FOLDER'], avatar_filename)
+        avatar.save(avatar_path)
+        user.avatar = avatar_filename
+    
+        print(avatar_filename)
+        print(f"Arquivo recebido: {avatar.filename}")
+        print(f"Arquivod recebidod: {avatar_path}")
 
-    user = User.query.filter_by(username=username, password=password)
-
+    print("Dados do formulário:", data)
+    print("Arquivo de avatar:", avatar) 
     db.session.commit()
     return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
 

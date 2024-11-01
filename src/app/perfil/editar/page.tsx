@@ -9,6 +9,7 @@ import { enableInput } from "@/utils/habilitarInput";
 import { poppins } from "@/app/fonts";
 
 const Editar = () => {
+  const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [username, setUsername] = useState<string>('');
   const [currentUsername, setCurrentUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -29,6 +30,7 @@ const Editar = () => {
         }
 
         const data = await response.json();
+        setAvatarFile(data.avatar);
         setUsername(data.username || "");
         setCurrentUsername(data.username || "");
         setEmail(data.email || "");
@@ -60,24 +62,29 @@ const Editar = () => {
 
   // Função para editar perfil
   const habilitarEditarPerfil = async () => {
-    const profileUpdateData = { username, email, password };
+    const profileUpdateData = new FormData();
+    profileUpdateData.append('username', username);
+    profileUpdateData.append('email', email);
+    profileUpdateData.append('password', password);
+    if (avatarFile) {
+      profileUpdateData.append('avatar', avatarFile);
+    }
 
+    console.log("Avatar File:", avatarFile); 
+    console.log("Dados do perfil:", Array.from(profileUpdateData.entries()));
+  
     try {
       const response = await fetch("http://localhost:5000/app/editar-perfil", {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
         credentials: "include",
-        body: JSON.stringify(profileUpdateData),
+        body: profileUpdateData,
       });
-
+  
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Erro ao atualizar perfil");
       }
-
-      const data = await response.json();
+  
       toast.success("Perfil atualizado com sucesso!", { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error) {
       toast.error('Erro ao atualizar perfil', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
@@ -117,7 +124,7 @@ const Editar = () => {
         <p className={`text-center mt-5 text-3xl ${poppins.className}`}>
           Olá {currentUsername}
         </p>
-        <Avatar />
+        <Avatar onAvatarChange={setAvatarFile} />
         <div className="relative mb-8 space-y-10 max-w-2xl mx-auto px-4">
           <div className="relative flex flex-col mb-6">
             <label htmlFor="nome-completo" className={`mb-2 text-left text-xl ${poppins.className}`}>

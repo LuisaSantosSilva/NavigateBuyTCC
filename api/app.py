@@ -24,6 +24,11 @@ db.init_app(app)
 # Registrando o blueprint
 app.register_blueprint(api, url_prefix='/app')
 
+UPLOAD_FOLDER = os.path.join(app.root_path, 'static/uploads/avatars')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 def iniciar_agendador():
     if not scheduler.running:
         scheduler.add_job(enviar_alerta_favoritos, 'cron', day_of_week='fri', hour=20, minute=00)

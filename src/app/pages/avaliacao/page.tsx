@@ -125,6 +125,7 @@ const avaliação = () => {
           <form className="w-40 relative text-black sm:w-[300px] md:w-[500px] max-[400px]:mb-8 min-[400px]:mr-8">
             <div className="w-full p-4 rounded-full bg-white shadow-md shadow-navigateblue border border-navigateblue">
               <input
+                name="avaliar-produto"
                 type="search"
                 value={produto}
                 onChange={(e) => setProduto(e.target.value)}
@@ -138,6 +139,7 @@ const avaliação = () => {
           <form className="w-40 relative text-black sm:w-[300px] md:w-[500px]">
             <div className="w-full p-4 rounded-full bg-white outline-none shadow-md shadow-navigateblue border border-navigateblue">
               <input
+                name="buscar-produto"
                 type="search"
                 value={loja}
                 onChange={(e) => setLoja(e.target.value)}

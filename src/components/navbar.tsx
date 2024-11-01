@@ -91,7 +91,7 @@ const Navbar: React.FC = () => {
   return (
     <nav>
       <div className="bg-white">
-        <div className="flex items-center h-16 px-4 sm:px-6 lg:px-8 select-none">
+        <div className="flex flex-grow items-center h-16 px-8 select-none">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <LogoAnimation
@@ -122,6 +122,7 @@ const Navbar: React.FC = () => {
           <form onSubmit={handleSearchSubmit} className="relative flex flex-1 max-w-lg mx-auto max-lg:hidden">
             <div className="flex flex-1 md:pr-16 pr-10 rounded-full text-white bg-navigategreen">
               <input
+                name="buscar-produto"
                 type="search"
                 placeholder="Buscar produto"
                 ref={searchInputRef}
@@ -191,8 +192,9 @@ const Navbar: React.FC = () => {
                 )}
               </button>
               <form onSubmit={handleSearchSubmit} className="relative flex flex-1 max-w-xs mx-auto">
-                <div className="flex flex-1 pr-16 rounded-full text-white bg-navigategreen">
+                <div className="pr-16 rounded-full text-white bg-navigategreen">
                   <input
+                    name="buscar-produto"
                     type="search"
                     placeholder="Buscar produto"
                     ref={searchInputRef}

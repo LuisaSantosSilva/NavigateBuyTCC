@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
 import Modal from '@/components/ModalFavorito';
 
 {/* Listas Json de produtos */ }
@@ -376,7 +377,7 @@ const Categorias: React.FC = () => {
             produtoId={produtoId}
           />
         )}
-        <h2 className="text-2xl text-black">
+        <h2 className="text-2xl text-center text-black">
           Categoria selecionada foi <span className="font-bold">“{categoria}”</span>
         </h2>
       </div>
@@ -437,6 +438,9 @@ const Categorias: React.FC = () => {
           </Menu.Items>
         </Menu>
       </div>
+      <div className="text-lg text-center font-semibold text-gray-600 mt-4">
+        <p>Produtos retirados no dia 25/10/2024 feito com 💚 e Scrapy</p>
+      </div>
       {/* Mapeamento dos produtos */}
       {produtosVisiveis.length > 0 ? (
         <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[820px]:grid-cols-1">
@@ -479,8 +483,8 @@ const Categorias: React.FC = () => {
         </div>
       </div>
       {/* Tabela */}
-      <div className="px-40 p-5">
-        <h2 className="text-center text-xl font-bold mt-10 mb-4">
+      <div className="px-4 sm:px-16 md:px-28 p-5 min-w-[200px]">
+        <h2 className="text-center text-2xl font-bold mt-10 mb-4">
           Preços de produtos na categoria {categoria}
         </h2>
         <canvas ref={chartRef} className={`rounded-xl ${isChartVisible ? "bg-gray-300" : ""}`}></canvas>

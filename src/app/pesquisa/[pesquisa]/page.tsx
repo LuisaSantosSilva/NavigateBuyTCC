@@ -404,7 +404,7 @@ const Pesquisa: React.FC = () => {
             produtoId={produtoId}
           />
         )}
-        <h2 className="text-2xl text-black">
+        <h2 className="text-2xl text-center text-black">
           A pesquisa feita foi <span className="font-bold">“{searchTerm}”</span>
         </h2>
       </div>
@@ -465,30 +465,14 @@ const Pesquisa: React.FC = () => {
           </Menu.Items>
         </Menu>
       </div>
+      <div className="flex justify-center items-center text-lg text-center font-semibold text-gray-600 mt-4">
+        <p>Produtos retirados no dia 25/10/2024 feito com 💚 e Scrapy</p>
+      </div>
       {/* Mapeamento dos produtos */}
-      {produtosVisiveis.length > 0 ? (
-        <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[600px]:grid-cols-1">
-          {produtosVisiveis.map((produto) => (
-            <Card
-              key={produto.link}
-              imageSrc={produto.imagem}
-              heartIconSrc="/img/icon-coraçao.png"
-              productDescription={produto.título}
-              brandName={produto.loja}
-              price={produto.preço}
-              link={produto.link}
-              avaliacoes={produto.avaliações ?? "0"}
-              estrelas={produto.estrelas ?? "0"}
-              onSave={() => handleSaveProduct(produto)}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="">
-          <p className="mt-10 text-center text-xl text-navigateblue">Nenhum produto encontrado.</p>
-          <h2 className="mt-5 text-center text-xl text-navigateblue">Não encontrou o que procurava? Dê uma olhada nos produtos mais bem avaliados!</h2>
+      {
+        produtosVisiveis.length > 0 ? (
           <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[600px]:grid-cols-1">
-            {sugestoes.map((produto) => (
+            {produtosVisiveis.map((produto) => (
               <Card
                 key={produto.link}
                 imageSrc={produto.imagem}
@@ -503,8 +487,28 @@ const Pesquisa: React.FC = () => {
               />
             ))}
           </div>
-        </div>
-      )
+        ) : (
+          <div className="">
+            <p className="mt-10 text-center text-xl text-navigateblue">Nenhum produto encontrado.</p>
+            <h2 className="mt-5 text-center text-xl text-navigateblue">Não encontrou o que procurava? Dê uma olhada nos produtos mais bem avaliados!</h2>
+            <div className="grid grid-cols-4 max-[1250px]:grid-cols-2 max-[600px]:grid-cols-1">
+              {sugestoes.map((produto) => (
+                <Card
+                  key={produto.link}
+                  imageSrc={produto.imagem}
+                  heartIconSrc="/img/icon-coraçao.png"
+                  productDescription={produto.título}
+                  brandName={produto.loja}
+                  price={produto.preço}
+                  link={produto.link}
+                  avaliacoes={produto.avaliações ?? "0"}
+                  estrelas={produto.estrelas ?? "0"}
+                  onSave={() => handleSaveProduct(produto)}
+                />
+              ))}
+            </div>
+          </div>
+        )
       }
       {/* Navegação */}
       <div className="flex flex-col items-center mt-10">
@@ -525,9 +529,9 @@ const Pesquisa: React.FC = () => {
         </div>
       </div>
       {/* Tabela */}
-      <div className="px-40 p-5">
+      <div className="px-4 sm:px-16 md:px-28 p-5 min-w-[200px]">
         <h2 className="text-center text-2xl font-bold mt-10 mb-4">
-          Preços de produtos em "{searchTerm}"
+          Preços de produtos na categoria "{searchTerm}"
         </h2>
         <canvas ref={chartRef} className={`rounded-xl ${isChartVisible ? "bg-gray-300" : ""}`}></canvas>
       </div>
