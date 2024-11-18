@@ -34,19 +34,19 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={onSave}
-            className="absolute top-2 right-2 w-6"
+            className="absolute top-2 right-2 w-6 cursor-pointer"
           />
         </div>
         <div className="py-2 px-5 h-64 flex flex-col justify-between">
-          <p className="text-lg text-black block hover:overflow-scroll overflow-hidden">
+          <p className="text-base text-black block overflow-hidden text-ellipsis">
             {productDescription}
           </p>
-          <span className="text-black font-bold uppercase text-lg block mt-2">
+          <span className="text-black font-bold uppercase text-sm block mt-2">
             {brandName}
           </span>
           <Link
             href={`../pages/avaliacao?productDescription=${encodeURIComponent(productDescription)}&brandName=${encodeURIComponent(brandName)}`}
-            className="text-base underline block mt-1">
+            className="text-base underline block mt-1 hover:text-gray-600">
             Ver avaliações de consumidores
           </Link>
           <p className="text-xl font-semibold cursor-auto mt-1 text-black">

@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app, jsonify, request, session
+from flask import Blueprint, current_app, jsonify, request, session, url_for
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from itsdangerous import URLSafeTimedSerializer
@@ -7,7 +7,9 @@ from models import User, CodigoDeConfirmacao, Produtos, db
 from special import cadastro_corpo_email, redefinir_corpo_email, alerta_corpo_email
 import json, subprocess, uuid, smtplib, random, os
 
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+UPLOAD_FOLDER = 'static/uploads/avatars'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'ico'}
+MAX_AVATAR_SIZE = 5 * 1024 * 1024
 
 # Definindo um blueprint para agrupar as rotas
 api = Blueprint('api', __name__)
@@ -109,12 +111,24 @@ def get_perfil():
         return jsonify({'error': 'Usuário não autenticado.'}), 401
     
     user = User.query.filter_by(id=user_id).first()
+
+    if user.avatar:
+        avatar_url = url_for('static', filename=f"uploads/avatars/{user.avatar}", _external=True)
+    else:
+        avatar_url = url_for('static', filename="uploads/avatars/logo-lupa.png", _external=True)
+    
     return jsonify({
             'username': user.username,
-            'email': user.email
+            'email': user.email,
+            'avatar': avatar_url
         }), 200
 
-# Verificador de extensão do avatar
+def is_file_allowed(filename):
+    filename.seek(0, os.SEEK_END)
+    is_allowed_size = filename.tell() <= MAX_AVATAR_SIZE
+    filename.seek(0)
+    return filename.filename.split('.')[-1].lower() in ALLOWED_EXTENSIONS and is_allowed_size
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -132,24 +146,33 @@ def editar_perfil():
     data = request.form
     username = data.get('username')
     password = data.get('password')
-    avatar = data.get('avatar')
+    avatar = request.files.get('avatar')
 
     if username:
         user.username = username
     if password:
         user.set_password(password)
-    if avatar and allowed_file(avatar.filename):
-        avatar_filename = secure_filename(avatar.filename)
-        avatar_path = os.path.join(current_app.config['UPLOAD_FOLDER'], avatar_filename)
-        avatar.save(avatar_path)
-        user.avatar = avatar_filename
-    
-        print(avatar_filename)
-        print(f"Arquivo recebido: {avatar.filename}")
-        print(f"Arquivod recebidod: {avatar_path}")
+    if avatar:
+        if not allowed_file(avatar.filename):
+            return jsonify({'error': 'Tipo ou tamanho de arquivo não permitido'}), 404
 
-    print("Dados do formulário:", data)
-    print("Arquivo de avatar:", avatar) 
+        old_avatar_path = os.path.join(current_app.config['UPLOAD_FOLDER'], user.avatar) if user.avatar else None
+
+        if old_avatar_path and os.path.exists(old_avatar_path):
+            try:
+                os.remove(old_avatar_path)
+                print(f"Avatar antigo {old_avatar_path} removido com sucesso.")
+            except Exception as e:
+                print(f"Erro ao remover avatar antigo: {e}")
+
+        filename = secure_filename(f"{user.id}_{avatar.filename}")
+        avatar_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+        avatar.save(avatar_path)
+        user.avatar = filename
+        print(f"Arquivo recebido: {avatar.filename}")
+
+        print("Dados do formulário:", data)
+        print("Arquivo de avatar:", avatar) 
     db.session.commit()
     return jsonify({'message': 'Perfil atualizado com sucesso!'}), 200
 

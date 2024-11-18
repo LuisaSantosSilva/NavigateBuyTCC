@@ -10,6 +10,7 @@ import { poppins } from "@/app/fonts";
 
 const Editar = () => {
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
+  const [avatarUrl, setAvatarUrl] = useState<string>('');
   const [username, setUsername] = useState<string>('');
   const [currentUsername, setCurrentUsername] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -30,7 +31,7 @@ const Editar = () => {
         }
 
         const data = await response.json();
-        setAvatarFile(data.avatar);
+        setAvatarUrl(data.avatar);
         setUsername(data.username || "");
         setCurrentUsername(data.username || "");
         setEmail(data.email || "");
@@ -62,6 +63,35 @@ const Editar = () => {
 
   // Função para editar perfil
   const habilitarEditarPerfil = async () => {
+    const allowedExtensions = ["png", "jpg", "jpeg", "gif", "ico"];
+    const maxFileSize = 5 * 1024 * 1024; // 5 MB
+
+    if (avatarFile) {
+      const fileExtension = avatarFile.name.split(".").pop()?.toLowerCase();
+      const fileSize = avatarFile.size;
+
+      if (!allowedExtensions.includes(fileExtension || "")) {
+        toast.error("Tipo de arquivo não permitido. Envie apenas imagens (png, jpg, jpeg, gif, ico).", {
+          position: "bottom-left",
+          autoClose: 5000,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "dark",
+        });
+        return;
+      }
+
+      if (fileSize > maxFileSize) {
+        toast.error("O tamanho do arquivo excede o limite de 5 MB.", {
+          position: "bottom-left",
+          autoClose: 5000,
+          closeOnClick: true,
+          pauseOnHover: true,
+          theme: "dark",
+        });
+        return;
+      }
+    }
     const profileUpdateData = new FormData();
     profileUpdateData.append('username', username);
     profileUpdateData.append('email', email);
@@ -70,24 +100,25 @@ const Editar = () => {
       profileUpdateData.append('avatar', avatarFile);
     }
 
-    console.log("Avatar File:", avatarFile); 
+    console.log("Avatar File:", avatarFile);
     console.log("Dados do perfil:", Array.from(profileUpdateData.entries()));
-  
+
     try {
       const response = await fetch("http://localhost:5000/app/editar-perfil", {
         method: "PUT",
         credentials: "include",
         body: profileUpdateData,
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Erro ao atualizar perfil");
       }
-  
-      toast.success("Perfil atualizado com sucesso!", { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
-    } catch (error) {
-      toast.error('Erro ao atualizar perfil', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+
+      toast.success("Perfil atualizado com sucesso!", { position: "bottom-left", autoClose: 1500, closeOnClick: true, theme: "dark" });
+      setAvatarFile(null);
+    } catch (error: any) {
+      toast.error('Erro ao atualizar o perfil', { position: "bottom-left", autoClose: 3000, closeOnClick: true, theme: "dark" });
     }
   };
 
@@ -124,7 +155,7 @@ const Editar = () => {
         <p className={`text-center mt-5 text-3xl ${poppins.className}`}>
           Olá {currentUsername}
         </p>
-        <Avatar onAvatarChange={setAvatarFile} />
+        <Avatar initialAvatarUrl={avatarUrl} onAvatarChange={setAvatarFile} />
         <div className="relative mb-8 space-y-10 max-w-2xl mx-auto px-4">
           <div className="relative flex flex-col mb-6">
             <label htmlFor="nome-completo" className={`mb-2 text-left text-xl ${poppins.className}`}>

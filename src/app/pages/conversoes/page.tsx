@@ -37,7 +37,7 @@ const Conversoes = () => {
     const [error, setError] = useState<string | null>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [cardsPerPage, setCardsPerPage] = useState(3);
-    const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+    const [windowWidth, setWindowWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 1024);
 
     useEffect(() => {
         const handleResize = () => {
@@ -51,6 +51,7 @@ const Conversoes = () => {
                 setCardsPerPage(3);
             }
         };
+        
 
         handleResize();
 

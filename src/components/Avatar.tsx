@@ -1,13 +1,17 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 
 interface AvatarProps {
+  initialAvatarUrl?: string;
   onAvatarChange: (file: File | null) => void;
 }
 
-const avatar: React.FC<AvatarProps> = ({ onAvatarChange }) => {
-
-  const [avatar, setAvatar] = useState<string>('../img/logo lupa.png');
+const Avatar: React.FC<AvatarProps> = ({ initialAvatarUrl = '../img/logo-lupa.png', onAvatarChange }) => {
+  const [avatar, setAvatar] = useState<string>(initialAvatarUrl);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setAvatar(initialAvatarUrl);
+  }, [initialAvatarUrl]);
 
   const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -25,6 +29,7 @@ const avatar: React.FC<AvatarProps> = ({ onAvatarChange }) => {
       fileInputRef.current.click();
     }
   };
+
   return (
     <div className="flex items-center justify-center ml-5">
       <img
@@ -50,4 +55,4 @@ const avatar: React.FC<AvatarProps> = ({ onAvatarChange }) => {
   );
 };
 
-export default avatar;
+export default Avatar;

@@ -9,7 +9,7 @@ class User(db.Model):
     username = db.Column(db.String(150), unique=False, nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
-    avatar = db.Column(db.String(300))
+    avatar = db.Column(db.String(250), nullable=True)
     password_reset_requested = db.Column(db.Boolean, default=False)
     products = db.relationship('Produtos', backref='owner', lazy=True)
 
@@ -42,7 +42,7 @@ CREATE TABLE usuarios (
     username VARCHAR(150) NOT NULL,
     email VARCHAR(150) UNIQUE NOT NULL,
     password VARCHAR(200) NOT NULL,
-    avatar VARCHAR(300),
+    avatar VARCHAR(250),
     password_reset_requested BOOLEAN DEFAULT FALSE
 );
 

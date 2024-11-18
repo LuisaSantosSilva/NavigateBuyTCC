@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { FaHeart } from "react-icons/fa";
 import Modal from '@/components/ModalFavorito';
 
 {/* Listas Json de produtos */ }
@@ -59,6 +58,8 @@ const Categorias: React.FC = () => {
   const [showFavModal, setShowFavModal] = useState(false);
   const [produtoFavoritado, setProdutoFavoritado] = useState<Produto | null>(null);
   const [produtoId, setProdutoId] = useState("");
+  const [paginasPorParte, setPaginasPorParte] = useState<number>(() => typeof window !== "undefined" && window.innerWidth < 480 ? 3 : 5);
+
 
   const limiteProdutos = 12;
 
@@ -171,18 +172,19 @@ const Categorias: React.FC = () => {
   {/* Função para rendereizar a paginação */ }
   const renderPagination = () => {
     const itemsPaginacao = [];
-    const comecoPage = Math.floor(page / 5) * 5;
-    const fimPagina = Math.min(comecoPage + 4, totalPaginas - 1);
+    const comecoPage = Math.floor(page / paginasPorParte) * paginasPorParte;
+    const fimPagina = Math.min(comecoPage + paginasPorParte - 1, totalPaginas - 1);
 
     if (comecoPage > 0) {
       itemsPaginacao.push(
         <div key="prev-ellipsis" className="flex items-center">
           <span
             className="bloco-nav cursor-pointer ml-2"
-            onClick={() => handlePageChange(comecoPage - 1)}>
+            onClick={() => handlePageChange(comecoPage - 1)}
+          >
             ...
           </span>
-          <span className="h-12 w-[2px] bg-navigateblue ml-2  hidden md:block"></span>
+          <span className="h-12 w-[2px] bg-navigateblue ml-2 hidden md:block"></span>
         </div>
       );
     }
@@ -200,7 +202,8 @@ const Categorias: React.FC = () => {
           <div className={`bloco-nav ${page === index ? 'bloco-nav-selecionado' : ''}`}>
             {index + 1}
           </div>
-          {index < fimPagina && (<span className="linha-divisoria h-12 w-[2px] bg-navigateblue"></span>
+          {index < fimPagina && (
+            <span className="linha-divisoria h-12 w-[2px] bg-navigateblue"></span>
           )}
         </label>
       );
@@ -209,16 +212,18 @@ const Categorias: React.FC = () => {
     if (fimPagina < totalPaginas - 1) {
       itemsPaginacao.push(
         <div key="next-ellipsis" className="flex items-center">
-          <span className="h-12 w-[2px] bg-navigateblue mr-2 hidden md:block"></span>
-          <span className="bloco-nav cursor-pointer mr-2"
-            onClick={() => handlePageChange(fimPagina + 1)}>
+          <span className="linha-divisoria h-12 w-[2px] bg-navigateblue mr-2 hidden md:block"></span>
+          <span
+            className="bloco-nav cursor-pointer mr-2"
+            onClick={() => handlePageChange(fimPagina + 1)}
+          >
             ...
           </span>
         </div>
       );
     }
 
-    return itemsPaginacao;
+    return <div className="flex">{itemsPaginacao}</div>;
   };
 
   {/* Função para calcular os preços mais caros e mais baratos */ }
@@ -253,8 +258,11 @@ const Categorias: React.FC = () => {
               label: `Preços em "${categoria}" R$`,
               data: [menorPreco, mediaPreco, maiorPreco],
               borderColor: '#000000',
-              backgroundColor: '#007f00',
-              borderWidth: 2
+              backgroundColor: '#0C8249',
+              borderWidth: 2,
+              pointBackgroundColor: ['green', '#0C0440', 'green'],
+              pointBorderColor: '#000000',
+              pointRadius: 5,
             },
           ],
         },
@@ -272,39 +280,39 @@ const Categorias: React.FC = () => {
           scales: {
             y: {
               beginAtZero: false,
+              grid: {
+                color: 'black',
+              }
             },
             x: {
               beginAtZero: false,
               grid: {
-                tickColor: 'blue'
+                tickColor: 'green',
+                color: 'black',
               },
               ticks: {
-                color: 'green',
-              }
+                color: (context) => {
+                  return context.tick.label === 'Média' ? '#0C0440' : 'green';
+                },
+                font: {
+                  size: 14,
+                  weight: 'bold'
+                }
+              },
             }
           },
           transitions: {
-            show: {
-              animations: {
-                x: {
-                  from: 0
-                },
-                y: {
-                  from: 0
-                }
-              }
-            },
             hide: {
               animations: {
                 x: {
-                  to: 0
+                  to: 0,
                 },
                 y: {
-                  to: 0
-                }
-              }
-            }
-          }
+                  to: 0,
+                },
+              },
+            },
+          },
         },
       });
       return () => {
@@ -345,19 +353,33 @@ const Categorias: React.FC = () => {
       toast.success('Produto favoritado!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
 
     } catch (error: any) {
-      if (error.message === "Faile to fetch" || error.error.message.includes("NetworkError")) {
+      if (error.message === "Failed to fetch" || error.message.includes("NetworkError")) {
         toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
         setTimeout(() => {
-          window.location.href = '../';
+          window.location.href = '../cadastro_login/login';
         }, 2500);
       } else {
         toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
         setTimeout(() => {
-          window.location.href = '../';
+          window.location.href = '../cadastro_login/login';
         }, 2500);
       }
     }
   };
+
+  {/*   Função para para navegação de 5 itens por vez vai para 3 */ }
+  useEffect(() => {
+    const handleResize = () => {
+      setPaginasPorParte(window.innerWidth < 480 ? 3 : 5);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize(); // Ajusta ao carregar a primeira vez
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   {/* Função para fechar modal favorito */ }
   const handleModalFechar = (opt: boolean) => {
@@ -388,7 +410,7 @@ const Categorias: React.FC = () => {
         {/* Menu de filtros */}
         <Menu as="div" className="relative inline-block text-left max-[650px]:mt-5">
           <div>
-            <Menu.Button className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-white hover:text-navigateblue">
+            <Menu.Button className="inline-flex rounded-full px-9 py-4 text-lg bg-navigateblue text-white hover:bg-slate-200 hover:text-navigateblue">
               {textoFiltro}
               <ChevronDownIcon aria-hidden="true" className="ml-2 w-7 text-white" />
             </Menu.Button>
@@ -439,7 +461,7 @@ const Categorias: React.FC = () => {
         </Menu>
       </div>
       <div className="text-lg text-center font-semibold text-gray-600 mt-4">
-        <p>Produtos retirados no dia 25/10/2024 feito com 💚 e Scrapy</p>
+        <p>Produtos atualizados em: 25/10/2024 feito com 💚 e Scrapy</p>
       </div>
       {/* Mapeamento dos produtos */}
       {produtosVisiveis.length > 0 ? (
@@ -468,7 +490,7 @@ const Categorias: React.FC = () => {
       <div className="flex flex-col items-center mt-10">
         <div className="flex justify-center items-center">
           {page > 0 && (
-            <a onClick={() => handlePageChange(page - 1)} className="text-white seta-nav mr-2">
+            <a onClick={() => handlePageChange(page - 1)} className="seta-nav mr-2">
               <MdKeyboardArrowLeft size={35} />
             </a>
           )}
@@ -487,7 +509,7 @@ const Categorias: React.FC = () => {
         <h2 className="text-center text-2xl font-bold mt-10 mb-4">
           Preços de produtos na categoria {categoria}
         </h2>
-        <canvas ref={chartRef} className={`rounded-xl ${isChartVisible ? "bg-gray-300" : ""}`}></canvas>
+        <canvas ref={chartRef} className={`rounded-lg mb-10 ${isChartVisible ? "bg-white p-3 border-2 shadow-md shadow-navigateblue border-navigateblue" : ""}`}></canvas>
       </div>
       <Footer />
     </main >
