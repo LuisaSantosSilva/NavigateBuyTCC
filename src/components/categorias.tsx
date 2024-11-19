@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation"; 
 import { poppins } from "../app/fonts";      
 
-const Categorias: React.FC<{ onCategorySelect: (category: string) => void }> = ({ onCategorySelect }) => {
+const categorias: React.FC<{ onCategorySelect: (category: string) => void }> = ({ onCategorySelect }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
@@ -117,4 +117,4 @@ const Categorias: React.FC<{ onCategorySelect: (category: string) => void }> = (
   );
 };
 
-export default Categorias;
+export default categorias;

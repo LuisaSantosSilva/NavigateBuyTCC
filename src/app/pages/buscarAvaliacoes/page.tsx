@@ -1,7 +1,7 @@
 "use client";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Resposta from "@/components/RespostaAvaliacao";
+import Resposta from "@/components/respostaAvaliacao";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useEffect, useState } from "react";
