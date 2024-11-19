@@ -158,7 +158,7 @@ const Navbar: React.FC = () => {
                   <MdKeyboardArrowDown className="text-xl" />
                 </Link>
                 {showComponent && (<Categorias onCategorySelect={handleCategoryChange} />)}
-                <Link href="/pages/avaliacao" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="/pages/buscarAvaliacoes" className="rounded-lg p-2 transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <span className="hidden xl:inline">Buscar comentários de avaliação</span>
                   <span className="inline xl:hidden">Avaliações</span>
                 </Link>
@@ -174,7 +174,7 @@ const Navbar: React.FC = () => {
                   <Link href="/cadastro_login/login" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Login
                   </Link>
-                  <Link href="/cadastro_login/cadastro" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="/cadastro_login/cadastrarConsumidor" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Cadastrar
                   </Link>
                   <Link href="/perfil/editar" className="p-2 hover:bg-white hover:text-black text-white">
@@ -218,7 +218,7 @@ const Navbar: React.FC = () => {
                 <MdKeyboardArrowDown className="text-xl ml-1" />
               </Link>
               {showComponent && (<Categorias onCategorySelect={handleCategoryChange} />)}
-              <Link href="/pages/avaliacao" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/pages/buscarAvaliacoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Buscar comentários de avaliação
               </Link>
               <Link href="/pages/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
@@ -230,7 +230,7 @@ const Navbar: React.FC = () => {
               <Link href="/cadastro_login/login" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Login
               </Link>
-              <Link href="/cadastro_login/cadastro" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/cadastro_login/cadastrarConsumidor" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Cadastrar-se
               </Link>
               <Link href="/perfil/editar" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">

@@ -16,48 +16,48 @@ api = Blueprint('api', __name__)
 
 # Rota para cadastro do usuário e enviar o código de confirmação
 @api.route('/cadastrar', methods=['POST'])
-def cadastrar():
+def cadastrar_consumidor():
     data = request.get_json()
-    username = data.get('username')
-    email = data.get('email')
-    password = data.get('password') 
+    usuario = data.get('usuario')
+    email_consumidor = data.get('email_consumidor')
+    senha_consumidor = data.get('senha_consumidor') 
 
-    if User.query.filter_by(email=email).first():
-        return jsonify({"E-mail já cadastrado."}), 400
+    if User.query.filter_by(email_consumidor=email_consumidor).first():
+        return jsonify({"E-mail já cadastrado."}), 403
     
-    if not username or not email or not password:
+    if not usuario or not email_consumidor or not senha_consumidor:
                 return jsonify({"Todos os campos são obrigatórios!"}), 400
             
-    if len(password) < 8:
+    if len(senha_consumidor) < 8:
         return jsonify({"A senha deve ter pelo menos 8 caracteres."}), 400
         
-    session['username'] = username
-    session['email'] = email
-    session['password'] = password
+    session['usuario'] = usuario
+    session['email_consumidor'] = email_consumidor
+    session['senha_consumidor'] = senha_consumidor
 
     code = f'{random.randint(100000, 999999):06d}'
     
-    existing_code = CodigoDeConfirmacao.query.filter_by(email=email).first()
+    existing_code = CodigoDeConfirmacao.query.filter_by(email_consumidor=email_consumidor).first()
 
     if existing_code:
         existing_code.code = code
     else:
-        new_code = CodigoDeConfirmacao(email=email, code=code)
+        new_code = CodigoDeConfirmacao(email_consumidor=email_consumidor, code=code)
         db.session.add(new_code)
         db.session.commit()
 
         corpo_email = cadastro_corpo_email(code)
-        enviar_email(email, "Código de Confirmação - Navigate Buy", corpo_email)
+        enviar_email(email_consumidor, "Código de Confirmação - Navigate Buy", corpo_email)
     return jsonify({"message": "Código de confirmação enviado para o seu e-mail."}), 200
 
 # Rota para confirmar o código
 @api.route('/confirmar_codigo', methods=['POST'])
 def confirm_code():
     data = request.get_json()
-    email = data.get('email')
+    email_consumidor = data.get('email_consumidor')
     code = data.get('code')
-    username = data.get('username')
-    password = data.get('password')
+    usuario = data.get('usuario')
+    senha_consumidor = data.get('senha_consumidor')
 
     if not code:
         return jsonify({"error": "O código é necessário!."}), 400
@@ -65,23 +65,23 @@ def confirm_code():
     confirmation = CodigoDeConfirmacao.query.filter_by(code=code).first()
 
     if confirmation:
-        username = session.get('username')
-        email = session.get('email')
-        password = session.get('password')
+        usuario = session.get('usuario')
+        email_consumidor = session.get('email_consumidor')
+        senha_consumidor = session.get('senha_consumidor')
 
-        if not username or not email or not password:
+        if not usuario or not email_consumidor or not senha_consumidor:
             return jsonify({"error": "Dados de usuário não encontrados."}), 400
 
-        user = User(username=username, email=email)
-        user.set_password(password) 
+        user = User(usuario=usuario, email_consumidor=email_consumidor)
+        user.set_senha(senha_consumidor) 
 
         db.session.add(user)
         db.session.delete(confirmation)
         db.session.commit()
 
-        session.pop('username', None)
-        session.pop('email', None)
-        session.pop('password', None)
+        session.pop('usuario', None)
+        session.pop('email_consumidor', None)
+        session.pop('senha_consumidor', None)
 
         return jsonify({"message": "Usuário cadastrado com sucesso!."}), 200
     else:
@@ -91,13 +91,13 @@ def confirm_code():
 @api.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    email = data.get('email')
-    password = data.get('password')
+    email_consumidor = data.get('email_consumidor')
+    senha_consumidor = data.get('senha_consumidor')
 
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter_by(email_consumidor=email_consumidor).first()
     if user:
-        if user.check_password(password):
-            session['user_id'] = user.id
+        if user.checar_senha(senha_consumidor):
+            session['usuario_id'] = user.id_consumidor
             db.session.commit()
             return jsonify({'message': 'Login realizado com sucesso!'}), 200
         else:
@@ -106,11 +106,11 @@ def login():
 # Rota para o sistema obter os dados do usuário que estiver na sessão
 @api.route('/perfil', methods=['GET'])
 def get_perfil():
-    user_id = session.get('user_id')
-    if not user_id:
+    usuario_id = session.get('usuario_id')
+    if not usuario_id:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
     
-    user = User.query.filter_by(id=user_id).first()
+    user = User.query.filter_by(id_consumidor=usuario_id).first()
 
     if user.avatar:
         avatar_url = url_for('static', filename=f"uploads/avatars/{user.avatar}", _external=True)
@@ -118,8 +118,8 @@ def get_perfil():
         avatar_url = url_for('static', filename="uploads/avatars/logo-lupa.png", _external=True)
     
     return jsonify({
-            'username': user.username,
-            'email': user.email,
+            'usuario': user.usuario,
+            'email_consumidor': user.email_consumidor,
             'avatar': avatar_url
         }), 200
 
@@ -135,23 +135,23 @@ def allowed_file(filename):
 # Rota para o usuário editar suas informações
 @api.route('/editar-perfil', methods=['PUT'])
 def editar_perfil():
-    user_id = session.get("user_id")
-    if not user_id:
+    usuario_id = session.get("usuario_id")
+    if not usuario_id:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
 
-    user = User.query.filter_by(id=user_id).first()
+    user = User.query.filter_by(id_consumidor=usuario_id).first()
     if not user:
         return jsonify({'error': 'Usuário não encontrado.'}), 404
 
     data = request.form
-    username = data.get('username')
-    password = data.get('password')
+    usuario = data.get('usuario')
+    senha_consumidor = data.get('senha_consumidor')
     avatar = request.files.get('avatar')
 
-    if username:
-        user.username = username
-    if password:
-        user.set_password(password)
+    if usuario:
+        user.usuario = usuario
+    if senha_consumidor:
+        user.set_senha(senha_consumidor)
     if avatar:
         if not allowed_file(avatar.filename):
             return jsonify({'error': 'Tipo ou tamanho de arquivo não permitido'}), 404
@@ -179,7 +179,7 @@ def editar_perfil():
 # Rota para o usuário sair de sua conta
 @api.route('/logout', methods=['POST'])
 def logout():
-    session.pop('user_id', None)
+    session.pop('usuario_id', None)
     return jsonify({'message': 'Logout realizado com sucesso!'}), 200
 
 # Função para enviar o email
@@ -206,31 +206,31 @@ def enviar_email(destinatario, assunto, corpo):
 
 # Rota para o usuário enviar o email que irá alterar sua senha
 @api.route('/solicitar-email', methods=['POST'])
-def request_password_reset():
+def solicitar_alterar_senha():
     data = request.get_json()
-    email = data.get('email')
+    email_consumidor = data.get('email_consumidor')
 
-    if not email:
+    if not email_consumidor:
         return jsonify({"error": "Dados de entrada inválidos."}), 400
 
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter_by(email_consumidor=email_consumidor).first()
 
     if user:
 
-        if user.password_reset_requested:
+        if user.requisicao_alterar_senha:
             return jsonify({"error": "Uma solicitação de redefinição de senha já foi feita."}), 400
 
         # Criação do serializer com a chave secreta da aplicação
         serializer = URLSafeTimedSerializer(current_app.config['SECRET_KEY'])
 
         # Gerando o token para o e-mail do usuário
-        token = serializer.dumps(email, salt='password-reset-salt')
+        token = serializer.dumps(email_consumidor, salt='password-reset-salt')
 
-        link_redefinicao = f"http://localhost:3000/cadastro_login/login/redefinirSenha?token={token}&email={email}"
+        link_redefinicao = f"http://localhost:3000/cadastro_login/login/redefinirSenha?token={token}&email={email_consumidor}"
         corpo_email = redefinir_corpo_email(link_redefinicao)
 
-        enviar_email(email, "Redefinição de Senha - Navigate Buy", corpo_email)
-        user.password_reset_requested = True
+        enviar_email(email_consumidor, "Redefinição de Senha - Navigate Buy", corpo_email)
+        user.requisicao_alterar_senha = True
         db.session.commit()
         return jsonify({"message": "Email de redefinição de senha enviado."}), 200
     else:
@@ -240,25 +240,25 @@ def request_password_reset():
 @api.route('/mudar-senha', methods=['POST'])
 def alterar_senha():
     data = request.get_json()
-    email = data.get('email')
-    nova_senha = data.get('password')
+    email_consumidor = data.get('email_consumidor')
+    nova_senha = data.get('senha_consumidor')
 
-    if not email or not nova_senha:
+    if not email_consumidor or not nova_senha:
         return jsonify({"error": "Dados de entrada inválidos."}), 400
     
     if len(nova_senha) < 8:
         return jsonify({"A senha deve ter pelo menos 8 caracteres."}), 400
     
-    user = User.query.filter_by(email=email).first()
+    user = User.query.filter_by(email_consumidor=email_consumidor).first()
 
     if not user:
         return jsonify({"error": "Email não encontrado."}), 400
     
-    if not user.password_reset_requested:
+    if not user.requisicao_alterar_senha:
         return jsonify({"Token de alteração inválido."}), 400
 
-    user.set_password(nova_senha)
-    user.password_reset_requested = False
+    user.set_senha(nova_senha)
+    user.requisicao_alterar_senha = False
     db.session.commit()
 
     return jsonify({"message": "Senha alterada com sucesso."}), 200
@@ -266,8 +266,8 @@ def alterar_senha():
 # Rota para favoritar produtos
 @api.route('/favoritar_produto', methods=['POST'])
 def favoritar():
-    user_id = session.get('user_id')
-    if not user_id:
+    usuario_id = session.get('usuario_id')
+    if not usuario_id:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
 
     data = request.json
@@ -279,7 +279,7 @@ def favoritar():
         Produtos.título == normalizar_dado(data['título']),
         Produtos.preço == data['preço'],
         Produtos.link == normalizar_dado(data['link']),
-        Produtos.user_id == user_id
+        Produtos.usuario_id == usuario_id
     ).first()
 
     if produto_existente:
@@ -291,7 +291,7 @@ def favoritar():
         imagem=data['imagem'],
         link=data['link'],
         loja=data['loja'],
-        user_id=user_id
+        usuario_id=usuario_id
     )
 
     db.session.add(produto)
@@ -302,18 +302,18 @@ def favoritar():
 # Rota para o usuário escolher quais produtos ele deseja receber alerta
 @api.route('/atualizar_alerta_produto', methods=['POST'])
 def atualizar_alerta_produto():
-    user_id = session.get("user_id")
+    usuario_id = session.get("usuario_id")
     data = request.get_json()
     produto_id = data.get("produto_id")
     receber_alerta = data.get("receber_alerta")
 
-    if not user_id:
+    if not usuario_id:
         return jsonify({"error": "Usuário não autenticado."}), 401
     
     if receber_alerta is None:
         return jsonify({"error": "Dados incompletos."}), 400
 
-    produto = Produtos.query.filter_by(id=produto_id, user_id=user_id).first()
+    produto = Produtos.query.filter_by(id=produto_id, usuario_id=usuario_id).first()
 
     if not produto:
         return jsonify({"error": "Produto não encontrado ou não pertence ao usuário."}), 404
@@ -330,24 +330,24 @@ def enviar_alerta_favoritos():
         usuarios = User.query.all()
 
         for user in usuarios:
-            favoritos = Produtos.query.filter_by(user_id=user.id, receber_alerta=True).all()
-            email = user.email
+            favoritos = Produtos.query.filter_by(usuario_id=user.id, receber_alerta=True).all()
+            email_consumidor = user.email_consumidor
 
             if favoritos:
             
                 corpo_email = alerta_corpo_email(user, favoritos)
 
-                enviar_email(email, "Alerta - Navigate Buy", corpo_email)
+                enviar_email(email_consumidor, "Alerta - Navigate Buy", corpo_email)
     return jsonify({"message": "Alerta de favoritos enviado por e-mail."}), 200
 
 # Rota para exibir produtos favoritados
 @api.route('/produtos_favoritos', methods=['GET'])
 def produtos_favoritos():
-    user_id = session.get("user_id")
-    if not user_id:
+    usuario_id = session.get("usuario_id")
+    if not usuario_id:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
     
-    produtos_favoritos = Produtos.query.filter_by(user_id=user_id).all()
+    produtos_favoritos = Produtos.query.filter_by(usuario_id=usuario_id).all()
 
     favoritos = [{
         "id": favorito.id,
@@ -365,14 +365,14 @@ def produtos_favoritos():
 # Rota para remover produtos favoritos
 @api.route('/desfavoritar_produto', methods=['DELETE'])
 def desfavoritar_produto():
-    user_id = session.get('user_id')
-    if not user_id:
+    usuario_id = session.get('usuario_id')
+    if not usuario_id:
         return jsonify({'error': 'Usuário não autenticado.'}), 401
     
     data = request.json
     produto_id = data.get('produto_id')
 
-    produto = Produtos.query.filter_by(id=produto_id, user_id=user_id).first()
+    produto = Produtos.query.filter_by(id=produto_id, usuario_id=usuario_id).first()
 
     if not produto:
         return jsonify({'message': 'Produto não encontrado ou não favoritado.'}), 404

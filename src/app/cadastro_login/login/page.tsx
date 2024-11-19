@@ -8,11 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email_consumidor, setEmail] = useState('');
+  const [senha_consumidor, setSenha] = useState('');
+  const [loading, setLoading] = useState<boolean>(false);
   const [touched, setTouched] = useState({
-    email: false,
-    password: false,
+    email_consumidor: false,
+    senha_consumidor: false,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [emailMessage, setEmailMessage] = useState('');
@@ -20,6 +21,7 @@ const Login = () => {
   // Função para fazer login
   const fazerLogin = async (e: FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await fetch('http://localhost:5000/app/login', {
         method: 'POST',
@@ -28,8 +30,8 @@ const Login = () => {
         },
         credentials: "include",
         body: JSON.stringify({
-          email,
-          password,
+          email_consumidor,
+          senha_consumidor,
         }),
       });
 
@@ -37,14 +39,16 @@ const Login = () => {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Erro desconhecido ao tentar logar.');
       }
-  
+
       const data = await response.json();
-      toast.success('Login realizado com sucesso!', { position: "bottom-left", hideProgressBar: true,closeOnClick: true, pauseOnHover: true, theme: "dark" });
+      toast.success('Login realizado com sucesso!', { position: "bottom-left", hideProgressBar: true, closeOnClick: true, pauseOnHover: true, theme: "dark" });
       setTimeout(() => {
         window.location.href = '../';
       }, 2000);
     } catch (error) {
       toast.error('Erro ao fazer login, tente novamente', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -65,7 +69,7 @@ const Login = () => {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Erro ao enviar email, tente novamente.');
       }
-  
+
       const data = await response.json();
       toast.success('Mensagem de confirmação enviada para o seu email!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error) {
@@ -81,10 +85,10 @@ const Login = () => {
     const isTouched = touched[field as keyof typeof touched];
     let isValid = false;
 
-    if (field === 'email') {
-      isValid = email.includes('@gmail') && email.includes('.com');
-    } else if (field === 'password') {
-      isValid = password.length >= 8;
+    if (field === 'email_consumidor') {
+      isValid = email_consumidor.includes('@gmail') && email_consumidor.includes('.com');
+    } else if (field === 'senha_consumidor') {
+      isValid = senha_consumidor.length >= 8;
     }
 
     if (!isTouched) {
@@ -129,12 +133,12 @@ const Login = () => {
                 <input
                   id="email"
                   type="text"
-                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('email')}`}
+                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('email_consumidor')}`}
                   placeholder="Email"
                   required
-                  value={email}
+                  value={email_consumidor}
                   onChange={(e) => setEmail(e.target.value)}
-                  onBlur={() => exibirBlur('email')}
+                  onBlur={() => exibirBlur('email_consumidor')}
                 />
               </div>
             </div>
@@ -146,14 +150,14 @@ const Login = () => {
                   className="absolute left-3 sm:left-4 md:left-5 lg:left-6 top-1/2 transform -translate-y-1/2 h-7 max-sm:hidden md:h-8"
                 />
                 <input
-                  id="senha"
+                  id="password"
                   type="password"
-                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-2xl md:text-2xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('password')}`}
+                  className={`py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 pr-4 w-full text-base sm:text-2xl md:text-2xl lg:text-2xl rounded-2xl border border-black focus:outline-none shadow-md transition duration-500 ease-in-out largeInputOnDesktop ${getInputClass('senha_consumidor')}`}
                   placeholder="Senha"
                   required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onBlur={() => exibirBlur('password')}
+                  value={senha_consumidor}
+                  onChange={(e) => setSenha(e.target.value)}
+                  onBlur={() => exibirBlur('senha_consumidor')}
                 />
               </div>
             </div>
@@ -161,10 +165,10 @@ const Login = () => {
               <button
                 type="submit"
                 className="mt-4 py-3 sm:py-4 md:py-5 lg:py-6 px-6 sm:px-8 md:px-16 lg:px-28 text-2xl sm:text-2xl md:text-2xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold transition duration-1000 ease-in-out hover:bg-white hover:text-slate-900 hover:border-slate-900">
-                Entrar
+                {loading ? 'Entrando...' : 'Entrar'}
               </button>
               <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
-                <h1>Não tem cadastro? <Link href={"../cadastro_login/cadastro"}><span className='underline hover:text-black text-gray-600'>Cadastre-se</span></Link></h1>
+                <h1>Não tem cadastro? <Link href={"../cadastro_login/cadastrarConsumidor"}><span className='underline hover:text-black text-gray-600'>Cadastre-se</span></Link></h1>
                 <h1>ou <span className='underline hover:text-black text-gray-600' onClick={() => setShowPasswordModal(true)}>Esqueci minha senha</span></h1>
               </div>
               <div className='mt-5 text-xl max-[1245px]:hidden text-black'>
@@ -191,7 +195,7 @@ const Login = () => {
             Caso não tenha uma<br />conta faça seu<br />
             cadastro agora mesmo!
           </p>
-          <Link href="../cadastro_login/cadastro">
+          <Link href="../cadastro_login/cadastrarConsumidor">
             <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-20 text-sm sm:text-base md:text-lg lg:text-xl rounded-full border-2 bg-transparent text-white font-semibold border-white transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent btn-ajuste">
               Cadastre-se
             </button>

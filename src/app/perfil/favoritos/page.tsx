@@ -8,9 +8,9 @@ import { poppins } from "@/app/fonts";
 import React, { useEffect, useState } from 'react'
 
 const favoritos = () => {
-    const [username, setUsername] = useState<string>('');
-    const [currentUsername, setCurrentUsername] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
+    const [usuario, setUsuario] = useState<string>('');
+    const [currentUsuario, setCurrentUsuario] = useState<string>('');
+    const [email_consumidor, setEmail] = useState<string>('');
 
     {/* Efeito para receber dados do perfil */ }
     useEffect(() => {
@@ -27,9 +27,9 @@ const favoritos = () => {
                 }
 
                 const data = await response.json();
-                setUsername(data.username || "");
-                setCurrentUsername(data.username || "");
-                setEmail(data.email || "");
+                setUsuario(data.usuario || "");
+                setCurrentUsuario(data.usuario || "");
+                setEmail(data.email_consumidor || "");
             } catch (error: any) {
                 if (error.message === "Failed to fetch" || error.message.includes("NetworkError")) {
                     toast.error('Erro de conexão: O servidor está offline. Tente novamente mais tarde.', {

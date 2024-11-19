@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
           <Link href="#" onClick={handleSearchFocus} className="block mb-2 hover:text-navigategreen">
             Buscar Produto
           </Link>
-          <Link href="../pages/avaliacao" className="block mb-2 hover:text-navigategreen">
+          <Link href="../pages/buscarAvaliacoes" className="block mb-2 hover:text-navigategreen">
             <span className="hidden min-[1250px]:inline">Avaliações e comentários de consumidores</span>
             <span className="inline min-[1250px]:hidden">Avaliações</span>
           </Link>

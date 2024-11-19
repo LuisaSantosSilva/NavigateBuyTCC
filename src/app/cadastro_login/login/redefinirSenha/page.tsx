@@ -4,8 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ResetPassword: React.FC = () => {
-    const [newPassword, setNewPassword] = useState<string>('');
-    const [email, setEmail] = useState('');
+    const [novaSenha, setNovaSenha] = useState<string>('');
+    const [email_consumidor, setEmail] = useState('');
     const [loading, setLoading] = useState<boolean>(false);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -20,7 +20,7 @@ const ResetPassword: React.FC = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password: newPassword }),
+                body: JSON.stringify({ email_consumidor, senha_consumidor: novaSenha }),
             });
 
             if (!response.ok) {
@@ -60,20 +60,20 @@ const ResetPassword: React.FC = () => {
                                     border-black focus:outline-none shadow-md transition duration-500 ease-in-out"
                                     placeholder="Email"
                                     required
-                                    value={email}
+                                    value={email_consumidor}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                             </div>
                             <div className="w-full px-3 relative">
                                 <input
-                                    type="password"
+                                    type="senha_consumidor"
                                     className="py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 
                                     pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border
                                     border-black focus:outline-none shadow-md transition duration-500 ease-in-out"
                                     placeholder="Nova Senha (min: 8 caracteres)"
                                     required
-                                    value={newPassword}
-                                    onChange={(e) => setNewPassword(e.target.value)}
+                                    value={novaSenha}
+                                    onChange={(e) => setNovaSenha(e.target.value)}
                                 />
                             </div>
                         </div>

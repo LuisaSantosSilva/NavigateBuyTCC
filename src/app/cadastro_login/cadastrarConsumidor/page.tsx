@@ -9,13 +9,13 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { poppins } from "@/app/fonts";
 
 const Cadastro = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [usuario, setUsuario] = useState('');
+  const [email_consumidor, setEmail] = useState('');
+  const [senha_consumidor, setSenha] = useState('');
   const [touched, setTouched] = useState({
-    username: false,
-    email: false,
-    password: false,
+    usuario: false,
+    email_consumidor: false,
+    senha_consumidor: false,
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [showCodeModal, setShowCodeModal] = useState(false);
@@ -33,9 +33,9 @@ const Cadastro = () => {
         },
         credentials: "include",
         body: JSON.stringify({
-          username,
-          email,
-          password,
+          usuario,
+          email_consumidor,
+          senha_consumidor,
         }),
       });
 
@@ -90,12 +90,12 @@ const Cadastro = () => {
     const isTouched = touched[field as keyof typeof touched];
     let isValid = false;
 
-    if (field === 'username') {
-      isValid = username.length > 0;
-    } else if (field === 'email') {
-      isValid = email.includes('@gmail') && email.includes('.com');
-    } else if (field === 'password') {
-      isValid = password.length >= 8;
+    if (field === 'usuario') {
+      isValid = usuario.length > 0;
+    } else if (field === 'email_consumidor') {
+      isValid = email_consumidor.includes('@gmail') && email_consumidor.includes('.com');
+    } else if (field === 'senha_consumidor') {
+      isValid = senha_consumidor.length >= 8;
     }
 
     if (!isTouched) {
@@ -164,11 +164,11 @@ const Cadastro = () => {
                 <input
                   id="nome-completo"
                   type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  onBlur={() => exibirBlur('username')}
+                  value={usuario}
+                  onChange={(e) => setUsuario(e.target.value)}
+                  onBlur={() => exibirBlur('usuario')}
                   className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
-                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('username')}`}
+                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('usuario')}`}
                   placeholder="Digite seu nome completo"
                   required
                 />
@@ -184,11 +184,11 @@ const Cadastro = () => {
                 <input
                   id="email"
                   type="email"
-                  value={email}
+                  value={email_consumidor}
                   onChange={(e) => setEmail(e.target.value)}
-                  onBlur={() => exibirBlur('email')}
+                  onBlur={() => exibirBlur('email_consumidor')}
                   className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
-                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('email')}`}
+                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('email_consumidor')}`}
                   placeholder="Email"
                   required
                 />
@@ -202,13 +202,13 @@ const Cadastro = () => {
                   className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-6"
                 />
                 <input
-                  id="senha"
+                  id="password"
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  onBlur={() => exibirBlur('password')}
+                  value={senha_consumidor}
+                  onChange={(e) => setSenha(e.target.value)}
+                  onBlur={() => exibirBlur('senha_consumidor')}
                   className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
-                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('password')}`}
+                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('senha_consumidor')}`}
                   placeholder="Senha (min: 8 caracteres) "
                   required
                 />

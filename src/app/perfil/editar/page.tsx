@@ -11,10 +11,10 @@ import { poppins } from "@/app/fonts";
 const Editar = () => {
   const [avatarFile, setAvatarFile] = useState<File | null>(null);
   const [avatarUrl, setAvatarUrl] = useState<string>('');
-  const [username, setUsername] = useState<string>('');
-  const [currentUsername, setCurrentUsername] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [usuario, setUsuario] = useState<string>('');
+  const [currentUsuario, setCurrentUsuario] = useState<string>('');
+  const [email_consumidor, setEmail] = useState<string>('');
+  const [senha_consumidor, setSenha] = useState<string>('');
 
   // Efeito para receber dados do perfil
   useEffect(() => {
@@ -32,9 +32,9 @@ const Editar = () => {
 
         const data = await response.json();
         setAvatarUrl(data.avatar);
-        setUsername(data.username || "");
-        setCurrentUsername(data.username || "");
-        setEmail(data.email || "");
+        setUsuario(data.usuario || "");
+        setCurrentUsuario(data.usuario || "");
+        setEmail(data.email_consumidor || "");
       } catch (error: any) {
         if (error.message === "Failed to fetch" || error.message.includes("NetworkError")) {
           toast.error('Erro de conexão: O servidor está offline. Tente novamente mais tarde.', {
@@ -93,9 +93,9 @@ const Editar = () => {
       }
     }
     const profileUpdateData = new FormData();
-    profileUpdateData.append('username', username);
-    profileUpdateData.append('email', email);
-    profileUpdateData.append('password', password);
+    profileUpdateData.append('usuario', usuario);
+    profileUpdateData.append('email_consumidor', email_consumidor);
+    profileUpdateData.append('senha_consumidor', senha_consumidor);
     if (avatarFile) {
       profileUpdateData.append('avatar', avatarFile);
     }
@@ -153,7 +153,7 @@ const Editar = () => {
           Perfil
         </h2>
         <p className={`text-center mt-5 text-3xl ${poppins.className}`}>
-          Olá {currentUsername}
+          Olá {currentUsuario}
         </p>
         <Avatar initialAvatarUrl={avatarUrl} onAvatarChange={setAvatarFile} />
         <div className="relative mb-8 space-y-10 max-w-2xl mx-auto px-4">
@@ -164,8 +164,8 @@ const Editar = () => {
             <input
               id="nome-completo"
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={usuario}
+              onChange={(e) => setUsuario(e.target.value)}
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border
               border-navigateblue shadow-md shadow-navigateblue"
               disabled
@@ -184,9 +184,9 @@ const Editar = () => {
               E-mail:
             </label>
             <input
-              id="email"
+              id="email_consumidor"
               type="email"
-              value={email}
+              value={email_consumidor}
               onChange={(e) => setEmail(e.target.value)}
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border
                  border-navigateblue shadow-md shadow-navigateblue"
@@ -201,9 +201,9 @@ const Editar = () => {
             <input
               id="senha"
               type="password"
-              value={password}
+              value={senha_consumidor}
               placeholder="Se não quiser alterar a senha, deixe em branco"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setSenha(e.target.value)}
               className="py-3 px-5 pr-12 sm:px-8 md:px-10 text-xl sm:text-lg md:text-xl rounded-2xl w-full border
                 border-navigateblue shadow-md shadow-navigateblue placeholder-gray-600"
               disabled
