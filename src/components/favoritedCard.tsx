@@ -12,7 +12,7 @@ interface Produto {
   receber_alerta: boolean;
 }
 
-const favoritedcard: React.FC = () => {
+const Favoritedcard: React.FC = () => {
 
   const [favoritos, setFavoritos] = useState<Produto[]>([]);
   const [hoveredProductId, setHoveredProductId] = useState<number | null>(null);
@@ -196,4 +196,4 @@ const favoritedcard: React.FC = () => {
   );
 };
 
-export default favoritedcard;
+export default Favoritedcard;

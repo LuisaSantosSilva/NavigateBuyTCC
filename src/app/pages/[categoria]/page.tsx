@@ -320,7 +320,7 @@ const Categorias: React.FC = () => {
       };
     }
 
-  }, [categoria]);
+  }, [categoria, produtosJson]);
 
   {/* Função para favoritar produtos */ }
   const handleSaveProduct = async (produto: Produto) => {

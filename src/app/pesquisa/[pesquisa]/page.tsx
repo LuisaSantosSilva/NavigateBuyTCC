@@ -550,7 +550,7 @@ const Pesquisa: React.FC = () => {
       {/* Tabela */}
       <div className="px-4 sm:px-16 md:px-28 p-5 min-w-[200px]">
         <h2 className="text-center text-2xl font-bold mt-10 mb-4">
-          Preços de produtos em "{searchTerm}"
+          Preços de produtos em &quot;{searchTerm}&quot;
         </h2>
         <canvas ref={chartRef} className={`rounded-lg mb-10 ${isChartVisible ? "bg-white p-3 border-2 shadow-md shadow-navigateblue border-navigateblue" : ""}`}></canvas>
       </div>

@@ -5,7 +5,7 @@ interface AvatarProps {
   onAvatarChange: (file: File | null) => void;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ initialAvatarUrl = '../img/logo-lupa.png', onAvatarChange }) => {
+const Avatar: React.FC<AvatarProps> = ({ initialAvatarUrl = '/img/logo-lupa.png', onAvatarChange }) => {
   const [avatar, setAvatar] = useState<string>(initialAvatarUrl);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -38,7 +38,7 @@ const Avatar: React.FC<AvatarProps> = ({ initialAvatarUrl = '../img/logo-lupa.pn
         className="mt-7 mb-10 w-48 h-48 border-2 object-cover rounded-full border-navigateblue"
       />
       <img
-        src="../img/icon editar.png"
+        src="/img/icon editar.png"
         alt="Editar"
         className="mt-36 cursor-pointer"
         width={28}

@@ -46,7 +46,7 @@ const ConteudoInferior: React.FC = () => {
 
           <div className="flex items-center md:max-w-md lg:max-w-xl text-justify p-4 md:p-8 lg:p-14 mx-auto rounded-2xl shadow-md border border-navigategreen shadow-navigategreen bg-white min-w-[250px]">
             <h2 className="sm:text-base md:text-lg lg:text-xl">
-              Nossa primeira recomendação é consultar a lista do <strong className="text-navigategreen">Procon-SP</strong> chamada 'Evite esses Sites', onde é possível verificar os sites que a própria Fundação de Proteção e Defesa do Consumidor recomenda evitar.
+              Nossa primeira recomendação é consultar a lista do <strong className="text-navigategreen">Procon-SP</strong> chamada &lsquo;Evite esses Sites&rsquo;, onde é possível verificar os sites que a própria Fundação de Proteção e Defesa do Consumidor recomenda evitar.
             </h2>
           </div>
         </div>

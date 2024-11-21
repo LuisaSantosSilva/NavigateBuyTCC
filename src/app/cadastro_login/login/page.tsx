@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import "./login.css";
 import Modal from '@/components/ModalMessage';
 import React, { useState, FormEvent } from 'react';
@@ -125,10 +126,13 @@ const Login = () => {
           <form className="space-y-10 w-full max-w-lg mx-auto" onSubmit={fazerLogin}>
             <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
-                <img
-                  src="../img/icon_email.png"
-                  alt=""
-                  className="absolute left-3 sm:left-4 md:left-5 lg:left-6 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-6"
+                <Image
+                  src="/img/icon_email.png"
+                  alt="icon email"
+                  width={40}
+                  height={40}
+                  priority
+                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
                 />
                 <input
                   id="email"
@@ -144,10 +148,13 @@ const Login = () => {
             </div>
             <div className="flex flex-wrap -mx-8 mb-6">
               <div className="w-full px-3 relative">
-                <img
-                  src="../img/icon_senha.png"
-                  alt=""
-                  className="absolute left-3 sm:left-4 md:left-5 lg:left-6 top-1/2 transform -translate-y-1/2 h-7 max-sm:hidden md:h-8"
+                <Image
+                  src="/img/icon_senha.png"
+                  alt="icon senha"
+                  width={40}
+                  height={40}
+                  priority
+                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
                 />
                 <input
                   id="password"
@@ -182,7 +189,7 @@ const Login = () => {
       <div className="w-full md:w-1/4 max-[1245px]:hidden h-full overflow-hidden bg-black bg-no-repeat flex items-center justify-center relative">
         <div className="absolute top-5 sm:top-6 md:top-8 lg:top-10 left-3 sm:left-4 md:left-5 lg:left-6">
           <a href="/" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl text-white hover:text-slate-300 transition duration-500 ease-in-out">
-            <img src="../img/setinha(login_cadastro).png" alt="" className="w-5 sm:w-6 md:w-7 lg:w-8 h-5 sm:h-6 md:h-7 lg:h-8 mr-2 hidden sm:block" />
+            <Image src="/img/setinha(login_cadastro).png" alt="" width={32} height={32} className="mr-2 hidden sm:block" />
             Voltar ao início
           </a>
         </div>

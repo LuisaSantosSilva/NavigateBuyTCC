@@ -1,7 +1,7 @@
 "use client";
-
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { poppins } from "./fonts";
+import Image from 'next/image';
 import "../app/globals.css";
 import Animated from '../utils/animacoes';
 import Cards from '../components/homecard';
@@ -38,7 +38,7 @@ const Home = () => {
     }
   };
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const width = window.innerWidth;
     if (width <= 900) {
       setShowArrows(false);
@@ -48,13 +48,13 @@ const Home = () => {
       setIsScrollable(false);
     }
     updateScrollState();
-  };
+  }, []);
 
   useEffect(() => {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [handleResize]);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -109,10 +109,13 @@ const Home = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}>
-              <img
-                src={'/img/note.png'}
+              <Image
+                src="/img/note.png"
                 alt="Exemplo"
                 className="lg:max-w-xl md:max-w-sm object-cover md:mt-0 mt-10 hidden md:block"
+                width={800}
+                height={300}
+                priority
               />
             </Animated>
           </div>

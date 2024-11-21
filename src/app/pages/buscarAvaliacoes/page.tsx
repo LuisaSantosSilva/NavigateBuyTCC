@@ -4,7 +4,7 @@ import Footer from "@/components/footer";
 import Resposta from "@/components/respostaAvaliacao";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { poppins } from "@/app/fonts";
 import { useSearchParams } from 'next/navigation';
 
@@ -17,7 +17,7 @@ interface Resposta {
   loja: string;
 }
 
-const avaliação = () => {
+const Avaliacao = () => {
   const [showAvaliacao, setShowAvaliacao] = useState(false);
   const searchParams = useSearchParams();
   const avaliarProduto = searchParams.get('productDescription')
@@ -83,11 +83,11 @@ const avaliação = () => {
   const mensagem = (
     <>
       De acordo com o nome{" "}
-      <span className="font-bold text-navigategreen">"{produtoBuscado}"</span>
+      <span className="font-bold text-navigategreen">&quot;{produtoBuscado}&quot;</span>
       {lojaBuscada && (
         <>
           {" "}e local de compra{" "}
-          <span className="font-bold text-navigateblue">"{lojaBuscada}"</span>
+          <span className="font-bold text-navigateblue">&quot;{lojaBuscada}&quot;</span>
         </>
       )}{" "}
       para pesquisa, obtemos os seguintes resultados:
@@ -162,4 +162,4 @@ const avaliação = () => {
   );
 };
 
-export default avaliação;
+export default Avaliacao;

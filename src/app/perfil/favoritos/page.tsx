@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { poppins } from "@/app/fonts";
 import React, { useEffect, useState } from 'react'
 
-const favoritos = () => {
+const Favoritos = () => {
     const [usuario, setUsuario] = useState<string>('');
     const [currentUsuario, setCurrentUsuario] = useState<string>('');
     const [email_consumidor, setEmail] = useState<string>('');
@@ -79,4 +79,4 @@ const favoritos = () => {
     )
 }
 
-export default favoritos;
+export default Favoritos;

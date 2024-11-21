@@ -6,7 +6,7 @@ import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "r
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import LogoAnimation from "../utils/logoAnimacao";
-import Categorias from "@/components/Categorias";
+import Categorias from "@/components/categorias";
 
 interface Produto {
   título: string;

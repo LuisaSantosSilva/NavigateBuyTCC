@@ -1,5 +1,6 @@
 "use client";
 import Link from 'next/link';
+import Image from 'next/image';
 import "./cadastro.css";
 import Modal from '@/components/Modal';
 import React, { useState } from 'react';
@@ -119,7 +120,7 @@ const Cadastro = () => {
         <div className="max-w-md p-4 sm:p-8 md:p-10 lg:p-12 text-center text-white">
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10">
             <a href="/" className="flex items-center text-base sm:text-lg md:text-xl lg:text-2xl hover:text-slate-300 transition duration-500 ease-in-out">
-              <img src="../img/setinha(login_cadastro).png" alt="" className="w-5 sm:w-6 md:w-7 lg:w-8 h-5 sm:h-6 md:h-7 lg:h-8 mr-2 hidden sm:block" />
+              <Image src="/img/setinha(login_cadastro).png" alt="" width={32} height={32} className="mr-2 hidden sm:block" />
               <h2 className={poppins.className}>Voltar ao início</h2>
             </a>
           </div>
@@ -156,10 +157,13 @@ const Cadastro = () => {
           <form onSubmit={cadastrarUsuario} className="space-y-8 w-full max-w-lg mx-auto">
             <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
-                <img
-                  src="../img/icon_user.png"
-                  alt=""
-                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-6"
+                <Image
+                  src="/img/icon_user.png"
+                  alt="user"
+                  width={40}
+                  height={40}
+                  priority
+                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
                 />
                 <input
                   id="nome-completo"
@@ -176,10 +180,13 @@ const Cadastro = () => {
             </div>
             <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
-                <img
-                  src="../img/icon_email.png"
+                <Image
+                  src="/img/icon_email.png"
                   alt="icon email"
-                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-5"
+                  width={40}
+                  height={40}
+                  priority
+                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
                 />
                 <input
                   id="email"
@@ -196,10 +203,13 @@ const Cadastro = () => {
             </div>
             <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
-                <img
-                  src="../img/icon_senha.png"
+                <Image
+                  src="/img/icon_senha.png"
                   alt="icon senha"
-                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 h-5 max-sm:hidden md:h-6"
+                  width={40}
+                  height={40}
+                  priority
+                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
                 />
                 <input
                   id="password"
