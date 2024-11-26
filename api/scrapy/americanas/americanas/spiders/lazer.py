@@ -11,7 +11,12 @@ class MlSpider(scrapy.Spider):
         'https://www.americanas.com.br/busca/isopor-termico',
         'https://www.americanas.com.br/busca/rede-de-descanso',
         'https://www.americanas.com.br/busca/guitarra',
+        'https://www.americanas.com.br/busca/saxofone',
+        'https://www.americanas.com.br/busca/bateria+acústica',
+        'https://www.americanas.com.br/busca/flauta',
         'https://www.americanas.com.br/busca/teclado-musical-arranjador',
+        'https://www.americanas.com.br/busca/poltrona',
+        'https://www.americanas.com.br/busca/cadeira-de-madeira'
     ]
 
     def parse(self, response, **kwargs):

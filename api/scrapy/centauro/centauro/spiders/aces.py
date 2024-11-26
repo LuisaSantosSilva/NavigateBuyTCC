@@ -7,7 +7,6 @@ class MlSpider(scrapy.Spider):
         'https://www.centauro.com.br/busca/pulseira',
         'https://www.centauro.com.br/busca/anel',
         'https://www.centauro.com.br/busca/capacete',
-        'https://www.centauro.com.br/busca/mouse-gamer',
         'https://www.centauro.com.br/busca/teclado',
         'https://www.centauro.com.br/busca/boné',
         'https://www.centauro.com.br/busca/bolsa',

@@ -8,7 +8,6 @@ class MlSpider(scrapy.Spider):
         'https://www.americanas.com.br/busca/anel',
         'https://www.americanas.com.br/busca/capacete',
         'https://www.americanas.com.br/busca/carregador',
-        'https://www.americanas.com.br/busca/mouse',
         'https://www.americanas.com.br/busca/teclado',
         'https://www.americanas.com.br/busca/boné',
         'https://www.americanas.com.br/busca/bolsa',
@@ -30,12 +29,13 @@ class MlSpider(scrapy.Spider):
             if link and not link.startswith(('http://', 'https://')):
                 link = f'https://www.americanas.com.br{link}'
 
-            yield {
-                'preço': i.xpath('.//span[contains(@class, "styles__PromotionalPrice")]/text()').get(default='').strip(),
-                'título': i.xpath('.//h3[contains(@class, "product-name")]/text()').get(default='').strip(),
-                'link': link,
-                'loja': 'americanas',
-                #'estrelas': stars,
-                'avaliações': i.xpath('.//span[contains(@class, "src__Count")]/text()').get(default='(0)').strip(),
-                'imagem': i.xpath('.//img[contains(@class, "src__LazyImage")]/@src').get(default='').strip()
-            }
+            if all([link]):
+                yield {
+                    'preço': i.xpath('.//span[contains(@class, "styles__PromotionalPrice")]/text()').get(default='').strip(),
+                    'título': i.xpath('.//h3[contains(@class, "product-name")]/text()').get(default='').strip(),
+                    'link': link,
+                    'loja': 'americanas',
+                    #'estrelas': stars,
+                    'avaliações': i.xpath('.//span[contains(@class, "src__Count")]/text()').get(default='(0)').strip(),
+                    'imagem': i.xpath('.//img[contains(@class, "src__LazyImage")]/@src').get(default='').strip()
+                }

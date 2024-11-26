@@ -5,9 +5,11 @@ class KalungaSpider(scrapy.Spider):
     start_urls = [
         'https://www.kalunga.com.br/busca/1?q=bolsa',
         'https://www.kalunga.com.br/busca/1?q=carregador',
+        'https://www.kalunga.com.br/busca/1?q=motorola',
+        'https://www.kalunga.com.br/busca/1?q=iphone',
+        'https://www.kalunga.com.br/busca/1?q=galaxy',
         'https://www.kalunga.com.br/busca/1?q=fones-de-ouvido',
         'https://www.kalunga.com.br/busca/1?q=mochila',
-        'https://www.kalunga.com.br/busca/1?q=mouse',
         'https://www.kalunga.com.br/busca/1?q=pulseira',
         'https://www.kalunga.com.br/busca/1?q=relogio',
         'https://www.kalunga.com.br/busca/1?q=teclado',
@@ -30,16 +32,17 @@ class KalungaSpider(scrapy.Spider):
             product_image = product_image.strip() if product_image else 'Imagem não disponível'
             price_value = i.xpath('.//span[@class="blocoproduto__text blocoproduto__text--bold blocoproduto__price"]/text()').get(default='').strip()
             stars = i.xpath('.//span[@class="reviews__star_text ps-2"]/text()').get(default='').strip()
-
-            yield {
-                'loja': 'Kalunga',
-                'preço': price_value,
-                'título': product_title,
-                'link': product_link,
-                'estrelas': stars,
-                'avaliações': 'sem',
-                'imagem': product_image
-            }
+            stars = stars.replace("(", "").replace(")", "")
+            if all([product_image, product_title, product_link, stars]):
+                yield {
+                    'loja': 'Kalunga',
+                    'preço': price_value,
+                    'título': product_title,
+                    'link': product_link,
+                    'estrelas': stars,
+                    'avaliações': 'sem',
+                    'imagem': product_image
+                }
 
         next_page = response.xpath('//a[@rel="next"]/@href').get()
         if next_page:

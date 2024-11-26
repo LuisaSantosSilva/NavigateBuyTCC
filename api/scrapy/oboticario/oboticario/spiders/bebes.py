@@ -2,7 +2,11 @@ import scrapy
 
 class ObtSpider(scrapy.Spider):
     name = 'bbs'
-    start_urls = ['https://www.boticario.com.br/busca/?q=bebes']
+    start_urls = [
+        'https://www.boticario.com.br/produtos-infantis/de-0-a-2-anos/',
+        'https://www.boticario.com.br/produtos-infantis/de-3-a-6-anos/',
+        'https://www.boticario.com.br/produtos-infantis/de-7-a-12-anos/'
+                  ]
 
     def parse(self, response):
         seen_products = set() 

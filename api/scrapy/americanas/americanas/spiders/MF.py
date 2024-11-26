@@ -13,6 +13,7 @@ class MlSpider(scrapy.Spider):
         'https://www.americanas.com.br/busca/lamina-de-barbear',
         'https://www.americanas.com.br/busca/sabao-em-po',
         'https://www.americanas.com.br/busca/amaciante',
+        'https://www.americanas.com.br/busca/caixa-bombom',
         'https://www.americanas.com.br/busca/alcool-em-gel',
         'https://www.americanas.com.br/busca/repelente'
     ]

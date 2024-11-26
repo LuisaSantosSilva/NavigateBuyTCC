@@ -7,7 +7,6 @@ class CasasBSpider(scrapy.Spider):
         'https://www.casasbahia.com.br/Anel/b',
         'https://www.casasbahia.com.br/Capacete/b',
         'https://www.casasbahia.com.br/Carregador/b',
-        'https://www.casasbahia.com.br/mouse-de-pc/b',
         'https://www.casasbahia.com.br/teclado-de-pc/b',
         'https://www.casasbahia.com.br/Bolsa/b',
         'https://www.casasbahia.com.br/Mochila/b',

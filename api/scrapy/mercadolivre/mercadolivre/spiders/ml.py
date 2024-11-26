@@ -5,12 +5,11 @@ class MlSpider(scrapy.Spider):
     name = 'ml'
 
     start_urls = [
-        # Acessórios
+# Acessórios
         'https://lista.mercadolivre.com.br/pulseira',
         'https://lista.mercadolivre.com.br/anel',
         'https://lista.mercadolivre.com.br/capacete',
         'https://lista.mercadolivre.com.br/carregador',
-        'https://lista.mercadolivre.com.br/mouse',
         'https://lista.mercadolivre.com.br/teclado',
         'https://lista.mercadolivre.com.br/bone',
         'https://lista.mercadolivre.com.br/bolsa',
@@ -111,7 +110,11 @@ class MlSpider(scrapy.Spider):
 #
         
         # Informática
-        'https://lista.mercadolivre.com.br/celular',
+        'https://lista.mercadolivre.com.br/galaxy',
+        'https://lista.mercadolivre.com.br/xiaomi',
+        'https://lista.mercadolivre.com.br/motorola',
+        'https://lista.mercadolivre.com.br/iphone',
+        'https://lista.mercadolivre.com.br/kindle',
         'https://lista.mercadolivre.com.br/computador',
         'https://lista.mercadolivre.com.br/video-game',
         'https://lista.mercadolivre.com.br/monitor',
@@ -134,9 +137,15 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/tenda-de-acampamento',
         'https://lista.mercadolivre.com.br/uno',
         'https://lista.mercadolivre.com.br/binoculos',
+        'https://lista.mercadolivre.com.br/poltrona',
+        'https://lista.mercadolivre.com.br/cadeira',
         'https://lista.mercadolivre.com.br/isopor-termico',
         'https://lista.mercadolivre.com.br/rede-de-descanso',
         'https://lista.mercadolivre.com.br/guitarra',
+        'https://lista.mercadolivre.com.br/violao',
+        'https://lista.mercadolivre.com.br/bateria-acustica',
+        'https://lista.mercadolivre.com.br/flauta-doce',
+        'https://lista.mercadolivre.com.br/saxofone',
         'https://lista.mercadolivre.com.br/teclado-musical',
         'https://lista.mercadolivre.com.br/equipamento-de-mergulho',
         
@@ -222,6 +231,7 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/pantufa',
         'https://lista.mercadolivre.com.br/tamanco',
         'https://lista.mercadolivre.com.br/rasteirinha',
+        
        ]
     
     def parse(self, response, **kwargs):
@@ -244,9 +254,12 @@ class MlSpider(scrapy.Spider):
                 cents = ''
 
             promo_price = i.xpath('.//s[@class="andes-money-amount andes-money-amount--previous"]/span[@class="andes-money-amount__fraction"]/text()').get(default='').strip()
-            promo_cents = i.xpath('.//s[@class="andes-money-amount andes-money-amount--previous"]/span[@class="andes-money-amount__cents"]/text()').get(default='').strip()
+            promo_cents = i.xpath('.//s[@class="andes-money-amount andes-money-amount--previous"]/span[@class="andes-money-amount__cents"]/text()').get(default='').strip()            
 
-            image = i.xpath('.//img[@decoding="sync"]/@src').get()
+            image = i.xpath('.//img[contains(@class, "lazy-loadable")]/@data-src').get(default='').strip()
+            if not image:
+                image = i.xpath('.//img[contains(@class, "lazy-loadable")]/@src').get(default='').strip()
+
             title = i.xpath('.//h2/a/text()').get(default='').strip()
             evaluation_text = i.xpath('.//span[@class="andes-visually-hidden"]/text()').get(default='sem').strip()
             if evaluation_text:
@@ -269,7 +282,6 @@ class MlSpider(scrapy.Spider):
                     evaluations = 'sem'
             #stars = i.xpath('.//span[@class="poly-reviews__rating"]/text()').get(default='0.0').strip()
             #evaluations = i.xpath('.//span[@class="poly-reviews__total"]/text()').get(default='(0)').strip()
-
             if promo_price and all([promo_price, title, link, stars, evaluations, image]):
                 total_price = f"{promo_price},{promo_cents}" if promo_cents else promo_price
                 yield {

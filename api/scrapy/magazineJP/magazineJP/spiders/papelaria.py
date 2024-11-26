@@ -1,4 +1,5 @@
 import scrapy
+import re
 
 class MagaluSpider(scrapy.Spider):
     name = 'papelaria'
@@ -22,25 +23,22 @@ class MagaluSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        products = response.xpath('//li[contains(@class, "sc-fTyFcS iTkWie")]')
+        products = response.xpath('//li[contains(@class, "sc-iNIeMn bDaikj")]')
         for product in products:
             product_link = response.urljoin(product.xpath('.//a[@data-testid="product-card-container"]/@href').get(default='').strip())
             product_image = product.xpath('.//img[@data-testid="image"]/@src').get(default='').strip()
             product_title = product.xpath('.//h2[@data-testid="product-title"]/text()').get(default='').strip()
             price_value = product.xpath('.//p[@data-testid="price-value"]/text()').get(default='').strip().replace('R$', '').strip()
-            stars_text = product.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='0.0').strip()
-            evaluations_text = product.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='sem').strip()
+            stars_text = product.xpath('.//span[contains(@class, "sc-fUkmAC geJyjP")]/text()').get(default='0.0').strip()
+            evaluations_text = product.xpath('.//span[contains(@class, "sc-fUkmAC geJyjP")]/text()').get(default='sem').strip()
 
-            if stars_text:
-                stars = stars_text.split()[0]
-            else:
-                stars = ''
+            stars = stars_text.split()[0] if stars_text else ''
 
-            if evaluations_text:
-                evaluations = evaluations_text.split('(')[-1].strip() 
-                evaluations = '(' + evaluations 
+            if evaluations_text.lower() == 'sem' or not evaluations_text.strip():
+                evaluations = 'sem'
             else:
-                evaluations = ''
+                evaluations_match = re.search(r'\((\d+)\)', evaluations_text)
+                evaluations = evaluations_match.group(1) if evaluations_match else 'sem'
 
             yield {
                 'loja': 'Magazine Luiza',

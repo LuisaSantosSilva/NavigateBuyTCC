@@ -1,4 +1,5 @@
 import scrapy
+import re
 
 class MagaluSpider(scrapy.Spider):
     name = 'bbs'
@@ -21,7 +22,7 @@ class MagaluSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for i in response.xpath('//li[@class="sc-fTyFcS iTkWie"]'):
+        for i in response.xpath('//li[@class="sc-iNIeMn bDaikj"]'):
             product_link = response.urljoin(i.xpath('.//a[@data-testid="product-card-container"]/@href').get(default='').strip())
             product_image = i.xpath('.//img[@data-testid="image"]/@src').get(default='').strip()
             product_title = i.xpath('.//h2[@data-testid="product-title"]/text()').get(default='').strip()
@@ -30,19 +31,16 @@ class MagaluSpider(scrapy.Spider):
 
             price_value = price_vl.replace('R$', '').strip()  
 
-            stars_text = i.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='0.0').strip()
-            evaluations_text = i.xpath('.//span[contains(@class, "sc-cezyBN")]/text()').get(default='sem').strip()
+            stars_text = i.xpath('.//span[contains(@class, "sc-fUkmAC geJyjP")]/text()').get(default='0.0').strip()
+            evaluations_text = i.xpath('.//span[contains(@class, "sc-fUkmAC geJyjP")]/text()').get(default='sem').strip()
 
-            if stars_text:
-                stars = stars_text.split()[0]
-            else:
-                stars = ''
+            stars = stars_text.split()[0] if stars_text else ''
 
-            if evaluations_text:
-                evaluations = evaluations_text.split('(')[-1].strip() 
-                evaluations = '(' + evaluations 
+            if evaluations_text.lower() == 'sem' or not evaluations_text.strip():
+                evaluations = 'sem'
             else:
-                evaluations = ''
+                evaluations_match = re.search(r'\((\d+)\)', evaluations_text)
+                evaluations = evaluations_match.group(1) if evaluations_match else 'sem'
 
             if price_value:
                 yield {

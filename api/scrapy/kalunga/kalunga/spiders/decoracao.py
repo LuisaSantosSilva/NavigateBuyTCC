@@ -28,16 +28,17 @@ class KalungaSpider(scrapy.Spider):
             product_title = i.xpath('.//h2[@class="blocoproduto__title mb-0 mt-2 pb-2 pb-lg-3"]/text()').get(default='').strip()
             price_value = i.xpath('.//span[@class="blocoproduto__text blocoproduto__text--bold blocoproduto__price"]/text()').get(default='').strip()
             stars = i.xpath('.//span[@class="reviews__star_text ps-2"]/text()').get(default='').strip()
-
-            yield {
-                'loja': 'Kalunga',
-                'preço': price_value,
-                'título': product_title,
-                'link': product_link,
-                'estrelas': stars,
-                'avaliações': 'sem',
-                'imagem': product_image
-            }
+            stars = stars.replace("(", "").replace(")", "")
+            if all([product_image, product_title, product_link, stars]):
+                yield {
+                    'loja': 'Kalunga',
+                    'preço': price_value,
+                    'título': product_title,
+                    'link': product_link,
+                    'estrelas': stars,
+                    'avaliações': 'sem',
+                    'imagem': product_image
+                }
 
         next_page = response.xpath('//a[@rel="next"]/@href').get()
         if next_page:

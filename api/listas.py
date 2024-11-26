@@ -48,7 +48,6 @@ acessorios_paths = [
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Acessorio.json'),
     os.path.join(project_root, 'scrapy', 'besni', 'data', 'Acessorio.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Acessorio.json'),
-    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Acessorio.json')
 ]
 
 juntar_arquivos(acessorios_paths, os.path.join(listas_json_dir, 'Acessorios.json'))
@@ -140,7 +139,6 @@ juntar_arquivos(lazer_paths, os.path.join(listas_json_dir, 'Lazer.json'))
 mercadoFarmacia_paths = [
     os.path.join(project_root, 'scrapy', 'americanas', 'data', 'MF.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Mercado_Farmacia.json'),
-    os.path.join(project_root, 'scrapy', 'besni', 'data', 'Mercado_Farmacia.json'),
     os.path.join(project_root, 'scrapy', 'besni', 'data', 'Mercado_Farmacia.json'),
     os.path.join(project_root, 'scrapy', 'kalunga', 'data', 'Mercado_Farmacia.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Mercado_Farmacia.json'),

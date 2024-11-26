@@ -4,11 +4,16 @@ class MlSpider(scrapy.Spider):
     name = 'info'
     start_urls = [
         # Informática
-        'https://www.americanas.com.br/busca/celular',
+        'https://www.americanas.com.br/busca/motorola',
+        'https://www.americanas.com.br/busca/galaxy',
+        'https://www.americanas.com.br/busca/iphone',
+        'https://www.americanas.com.br/busca/poco',
+        'https://www.americanas.com.br/busca/xiaomi',
         'https://www.americanas.com.br/busca/computador',
         'https://www.americanas.com.br/busca/console',
         'https://www.americanas.com.br/busca/monitor',
         'https://www.americanas.com.br/busca/impressora',
+        'https://www.americanas.com.br/busca/mouse',
         'https://www.americanas.com.br/busca/notebook',
         'https://www.americanas.com.br/busca/tablet',
         'https://www.americanas.com.br/busca/roteador',
@@ -17,7 +22,6 @@ class MlSpider(scrapy.Spider):
         'https://www.americanas.com.br/busca/teclado-mecanico',
         'https://www.americanas.com.br/busca/ssd',
         'https://www.americanas.com.br/busca/hd-externo',
-        'https://www.americanas.com.br/busca/mouse',
     ]
 
     def parse(self, response, **kwargs):

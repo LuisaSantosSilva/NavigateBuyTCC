@@ -8,7 +8,9 @@ class MlSpider(scrapy.Spider):
         'https://www.centauro.com.br/busca/dominó',
         'https://www.centauro.com.br/busca/tenda-de-acampamento',
         'https://www.centauro.com.br/busca/binoculos',
-        'https://www.centauro.com.br/busca/rede-de-descanso'
+        'https://www.centauro.com.br/busca/rede-de-descanso',
+        'https://www.centauro.com.br/busca/poltrona',
+        'https://www.centauro.com.br/busca/cadeira',
         ]
 
     def parse(self, response, **kwargs):
