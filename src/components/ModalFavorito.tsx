@@ -68,7 +68,7 @@ const ModalFavorito: React.FC<ModalProps> = ({ onClose, onConfirm, produtoId }) 
 
     return (
         <div className='fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm'>
-            <div className='bg-white p-10 md:p-24 rounded-xl mb-44 border-4 border-navigateblue z-20'>
+            <div className='bg-white p-10 md:p-24 rounded-xl mb-24 border-4 border-navigateblue w-full max-w-3xl'>
                 <h1 className='text-2xl text-start font-bold max-w-lg text-black'>
                     Você deseja receber alertas desse produto em seu email?
                 </h1>
