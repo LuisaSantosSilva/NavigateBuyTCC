@@ -461,7 +461,7 @@ const Categorias: React.FC = () => {
         </Menu>
       </div>
       <div className="text-lg text-center font-semibold text-gray-600 mt-4">
-        <p>Produtos atualizados em: 25/10/2024 feito com 💚 e Scrapy</p>
+        <p>Produtos atualizados em: 25/11/2024 feito com 💚 e Scrapy</p>
       </div>
       {/* Mapeamento dos produtos */}
       {produtosVisiveis.length > 0 ? (
