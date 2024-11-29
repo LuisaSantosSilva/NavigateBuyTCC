@@ -19,6 +19,7 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/sanduicheira/?from=submit',
         'https://www.magazineluiza.com.br/busca/forno+eletrico/?from=submit',
         'https://www.magazineluiza.com.br/busca/televisao/?from=submit',
+        'https://www.magazineluiza.com.br/busca/camera+seguranca/?from=submit'
     ]
     
     def parse(self, response):

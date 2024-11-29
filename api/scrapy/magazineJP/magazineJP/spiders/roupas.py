@@ -5,6 +5,7 @@ class MagaluSpider(scrapy.Spider):
     name = 'roupas'
     start_urls = [
         'https://www.magazineluiza.com.br/busca/camiseta/?from=submit',
+        'https://www.magazineluiza.com.br/busca/camisa+time/?from=submit',
         'https://www.magazineluiza.com.br/busca/calca/?from=submit',
         'https://www.magazineluiza.com.br/busca/jaqueta/?from=submit',
         'https://www.magazineluiza.com.br/busca/moletom/?from=submit',
@@ -19,6 +20,7 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/roupa+intima/?from=submit',
         'https://www.magazineluiza.com.br/busca/pijama/?from=submit',
         'https://www.magazineluiza.com.br/busca/blazer/?from=submit',
+        'https://www.magazineluiza.com.br/busca/cachecol/?from=icon'
     ]
 
     def parse(self, response):

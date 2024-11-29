@@ -11,7 +11,7 @@ class MrsSpider(scrapy.Spider):
         "https://www.marisa.com.br/cama/casa/c/travesseiro",
         "https://www.marisa.com.br/decoracao/casa/c/almofada",
         "https://www.marisa.com.br/decoracao/casa/c/cortina",
-        "https://www.marisa.com.br/decoracao/casa/c/kit-pano-copa"
+        "https://www.marisa.com.br/decoracao/casa/c/kit-pano-copa",
         ]
 
     def parse(self, response, **kwargs):

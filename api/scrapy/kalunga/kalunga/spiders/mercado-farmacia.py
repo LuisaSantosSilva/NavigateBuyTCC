@@ -8,6 +8,7 @@ class KalungaSpider(scrapy.Spider):
         'https://www.kalunga.com.br/busca/1?q=sabonete',
         'https://www.kalunga.com.br/busca/1?q=desinfetante',
         'https://www.kalunga.com.br/busca/1?q=chocolate',
+        'https://www.kalunga.com.br/busca/1?q=chiclete'
     ]
 
     def parse(self, response):

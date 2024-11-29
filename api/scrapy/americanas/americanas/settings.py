@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = "americanas.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36"
+#USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -23,7 +23,8 @@ ROBOTSTXT_OBEY = False
 #CONCURRENT_REQUESTS = 32
 DOWNLOAD_DELAY = 5
 RETRY_TIMES = 5
-DOWNLOAD_TIMEOUT = 15
+DOWNLOAD_TIMEOUT = 30
+
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -65,9 +66,9 @@ DOWNLOAD_TIMEOUT = 15
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "americanas.pipelines.AmericanasPipeline": 300,
-#}
+ITEM_PIPELINES = {
+    "americanas.pipelines.AmericanasPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

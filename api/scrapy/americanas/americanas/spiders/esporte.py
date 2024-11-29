@@ -4,20 +4,14 @@ class MlSpider(scrapy.Spider):
     name = 'esporte'
     start_urls = [        
         # Esporte
-        'https://www.americanas.com.br/busca/bola',
-        'https://www.americanas.com.br/busca/raquete',
-        'https://www.americanas.com.br/busca/prancha',
-        'https://www.americanas.com.br/busca/bicicleta',
-        'https://www.americanas.com.br/busca/patins',
-        'https://www.americanas.com.br/busca/patinete',
-        'https://www.americanas.com.br/busca/bambole',
-        'https://www.americanas.com.br/busca/skate',
-        'https://www.americanas.com.br/busca/luva-de-boxe',
-        'https://www.americanas.com.br/busca/pesos-para-musculacao',
-        'https://www.americanas.com.br/busca/corda-de-pular',
-        'https://www.americanas.com.br/busca/barras-de-flexao',
-        'https://www.americanas.com.br/busca/esteira',
-        'https://www.americanas.com.br/busca/mascara-natacao'
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/futebol?chave=pc_cat_ct1_3_acom_home_esporteelazer-futebol',
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/volei?chave=pc_cat_ct1_8_acom_home_esporteelazer-volei',
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/basquete?chave=pc_cat_ct1_13_acom_home_esporteelazer-basquete',
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/bicicletas?chave=pc_cat_ct1_2_acom_home_esporteelazer-bicicletas',
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/jogos-de-mesa-e-salao?chave=pc_cat_ct1_11_acom_home_esporteelazer-jogos-de-mesa',
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/tenis-squash-e-badminton?chave=pc_cat_ct1_10_acom_home_esporteelazer-tenis-squash-e-badminton',
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/pesca?chave=pc_cat_ct1_9_acom_home_esporteelazer-pesca',
+        'https://www.americanas.com.br/categoria/esporte-e-lazer/musculacao-e-fitness/halter?chave=pc_cat_mt1_7_acom_menu_musculacao_fitness',
     ]
 
     def parse(self, response, **kwargs):

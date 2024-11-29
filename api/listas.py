@@ -126,7 +126,6 @@ juntar_arquivos(informatica_paths, os.path.join(listas_json_dir, 'Informatica.js
 
 # Categoria Lazer
 lazer_paths = [
-    os.path.join(project_root, 'scrapy', 'americanas', 'data', 'lazer.json'),
     os.path.join(project_root, 'scrapy', 'casasbahia', 'data', 'Lazer.json'),
     os.path.join(project_root, 'scrapy', 'centauro', 'data', 'lazer.json'),
     os.path.join(project_root, 'scrapy', 'magazineJP', 'data', 'Lazer.json'),

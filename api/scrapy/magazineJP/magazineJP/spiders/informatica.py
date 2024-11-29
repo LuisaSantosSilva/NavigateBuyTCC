@@ -23,6 +23,10 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/hd/?from=submit',
         'https://www.magazineluiza.com.br/busca/mouse/?from=submit',
         'https://www.magazineluiza.com.br/busca/headset/?from=submit',
+        'https://www.magazineluiza.com.br/busca/fio+cobre/?from=submit',
+        'https://www.magazineluiza.com.br/busca/pen+drive/?from=submit',
+        'https://www.magazineluiza.com.br/busca/estabilizador/?from=submit',
+        'https://www.magazineluiza.com.br/busca/adaptador+usb/?from=submit'
     ]
 
     def parse(self, response):

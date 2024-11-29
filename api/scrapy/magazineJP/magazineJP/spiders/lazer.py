@@ -5,6 +5,8 @@ class MagaluSpider(scrapy.Spider):
     name = 'lazer'
     start_urls = [
         'https://www.magazineluiza.com.br/busca/baralho/?from=submit',
+        'https://www.magazineluiza.com.br/busca/lego+brinquedo/?from=submit',
+        'https://www.magazineluiza.com.br/busca/hotwheels/?from=submit',
         'https://www.magazineluiza.com.br/busca/skate/?from=submit',
         'https://www.magazineluiza.com.br/busca/patinete+eletrico/?from=submit',
         'https://www.magazineluiza.com.br/busca/patins/?from=submit',
@@ -24,6 +26,7 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/flauta+doce/?from=submit',
         'https://www.magazineluiza.com.br/busca/teclado+musical/?from=submit',
         'https://www.magazineluiza.com.br/busca/equipamento+de+mergulho/?from=submit',
+        'https://www.magazineluiza.com.br/busca/camera+digital/?from=submit'
     ]
 
     def parse(self, response):

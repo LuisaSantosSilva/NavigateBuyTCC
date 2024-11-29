@@ -4,23 +4,15 @@ class MlSpider(scrapy.Spider):
     name = 'beleza'
     start_urls = [
         # Beleza
-        'https://www.americanas.com.br/busca/shampoo',
-        'https://www.americanas.com.br/busca/condicionador',
-        'https://www.americanas.com.br/busca/mascara-de-hidratacao',
-        'https://www.americanas.com.br/busca/perfume',
-        'https://www.americanas.com.br/busca/sombra',
-        'https://www.americanas.com.br/busca/corretivo',
-        'https://www.americanas.com.br/busca/batom',
-        'https://www.americanas.com.br/busca/gloss',
-        'https://www.americanas.com.br/busca/base-liquida',
-        'https://www.americanas.com.br/busca/delineador',
-        'https://www.americanas.com.br/busca/bruma-fixadora',
-        'https://www.americanas.com.br/busca/esfoliante',
-        'https://www.americanas.com.br/busca/po-compacto',
-        'https://www.americanas.com.br/busca/hidratante-facial',
-        'https://www.americanas.com.br/busca/protetor-solar-facial',
-        'https://www.americanas.com.br/busca/blush',
-        'https://www.americanas.com.br/busca/primer'
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/dermocosmeticos/face?chave=pc_cat_mt3_acom_belezaeperfumaria-dermocosmeticos',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/cabelos?chave=pc_cat_mt3_acom_belezaeperfumaria-cabelo',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/perfumes?chave=pc_cat_mt3_acom_belezaeperfumaria-perfumes',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/cabelos/aparelhos-eletricos?chave=pc_cat_mt3_acom_belezaeperfumaria-eletroportateis',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/maquiagem?chave=pc_cat_mt3_acom_belezaeperfumaria-maquiagem',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/cuidados-com-a-pele/corpo?chave=pc_cat_mt3_acom_belezaeperfumaria-corpo',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/unhas?chave=pc_cat_mt3_acom_belezaeperfumaria-unhas',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/barbearia?chave=pc_cat_mt3_acom_belezaeperfumaria-barbearia',
+        'https://www.americanas.com.br/categoria/beleza-e-perfumaria/depilacao?chave=pc_cat_mt3_acom_belezaeperfumaria-depilacao'
     ]
 
     def parse(self, response, **kwargs):

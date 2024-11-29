@@ -4,18 +4,16 @@ class MlSpider(scrapy.Spider):
     name = 'sapato'
     start_urls = [
         # Sapato
-        'https://www.americanas.com.br/busca/tenis',
-        'https://www.americanas.com.br/busca/salto',
-        'https://www.americanas.com.br/busca/sapatilha',
-        'https://www.americanas.com.br/busca/chinelo',
-        'https://www.americanas.com.br/busca/mocassim',
-        'https://www.americanas.com.br/busca/sandalia',
-        'https://www.americanas.com.br/busca/botas',
-        'https://www.americanas.com.br/busca/sapato-social',
-        'https://www.americanas.com.br/busca/sapato-esportivo',
-        'https://www.americanas.com.br/busca/pantufa',
-        'https://www.americanas.com.br/busca/tamanco',
-        'https://www.americanas.com.br/busca/rasteirinha'
+        'https://www.americanas.com.br/categoria/moda/calcados/tenis/feminino?chave=pc_cat_mt1_1_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/sandalia/feminina?chave=pc_cat_mt1_3_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/bota/feminina?chave=pc_cat_mt1_5_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/sapato/feminino?chave=pc_cat_mt1_7_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/chinelo/feminino?chave=pc_cat_mt1_9_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/tenis/masculino?chave=pc_cat_mt1_2_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/sandalia/masculina?chave=pc_cat_mt1_4_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/bota/masculina?chave=pc_cat_mt1_6_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/sapato/masculino?chave=pc_cat_mt1_8_acom_calcados',
+        'https://www.americanas.com.br/categoria/moda/calcados/chinelo/masculino?chave=pc_cat_mt1_10_acom_calcados'
     ]
 
     def parse(self, response, **kwargs):

@@ -4,7 +4,8 @@ class KalungaSpider(scrapy.Spider):
     name = 'eletrodo'
     start_urls = [
         'https://www.kalunga.com.br/depto/coffee-break/maquinas-de-cafe/19/38',
-        'https://www.kalunga.com.br/depto/eletronicos/tvs-smart/5/1907'
+        'https://www.kalunga.com.br/depto/eletronicos/tvs-smart/5/1907',
+        'https://www.kalunga.com.br/busca/1?q=camera-seguranca'
     ]
 
     def parse(self, response):

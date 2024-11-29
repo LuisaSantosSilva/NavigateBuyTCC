@@ -19,6 +19,13 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/feijao/?from=submit',
         'https://www.magazineluiza.com.br/busca/chocolate/?from=submit',
         'https://www.magazineluiza.com.br/busca/sorvete/?from=submit',
+        'https://www.magazineluiza.com.br/busca/panetone/?from=submit',
+        'https://www.magazineluiza.com.br/busca/agua/?from=submit',
+        'https://www.magazineluiza.com.br/busca/suco/?from=submit',
+        'https://www.magazineluiza.com.br/busca/energetico/?from=submit',
+        'https://www.magazineluiza.com.br/busca/cerveja/?from=submit',
+        'https://www.magazineluiza.com.br/busca/vinhos/?from=submit'
+        'https://www.magazineluiza.com.br/busca/chiclete/?from=submit'
     ]
 
     def parse(self, response):

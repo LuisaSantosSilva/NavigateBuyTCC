@@ -4,24 +4,24 @@ class MlSpider(scrapy.Spider):
     name = 'info'
     start_urls = [
         # Informática
-        'https://www.americanas.com.br/busca/motorola',
-        'https://www.americanas.com.br/busca/galaxy',
-        'https://www.americanas.com.br/busca/iphone',
-        'https://www.americanas.com.br/busca/poco',
-        'https://www.americanas.com.br/busca/xiaomi',
-        'https://www.americanas.com.br/busca/computador',
-        'https://www.americanas.com.br/busca/console',
-        'https://www.americanas.com.br/busca/monitor',
-        'https://www.americanas.com.br/busca/impressora',
-        'https://www.americanas.com.br/busca/mouse',
-        'https://www.americanas.com.br/busca/notebook',
-        'https://www.americanas.com.br/busca/tablet',
-        'https://www.americanas.com.br/busca/roteador',
-        'https://www.americanas.com.br/busca/switch-hdmi',
-        'https://www.americanas.com.br/busca/placa-de-video',
-        'https://www.americanas.com.br/busca/teclado-mecanico',
-        'https://www.americanas.com.br/busca/ssd',
-        'https://www.americanas.com.br/busca/hd-externo',
+        'https://www.americanas.com.br/categoria/celulares-e-smartphones/smartphone?chave=pfm_hm_tt_1_0_smartphone&viewMode=list',
+        'https://www.americanas.com.br/categoria/celulares-e-smartphones/celular-basico?chave=pfm_hm_tt_1_0_celular-basico&viewMode=list',
+        'https://www.americanas.com.br/categoria/celulares-e-smartphones/smartphone/iphone?ordenacao=topSelling&viewMode=list&chave=pfm_hm_tt_1_0_iphones',
+        'https://www.americanas.com.br/categoria/informatica/notebooks?chave=pfm_hm_tt_1_0_notebook&viewMode=list',
+        'https://www.americanas.com.br/categoria/informatica/notebooks/notebook-gamer?viewMode=list',
+        'https://www.americanas.com.br/categoria/informatica/computadores/computador-desktop?viewMode=list',
+        'https://www.americanas.com.br/categoria/informatica/computadores/computador-gamer?viewMode=list',
+        'https://www.americanas.com.br/categoria/informatica/tablet-e-ipad/tablet?chave=pfm_hm_tt_1_0_tablet&viewMode=list',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/impressora-e-multifuncional?chave=pc_cat_mt3_1_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/suprimentos-para-impressora/cartucho?chave=pc_cat_mt3_7_acom_home_informatica,'
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/perifericos?chave=pc_cat_mt3_3_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/perifericos/teclado?chave=pc_cat_ct3_2_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/monitor?chave=pc_cat_mt3_4_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/projetores?chave=pc_cat_mt3_5_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/componentes?chave=pc_cat_mt3_6_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/equipamento-de-rede-wireless/roteador?chave=pc_cat_mt3_13_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/perifericos/microfone?chave=pc_cat_ct3_9_acom_home_informatica',
+        'https://www.americanas.com.br/categoria/informatica-e-acessorios/perifericos/webcam?chave=pc_cat_ct3_8_acom_home_informatica',
     ]
 
     def parse(self, response, **kwargs):

@@ -20,6 +20,7 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/tesoura/?from=submit',
         'https://www.magazineluiza.com.br/busca/papel+sulfite/?from=submit',
         'https://www.magazineluiza.com.br/busca/marca+texto/?from=submit',
+        'https://www.magazineluiza.com.br/busca/apagador/?from=submit'
     ]
 
     def parse(self, response):

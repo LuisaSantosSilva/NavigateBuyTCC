@@ -45,7 +45,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, heartIconSrc, productDescription,
             {brandName}
           </span>
           <Link
-            href={`../pages/avaliacao?productDescription=${encodeURIComponent(productDescription)}&brandName=${encodeURIComponent(brandName)}`}
+            href={`../pages/buscarAvaliacoes?productDescription=${encodeURIComponent(productDescription)}&brandName=${encodeURIComponent(brandName)}`}
             className="text-base underline block mt-1 hover:text-gray-600">
             Ver avaliações de consumidores
           </Link>

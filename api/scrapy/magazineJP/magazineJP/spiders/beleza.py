@@ -21,6 +21,8 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/protetor+solar+facial/?from=submit',
         'https://magazineluiza.com.br/busca/blush/?from=submit',
         'https://www.magazineluiza.com.br/busca/primer+facial/?from=submit',
+        'https://www.magazineluiza.com.br/busca/rimel/?from=submit',
+        'https://www.magazineluiza.com.br/busca/tinta+cabelo/?from=submit'
     ]
 
     def parse(self, response):

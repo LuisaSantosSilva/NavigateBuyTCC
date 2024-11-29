@@ -4,18 +4,11 @@ class MlSpider(scrapy.Spider):
     name = 'MF'
     start_urls = [        
         # Mercado/Farmácia
-        'https://www.americanas.com.br/busca/sabonete',
-        'https://www.americanas.com.br/busca/pasta-de-dente',
-        'https://www.americanas.com.br/busca/escova-de-dente',
-        'https://www.americanas.com.br/busca/desinfetante',
-        'https://www.americanas.com.br/busca/esmalte',
-        'https://www.americanas.com.br/busca/algodao-care',
-        'https://www.americanas.com.br/busca/lamina-de-barbear',
-        'https://www.americanas.com.br/busca/sabao-em-po',
-        'https://www.americanas.com.br/busca/amaciante',
-        'https://www.americanas.com.br/busca/caixa-bombom',
-        'https://www.americanas.com.br/busca/alcool-em-gel',
-        'https://www.americanas.com.br/busca/repelente'
+        'https://www.americanas.com.br/categoria/mercado/alimentos?chave=pc_cat_menu_mercearia_mercado',
+        'https://www.americanas.com.br/categoria/mercado/bebidas/bebidas-nao-alcoolicas?chave=pc_cat_menu_bebidas_na_mercado',
+        'https://www.americanas.com.br/categoria/mercado/bebidas/bebidas-alcoolicas?chave=pc_cat_menu_bebidas_a_mercado',
+        'https://www.americanas.com.br/categoria/mercado/bomboniere?chave=pc_cat_menu_bombiniere_mercado',
+        'https://www.americanas.com.br/categoria/mercado/higiene-e-saude?chave=pc_cat_mt3_acom_belezaeperfumaria-higiene',
     ]
 
     def parse(self, response, **kwargs):

@@ -4,20 +4,7 @@ class MlSpider(scrapy.Spider):
     name = 'pets'
     start_urls = [
         # Pets
-        'https://www.americanas.com.br/busca/racao',
-        'https://www.americanas.com.br/busca/brinquedo-pet',
-        'https://www.americanas.com.br/busca/caixa-de-areia',
-        'https://www.americanas.com.br/busca/arranhador',
-        'https://www.americanas.com.br/busca/comedouro',
-        'https://www.americanas.com.br/busca/bebedouro-pet',
-        'https://www.americanas.com.br/busca/cama-para-caes',
-        'https://www.americanas.com.br/busca/cama-para-gatos',
-        'https://www.americanas.com.br/busca/tapete-higienico',
-        'https://www.americanas.com.br/busca/roupinha-para-pets',
-        'https://www.americanas.com.br/busca/coleira',
-        'https://www.americanas.com.br/busca/antipulgas',
-        'https://www.americanas.com.br/busca/casinha-para-cachorro',
-        'https://www.americanas.com.br/busca/escova-para-pelos',
+        'https://www.americanas.com.br/categoria/pet-shop?chave=pfm_home_petshop_menu',
     ]
 
     def parse(self, response, **kwargs):

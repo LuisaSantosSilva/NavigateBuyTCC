@@ -3,18 +3,11 @@ import scrapy
 class MlSpider(scrapy.Spider):
     name = 'roupa'
     start_urls = [
-
         # Roupa
-        'https://www.americanas.com.br/busca/camiseta',
-        'https://www.americanas.com.br/busca/calca',
-        'https://www.americanas.com.br/busca/jaqueta',
-        'https://www.americanas.com.br/busca/moletom',
-        'https://www.americanas.com.br/busca/vestido',
-        'https://www.americanas.com.br/busca/camisa-social',
-        'https://www.americanas.com.br/busca/blusa-de-frio',
-        'https://www.americanas.com.br/busca/calca-jeans',
-        'https://www.americanas.com.br/busca/legging',
-        'https://www.americanas.com.br/busca/blazer',
+        'https://www.americanas.com.br/categoria/moda/roupas-femininas?chave=pc_cat_mt3_2_acom_home_moda',
+        'https://www.americanas.com.br/categoria/moda/roupas-masculinas?chave=pc_cat_mt3_3_acom_home_moda',
+        'https://www.americanas.com.br/categoria/moda/infantil',
+        
     ]
 
     def parse(self, response, **kwargs):

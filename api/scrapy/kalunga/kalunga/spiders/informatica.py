@@ -15,7 +15,10 @@ class KalungaSpider(scrapy.Spider):
         'https://www.kalunga.com.br/busca/1?q=ssd',
         'https://www.kalunga.com.br/busca/1?q=switch',
         'https://www.kalunga.com.br/busca/1?q=tablet',
-        'https://www.kalunga.com.br/busca/1?q=teclado-mecanico'
+        'https://www.kalunga.com.br/busca/1?q=teclado-mecanico',
+        'https://www.kalunga.com.br/busca/1?q=pen-drive',
+        'https://www.kalunga.com.br/busca/1?q=estabilizador',
+        'https://www.kalunga.com.br/busca/1?q=adaptador'
     ]
 
     def parse(self, response):

@@ -13,6 +13,9 @@ class KalungaSpider(scrapy.Spider):
         'https://www.kalunga.com.br/busca/1?q=pulseira',
         'https://www.kalunga.com.br/busca/1?q=relogio',
         'https://www.kalunga.com.br/busca/1?q=teclado',
+        'https://www.kalunga.com.br/busca/1?q=guarda-chuva',
+        'https://www.kalunga.com.br/busca/1?q=mousepad',
+        'https://www.kalunga.com.br/busca/1?q=benjamin'
     ]
 
     def parse(self, response):

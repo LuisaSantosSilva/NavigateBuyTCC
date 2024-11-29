@@ -4,21 +4,8 @@ class MlSpider(scrapy.Spider):
     name = 'bebes'
     start_urls = [
         # Bebês
-        'https://www.americanas.com.br/busca/fralda',
-        'https://www.americanas.com.br/busca/chupeta',
-        'https://www.americanas.com.br/busca/mamadeira',
-        'https://www.americanas.com.br/busca/carrinho-de-bebe',
-        'https://www.americanas.com.br/busca/cadeirinha-para-carro',
-        'https://www.americanas.com.br/busca/babador',
-        'https://www.americanas.com.br/busca/termometro-infantil',
-        'https://www.americanas.com.br/busca/banheira-de-bebe',
-        'https://www.americanas.com.br/busca/mobile-para-berco',
-        'https://www.americanas.com.br/busca/lencos-umedecidos',
-        'https://www.americanas.com.br/busca/mordedor',
-        'https://www.americanas.com.br/busca/brinquedo-educativo',
-        'https://www.americanas.com.br/busca/tapete-de-atividades',
-        'https://www.americanas.com.br/busca/roupinha-de-bebe',
-        'https://www.americanas.com.br/busca/protetor-de-berco'
+        'https://www.americanas.com.br/categoria/mercado/bebes?chave=pc_cat_menu_bebes_mercado',
+        'https://www.americanas.com.br/categoria/mercado/bebes/fralda?chave=pc_cat_mt3_acom_home_mercado-fralda'
     ]
 
     def parse(self, response, **kwargs):

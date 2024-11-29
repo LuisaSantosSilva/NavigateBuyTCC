@@ -18,6 +18,7 @@ class KalungaSpider(scrapy.Spider):
         'https://www.kalunga.com.br/busca/1?q=tesoura',
         'https://www.kalunga.com.br/depto/papeis/papel-sulfite/15/29?menuID=41&tipo=D',
         'https://www.kalunga.com.br/busca/1?q=marca-texto',
+        'https://www.kalunga.com.br/busca/1?q=apagador'
     ]
 
     def parse(self, response):

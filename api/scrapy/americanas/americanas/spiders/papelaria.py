@@ -4,22 +4,18 @@ class MlSpider(scrapy.Spider):
     name = 'papelaria'
     start_urls = [
         # Papelaria
-        'https://www.americanas.com.br/busca/caderno',
-        'https://www.americanas.com.br/busca/caneta',
-        'https://www.americanas.com.br/busca/lapis',
-        'https://www.americanas.com.br/busca/borracha',
-        'https://www.americanas.com.br/busca/regua',
-        'https://www.americanas.com.br/busca/livro',
-        'https://www.americanas.com.br/busca/post-it',
-        'https://www.americanas.com.br/busca/grampeador',
-        'https://www.americanas.com.br/busca/fichario',
-        'https://www.americanas.com.br/busca/calculadora',
-        'https://www.americanas.com.br/busca/agenda',
-        'https://www.americanas.com.br/busca/clips-de-papel',
-        'https://www.americanas.com.br/busca/cola',
-        'https://www.americanas.com.br/busca/tesoura',
-        'https://www.americanas.com.br/busca/papel-sulfite',
-        'https://www.americanas.com.br/busca/marca-texto'
+        'https://www.americanas.com.br/categoria/papelaria/cadernos?chave=pc_cat_mt3_1_acom_papelaria',
+        'https://www.americanas.com.br/categoria/papelaria/ficharios?chave=pc_cat_mt3_14_acom_papelaria',
+        'https://www.americanas.com.br/categoria/papelaria/planner-agenda-e-calendario/planner?chave=pc_cat_mt3_2_acom_papelaria',
+        'https://www.americanas.com.br/categoria/papelaria/escrita-e-corretivos/lapis-lapiseiras-e-grafites?chave=pc_cat_mt3_6_acom_papelaria',
+        'https://www.americanas.com.br/categoria/papelaria/canetas-e-canetinhas/canetinha',
+        'https://www.americanas.com.br/categoria/papelaria/material-escolar/corte-cola-e-corretivo/apontador?chave=pc_cat_mt3_acom_papelaria-apontador',
+        'https://www.americanas.com.br/categoria/papelaria/material-escolar/corte-cola-e-corretivo/borracha?chave=pc_cat_mt3_8_acom_papelaria',
+        'https://www.americanas.com.br/categoria/papelaria/arte-desenho-e-pintura/regua-esquadro-transferidor',
+        'https://www.americanas.com.br/categoria/papelaria/material-escolar/corte-cola-e-corretivo/cola?chave=pc_cat_mt3_acom_papelaria-cola',
+        'https://www.americanas.com.br/categoria/papelaria/material-escolar/corte-cola-e-corretivo/tesoura-escolar?chave=pc_cat_mt3_10_acom_papelaria',
+        'https://www.americanas.com.br/categoria/papelaria/estojos?chave=pc_cat_mt3_11_acom_papelaria',
+        'https://www.americanas.com.br/categoria/papelaria/escrita-e-corretivos/corretivos?chave=pc_cat_mt3_acom_papelaria-corretivo',
     ]
 
     def parse(self, response, **kwargs):

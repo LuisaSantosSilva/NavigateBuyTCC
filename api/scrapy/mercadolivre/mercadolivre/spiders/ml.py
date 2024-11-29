@@ -5,7 +5,7 @@ class MlSpider(scrapy.Spider):
     name = 'ml'
 
     start_urls = [
-# Acessórios
+        # Acessórios
         'https://lista.mercadolivre.com.br/pulseira',
         'https://lista.mercadolivre.com.br/anel',
         'https://lista.mercadolivre.com.br/capacete',
@@ -21,6 +21,13 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/colar',
         'https://lista.mercadolivre.com.br/cinto',
         'https://lista.mercadolivre.com.br/chaveiro',
+        'https://lista.mercadolivre.com.br/guarda-chuva',
+        'https://lista.mercadolivre.com.br/tiara',
+        'https://lista.mercadolivre.com.br/presilha',
+        'https://lista.mercadolivre.com.br/mousepad',
+        'https://lista.mercadolivre.com.br/benjamin',
+        'https://lista.mercadolivre.com.br/broche',
+        'https://lista.mercadolivre.com.br/ecobag',
         
         # Bebês
         'https://lista.mercadolivre.com.br/fralda',
@@ -57,6 +64,8 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/protetor-solar-facial',
         'https://lista.mercadolivre.com.br/blush',
         'https://lista.mercadolivre.com.br/primer',
+        'https://lista.mercadolivre.com.br/rimel',
+        'https://lista.mercadolivre.com.br/tinta-cabelo',
         
         # Decoração
         'https://lista.mercadolivre.com.br/moldura',
@@ -74,6 +83,9 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/espelho-decorativo',
         'https://lista.mercadolivre.com.br/papel-de-parede',
         'https://lista.mercadolivre.com.br/porta-retrato',
+        'https://lista.mercadolivre.com.br/lampada',
+        'https://lista.mercadolivre.com.br/cimento',
+        'https://lista.mercadolivre.com.br/lousa',
         
         # Eletrodoméstico
         'https://lista.mercadolivre.com.br/geladeira',
@@ -91,11 +103,12 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/sanduicheira',
         'https://lista.mercadolivre.com.br/forno-eletrico',
         'https://lista.mercadolivre.com.br/televisao',
+        'https://lista.mercadolivre.com.br/camera-segurança',
         
         # Esporte
         'https://lista.mercadolivre.com.br/bola',
         'https://lista.mercadolivre.com.br/raquete',
-        'https://lista.mercadolivre.com.br/prancha',
+        'https://lista.mercadolivre.com.br/prancha-de-surf',
         'https://lista.mercadolivre.com.br/bicicleta',
         'https://lista.mercadolivre.com.br/patins',
         'https://lista.mercadolivre.com.br/patinete',
@@ -107,7 +120,6 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/barras-de-flexao',
         'https://lista.mercadolivre.com.br/esteira',
         'https://lista.mercadolivre.com.br/mascara-natacao',
-#
         
         # Informática
         'https://lista.mercadolivre.com.br/galaxy',
@@ -129,10 +141,16 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/hd-externo',
         'https://lista.mercadolivre.com.br/mouse',
         'https://lista.mercadolivre.com.br/headset',
+        'https://lista.mercadolivre.com.br/fio-cobre',
+        'https://lista.mercadolivre.com.br/pen-drive',
+        'https://lista.mercadolivre.com.br/estabilizador',
+        'https://lista.mercadolivre.com.br/adaptador',
         
         # Lazer
         'https://lista.mercadolivre.com.br/baralho',
         'https://lista.mercadolivre.com.br/domino',
+        'https://lista.mercadolivre.com.br/lego-brinquedo',
+        'https://lista.mercadolivre.com.br/hotwheels',
         'https://lista.mercadolivre.com.br/tirolesa-portatil',
         'https://lista.mercadolivre.com.br/tenda-de-acampamento',
         'https://lista.mercadolivre.com.br/uno',
@@ -165,6 +183,13 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/feijao',
         'https://lista.mercadolivre.com.br/chocolate',
         'https://lista.mercadolivre.com.br/sorvete',
+        'https://lista.mercadolivre.com.br/panetone',
+        'https://lista.mercadolivre.com.br/agua',
+        'https://lista.mercadolivre.com.br/suco',
+        'https://lista.mercadolivre.com.br/energetico',
+        'https://lista.mercadolivre.com.br/cerveja',
+        'https://lista.mercadolivre.com.br/vinhos',
+        'https://lista.mercadolivre.com.br/chiclete',
         
         # Papelaria
         'https://lista.mercadolivre.com.br/caderno',
@@ -183,6 +208,7 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/tesoura',
         'https://lista.mercadolivre.com.br/papel-sulfite',
         'https://lista.mercadolivre.com.br/marca-texto',
+        'https://lista.mercadolivre.com.br/apagador-lousa',
         
         # Pets
         'https://lista.mercadolivre.com.br/racao',
@@ -210,6 +236,7 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/shorts',
         'https://lista.mercadolivre.com.br/saia',
         'https://lista.mercadolivre.com.br/camisa-social',
+        'https://lista.mercadolivre.com.br/camise-de-time',
         'https://lista.mercadolivre.com.br/blusa-de-frio',
         'https://lista.mercadolivre.com.br/calca-jeans',
         'https://lista.mercadolivre.com.br/legging',
@@ -217,6 +244,7 @@ class MlSpider(scrapy.Spider):
         'https://lista.mercadolivre.com.br/roupa-intima',
         'https://lista.mercadolivre.com.br/pijama',
         'https://lista.mercadolivre.com.br/blazer',
+        'https://lista.mercadolivre.com.br/cachecol',
         
         # Sapato
         'https://lista.mercadolivre.com.br/tenis',

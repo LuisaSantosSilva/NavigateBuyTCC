@@ -19,6 +19,10 @@ class MagaluSpider(scrapy.Spider):
         'https://www.magazineluiza.com.br/busca/espelho+decorativo/?from=submit',
         'https://www.magazineluiza.com.br/busca/papel+de+parede/?from=submit',
         'https://www.magazineluiza.com.br/busca/porta+retrato/?from=submit',
+        'https://www.magazineluiza.com.br/busca/lampada/?from=submit',
+        'https://www.magazineluiza.com.br/busca/cimento/?from=submit',
+        'https://www.magazineluiza.com.br/busca/espuma/?from=submit',
+        'https://www.magazineluiza.com.br/busca/lousa/?from=submit'
     ]
 
     def parse(self, response):
