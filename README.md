@@ -5,6 +5,13 @@ Repositório criado para armazenar a codificação do Trabalho de Conclusão de 
 [![Branch Desenvolvimento](https://img.shields.io/badge/Acessar_branch_da_aplicação_prática_2024-0c8249?style=for-the-badge)](https://github.com/LuisaSantosSilva/NavigateBuyTCC/tree/desenvolvimento)
 
 ##
+<div align="center">
+  
+  <h4>Navegue com simplicidade e pesquise com mais segurança</h4>
+  
+  <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/NavigateBuy.png">
+
+</div>
 
 <div align="justify">
   
@@ -21,7 +28,7 @@ Reclame aqui, análise de dados e gráficos e comparações de preços de difere
 </div>
 
 Foram adquiridos mais de
-<h2>25.000 ofertas para busca de compras online</h2> 
+<h2>30.000 ofertas para busca de compras online</h2> 
 
 <div align="center">
   
