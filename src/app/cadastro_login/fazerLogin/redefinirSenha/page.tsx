@@ -45,7 +45,7 @@ const ResetPassword: React.FC = () => {
                 <ToastContainer />
                 <div className="max-w-6xl mx-auto p-8">
                     <h1 className="text-3xl sm:text-2xl md:text-2xl lg:text-3xl text-center font-extrabold">
-                        Redefinir Senha
+                        Redefinir senha
                     </h1>
                     <p className="text-xl sm:text-xl md:text-2xl lg:text-2xl text-center mb-8">
                         Digite sua nova senha abaixo.
@@ -70,7 +70,7 @@ const ResetPassword: React.FC = () => {
                                     className="py-3 sm:py-4 md:py-5 lg:py-5 pl-12 sm:pl-14 md:pl-16 lg:pl-20 
                                     pr-4 w-full text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border
                                     border-black focus:outline-none shadow-md transition duration-500 ease-in-out"
-                                    placeholder="Nova Senha (min: 8 caracteres)"
+                                    placeholder="Nova senha (min: 8 caracteres)"
                                     required
                                     value={novaSenha}
                                     onChange={(e) => setNovaSenha(e.target.value)}
@@ -86,7 +86,7 @@ const ResetPassword: React.FC = () => {
                                     ease-in-out hover:bg-white hover:text-slate-900 hover:border-slate-900`}
                                 disabled={loading}
                             >
-                                {loading ? 'Redefinindo...' : 'Redefinir Senha'}
+                                {loading ? 'Redefinindo...' : 'Redefinir senha'}
                             </button>
                         </div>
                     </form>

@@ -11,7 +11,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, onConfirm, setCode }) => {
     <div className='fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm'>
       <div className='bg-white p-10 md:p-24 rounded-xl mb-24 border-4 border-navigateblue w-full max-w-3xl'>
         <h1 className='text-2xl text-start font-bold max-w-lg text-black'>
-          Digite o email que irá receber o código
+          Digite o email que irá redefinir sua senha
         </h1>
         <p className='mt-5 text-md md:text-lg text-start text-black'>
           Por favor, insira o seu email aqui:

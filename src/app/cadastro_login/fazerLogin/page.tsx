@@ -62,7 +62,7 @@ const Login = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: emailMessage
+          email_consumidor: emailMessage
         }),
       });
 
@@ -74,7 +74,7 @@ const Login = () => {
       const data = await response.json();
       toast.success('Mensagem de confirmação enviada para o seu email!', { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     } catch (error) {
-      toast.error('Erro ao enviar o email:', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+      toast.error('Erro ao enviar o email', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
     }
   };
 

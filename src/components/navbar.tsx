@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    router.push(`/pesquisa/pesquisa/?query=${encodeURIComponent(searchTerm)}`);
+    router.push(`/buscarProduto/pesquisa/?query=${encodeURIComponent(searchTerm)}`);
   };
 
   return (
@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
             <Link href="/perfil/favoritos" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Favoritos
             </Link>
-            <Link href="/cadastro_login/login" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
+            <Link href="/cadastro_login/fazerLogin" className="px-4 py-4 hover:bg-black hover:text-white rounded-md transition-all duration-500">
               Login
             </Link>
             <Link href="/perfil/editar" className="p-2 rounded-full bg-gradient-to-r from-navigateblue to-navigategreen text-white hover:text-navigategreen">
@@ -162,7 +162,7 @@ const Navbar: React.FC = () => {
                   <span className="hidden xl:inline">Buscar comentários de avaliação</span>
                   <span className="inline xl:hidden">Avaliações</span>
                 </Link>
-                <Link href="/pages/conversoes" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="/pages/compararPreçosInternacionais" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
                   <span className="ml-2 hidden xl:inline">Comparar preços de produtos internacionais</span>
                   <span className="ml-2 inline xl:hidden">Comparação</span>
@@ -171,7 +171,7 @@ const Navbar: React.FC = () => {
                   <Link href="/perfil/favoritos" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Favoritos
                   </Link>
-                  <Link href="/cadastro_login/login" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
+                  <Link href="/cadastro_login/fazerLogin" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
                     Login
                   </Link>
                   <Link href="/cadastro_login/cadastrarConsumidor" className="px-4 py-4 hover:bg-white hover:text-black text-white rounded-md transition-all duration-500">
@@ -221,13 +221,13 @@ const Navbar: React.FC = () => {
               <Link href="/pages/buscarAvaliacoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Buscar comentários de avaliação
               </Link>
-              <Link href="/pages/conversoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/pages/compararPreçosInternacionais" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Comparar preços de produtos internacionais
               </Link>
               <Link href="/perfil/favoritos" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Favoritos
               </Link>
-              <Link href="/cadastro_login/login" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/cadastro_login/fazerLogin" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Login
               </Link>
               <Link href="/cadastro_login/cadastrarConsumidor" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">

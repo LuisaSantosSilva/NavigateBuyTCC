@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
             <span className="hidden min-[1250px]:inline">Avaliações e comentários de consumidores</span>
             <span className="inline min-[1250px]:hidden">Avaliações</span>
           </Link>
-          <Link href="../pages/conversoes" className="block hover:text-navigategreen">
+          <Link href="../pages/compararPreçosInternacionais" className="block hover:text-navigategreen">
             <span className="hidden min-[1250px]:inline">Conversões monetárias</span>
             <span className="inline min-[1250px]:hidden">Conversões</span>
           </Link>

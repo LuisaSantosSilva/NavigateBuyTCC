@@ -31,7 +31,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def iniciar_agendador():
     if not scheduler.running:
-        scheduler.add_job(enviar_alerta_favoritos, 'cron', day_of_week='fri', hour=15, minute=00)
+        scheduler.add_job(enviar_alerta_favoritos, 'cron', day_of_week='mon', hour=11, minute=25)
         scheduler.start()
 
 iniciar_agendador()

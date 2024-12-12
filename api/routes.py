@@ -5,11 +5,12 @@ from itsdangerous import URLSafeTimedSerializer
 from werkzeug.utils import secure_filename
 from models import User, CodigoDeConfirmacao, Produtos, db
 from special import cadastro_corpo_email, redefinir_corpo_email, alerta_corpo_email
-import json, subprocess, uuid, smtplib, random, os
+import json, subprocess, uuid, smtplib, random, os, datetime
 
 UPLOAD_FOLDER = 'static/uploads/avatars'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'ico'}
 MAX_AVATAR_SIZE = 5 * 1024 * 1024
+JSON_FILE = 'lista_produtos_adicionar.json'
 
 # Definindo um blueprint para agrupar as rotas
 api = Blueprint('api', __name__)
@@ -330,7 +331,7 @@ def enviar_alerta_favoritos():
         usuarios = User.query.all()
 
         for user in usuarios:
-            favoritos = Produtos.query.filter_by(usuario_id=user.id, receber_alerta=True).all()
+            favoritos = Produtos.query.filter_by(usuario_id=user.id_consumidor, receber_alerta=True).all()
             email_consumidor = user.email_consumidor
 
             if favoritos:
@@ -433,3 +434,34 @@ def scrape():
         return jsonify({'error': 'Erro ao executar o Scrapy', 'details': str(e)})
     except Exception as e:
         return jsonify({'error': 'Ocorreu um erro inesperado', 'details': str(e)})
+    
+def carregar_dados():
+    try:
+        with open(JSON_FILE, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []
+
+def salvar_dados(data):
+    with open(JSON_FILE, 'w') as f:
+        json.dump(data, f, indent=4)
+
+@api.route('/salvar_pesquisas', methods=['POST'])
+def salvar_pesquisas():
+    data = request.json['searchTerm']
+
+    # Carregar os dados existentes
+    dados_existentes = carregar_dados()
+    
+    # Adicionar a nova pesquisa
+    dados_existentes.append(data)
+    
+    # Salvar os dados atualizados
+    salvar_dados(dados_existentes)
+    
+    return 'Pesquisas salvas com sucesso', 200
+
+@api.route('/pesquisas_sem_resultados', methods=['GET'])
+def obter_pesquisas():
+    dados = carregar_dados()
+    return json.dumps(dados)

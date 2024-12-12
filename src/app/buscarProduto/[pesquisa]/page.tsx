@@ -40,6 +40,12 @@ interface Produto {
   estrelas?: string;
 }
 
+{/* Parâmetros das pesquisas */ }
+interface Pesquisa {
+  termo: string;
+  data: string;
+}
+
 {/* Registro de elementos do gráfico */ }
 Chart.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend);
 
@@ -55,6 +61,8 @@ const Pesquisa: React.FC = () => {
   const [produtoId, setProdutoId] = useState("");
   const [sugestoes, setSugestoes] = useState<Produto[]>([]);
   const [paginasPorParte, setPaginasPorParte] = useState<number>(() => typeof window !== "undefined" && window.innerWidth < 480 ? 3 : 5);
+  const [pesquisasSemResultados, setPesquisasSemResultados] = useState<Pesquisa[]>([]);
+  const [contagemPesquisas, setContagemPesquisas] = useState<Record<string, number>>({});
 
   const limiteProdutos = 12;
 
@@ -90,6 +98,14 @@ const Pesquisa: React.FC = () => {
     const converterEstrelasParaNumero = (estrelas: string) => {
       return parseFloat(estrelas) || 0.0;
     };
+
+    if (filtrarProdutos.length === 0) {
+      const novaPesquisa: Pesquisa = {
+        termo: searchTerm,
+        data: new Date().toISOString(),
+      };
+      setPesquisasSemResultados([...pesquisasSemResultados, novaPesquisa]);
+    }
 
     switch (filtro) {
       case "menor-preco":
@@ -375,18 +391,56 @@ const Pesquisa: React.FC = () => {
       if (error.message === "Failed to fetch" || error.message.includes("NetworkError")) {
         toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
         setTimeout(() => {
-          window.location.href = '../cadastro_login/login';
+          window.location.href = '../cadastro_login/fazerLogin';
         }, 2500);
       } else {
         toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
         setTimeout(() => {
-          window.location.href = '../cadastro_login/login';
+          window.location.href = '../cadastro_login/fazerLogin';
         }, 2500);
       }
     }
   };
 
-  {/*   Função para para navegação de 5 itens por vez vai para 3 */ }
+  const registrarPesquisa = (termo: string) => {
+    setContagemPesquisas((prev) => {
+      const novaContagem = { ...prev, [termo]: (prev[termo] || 0) + 1 };
+      if (novaContagem[termo] === 5) {
+        const dataAtual = new Date().toISOString();
+        setPesquisasSemResultados((prevLista) => [
+          ...prevLista,
+          { termo, data: dataAtual },
+        ]);
+      }
+      return novaContagem;
+    });
+  };
+
+  const listaAdicionarProdutos = async () => {
+    if (pesquisasSemResultados.length === 0) return;
+  
+    try {
+      const response = await fetch('http://localhost:5000/app/salvar_pesquisas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ pesquisasSemResultados }),
+      });
+  
+      if (response.ok) {
+        console.log('Pesquisas salvas com sucesso!');
+        setPesquisasSemResultados([]);
+      } else {
+        console.error('Erro ao salvar pesquisas.');
+      }
+    } catch (error) {
+      console.error('Erro ao enviar:', error);
+    }
+  };
+  
+
+  {/* Função para para navegação de 5 itens por vez vai para 3 */ }
   useEffect(() => {
     const handleResize = () => {
       setPaginasPorParte(window.innerWidth < 480 ? 3 : 5);
@@ -409,6 +463,13 @@ const Pesquisa: React.FC = () => {
   useEffect(() => {
     setPage(0);
   }, [searchTerm]);
+
+  useEffect(() => {
+    if (pesquisasSemResultados.length > 0) {
+      listaAdicionarProdutos();
+    }
+  }, [pesquisasSemResultados]);
+  
 
   return (
     <main>

@@ -18,7 +18,7 @@ const Editar = () => {
 
   // Efeito para receber dados do perfil
   useEffect(() => {
-    const fetchData = async () => {
+    const consultar = async () => {
       try {
         const response = await fetch("http://localhost:5000/app/perfil", {
           method: "GET",
@@ -52,13 +52,13 @@ const Editar = () => {
             theme: "dark"
           });
           setTimeout(() => {
-            window.location.href = '../cadastro_login/login';
+            window.location.href = '../cadastro_login/fazerLogin';
           }, 3000);
         }
       }
     };
 
-    fetchData();
+    consultar();
   }, []);
 
   // Função para editar perfil
@@ -92,22 +92,22 @@ const Editar = () => {
         return;
       }
     }
-    const profileUpdateData = new FormData();
-    profileUpdateData.append('usuario', usuario);
-    profileUpdateData.append('email_consumidor', email_consumidor);
-    profileUpdateData.append('senha_consumidor', senha_consumidor);
+    const atualizarDadosPerfil = new FormData();
+    atualizarDadosPerfil.append('usuario', usuario);
+    atualizarDadosPerfil.append('email_consumidor', email_consumidor);
+    atualizarDadosPerfil.append('senha_consumidor', senha_consumidor);
     if (avatarFile) {
-      profileUpdateData.append('avatar', avatarFile);
+      atualizarDadosPerfil.append('avatar', avatarFile);
     }
 
     console.log("Avatar File:", avatarFile);
-    console.log("Dados do perfil:", Array.from(profileUpdateData.entries()));
+    console.log("Dados do perfil:", Array.from(atualizarDadosPerfil.entries()));
 
     try {
       const response = await fetch("http://localhost:5000/app/editar-perfil", {
         method: "PUT",
         credentials: "include",
-        body: profileUpdateData,
+        body: atualizarDadosPerfil,
       });
 
       if (!response.ok) {
@@ -137,7 +137,7 @@ const Editar = () => {
 
       toast.success('Deslogado com sucesso', { position: "top-center", closeOnClick: true, pauseOnHover: true, theme: "dark" });
       setTimeout(() => {
-        window.location.href = '../cadastro_login/login';
+        window.location.href = '../cadastro_login/fazerLogin';
       }, 2000);
     } catch (error) {
       toast.error('Erro ao fazer logout, tente novamente mais tarde', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });

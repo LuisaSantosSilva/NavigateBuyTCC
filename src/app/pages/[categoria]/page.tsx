@@ -356,12 +356,12 @@ const Categorias: React.FC = () => {
       if (error.message === "Failed to fetch" || error.message.includes("NetworkError")) {
         toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
         setTimeout(() => {
-          window.location.href = '../cadastro_login/login';
+          window.location.href = '../cadastro_login/fazerLogin';
         }, 2500);
       } else {
         toast.error('Você precisa estar logado para favoritar!', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
         setTimeout(() => {
-          window.location.href = '../cadastro_login/login';
+          window.location.href = '../cadastro_login/fazerLogin';
         }, 2500);
       }
     }

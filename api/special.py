@@ -140,7 +140,7 @@ def alerta_corpo_email(user, favoritos):
                 <hr style="width:100%; height:3px; border-width:0; background-color:#000000;">
 
                 <div style="padding: 20px; text-align: left;">
-                    <p style="font-size: 18px; font-weight: bold; color: #000000;">Olá, {user.username}!</p>
+                    <p style="font-size: 18px; font-weight: bold; color: #000000;">Olá, {user.usuario}!</p>
                     <p style="font-size: 16px; color: #000000;">
                         Aqui estão as últimas atualizações sobre seus produtos favoritos. Não perca as melhores ofertas disponíveis este mês!
                     </p>

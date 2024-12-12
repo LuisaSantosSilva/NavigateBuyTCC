@@ -23,7 +23,7 @@ const Cadastro = () => {
   const [code, setConfirmationCode] = useState('');
 
   // Função para cadastrar usuário
-  const cadastrarUsuario = async (e: React.FormEvent) => {
+  const cadastrarConsumidor = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
@@ -76,7 +76,7 @@ const Cadastro = () => {
       toast.success('Código confirmado!', { position: "bottom-left", hideProgressBar: true, theme: "dark" });
       setShowCodeModal(false);
       setTimeout(() => {
-        window.location.href = '../cadastro_login/login';
+        window.location.href = '../cadastro_login/fazerLogin';
       }, 3000);
     } catch (error) {
       toast.error('Código incorreto! Tente novamente', { position: "bottom-left", autoClose: 2000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
@@ -133,7 +133,7 @@ const Cadastro = () => {
               conta agora mesmo!
             </p>
           </div>
-          <Link href="../cadastro_login/login">
+          <Link href="../cadastro_login/fazerLogin">
             <button className="mt-12 py-3 sm:py-4 md:py-5 lg:py-6 px-8 sm:px-10 md:px-12 lg:px-32 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-transparent text-white font-semibold border-white transition duration-1000 ease-in-out hover:bg-white hover:text-black hover:border-transparent">
               Entrar
             </button>
@@ -154,7 +154,7 @@ const Cadastro = () => {
               Preencha seus dados
             </p>
           </div>
-          <form onSubmit={cadastrarUsuario} className="space-y-8 w-full max-w-lg mx-auto">
+          <form onSubmit={cadastrarConsumidor} className="space-y-8 w-full max-w-lg mx-auto">
             <div className="flex flex-wrap -mx-9 mb-6">
               <div className="w-full px-3 relative">
                 <Image
@@ -233,7 +233,7 @@ const Cadastro = () => {
                 {loading ? 'Cadastrando...' : 'Cadastrar'}
               </button>
               <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
-                <h1>Já tem cadastro? <Link href={"../cadastro_login/login"}><span className='underline hover:text-black text-gray-600'>Entrar na conta</span></Link></h1>
+                <h1>Já tem cadastro? <Link href={"../cadastro_login/fazerLogin"}><span className='underline hover:text-black text-gray-600'>Entrar na conta</span></Link></h1>
               </div>
             </div>
           </form>

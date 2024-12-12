@@ -60,7 +60,7 @@ const Conversoes = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const handleConversion = async () => {
+    const calcularConversao = async () => {
         if (!amount) {
             setError("Por favor, insira um valor para conversão.");
             setResult(null);
@@ -84,14 +84,14 @@ const Conversoes = () => {
         }
     };
 
-    const calculateImportTax = () => {
-        let tax = 0;
+    const calcularTaxaImportacao = () => {
+        let taxa = 0;
         if (amount <= 50) {
-            tax = amount * 0.20;
+            taxa = amount * 0.20;
         } else if (amount > 50 && amount <= 3000) {
-            tax = (amount * 0.60) - 20;
+            taxa = (amount * 0.60) - 20;
         }
-        return tax > 0 ? tax : 0;
+        return taxa > 0 ? taxa : 0;
     };
 
     const handleNext = () => {
@@ -187,7 +187,7 @@ const Conversoes = () => {
                         </Menu>
                     </div>
                     <button
-                        onClick={handleConversion}
+                        onClick={calcularConversao}
                         className="inline-flex justify-center mt-10 mb-12 rounded-2xl bg-navigategreen px-10 py-3 text-xl font-semibold text-white hover:bg-green-600"
                     >
                         Converter
@@ -201,7 +201,7 @@ const Conversoes = () => {
                             <p className={fromCurrency === "USD" ? "text-2xl" : "text-lg"}>
                                 <span className="font-bold">Valor aproximado com taxa de importação: </span>
                                 {fromCurrency === "USD"
-                                    ? `R$ ${formatNumber(result + calculateImportTax())}`
+                                    ? `R$ ${formatNumber(result + calcularTaxaImportacao())}`
                                     : "No Brasil o cálculo de importação precisa ser feito com dólar americano (USD)."
                                 }
                             </p>
