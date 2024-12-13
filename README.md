@@ -2,7 +2,7 @@
 
 Repositório criado para armazenar a codificação do Trabalho de Conclusão de Curso apresentado ao Curso Técnico em Desenvolvimento de Sistemas da Etec Zona Leste 2024.
 
-[![Branch Desenvolvimento](https://img.shields.io/badge/Acessar_branch_da_aplicação_prática_2024-0c8249?style=for-the-badge)](https://github.com/LuisaSantosSilva/NavigateBuyTCC/tree/desenvolvimento)
+[![Branch Desenvolvimento](https://img.shields.io/badge/Acessar_branch_da_aplicação_prática_2024-0e023b?style=for-the-badge)](https://github.com/LuisaSantosSilva/NavigateBuyTCC/tree/desenvolvimento)
 
 ##
 <div align="center">
@@ -10,6 +10,8 @@ Repositório criado para armazenar a codificação do Trabalho de Conclusão de 
   <h4>Navegue com simplicidade e pesquise com mais segurança</h4>
   
   <img width="500" src="https://github.com/LuisaSantosSilva/NavigateBuyTCC/blob/main/Readme/NavigateBuy.png">
+
+  [![Site - Navigate Buy](https://img.shields.io/badge/Acessar_Site_-_Navigate_Buy_2024-0c8249?style=for-the-badge)](https://navigate-buy-tcc-viniciusvchabariberis-projects.vercel.app/)
 
 </div>
 
