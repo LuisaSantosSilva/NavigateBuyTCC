@@ -546,7 +546,7 @@ const Pesquisa: React.FC = () => {
         </Menu>
       </div>
       <div className="flex justify-center items-center text-lg text-center font-semibold text-gray-600 mt-4">
-        <p>Produtos atualizados em: 06/03/2024 feito com 💚 e Scrapy</p>
+        <p>Produtos atualizados em: 06/03/2025 feito com 💚 e Scrapy</p>
       </div>
       {/* Mapeamento dos produtos */}
       {
