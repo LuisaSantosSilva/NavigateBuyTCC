@@ -266,7 +266,7 @@ class MlSpider(scrapy.Spider):
         links_visitados = set()
 
         for i in response.xpath('//li[contains(@class, "ui-search-layout__item")]'):
-            link = i.xpath('.//h2/a/@href').get(default='').strip()
+            link = i.xpath('.//h3/a/@href').get(default='').strip()
 
             if link in links_visitados:
                 continue
@@ -288,28 +288,19 @@ class MlSpider(scrapy.Spider):
             if not image:
                 image = i.xpath('.//img[contains(@class, "lazy-loadable")]/@src').get(default='').strip()
 
-            title = i.xpath('.//h2/a/text()').get(default='').strip()
-            evaluation_text = i.xpath('.//span[@class="andes-visually-hidden"]/text()').get(default='sem').strip()
-            if evaluation_text:
-                match = re.search(r'Avaliação (\d+\.\d+) de 5\. \(([\d,]+) avaliações\)', evaluation_text)
+            title = i.xpath('.//h3/a/text()').get(default='').strip()
+            # evaluation_text = i.xpath('.//span[@class="andes-visually-hidden"]/text()').get(default='').strip()
 
-                if match:
-                    stars = match.group(1)
-                    evaluations = match.group(2)
-                else:
-                    stars = '0.0'
-                    evaluations = 'sem'
-            else:
-                stars = '0.0'  
-                evaluations = 'sem'
-                if match:
-                    stars = match.group(1)
-                    evaluations = match.group(2)
-                else:
-                    stars = '0.0'
-                    evaluations = 'sem'
-            #stars = i.xpath('.//span[@class="poly-reviews__rating"]/text()').get(default='0.0').strip()
-            #evaluations = i.xpath('.//span[@class="poly-reviews__total"]/text()').get(default='(0)').strip()
+            # match = re.search(r'Avaliação (\d+\.\d+) de 5\. \(([\d,]+) avaliações\)', evaluation_text)
+
+            # if match:
+            #     stars = match.group(1)
+            #     evaluations = match.group(2)
+            # else:
+            #     stars = '0.0'
+            #     evaluations = 'sem'
+            stars = i.xpath('.//span[@class="poly-reviews__rating"]/text()').get(default='0.0').strip()
+            evaluations = i.xpath('.//span[@class="poly-reviews__total"]/text()').get(default='sem').strip("()")
             if promo_price and all([promo_price, title, link, stars, evaluations, image]):
                 total_price = f"{promo_price},{promo_cents}" if promo_cents else promo_price
                 yield {

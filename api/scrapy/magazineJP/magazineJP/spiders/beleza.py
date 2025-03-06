@@ -26,7 +26,7 @@ class MagaluSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for i in response.xpath('//li[@class="sc-iNIeMn bDaikj"]'):
+        for i in response.xpath('//li[@class="sc-CCtys fdofhQ"]'):
             product_link = response.urljoin(i.xpath('.//a[@data-testid="product-card-container"]/@href').get(default='').strip())
             product_image = i.xpath('.//img[@data-testid="image"]/@src').get(default='').strip()
             product_title = i.xpath('.//h2[@data-testid="product-title"]/text()').get(default='').strip()
