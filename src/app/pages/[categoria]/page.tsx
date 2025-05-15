@@ -1,7 +1,7 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Card from "@/components/card";
+import Navbar from "../../../components/navbar";
+import Footer from "../../../components/footer";
+import Card from "../../../components/card";
 import "./categoria.css";
 import { useParams } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
@@ -12,22 +12,22 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Menu } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import Modal from '@/components/ModalFavorito';
+import Modal from '../../../components/ModalFavorito';
 
 {/* Listas Json de produtos */ }
-import acessoriosData from '@/../api/listasJson/Acessorios.json';
-import bebesData from '@/../api/listasJson/Bebes.json';
-import belezaData from '@/../api/listasJson/Beleza.json';
-import decoracaoData from '@/../api/listasJson/Decoracao.json';
-import eletroData from '@/../api/listasJson/Eletrodomesticos.json';
-import esporteData from '@/../api/listasJson/Esporte.json';
-import infoData from '@/../api/listasJson/Informatica.json';
-import lazerData from '@/../api/listasJson/Lazer.json';
-import mercadoData from '@/../api/listasJson/MercadoFarmacia.json';
-import papelariaData from '@/../api/listasJson/Papelaria.json';
-import petsData from '@/../api/listasJson/Pets.json';
-import roupasData from '@/../api/listasJson/Roupas.json';
-import sapatoData from '@/../api/listasJson/Sapato.json';
+import acessoriosData from '@/../../api/listasJson/Acessorios.json';
+import bebesData from '@/../../api/listasJson/Bebes.json';
+import belezaData from '@/../../api/listasJson/Beleza.json';
+import decoracaoData from '@/../../api/listasJson/Decoracao.json';
+import eletroData from '@/../../api/listasJson/Eletrodomesticos.json';
+import esporteData from '@/../../api/listasJson/Esporte.json';
+import infoData from '@/../../api/listasJson/Informatica.json';
+import lazerData from '@/../../api/listasJson/Lazer.json';
+import mercadoData from '@/../../api/listasJson/MercadoFarmacia.json';
+import papelariaData from '@/../../api/listasJson/Papelaria.json';
+import petsData from '@/../../api/listasJson/Pets.json';
+import roupasData from '@/../../api/listasJson/Roupas.json';
+import sapatoData from '@/../../api/listasJson/Sapato.json';
 
 {/* Parâmetros dos produtos */ }
 interface Produto {
@@ -171,7 +171,7 @@ const Categorias: React.FC = () => {
 
   {/* Função para rendereizar a paginação */ }
   const renderPagination = () => {
-    const itemsPaginacao = [];
+    const itemsPaginacao: JSX.Element[] = [];
     const comecoPage = Math.floor(page / paginasPorParte) * paginasPorParte;
     const fimPagina = Math.min(comecoPage + paginasPorParte - 1, totalPaginas - 1);
 
@@ -461,7 +461,7 @@ const Categorias: React.FC = () => {
         </Menu>
       </div>
       <div className="text-lg text-center font-semibold text-gray-600 mt-4">
-        <p>Produtos atualizados em: 06/03/2025 feito com 💚 e Scrapy</p>
+        <p>Produtos atualizados em: 15/05/2025 feito com 💚 e Scrapy</p>
       </div>
       {/* Mapeamento dos produtos */}
       {produtosVisiveis.length > 0 ? (

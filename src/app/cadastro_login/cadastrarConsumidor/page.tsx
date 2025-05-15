@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import "./cadastro.css";
-import Modal from '@/components/Modal';
+import Modal from '../../../components/Modal';
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { poppins } from "@/app/fonts";
+import { poppins } from "../../../app/fonts";
 
 const Cadastro = () => {
   const [usuario, setUsuario] = useState('');

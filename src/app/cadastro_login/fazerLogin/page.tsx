@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import "./login.css";
-import Modal from '@/components/ModalMessage';
+import Modal from '../../../components/ModalMessage';
 import React, { useState, FormEvent } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

@@ -1,11 +1,11 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Resposta from "@/components/respostaAvaliacao";
+import Navbar from "../../../components/navbar";
+import Footer from "../../../components/footer";
+import Resposta from "../../../components/respostaAvaliacao";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import React, { useState } from "react";
-import { poppins } from "@/app/fonts";
+import { poppins } from "../../../app/fonts";
 import { useSearchParams } from 'next/navigation';
 
 interface Resposta {

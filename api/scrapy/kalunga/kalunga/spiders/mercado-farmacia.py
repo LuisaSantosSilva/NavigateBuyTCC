@@ -1,4 +1,5 @@
 import scrapy
+import re
 
 class KalungaSpider(scrapy.Spider):
     name = 'mercfarm'
@@ -26,16 +27,16 @@ class KalungaSpider(scrapy.Spider):
             product_image = product_image.strip() if product_image else 'Imagem não disponível'
             product_title = i.xpath('.//h2[@class="blocoproduto__title mb-0 mt-2 pb-2 pb-lg-3"]/text()').get(default='').strip()
             price_value = i.xpath('.//span[@class="blocoproduto__text blocoproduto__text--bold blocoproduto__price"]/text()').get(default='').strip()
-            stars = i.xpath('.//span[@class="reviews__star_text ps-2"]/text()').get(default='').strip()
-            stars = stars.replace("(", "").replace(")", "")
-            if all([product_image, product_title, product_link, stars]):
+            avaliations_raw = i.xpath('.//span[@class="reviews__star_text ps-2"]/text()').get(default='').strip()
+            avaliations = re.sub(r'[^\d]', '', avaliations_raw)
+            if all([product_image, product_title, product_link, avaliations]):
                 yield {
                     'loja': 'Kalunga',
                     'preço': price_value,
                     'título': product_title,
                     'link': product_link,
-                    'estrelas': stars,
-                    'avaliações': 'sem',
+                    'estrelas': '0.0',
+                    'avaliações': avaliations,
                     'imagem': product_image
                 }
 

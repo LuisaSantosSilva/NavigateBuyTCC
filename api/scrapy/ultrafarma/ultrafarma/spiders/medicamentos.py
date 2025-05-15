@@ -1,6 +1,5 @@
 import scrapy
 
-
 class UfSpider(scrapy.Spider):
     name = "medicamentos"
     start_urls = [
@@ -18,5 +17,5 @@ class UfSpider(scrapy.Spider):
                 'loja': 'ultrafarma',
                 'estrelas': '0.0',
                 'avaliações': 'sem',
-                'imagem': i.xpath('.//img[contains(@class, "product-image")]/@src').get(default=''),
+                'imagem': i.xpath('.//div[contains(@class, "product-image")]//img/@src').get(default=''),
             }

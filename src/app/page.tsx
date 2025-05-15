@@ -11,16 +11,10 @@ import Footer from "../components/footer";
 
 const cards = [
   { id: 1, title: 'Reclame Aqui', url: 'https://www.reclameaqui.com.br' },
-  { id: 2, title: 'Magazine Luiza', url: 'https://www.magazineluiza.com.br' },
-  { id: 3, title: 'Mercado Livre', url: 'https://www.mercadolivre.com.br' },
-  { id: 4, title: 'Americanas', url: 'https://www.americanas.com.br/' },
-  { id: 5, title: 'Casas Bahia', url: 'https://www.casasbahia.com.br/' },
-  { id: 6, title: 'Centauro', url: 'https://www.centauro.com.br/' },
-  { id: 7, title: 'Besni', url: 'https://www.besni.com.br/' },
-  { id: 8, title: 'Marisa', url: 'https://www.marisa.com.br/' },
-  { id: 9, title: 'Kalunga', url: 'https://www.kalunga.com.br/' },
-  { id: 10, title: 'Ultrafarma', url: 'https://www.ultrafarma.com.br/' },
-  { id: 11, title: 'Oboticário', url: 'https://www.boticario.com.br/' },
+  { id: 2, title: 'Mercado Livre', url: 'https://www.mercadolivre.com.br' },
+  { id: 3, title: 'Marisa', url: 'https://www.marisa.com.br/' },
+  { id: 4, title: 'Kalunga', url: 'https://www.kalunga.com.br/' },
+  { id: 5, title: 'Ultrafarma', url: 'https://www.ultrafarma.com.br/' },
 ];
 
 const Home = () => {

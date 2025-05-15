@@ -1,10 +1,10 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import Favoritedcard from "@/components/favoritedCard";
+import Navbar from "../../../components/navbar";
+import Footer from "../../../components/footer";
+import Favoritedcard from "../../../components/favoritedCard";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { poppins } from "@/app/fonts";
+import { poppins } from "../../../app/fonts";
 import React, { useEffect, useState } from 'react'
 
 const Favoritos = () => {

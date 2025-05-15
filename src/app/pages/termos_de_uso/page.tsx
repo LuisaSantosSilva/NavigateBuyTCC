@@ -1,8 +1,8 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "../../../components/navbar";
+import Footer from "../../../components/footer";
 import React from "react";
-import { poppins } from "@/app/fonts";
+import { poppins } from "../../../app/fonts";
 
 const termos_de_uso = () => {
   return (

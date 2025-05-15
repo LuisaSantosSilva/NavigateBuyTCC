@@ -1,12 +1,12 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import Navbar from "../../../components/navbar";
+import Footer from "../../../components/footer";
 import Link from "next/link";
 import Image from 'next/image';
-import Animated from "@/utils/animacoes";
+import Animated from "../../../utils/animacoes";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/react";
 import { MdArrowForwardIos, MdArrowBackIosNew, MdArrowDropDown } from "react-icons/md";
-import { poppins } from "@/app/fonts";
+import { poppins } from "../../../app/fonts";
 import React, { useState, useEffect } from "react";
 
 

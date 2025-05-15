@@ -1,12 +1,12 @@
 "use client";
-import Navbar from "@/components/navbar";
-import Footer from '@/components/footer';
-import Avatar from '@/components/Avatar';
+import Navbar from "../../../components/navbar";
+import Footer from '../../../components/footer';
+import Avatar from '../../../components/Avatar';
 import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { enableInput } from "@/utils/habilitarInput";
-import { poppins } from "@/app/fonts";
+import { enableInput } from "../../../utils/habilitarInput";
+import { poppins } from "../../../app/fonts";
 
 const Editar = () => {
   const [avatarFile, setAvatarFile] = useState<File | null>(null);

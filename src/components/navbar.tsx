@@ -6,7 +6,7 @@ import { AiOutlineSearch, AiOutlineMenu, AiOutlineUser, AiOutlineClose } from "r
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { BiTransfer } from "react-icons/bi";
 import LogoAnimation from "../utils/logoAnimacao";
-import Categorias from "@/components/categorias";
+import Categorias from "../components/categorias";
 
 interface Produto {
   título: string;
@@ -17,19 +17,19 @@ interface ProdutosJson {
 }
 
 const loadProducts = async () => {
-  const acessoriosData: Produto[] = await import('@/../api/listasJson/Acessorios.json');
-  const bebesData: Produto[] = await import('@/../api/listasJson/Bebes.json');
-  const belezaData: Produto[] = await import('@/../api/listasJson/Beleza.json');
-  const decoracaoData: Produto[] = await import('@/../api/listasJson/Decoracao.json');
-  const eletroData: Produto[] = await import('@/../api/listasJson/Eletrodomesticos.json');
-  const esporteData: Produto[] = await import('@/../api/listasJson/Esporte.json');
-  const infoData: Produto[] = await import('@/../api/listasJson/Informatica.json');
-  const lazerData: Produto[] = await import('@/../api/listasJson/Lazer.json');
-  const mercadoData: Produto[] = await import('@/../api/listasJson/MercadoFarmacia.json');
-  const papelariaData: Produto[] = await import('@/../api/listasJson/Papelaria.json');
-  const petsData: Produto[] = await import('@/../api/listasJson/Pets.json');
-  const roupasData: Produto[] = await import('@/../api/listasJson/Roupas.json');
-  const sapatoData: Produto[] = await import('@/../api/listasJson/Sapato.json');
+  const acessoriosData: Produto[] = await import('../../api/listasJson/Acessorios.json');
+  const bebesData: Produto[] = await import('../../api/listasJson/Bebes.json');
+  const belezaData: Produto[] = await import('../../api/listasJson/Beleza.json');
+  const decoracaoData: Produto[] = await import('../../api/listasJson/Decoracao.json');
+  const eletroData: Produto[] = await import('../../api/listasJson/Eletrodomesticos.json');
+  const esporteData: Produto[] = await import('../../api/listasJson/Esporte.json');
+  const infoData: Produto[] = await import('../../api/listasJson/Informatica.json');
+  const lazerData: Produto[] = await import('../../api/listasJson/Lazer.json');
+  const mercadoData: Produto[] = await import('../../api/listasJson/MercadoFarmacia.json');
+  const papelariaData: Produto[] = await import('../../api/listasJson/Papelaria.json');
+  const petsData: Produto[] = await import('../../api/listasJson/Pets.json');
+  const roupasData: Produto[] = await import('../../api/listasJson/Roupas.json');
+  const sapatoData: Produto[] = await import('../../api/listasJson/Sapato.json');
 
   const produtosJson: ProdutosJson = {
     Acessórios: acessoriosData,
@@ -162,7 +162,7 @@ const Navbar: React.FC = () => {
                   <span className="hidden xl:inline">Buscar comentários de avaliação</span>
                   <span className="inline xl:hidden">Avaliações</span>
                 </Link>
-                <Link href="/pages/compararPreçosInternacionais" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
+                <Link href="/pages/compararPrecosInternacionais" className="rounded-lg p-2 flex items-center transition-all duration-500 text-white hover:bg-white hover:text-black">
                   <BiTransfer />
                   <span className="ml-2 hidden xl:inline">Comparar preços de produtos internacionais</span>
                   <span className="ml-2 inline xl:hidden">Comparação</span>
@@ -221,7 +221,7 @@ const Navbar: React.FC = () => {
               <Link href="/pages/buscarAvaliacoes" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Buscar comentários de avaliação
               </Link>
-              <Link href="/pages/compararPreçosInternacionais" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
+              <Link href="/pages/compararPrecosInternacionais" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">
                 Comparar preços de produtos internacionais
               </Link>
               <Link href="/perfil/favoritos" className="rounded-lg p-2 block text-white hover:bg-white hover:text-black">

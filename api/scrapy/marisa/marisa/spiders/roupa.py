@@ -26,10 +26,16 @@ class MrsSpider(scrapy.Spider):
         for i in response.xpath('//div[contains(@class, "js-product-column")]'):
 
             link = response.urljoin(i.xpath('.//div[@class="thumb-wrapper"]/a/@href').get(default=''))
+            title = i.xpath('.//h3[contains(@class, "product-title")]/a/text()').get(default='').strip()
+            if not hasattr(self, 'seen_titles'):
+                self.seen_titles = set()
+            if title in self.seen_titles:
+                continue
+            self.seen_titles.add(title)
 
             yield {
                 'preço': i.xpath('.//span[@itemprop="price"]/text()').get(default='').strip(),
-                'título': i.xpath('.//h3[contains(@class, "product-title")]/a/text()').get(default='').strip(),
+                'título': title,
                 'link': link,
                 'loja': 'marisa',
                 'estrelas': i.xpath('.//div[contains(@class, "avg-rating")]/text()').get(default='0.0').strip(),

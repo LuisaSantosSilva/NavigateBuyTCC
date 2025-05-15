@@ -12,9 +12,11 @@ class MySpider(scrapy.Spider):
         self.lojas_urls = {            
             'americanas': 'https://www.reclameaqui.com.br/empresa/americanas-marketplace/lista-reclamacoes/?busca={produto}&pagina=1',
             'centauro': 'https://www.reclameaqui.com.br/empresa/centauro-loja-fisica/lista-reclamacoes/?busca={produto}&pagina=1',
+            'kalunga': 'https://www.reclameaqui.com.br/empresa/kalunga/lista-reclamacoes/?busca={produto}&pagina=1',
             'magazine luiza': 'https://www.reclameaqui.com.br/empresa/magazine-luiza-loja-online/lista-reclamacoes/?busca={produto}&pagina=1',
             'marisa': 'https://www.reclameaqui.com.br/empresa/lojas-marisa-loja-online/lista-reclamacoes/?busca={produto}&pagina=1',
             'mercado livre': 'https://www.reclameaqui.com.br/empresa/mercado-livre/lista-reclamacoes/?busca={produto}&pagina=1',
+            'ultrafarma': 'https://www.reclameaqui.com.br/empresa/ultrafarma/lista-reclamacoes/?busca={produto}&pagina=1',
         }
 
     def normalizar_loja_nome(self, loja_nome):

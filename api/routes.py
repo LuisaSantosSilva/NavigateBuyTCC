@@ -166,7 +166,7 @@ def editar_perfil():
             except Exception as e:
                 print(f"Erro ao remover avatar antigo: {e}")
 
-        filename = secure_filename(f"{user.id}_{avatar.filename}")
+        filename = secure_filename(f"{user.id_consumidor}_{avatar.filename}")
         avatar_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
         avatar.save(avatar_path)
         user.avatar = filename
@@ -227,7 +227,7 @@ def solicitar_alterar_senha():
         # Gerando o token para o e-mail do usuário
         token = serializer.dumps(email_consumidor, salt='password-reset-salt')
 
-        link_redefinicao = f"http://localhost:3000/cadastro_login/login/redefinirSenha?token={token}&email={email_consumidor}"
+        link_redefinicao = f"http://localhost:3000/cadastro_login/fazerLogin/redefinirSenha?token={token}&email={email_consumidor}"
         corpo_email = redefinir_corpo_email(link_redefinicao)
 
         enviar_email(email_consumidor, "Redefinição de Senha - Navigate Buy", corpo_email)
