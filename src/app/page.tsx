@@ -24,6 +24,8 @@ const Home = () => {
   const [isScrollable, setIsScrollable] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+
   const updateScrollState = () => {
     if (scrollContainerRef.current) {
       const { scrollWidth, clientWidth, scrollLeft } = scrollContainerRef.current;
@@ -80,7 +82,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <header className='overflow-hidden select-none'>
+      <header className='overflow-hidden select-none bg-white dark:bg-[#0b0b0b] dark:text-white transition-colors'>
         <div className="flex justify-center items-center mx-auto md:py-16 bg-navigateblue">
           <div className="flex flex-col lg:flex-row justify-center items-center">
             <Animated
@@ -99,6 +101,7 @@ const Home = () => {
                 </p>
               </div>
             </Animated>
+
             <Animated
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -114,54 +117,65 @@ const Home = () => {
             </Animated>
           </div>
         </div>
-        <div className='mt-8 mx-24 bg-white'>
+
+        <div className='mt-8 mx-24 bg-white dark:bg-[#0b0b0b] transition-colors'>
           <Animated
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}>
-            <p className={`text-left text-lg md:text-xl lg:text-2xl mb-2 ${poppins.className}`}>Principais lojas e motores de busca online</p>
+            <p className={`text-left text-lg md:text-xl lg:text-2xl mb-2 ${poppins.className} text-black dark:text-white`}>
+              Principais lojas e motores de busca online
+            </p>
           </Animated>
+
           <div className='relative flex items-center'>
             {showArrows && (
               <>
                 <button
-                  className={`absolute left-0 top-1/2 transform -translate-y-1/2 ${canScrollLeft ?
-                    'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
+                  className={`absolute left-0 top-1/2 transform -translate-y-1/2 ${canScrollLeft ? 'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
                   onClick={scrollLeft}
                   disabled={!canScrollLeft}>
                   &lt;
                 </button>
+
                 <button
-                  className={`absolute right-0 top-1/2 transform -translate-y-1/2 ${canScrollRight ?
-                    'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
+                  className={`absolute right-0 top-1/2 transform -translate-y-1/2 ${canScrollRight ? 'hover:bg-opacity-80 hover:bg-slate-900' : 'hidden'} text-green-700 transition-all duration-500 rounded-full p-2 md:p-3 lg:p-4 z-10 text-lg md:text-xl lg:text-2xl`}
                   onClick={scrollRight}
                   disabled={!canScrollRight}>
                   &gt;
                 </button>
               </>
             )}
+
             <div
               ref={scrollContainerRef}
               className={`flex space-x-8 md:space-x-10 lg:space-x-14 py-4 h-32 ${isScrollable ? 'overflow-x-auto' : 'overflow-hidden'}`}
-              style={{ scrollbarWidth: isScrollable ? 'thin' : 'none' }} >
+              style={{ scrollbarWidth: isScrollable ? 'thin' : 'none' }}>
+              
               {cards.map((card) => (
                 <div
                   key={card.id}
-                  className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-navigategreen
-                     hover:border-navigateblue hover:shadow-sm hover:shadow-navigateblue min-w-[200px] lg:min-w-[440px] bg-white shadow-sm shadow-green-700 rounded-2xl flex-col justify-center'>
-                  <h3 className={`text-base md:text-lg lg:text-xl font-extrabold ${poppins.className} text-center`}>{card.title}</h3>
+                  className='border space-x-4 md:space-x-6 lg:space-x-8 flex border-navigategreen hover:border-navigateblue hover:shadow-sm hover:shadow-navigateblue min-w-[200px] lg:min-w-[440px] bg-white dark:bg-[#0b0b0b] shadow-sm shadow-green-700 rounded-2xl flex-col justify-center'>
+                  <h3 className={`text-base md:text-lg lg:text-xl font-extrabold ${poppins.className} text-center text-black dark:text-white`}>{card.title}</h3>
                   <a href={card.url} target="_blank" rel="noopener noreferrer">
-                    <p className={`text-gray-500 text-sm md:text-base lg:text-xl flex justify-center mr-5 ${poppins.className}`}>Acessar</p>
+                    <p className={`text-gray-500 text-sm md:text-base lg:text-xl flex justify-center mr-5 ${poppins.className} dark:text-gray-300`}>
+                      Acessar
+                    </p>
                   </a>
                 </div>
               ))}
+
             </div>
           </div>
+
           <div className='mt-14'>
             <Animated initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-              <h2 className={`text-left text-lg md:text-xl lg:text-2xl mb-2 ${poppins.className}`}>Ideias de categorias de pesquisas</h2>
+              <h2 className={`text-left text-lg md:text-xl lg:text-2xl mb-2 ${poppins.className} text-black dark:text-white`}>
+                Ideias de categorias de pesquisas
+              </h2>
             </Animated>
           </div>
+
           <Cards />
           <ConteudoInferior />
         </div>

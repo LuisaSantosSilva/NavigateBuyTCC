@@ -15,7 +15,7 @@ const ConteudoInferior: React.FC = () => {
   return (
     <>
       <div className="flex flex-col items-center mt-20">
-        <h2 className={`text-left md:text-lg lg:text-2xl mb-12 font-bold ${poppins.className}`}>
+        <h2 className={`text-left md:text-lg lg:text-2xl mb-12 font-bold ${poppins.className} text-black dark:text-white`}>
           Se você deseja comprar em um site e não sabe se ele é confiável,
           temos duas recomendações para <br />
           aumentar a segurança de suas compras online
@@ -44,17 +44,17 @@ const ConteudoInferior: React.FC = () => {
             </div>
           </Animated>
 
-          <div className="flex items-center md:max-w-md lg:max-w-xl text-justify p-4 md:p-8 lg:p-14 mx-auto rounded-2xl shadow-md border border-navigategreen shadow-navigategreen bg-white min-w-[250px]">
-            <h2 className="sm:text-base md:text-lg lg:text-xl">
-              Nossa primeira recomendação é consultar a lista do <strong className="text-navigategreen">Procon-SP</strong> chamada &lsquo;Evite esses Sites&rsquo;, onde é possível verificar os sites que a própria Fundação de Proteção e Defesa do Consumidor recomenda evitar.
+          <div className="flex items-center md:max-w-md lg:max-w-xl text-justify p-4 md:p-8 lg:p-14 mx-auto rounded-2xl shadow-md border border-navigategreen shadow-navigategreen bg-white dark:bg-[#0b0b0b] min-w-[250px]">
+            <h2 className="sm:text-base md:text-lg lg:text-xl text-black dark:text-white">
+              Nossa primeira recomendação é consultar a lista do <strong className="text-navigategreen dark:text-green-400">Procon-SP</strong> chamada &lsquo;Evite esses Sites&rsquo;, onde é possível verificar os sites que a própria Fundação de Proteção e Defesa do Consumidor recomenda evitar.
             </h2>
           </div>
         </div>
 
         <div className={`mt-16 text-center flex flex-col ${isMobile ? "space-y-4" : "md:flex-row md:space-x-0"}`}>
-          <div className="flex items-center md:max-w-md lg:max-w-xl text-justify p-4 md:p-8 lg:p-14 mx-auto rounded-2xl shadow-md border border-navigateblue shadow-navigateblue bg-white min-w-[250px]">
-            <h2 className="sm:text-base md:text-lg lg:text-xl">
-              A segunda recomendação é verificar a URL do site de compras. Para isso, você pode copiar o link que no seu navegador e consultá-lo no <strong className="text-navigateblue">Google Transparency Report</strong>, onde é exibida a porcentagem de segurança do site.
+          <div className="flex items-center md:max-w-md lg:max-w-xl text-justify p-4 md:p-8 lg:p-14 mx-auto rounded-2xl shadow-md border border-navigateblue shadow-navigateblue bg-white dark:bg-[#0b0b0b] min-w-[250px]">
+            <h2 className="sm:text-base md:text-lg lg:text-xl text-black dark:text-white">
+              A segunda recomendação é verificar a URL do site de compras. Para isso, você pode copiar o link que no seu navegador e consultá-lo no <strong className="text-navigateblue dark:text-blue-400">Google Transparency Report</strong>, onde é exibida a porcentagem de segurança do site.
             </h2>
           </div>
 
@@ -70,7 +70,7 @@ const ConteudoInferior: React.FC = () => {
                 <button
                   type="submit"
                   className="mt-4 lg:mt-6 px-2 py-1 text-sm rounded-full border-2 shadow-sm font-extrabold hover:bg-gray-300 hover:border-gray-300 bg-white text-navigateblue
-                            lg:px-4 lg:py-2 lg:text-lg"
+                              lg:px-4 lg:py-2 lg:text-lg"
                 >
                   Google Transparency Report
                   <p className="font-medium text-gray-700 text-xs sm:text-sm">Acessar</p>

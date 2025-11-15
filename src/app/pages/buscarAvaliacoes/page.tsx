@@ -83,11 +83,11 @@ const Avaliacao = () => {
   const mensagem = (
     <>
       De acordo com o nome{" "}
-      <span className="font-bold text-navigategreen">&quot;{produtoBuscado}&quot;</span>
+      <span className="font-bold text-navigategreen dark:text-green-400">&quot;{produtoBuscado}&quot;</span>
       {lojaBuscada && (
         <>
           {" "}e local de compra{" "}
-          <span className="font-bold text-navigateblue">&quot;{lojaBuscada}&quot;</span>
+          <span className="font-bold text-navigateblue dark:text-blue-400">&quot;{lojaBuscada}&quot;</span>
         </>
       )}{" "}
       para pesquisa, obtemos os seguintes resultados:
@@ -102,15 +102,15 @@ const Avaliacao = () => {
   };
 
   return (
-    <main>
+    <main className="bg-white dark:bg-[#0b0b0b]">
       <Navbar />
-      <div className="text-center mt-20 select-none">
+      <div className="text-center mt-20 select-none dark:text-white">
         <ToastContainer />
         <div className={`font-bold text-4xl max-[1000px]:text-2xl leading-snug mb-8 ${poppins.className}`}>
           <p>
             Analise as
-            <span className="text-navigateblue"> avaliações</span> e
-            <span className="text-navigategreen"> comentários</span> encontrados no
+            <span className="text-navigateblue dark:text-blue-400"> avaliações</span> e
+            <span className="text-navigategreen dark:text-green-400"> comentários</span> encontrados no
           </p>
           <p>Reclame aqui e outros sobre o que você precisa</p>
         </div>
@@ -123,38 +123,38 @@ const Avaliacao = () => {
         <div className="flex flex-row justify-center mb-14 max-[400px]:flex-col max-[400px]:items-center">
           <p className="text-xl font-bold min-[400px]:hidden">Nome do produto:</p>
           <form className="w-40 relative text-black sm:w-[300px] md:w-[500px] max-[400px]:mb-8 min-[400px]:mr-8">
-            <div className="w-full p-4 rounded-full bg-white shadow-md shadow-navigateblue border border-navigateblue">
+            <div className="w-full p-4 rounded-full bg-white dark:bg-gray-800 shadow-md shadow-navigateblue border border-navigateblue dark:border-blue-700">
               <input
                 name="avaliar-produto"
                 type="search"
                 value={produto}
                 onChange={(e) => setProduto(e.target.value)}
                 placeholder="Adicione aqui o nome do produto que deseja analisar"
-                className="outline-none w-full"
+                className="outline-none w-full bg-transparent dark:text-white dark:placeholder-gray-400"
                 onKeyDown={handleKeyDown}
               />
             </div>
           </form>
           <p className="text-xl font-bold min-[400px]:hidden">Local da compra (se desejar):</p>
           <form className="w-40 relative text-black sm:w-[300px] md:w-[500px]">
-            <div className="w-full p-4 rounded-full bg-white outline-none shadow-md shadow-navigateblue border border-navigateblue">
+            <div className="w-full p-4 rounded-full bg-white dark:bg-gray-800 outline-none shadow-md shadow-navigateblue border border-navigateblue dark:border-blue-700">
               <input
                 name="buscar-produto"
                 type="search"
                 value={loja}
                 onChange={(e) => setLoja(e.target.value)}
                 placeholder="Adicione aqui o local de compra desse produto (se desejar)"
-                className="outline-none w-full"
+                className="outline-none w-full bg-transparent dark:text-white dark:placeholder-gray-400"
                 onKeyDown={handleKeyDown}
               />
             </div>
           </form>
         </div>
-        <button className="inline-flex justify-center mb-10 rounded-2xl bg-navigategreen px-16 py-3 text-lg font-semibold text-white transition duration-1000 ease-in-out border hover:bg-green-200 hover:text-slate-900 hover:border-slate-900"
+        <button className="inline-flex justify-center mb-10 rounded-2xl bg-navigategreen px-16 py-3 text-lg font-semibold text-white transition duration-1000 ease-in-out border hover:bg-green-200 hover:text-slate-900 hover:border-slate-900 dark:hover:bg-green-600"
           onClick={handleClick}>
           {loading ? "Buscando..." : "Buscar"}
         </button>
-        {loading && <p className="mb-5 text-lg text-navigateblue">Carregando resultados, aguarde por favor...</p>}
+          {loading && <p className="mb-5 text-lg text-navigateblue dark:text-blue-400">Carregando resultados, aguarde por favor...</p>}
         {showAvaliacao && (<Resposta resposta={resposta} mensagem={mensagem} lojaBuscada={loja} />)}
       </div>
       <Footer />
