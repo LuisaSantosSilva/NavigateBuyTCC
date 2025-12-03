@@ -1,3 +1,4 @@
+/* ...existing code... */
 .seta-nav,
 .seta-nav-esq {
     color: black;
@@ -156,46 +157,44 @@
     }
 }
 
+/* Dark mode overrides */
 .dark .seta-nav,
 .dark .seta-nav-esq {
     color: white;
-    background-color: #1f2937;
-    /* gray-800 */
-    border: 2px solid rgba(255, 255, 255, 0.06);
+    background-color: #1f2937; /* gray-800 */
+    border: 2px solid rgba(255,255,255,0.06);
 }
 
 .dark .seta-nav:hover,
 .dark .seta-nav-esq:hover {
-    background-color: #065f3b;
-    /* darker green on hover in dark mode */
+    background-color: #065f3b; /* darker green on hover in dark mode */
     color: white;
     transform: scale(1.05);
 }
 
 .dark .barra-nav {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 2px solid rgba(255, 255, 255, 0.06);
+    background-color: rgba(255,255,255,0.02);
+    border: 2px solid rgba(255,255,255,0.06);
 }
 
 .dark .bloco-nav {
-    color: #e6eef4;
-    /* light text */
+    color: #e6eef4; /* light text */
     background-color: transparent;
 }
 
 .dark .bloco-nav:hover {
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: rgba(255,255,255,0.06);
     color: white;
     transform: scale(1.11);
 }
 
 .dark .bloco-nav-selecionado {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(255,255,255,0.08);
     color: white;
 }
 
 .dark .linha-divisoria {
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: rgba(255,255,255,0.06);
 }
 
 /* ensure gap and layout remain pleasant in dark */
