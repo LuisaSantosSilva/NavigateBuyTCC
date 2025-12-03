@@ -1,61 +1,43 @@
 [
     {
         "loja": "Kalunga",
-        "preço": " 39,90",
-        "título": "Álcool em gel antisséptico 70%, 5L, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-70-5l-audax-pt-1-un/324306",
+        "preço": "R$ 12,90",
+        "título": "Álcool em gel antisséptico, 420g, Asseptgel, Start Quimica - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-420g-asseptgel-start-quimica-pt-1-un/549928",
         "estrelas": "0.0",
-        "avaliações": "16",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324306.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 12,90",
-        "título": "Álcool em gel antisséptico 420gr Asseptgel Start Quimica PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-420gr-asseptgel-start-quimica-pt-1-un/549928",
-        "estrelas": "0.0",
-        "avaliações": "25",
+        "avaliações": "28",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549928.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 12,90",
+        "preço": "R$ 41,80",
+        "título": "Álcool em gel antisséptico 70%, 5L, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-70-5l-audax-pt-1-un/324306",
+        "estrelas": "0.0",
+        "avaliações": "21",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324306.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 13,20",
         "título": "Álcool em gel antisséptico 70%, 1L, Audax - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-70-1l-audax-pt-1-un/324308",
         "estrelas": "0.0",
-        "avaliações": "9",
+        "avaliações": "12",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324308.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 7,20",
+        "preço": "R$ 7,80",
         "título": "Álcool em gel antisséptico 70%, 500ml, Audax - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-70-500ml-audax-pt-1-un/324307",
         "estrelas": "0.0",
-        "avaliações": "12",
+        "avaliações": "22",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324307.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 12,90",
-        "título": "Álcool em gel antisséptico 400g 446 Coperalcool PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-400g-446-coperalcool-pt-1-un/549955",
-        "estrelas": "0.0",
-        "avaliações": "11",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549955.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 13,90",
-        "título": "Álcool em gel antisséptico Bacfree 70%, Oceano, 400g, 516, Coperalcool - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-bacfree-70-oceano-400g-516-coperalcool-pt-1-un/549329",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549329.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 9,40",
+        "preço": "R$ 9,40",
         "título": "Álcool em gel antisséptico 35g sortidos 8438 Bestclean PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-35g-sortidos-8438-bestclean-pt-1-un/549909",
         "estrelas": "0.0",
@@ -64,16 +46,16 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 24,90",
-        "título": "Álcool em gel antisséptico 1kg Asseptgel Start Quimica PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-1kg-asseptgel-start-quimica-pt-1-un/549907",
+        "preço": "R$ 16,50",
+        "título": "Álcool em gel antisséptico Bacfree 70%, Oceano, 400g, 516, Coperalcool - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-bacfree-70-oceano-400g-516-coperalcool-pt-1-un/549329",
         "estrelas": "0.0",
-        "avaliações": "24",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549907.webp"
+        "avaliações": "2",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549329.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,40",
+        "preço": "R$ 5,40",
         "título": "Álcool em gel antisséptico 52g Asseptgel Start Quimica PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-52g-asseptgel-start-quimica-pt-1-un/217359",
         "estrelas": "0.0",
@@ -82,70 +64,70 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,90",
+        "preço": "R$ 4,10",
         "título": "Álcool em gel antisséptico 54g 088 Coperalcool PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-54g-088-coperalcool-pt-1-un/549953",
         "estrelas": "0.0",
-        "avaliações": "7",
+        "avaliações": "11",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549953.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,90",
-        "título": "Álcool em gel antisséptico 220gr Asseptgel 2990 Start Quimica PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-220gr-asseptgel-2990-start-quimica-pt-1-un/549977",
+        "preço": "R$ 15,30",
+        "título": "Álcool em gel antisséptico 400g 446 Coperalcool PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-400g-446-coperalcool-pt-1-un/549955",
         "estrelas": "0.0",
-        "avaliações": "4",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549977.webp"
+        "avaliações": "12",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549955.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,90",
-        "título": "Álcool em gel antisséptico, 500g, Facilita - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-500g-facilita-pt-1-un/324319",
+        "preço": "R$ 26,70",
+        "título": "Álcool em gel antisséptico, 1Kg, Asseptgel, Start Quimica - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-1kg-asseptgel-start-quimica-pt-1-un/549907",
+        "estrelas": "0.0",
+        "avaliações": "25",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549907.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 15,30",
+        "título": "Álcool em gel antisséptico Bacfree chá branco, 400g, 517, Coperalcool - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-bacfree-cha-branco-400g-517-coperalcool-pt-1-un/550064",
         "estrelas": "0.0",
         "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324319.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/550064.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,90",
-        "título": "Álcool em gel 70° tradicional 500gr Zulu 450 Coperalcool PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-70-tradicional-500gr-zulu-450-coperalcool-pt-1-un/549910",
+        "preço": "R$ 10,40",
+        "título": "Álcool em gel 70° tradicional, 500g, Zulu, Coperalcool - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-70-tradicional-500g-zulu-coperalcool-pt-1-un/549910",
         "estrelas": "0.0",
         "avaliações": "0",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549910.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 26,60",
-        "título": "Repelente em spray off! Refresh, 100ml, 6739, Johnson - 1 UN",
-        "link": "https://www.kalunga.com.br/prod/repelente-em-spray-off-refresh-100ml-6739-johnson-1-un/549337",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549337.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 25,40",
-        "título": "Repelente Elétrico Raid + Refil Líquido, 45 noites, 32,9ml, Johnson - 1 UN",
-        "link": "https://www.kalunga.com.br/prod/repelente-eletrico-raid-refil-liquido-45-noites-32-9ml-johnson-1-un/549323",
+        "preço": "R$ 6,70",
+        "título": "Álcool em gel antisséptico, 500g, Facilita - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/alcool-em-gel-antisseptico-500g-facilita-pt-1-un/324319",
         "estrelas": "0.0",
         "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549323.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324319.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 25,40",
+        "preço": "R$ 29,50",
         "título": "Repelente loção off! family, 100ml, 4164, Johnson - 1 UN",
         "link": "https://www.kalunga.com.br/prod/repelente-locao-off-family-100ml-4164-johnson-1-un/549338",
         "estrelas": "0.0",
-        "avaliações": "0",
+        "avaliações": "1",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549338.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 48,90",
+        "preço": "R$ 48,90",
         "título": "Repelente em Gel Off!, 100g, Johnson - 1 UN",
         "link": "https://www.kalunga.com.br/prod/repelente-em-gel-off-100g-johnson-1-un/549339",
         "estrelas": "0.0",
@@ -154,52 +136,34 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 28,80",
+        "preço": "R$ 24,90",
         "título": "Sabonete líquido requinte, Erva-doce, 5 litros, 110012-5, Premisse - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-requinte-erva-doce-5-litros-110012-5-premisse-pt-1-un/324271",
         "estrelas": "0.0",
-        "avaliações": "16",
+        "avaliações": "22",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324271.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 29,90",
-        "título": "Sabonete líquido, Orquídeas brancas, 5L, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-orquideas-brancas-5l-audax-pt-1-un/324305",
-        "estrelas": "0.0",
-        "avaliações": "4",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324305.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 13,20",
-        "título": "Sabonete líquido refil lavanda 440ml 8116 Fiorucci PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-lavanda-440ml-8116-fiorucci-pt-1-un/324203",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324203.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 29,90",
-        "título": "Sabonete líquido, Erva doce, 5L, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-5l-audax-pt-1-un/324296",
-        "estrelas": "0.0",
-        "avaliações": "4",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324296.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 13,20",
+        "preço": "R$ 13,20",
         "título": "Sabonete líquido refil erva doce 440ml 8101 Fiorucci PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-erva-doce-440ml-8101-fiorucci-pt-1-un/324241",
         "estrelas": "0.0",
-        "avaliações": "6",
+        "avaliações": "7",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324241.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 13,20",
+        "preço": "R$ 27,50",
+        "título": "Sabonete líquido, Orquídeas brancas, 5L, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-orquideas-brancas-5l-audax-pt-1-un/324305",
+        "estrelas": "0.0",
+        "avaliações": "6",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324305.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 13,20",
         "título": "Sabonete líquido refil flor de cerejeira 440ml 8113 Fiorucci PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-flor-de-cerejeira-440ml-8113-fiorucci-pt-1-un/324248",
         "estrelas": "0.0",
@@ -208,88 +172,70 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 31,10",
+        "preço": "R$ 24,90",
         "título": "Sabonete Líquido, Morango e Champagne, 5 litros, Premisse - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-morango-e-champagne-5-litros-premisse-pt-1-un/324281",
         "estrelas": "0.0",
-        "avaliações": "3",
+        "avaliações": "5",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324281.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 24,90",
-        "título": "Sabonete líquido erva doce perolado 2L Start Quimica PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-perolado-2l-start-quimica-pt-1-un/549025",
+        "preço": "R$ 13,20",
+        "título": "Sabonete líquido refil lavanda 440ml 8116 Fiorucci PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-lavanda-440ml-8116-fiorucci-pt-1-un/324203",
         "estrelas": "0.0",
-        "avaliações": "7",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549025.webp"
+        "avaliações": "3",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324203.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 31,10",
+        "preço": "R$ 24,90",
         "título": "Sabonete Líquido, Pêssego e Damasco, 5 litros, Premisse - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-pessego-e-damasco-5-litros-premisse-pt-1-un/324282",
         "estrelas": "0.0",
-        "avaliações": "1",
+        "avaliações": "4",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324282.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 29,90",
-        "título": "Sabonete líquido, Pêssego, 5L, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-pessego-5l-audax-pt-1-un/324299",
+        "preço": "R$ 24,90",
+        "título": "Sabonete líquido erva doce perolado 2L Start Quimica PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-perolado-2l-start-quimica-pt-1-un/549025",
         "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324299.webp"
+        "avaliações": "8",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549025.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 20,40",
-        "título": "Sabonete líquido erva doce 500ml Fiorucci PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-500ml-fiorucci-pt-1-un/549015",
+        "preço": "R$ 27,50",
+        "título": "Sabonete líquido, Erva doce, 5L, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-5l-audax-pt-1-un/324296",
         "estrelas": "0.0",
         "avaliações": "5",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549015.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324296.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 14,90",
+        "preço": "R$ 14,90",
         "título": "Sabonete líquido, Orquídeas brancas, 1L, Audax - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-orquideas-brancas-1l-audax-pt-1-un/324304",
         "estrelas": "0.0",
-        "avaliações": "3",
+        "avaliações": "4",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324304.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 14,90",
-        "título": "Sabonete líquido, Erva doce, 1L, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-1l-audax-pt-1-un/324295",
+        "preço": "R$ 8,70",
+        "título": "Sabonete líquido refil, Flor de algodão, 450ml, 110068-450, Premisse - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-flor-de-algodao-450ml-110068-450-premisse-pt-1-un/324273",
         "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324295.webp"
+        "avaliações": "5",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324273.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 29,90",
-        "título": "Sabonete líquido, Flor de Baunilha, 5L, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-baunilha-5l-audax-pt-1-un/324302",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324302.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 13,20",
-        "título": "Sabonete líquido Refil, Ameixa negra, 440ml, 8129REF, Fiorucci - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-ameixa-negra-440ml-8129ref-fiorucci-pt-1-un/324277",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324277.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 7,50",
+        "preço": "R$ 7,50",
         "título": "Sabonete Líquido Refil, Tangerina e Chá Verde, 450ml, Premisse - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-tangerina-e-cha-verde-450ml-premisse-pt-1-un/324280",
         "estrelas": "0.0",
@@ -298,52 +244,52 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 20,40",
-        "título": "Sabonete líquido lavanda 500ml 8116 Fiorucci PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-lavanda-500ml-8116-fiorucci-pt-1-un/549052",
+        "preço": "R$ 20,40",
+        "título": "Sabonete líquido erva doce 500ml Fiorucci PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-500ml-fiorucci-pt-1-un/549015",
         "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549052.webp"
+        "avaliações": "5",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549015.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 7,50",
+        "preço": "R$ 13,20",
+        "título": "Sabonete líquido Refil, Ameixa negra, 440ml, 8129REF, Fiorucci - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-ameixa-negra-440ml-8129ref-fiorucci-pt-1-un/324277",
+        "estrelas": "0.0",
+        "avaliações": "2",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324277.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 7,50",
         "título": "Sabonete Líquido Refil, Açaí e Camomila, 450ml, Premisse - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-acai-e-camomila-450ml-premisse-pt-1-un/324285",
         "estrelas": "0.0",
-        "avaliações": "2",
+        "avaliações": "3",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324285.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 8,70",
-        "título": "Sabonete líquido refil, Erva-doce, 450ml, 110001-450, Premisse - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-erva-doce-450ml-110001-450-premisse-pt-1-un/324272",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324272.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 20,40",
-        "título": "Sabonete líquido flor de cerejeira 500ml 8113 Fiorucci PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-cerejeira-500ml-8113-fiorucci-pt-1-un/324244",
+        "preço": "R$ 27,50",
+        "título": "Sabonete líquido, Flor de Baunilha, 5L, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-baunilha-5l-audax-pt-1-un/324302",
         "estrelas": "0.0",
         "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324244.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324302.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 10,90",
-        "título": "Sabonete líquido, Erva doce, 500ml, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-500ml-audax-pt-1-un/324294",
+        "preço": "R$ 14,90",
+        "título": "Sabonete líquido, Erva doce, 1L, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-1l-audax-pt-1-un/324295",
         "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324294.webp"
+        "avaliações": "4",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324295.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 13,20",
+        "preço": "R$ 13,20",
         "título": "Sabonete líquido, Refil, Flor de maracujá, 440ml, 8128REF, Fiorucci - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-flor-de-maracuja-440ml-8128ref-fiorucci-pt-1-un/324263",
         "estrelas": "0.0",
@@ -352,34 +298,7 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 10,90",
-        "título": "Sabonete líquido, Orquídeas Brancas, 500ml, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-orquideas-brancas-500ml-audax-pt-1-un/324303",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324303.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 8,70",
-        "título": "Sabonete líquido refil, Flor de algodão, 450ml, 110068-450, Premisse - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-flor-de-algodao-450ml-110068-450-premisse-pt-1-un/324273",
-        "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324273.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 14,90",
-        "título": "Sabonete líquido, Pêssego, 1L, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-pessego-1l-audax-pt-1-un/324298",
-        "estrelas": "0.0",
-        "avaliações": "5",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324298.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 14,90",
+        "preço": "R$ 14,90",
         "título": "Sabonete líquido, Flor de baunilha, 1L, Audax - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-baunilha-1l-audax-pt-1-un/324301",
         "estrelas": "0.0",
@@ -388,43 +307,52 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 20,40",
-        "título": "Sabonete líquido, Flor de maracujá, 500ml, 8128, Fiorucci - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-maracuja-500ml-8128-fiorucci-pt-1-un/549443",
+        "preço": "R$ 8,70",
+        "título": "Sabonete líquido refil, Erva-doce, 450ml, 110001-450, Premisse - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-refil-erva-doce-450ml-110001-450-premisse-pt-1-un/324272",
         "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549443.webp"
+        "avaliações": "2",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324272.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 10,90",
-        "título": "Sabonete líquido, Pêssego, 500ml, Audax - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-pessego-500ml-audax-pt-1-un/324297",
+        "preço": "R$ 20,40",
+        "título": "Sabonete líquido flor de cerejeira 500ml 8113 Fiorucci PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-cerejeira-500ml-8113-fiorucci-pt-1-un/324244",
+        "estrelas": "0.0",
+        "avaliações": "3",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324244.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 27,50",
+        "título": "Sabonete líquido, Pêssego, 5L, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-pessego-5l-audax-pt-1-un/324299",
         "estrelas": "0.0",
         "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324297.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324299.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 11,20",
-        "título": "Sabonete Líquido, Tangerina e Chá Verde, 450ml, Premisse - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-tangerina-e-cha-verde-450ml-premisse-pt-1-un/324279",
+        "preço": "R$ 14,90",
+        "título": "Sabonete líquido, Pêssego, 1L, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-pessego-1l-audax-pt-1-un/324298",
         "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324279.webp"
+        "avaliações": "5",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324298.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 11,20",
-        "título": "Sabonete Líquido, Açaí e Camomila, 450ml, Premisse - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-acai-e-camomila-450ml-premisse-pt-1-un/324278",
+        "preço": "R$ 11,00",
+        "título": "Sabonete líquido Flor de algodão, 500ml, 110068-500, Premisse - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-algodao-500ml-110068-500-premisse-pt-1-un/324267",
         "estrelas": "0.0",
         "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324278.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324267.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 20,40",
+        "preço": "R$ 20,40",
         "título": "Sabonete líquido ameixa negra, 500ml, 8129, Fiorucci - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-ameixa-negra-500ml-8129-fiorucci-pt-1-un/324264",
         "estrelas": "0.0",
@@ -433,52 +361,142 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 10,90",
+        "preço": "R$ 10,90",
+        "título": "Sabonete líquido, Erva doce, 500ml, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-500ml-audax-pt-1-un/324294",
+        "estrelas": "0.0",
+        "avaliações": "3",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324294.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 20,40",
+        "título": "Sabonete líquido lavanda 500ml 8116 Fiorucci PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-lavanda-500ml-8116-fiorucci-pt-1-un/549052",
+        "estrelas": "0.0",
+        "avaliações": "3",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549052.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 20,40",
+        "título": "Sabonete líquido, Flor de maracujá, 500ml, 8128, Fiorucci - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-maracuja-500ml-8128-fiorucci-pt-1-un/549443",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549443.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 10,90",
+        "título": "Sabonete líquido, Orquídeas Brancas, 500ml, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-orquideas-brancas-500ml-audax-pt-1-un/324303",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324303.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 11,20",
+        "título": "Sabonete Líquido, Tangerina e Chá Verde, 450ml, Premisse - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-tangerina-e-cha-verde-450ml-premisse-pt-1-un/324279",
+        "estrelas": "0.0",
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324279.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 10,90",
+        "título": "Sabonete líquido, Pêssego, 500ml, Audax - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-pessego-500ml-audax-pt-1-un/324297",
+        "estrelas": "0.0",
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324297.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 11,00",
+        "título": "Sabonete líquido Erva doce Premium, 500ml, 110001-500, Premisse - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-erva-doce-premium-500ml-110001-500-premisse-pt-1-un/324266",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324266.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 11,20",
+        "título": "Sabonete Líquido, Açaí e Camomila, 450ml, Premisse - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-acai-e-camomila-450ml-premisse-pt-1-un/324278",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324278.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 30,00",
+        "título": "Sabonete líquido requinte mix frutas, 5 litros, 110017-5, Premisse - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/sabonete-liquido-requinte-mix-frutas-5-litros-110017-5-premisse-pt-1-un/324265",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324265.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 10,90",
         "título": "Sabonete líquido, Flor de baunilha, 500ml, Audax - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/sabonete-liquido-flor-de-baunilha-500ml-audax-pt-1-un/324300",
         "estrelas": "0.0",
-        "avaliações": "0",
+        "avaliações": "1",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324300.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 30,90",
-        "título": "Dispenser para sabonete líquido, Urban, com reservatório, Br...",
-        "link": "https://www.kalunga.com.br/prod/dispenser-para-sabonete-liquido-urban-com-reservatorio-branco-340051-01-premisse-cx-1-un/324274",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324274.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 38,60",
-        "título": "Dispenser p/ sabonete c/reserv. branco 340158 Premisse CX 1 UN",
-        "link": "https://www.kalunga.com.br/prod/dispenser-p-sabonete-c-reserv-branco-340158-premisse-cx-1-un/324158",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324158.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 35,60",
+        "preço": "R$ 30,30",
         "título": "Dispenser para Sabonete, Compacta, Invoq, Branca, Premisse - CX 1 UN",
         "link": "https://www.kalunga.com.br/prod/dispenser-para-sabonete-compacta-invoq-branca-premisse-cx-1-un/324287",
         "estrelas": "0.0",
-        "avaliações": "2",
+        "avaliações": "4",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324287.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 30,90",
+        "preço": "R$ 30,90",
+        "título": "Dispenser para sabonete líquido, Urban, com reservatório, Br...",
+        "link": "https://www.kalunga.com.br/prod/dispenser-para-sabonete-liquido-urban-com-reservatorio-branco-340051-01-premisse-cx-1-un/324274",
+        "estrelas": "0.0",
+        "avaliações": "4",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324274.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 38,60",
+        "título": "Dispenser p/ sabonete c/reserv. branco 340158 Premisse CX 1 UN",
+        "link": "https://www.kalunga.com.br/prod/dispenser-p-sabonete-c-reserv-branco-340158-premisse-cx-1-un/324158",
+        "estrelas": "0.0",
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324158.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 30,90",
         "título": "Dispenser para sabonete líquido, Urban, com reservatório, Pr...",
         "link": "https://www.kalunga.com.br/prod/dispenser-para-sabonete-liquido-urban-com-reservatorio-preto-340051-02-premisse-cx-1-un/324275",
         "estrelas": "0.0",
-        "avaliações": "0",
+        "avaliações": "1",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324275.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 35,60",
+        "preço": "R$ 15,90",
+        "título": "Dispenser para sabonete líquido, 350ml, Preto, 1526, Stolf - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/dispenser-para-sabonete-liquido-350ml-preto-1526-stolf-pt-1-un/323986",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/323986.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 30,30",
         "título": "Dispenser para Sabonete, Compacta, Invoq, Preto, Premisse - CX 1 UN",
         "link": "https://www.kalunga.com.br/prod/dispenser-para-sabonete-compacta-invoq-preto-premisse-cx-1-un/324286",
         "estrelas": "0.0",
@@ -487,16 +505,34 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 11,90",
+        "preço": "R$ 29,90",
+        "título": "Dispenser p/ sabonete c/reserv. 500ml branco DP-94 Western CX 1 UN",
+        "link": "https://www.kalunga.com.br/prod/dispenser-p-sabonete-c-reserv-500ml-branco-dp-94-western-cx-1-un/324108",
+        "estrelas": "0.0",
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324108.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 12,40",
         "título": "Álcool Líquido Desinfetante Bacfree, 46°inpm clássico, 1L, 3...",
         "link": "https://www.kalunga.com.br/prod/alcool-liquido-desinfetante-bacfree-46-inpm-classico-1l-360-coperalcool-pt-1-un/549345",
         "estrelas": "0.0",
-        "avaliações": "4",
+        "avaliações": "6",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/549345.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 30,80",
+        "preço": "R$ 16,90",
+        "título": "Desinfetante Lavanda, 5L, Facilita - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/desinfetante-lavanda-5l-facilita-pt-1-un/324309",
+        "estrelas": "0.0",
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324309.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 30,80",
         "título": "Desinfetante aerossol Lysoform lavanda 360ml 6860 Johnson PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/desinfetante-aerossol-lysoform-lavanda-360ml-6860-johnson-pt-1-un/549249",
         "estrelas": "0.0",
@@ -505,16 +541,7 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 16,90",
-        "título": "Desinfetante Lavanda, 5L, Facilita - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/desinfetante-lavanda-5l-facilita-pt-1-un/324309",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324309.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 6,90",
+        "preço": "R$ 6,90",
         "título": "Desinfetante Lavanda, 2L, Facilita - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/desinfetante-lavanda-2l-facilita-pt-1-un/324312",
         "estrelas": "0.0",
@@ -523,16 +550,16 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 16,90",
+        "preço": "R$ 16,90",
         "título": "Desinfetante Floral, 5L, Facilita - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/desinfetante-floral-5l-facilita-pt-1-un/324310",
         "estrelas": "0.0",
-        "avaliações": "1",
+        "avaliações": "2",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324310.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 16,90",
+        "preço": "R$ 16,90",
         "título": "Desinfetante Eucalipto, 5L, Facilita - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/desinfetante-eucalipto-5l-facilita-pt-1-un/324311",
         "estrelas": "0.0",
@@ -541,7 +568,7 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 6,90",
+        "preço": "R$ 6,90",
         "título": "Desinfetante Floral, 2L,Facilita - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/desinfetante-floral-2l-facilita-pt-1-un/324313",
         "estrelas": "0.0",
@@ -550,7 +577,7 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 6,90",
+        "preço": "R$ 6,90",
         "título": "Desinfetante Eucalipto, 2L, Facilita - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/desinfetante-eucalipto-2l-facilita-pt-1-un/324314",
         "estrelas": "0.0",
@@ -559,70 +586,88 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 7,90",
-        "título": "Chocolate Snickers duo Original 78g 10196221 Mars Brasil PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-snickers-duo-original-78g-10196221-mars-brasil-pt-1-un/324911",
+        "preço": "R$ 43,80",
+        "título": "Chocolate Mentinha ao leite pastilha, 300g, 2019, Montevérgine - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-mentinha-ao-leite-pastilha-300g-2019-montevergine-pt-1-un/325160",
         "estrelas": "0.0",
-        "avaliações": "10",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324911.webp"
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325160.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,90",
+        "preço": "R$ 4,89",
         "título": "Chocolate Snickers original 45g Mars Brasil PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-snickers-original-45g-mars-brasil-pt-1-un/324915",
         "estrelas": "0.0",
-        "avaliações": "11",
+        "avaliações": "19",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324915.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 7,80",
+        "preço": "R$ 12,20",
+        "título": "Ferrero Rocher T3 37,5g Ferrero PT 3 UN",
+        "link": "https://www.kalunga.com.br/prod/ferrero-rocher-t3-37-5g-ferrero-pt-3-un/325148",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325148.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 13,20",
+        "título": "Kinder Joy 20g Ferrero PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/kinder-joy-20g-ferrero-pt-1-un/325109",
+        "estrelas": "0.0",
+        "avaliações": "10",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325109.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 8,70",
+        "título": "Chocolate Snickers duo Original 78g 10196221 Mars Brasil PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-snickers-duo-original-78g-10196221-mars-brasil-pt-1-un/324911",
+        "estrelas": "0.0",
+        "avaliações": "11",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324911.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 8,90",
         "título": "Chocolate Twix 4 To Go 80g Mars Brasil PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-twix-4-to-go-80g-mars-brasil-pt-1-un/324948",
         "estrelas": "0.0",
-        "avaliações": "5",
+        "avaliações": "6",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324948.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,40",
+        "preço": "R$ 3,60",
         "título": "Chocolate Prestígio 33g Nestlé PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-prestigio-33g-nestle-pt-1-un/325069",
         "estrelas": "0.0",
-        "avaliações": "10",
+        "avaliações": "21",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325069.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,50",
+        "preço": "R$ 4,80",
         "título": "Chocolate Snickers dark 42g 10224431 Mars Brasil PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-snickers-dark-42g-10224431-mars-brasil-pt-1-un/324924",
         "estrelas": "0.0",
-        "avaliações": "3",
+        "avaliações": "5",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324924.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,49",
-        "título": "Chocolate Kit Kat, 41,5g, 42557, Nestlé - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-kit-kat-41-5g-42557-nestle-pt-1-un/325134",
+        "preço": "R$ 4,89",
+        "título": "Chocolate Snickers, Chocolate branco, 42g, Mars Brasil - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-snickers-chocolate-branco-42g-mars-brasil-pt-1-un/325090",
         "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325134.webp"
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325090.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,90",
-        "título": "Chocolate ao leite Chocotrio, 90g, Nestle Brasil Ltda, PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-ao-leite-chocotrio-90g-nestle-brasil-ltda-pt-1-un/325928",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325928.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 5,00",
+        "preço": "R$ 5,40",
         "título": "Chocolate Twix original 40g Mars Brasil PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-twix-original-40g-mars-brasil-pt-1-un/324916",
         "estrelas": "0.0",
@@ -631,70 +676,97 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,50",
-        "título": "Chocolate Snickers pé de moleque 42g 10219318 Mars Brasil PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-snickers-pe-de-moleque-42g-10219318-mars-brasil-pt-1-un/324927",
+        "preço": "R$ 1,90",
+        "título": "Chocolate Twix 15g Mars Brasil PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-twix-15g-mars-brasil-pt-1-un/324906",
         "estrelas": "0.0",
-        "avaliações": "5",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324927.webp"
+        "avaliações": "11",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324906.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,40",
+        "preço": "R$ 3,40",
+        "título": "Chocolate Trento, Avelãs, 29g, 11612, Trento - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-trento-avelas-29g-11612-trento-pt-1-un/325995",
+        "estrelas": "0.0",
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325995.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 10,80",
+        "título": "Chocolate ao leite Chocotrio, 90g, Nestle Brasil Ltda, PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-ao-leite-chocotrio-90g-nestle-brasil-ltda-pt-1-un/325928",
+        "estrelas": "0.0",
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325928.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 15,90",
+        "título": "Chocolate M&Ms ao leite, 132g, Mars Brasil - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-m-ms-ao-leite-132g-mars-brasil-pt-1-un/325117",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325117.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 3,70",
         "título": "Chocolate Chokito 32g Nestlé PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-chokito-32g-nestle-pt-1-un/325068",
         "estrelas": "0.0",
-        "avaliações": "6",
+        "avaliações": "7",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325068.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,50",
-        "título": "Chocolate Stick Lacta, Ouro branco, 25g, 1586, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-stick-lacta-ouro-branco-25g-1586-kraft-pt-1-un/325872",
+        "preço": "R$ 4,89",
+        "título": "Chocolate Snickers pé de moleque 42g 10219318 Mars Brasil PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-snickers-pe-de-moleque-42g-10219318-mars-brasil-pt-1-un/324927",
         "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325872.webp"
+        "avaliações": "8",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324927.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,90",
-        "título": "Chocolate Alpino, 85g, Nestlé - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-alpino-85g-nestle-pt-1-un/325831",
+        "preço": "R$ 3,40",
+        "título": "Chocolate Trento, Dark, 29g, 11616, Trento - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-trento-dark-29g-11616-trento-pt-1-un/325989",
         "estrelas": "0.0",
         "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325831.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325989.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,90",
+        "preço": "R$ 3,40",
+        "título": "Chocolate Trento, Mousse de maracujá, 29g, 11619, Trento - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-trento-mousse-de-maracuja-29g-11619-trento-pt-1-un/325997",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325997.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 3,40",
+        "título": "Chocolate Trento, Chocolate ao leite, 29g, 11614, Trento - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-trento-chocolate-ao-leite-29g-11614-trento-pt-1-un/325996",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325996.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 10,80",
         "título": "Chocolate Chocotrio Chocolate, 90g, Nestle Brasil Ltda - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-chocotrio-chocolate-90g-nestle-brasil-ltda-pt-1-un/325930",
         "estrelas": "0.0",
-        "avaliações": "0",
+        "avaliações": "1",
         "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325930.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 14,50",
-        "título": "Chocolate Special Dark, 80% Cacau, 85g, 8088, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-special-dark-80-cacau-85g-8088-hersheys-pt-1-un/325913",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325913.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 4,20",
-        "título": "Chocolate 5Star 40g Kraft PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-5star-40g-kraft-pt-1-un/325128",
-        "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325128.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 9,90",
+        "preço": "R$ 10,50",
         "título": "Chocolate Classic ao leite, 80g, Nestlé Brasil - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-classic-ao-leite-80g-nestle-brasil-pt-1-un/325829",
         "estrelas": "0.0",
@@ -703,16 +775,79 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,50",
-        "título": "Chocolate Stick Lacta, Sonho de valsa, 25g, 1587, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-stick-lacta-sonho-de-valsa-25g-1587-kraft-pt-1-un/325871",
+        "preço": "R$ 15,90",
+        "título": "Chocolate M&Ms ao leite com amendoim, 132g, Mars Brasil - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-m-ms-ao-leite-com-amendoim-132g-mars-brasil-pt-1-un/325113",
         "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325871.webp"
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325113.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,90",
+        "preço": "R$ 4,89",
+        "título": "Chocolate Snickers, Morango, 42g, Mars Brasil - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-snickers-morango-42g-mars-brasil-pt-1-un/325091",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325091.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 4,80",
+        "título": "Chocolate wafer Bites branco dark, 40g, 7299, Trento - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-wafer-bites-branco-dark-40g-7299-trento-pt-1-un/326010",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/326010.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 4,80",
+        "título": "Chocolate wafer Bites ao leite, 40g, 6399, Trento - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-wafer-bites-ao-leite-40g-6399-trento-pt-1-un/325999",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325999.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 4,89",
+        "título": "Chocolate Snickers mousse de maracujá, 42g, Mars Brasil - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-snickers-mousse-de-maracuja-42g-mars-brasil-pt-1-un/324985",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324985.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 3,40",
+        "título": "Chocolate Trento, Torta de limão, 29g, 11620, Trento - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-trento-torta-de-limao-29g-11620-trento-pt-1-un/325998",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325998.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 5,50",
+        "título": "Chocolate M&Ms ao leite, 40g, Mars Brasil - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-m-ms-ao-leite-40g-mars-brasil-pt-1-un/325111",
+        "estrelas": "0.0",
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325111.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 3,80",
+        "título": "Chocolate Prestigio Dark, 33g, 12316706, Nestlé - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-prestigio-dark-33g-12316706-nestle-pt-1-un/325823",
+        "estrelas": "0.0",
+        "avaliações": "5",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325823.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 10,80",
         "título": "Chocolate Chocotrio pasta amendoim, 90g, Nestle - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-chocotrio-pasta-amendoim-90g-nestle-pt-1-un/325929",
         "estrelas": "0.0",
@@ -721,25 +856,25 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,40",
-        "título": "Chocolate Prestigio Dark, 33g, 12316706, Nestlé - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-prestigio-dark-33g-12316706-nestle-pt-1-un/325823",
+        "preço": "R$ 5,50",
+        "título": "Chocolate M&Ms ao leite com amendoim, 40g, Mars Brasil - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-m-ms-ao-leite-com-amendoim-40g-mars-brasil-pt-1-un/325112",
         "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325823.webp"
+        "avaliações": "0",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325112.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 1,50",
-        "título": "Chocolate Twix 15g Mars Brasil PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-twix-15g-mars-brasil-pt-1-un/324906",
+        "preço": "R$ 12,20",
+        "título": "Chocolate Chocotrio Negresco, 90g, Nestle Brasil Ltda - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-chocotrio-negresco-90g-nestle-brasil-ltda-pt-1-un/325931",
         "estrelas": "0.0",
-        "avaliações": "8",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324906.webp"
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325931.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 11,30",
+        "preço": "R$ 11,30",
         "título": "Chocolate Special Dark Cranberry, 60% Cacau, 85g, 6868, Hersheys - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-special-dark-cranberry-60-cacau-85g-6868-hersheys-pt-1-un/325912",
         "estrelas": "0.0",
@@ -748,79 +883,25 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,50",
-        "título": "Chocolate Laka, 80g, 24221, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-laka-80g-24221-kraft-pt-1-un/325803",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325803.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 9,90",
-        "título": "Chocolate Chocotrio Negresco, 90g, Nestle Brasil Ltda - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-chocotrio-negresco-90g-nestle-brasil-ltda-pt-1-un/325931",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325931.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 9,50",
-        "título": "Chocolate ao leite, Lacta, 80g, 24220, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-ao-leite-lacta-80g-24220-kraft-pt-1-un/325801",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325801.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 4,50",
-        "título": "Chocolate Diamante Negro, 34g, 24203, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-diamante-negro-34g-24203-kraft-pt-1-un/325798",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325798.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 8,20",
-        "título": "Chocolate Ovomaltine, 77g, 8259, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-ovomaltine-77g-8259-hersheys-pt-1-un/325849",
+        "preço": "R$ 4,90",
+        "título": "Chocolate 5Star 40g Kraft PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-5star-40g-kraft-pt-1-un/325128",
         "estrelas": "0.0",
         "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325849.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325128.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 8,20",
-        "título": "Chocolate Cookies N creme, 77g, 8261, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-cookies-n-creme-77g-8261-hersheys-pt-1-un/325851",
-        "estrelas": "0.0",
-        "avaliações": "4",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325851.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 3,00",
-        "título": "Chocolate Chocotubes Ao Leite, 25g, 8540, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-chocotubes-ao-leite-25g-8540-hersheys-pt-1-un/325731",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325731.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 8,20",
-        "título": "Chocolate ao leite, 82g, 8263, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-ao-leite-82g-8263-hersheys-pt-1-un/325852",
+        "preço": "R$ 10,70",
+        "título": "Chocolate Lacta, Shot, 80g, 2420, Kraft - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-lacta-shot-80g-2420-kraft-pt-1-un/325804",
         "estrelas": "0.0",
         "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325852.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325804.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 9,50",
+        "preço": "R$ 10,70",
         "título": "Chocolate Lacta Mix Diamante/Laka, 80g, 24223, Kraft - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-lacta-mix-diamante-laka-80g-24223-kraft-pt-1-un/325805",
         "estrelas": "0.0",
@@ -829,70 +910,16 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,50",
-        "título": "Chocolate Twix dark 40g 10224441 Mars Brasil PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-twix-dark-40g-10224441-mars-brasil-pt-1-un/324925",
+        "preço": "R$ 3,70",
+        "título": "Chocolate Stick Lacta, Sonho de valsa, 25g, 1587, Kraft - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-stick-lacta-sonho-de-valsa-25g-1587-kraft-pt-1-un/325871",
         "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324925.webp"
+        "avaliações": "4",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325871.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 4,50",
-        "título": "Chocolate Laka, 34g, 24204, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-laka-34g-24204-kraft-pt-1-un/325800",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325800.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 3,00",
-        "título": "Chocolate Chocotubes, Frutas Vermelhas, 25g, 8488, Hershey`s - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-chocotubes-frutas-vermelhas-25g-8488-hershey-s-pt-1-un/325914",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325914.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 9,60",
-        "título": "Chocolate Café Cappuccino, 85g, 7841, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-cafe-cappuccino-85g-7841-hersheys-pt-1-un/325820",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325820.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 4,50",
-        "título": "Chocolate ao leite, Lacta, 34g, 24205, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-ao-leite-lacta-34g-24205-kraft-pt-1-un/325799",
-        "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325799.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 9,50",
-        "título": "Chocolate Diamante Negro, 80g, 24218, Kraft - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-diamante-negro-80g-24218-kraft-pt-1-un/325802",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325802.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 8,20",
-        "título": "Chocolate Meio Amargo, 82g, 8266, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-meio-amargo-82g-8266-hersheys-pt-1-un/325850",
-        "estrelas": "0.0",
-        "avaliações": "2",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325850.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 4,49",
+        "preço": "R$ 4,49",
         "título": "Chocolate Kit Kat Dark, 41,5g, 12342558, Nestlé - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-kit-kat-dark-41-5g-12342558-nestle-pt-1-un/325832",
         "estrelas": "0.0",
@@ -901,52 +928,34 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 17,00",
-        "título": "Chocolate Milka, Oreo Brownie, 100g, Mondelez - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-milka-oreo-brownie-100g-mondelez-pt-1-un/325815",
+        "preço": "R$ 10,70",
+        "título": "Chocolate Diamante Negro, 80g, 24218, Kraft - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-diamante-negro-80g-24218-kraft-pt-1-un/325802",
         "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325815.webp"
+        "avaliações": "1",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325802.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,49",
-        "título": "Chocolate speciale avelã ao leite, 26 gramas, 9878 Trento - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-speciale-avela-ao-leite-26-gramas-9878-trento-pt-1-un/325780",
+        "preço": "R$ 10,70",
+        "título": "Chocolate Laka, 80g, 24221, Kraft - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-laka-80g-24221-kraft-pt-1-un/325803",
         "estrelas": "0.0",
         "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325780.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325803.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 8,20",
-        "título": "Chocolate amendoim, 75g, 8260, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-amendoim-75g-8260-hersheys-pt-1-un/325848",
+        "preço": "R$ 8,30",
+        "título": "Chocolate Wafer Cookies N Creme, 102g, 6970, Hersheys - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-wafer-cookies-n-creme-102g-6970-hersheys-pt-1-un/325904",
         "estrelas": "0.0",
         "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325848.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325904.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 3,49",
-        "título": "Chocolate Trento Specialle, Chocolate branco e avelã, 26g, 9877, Trento - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-trento-specialle-chocolate-branco-e-avela-26g-9877-trento-pt-1-un/325861",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325861.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 2,49",
-        "título": "Chocolate Trento, Dark, 32g, 2221, Trento - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-trento-dark-32g-2221-trento-pt-1-un/325855",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325855.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 9,60",
+        "preço": "R$ 9,60",
         "título": "Chocolate Café Espresso, 85g, 7840, Hersheys - PT 1 UN",
         "link": "https://www.kalunga.com.br/prod/chocolate-cafe-espresso-85g-7840-hersheys-pt-1-un/325821",
         "estrelas": "0.0",
@@ -955,151 +964,43 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 8,30",
-        "título": "Chocolate Wafer Triplo Chocolate, 102g, 6973, Hersheys - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/chocolate-wafer-triplo-chocolate-102g-6973-hersheys-pt-1-un/325905",
+        "preço": "R$ 8,20",
+        "título": "Chocolate Meio Amargo, 82g, 8266, Hersheys - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-meio-amargo-82g-8266-hersheys-pt-1-un/325850",
+        "estrelas": "0.0",
+        "avaliações": "2",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325850.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 3,00",
+        "título": "Chocolate Chocotubes Ao Leite, 25g, 8540, Hersheys - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-chocotubes-ao-leite-25g-8540-hersheys-pt-1-un/325731",
+        "estrelas": "0.0",
+        "avaliações": "2",
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325731.webp"
+    },
+    {
+        "loja": "Kalunga",
+        "preço": "R$ 8,20",
+        "título": "Chocolate amendoim, 75g, 8260, Hersheys - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-amendoim-75g-8260-hersheys-pt-1-un/325848",
         "estrelas": "0.0",
         "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325905.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325848.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 5,90",
-        "título": "Bala Butter Toffees chocolate 100g 8108558 Arcor PT 16 UN",
-        "link": "https://www.kalunga.com.br/prod/bala-butter-toffees-chocolate-100g-8108558-arcor-pt-16-un/056143",
-        "estrelas": "0.0",
-        "avaliações": "15",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/056143.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 3,70",
-        "título": "Alfajor chocolate meio amargo Alfashow UN 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alfajor-chocolate-meio-amargo-alfashow-un-1-un/324998",
-        "estrelas": "0.0",
-        "avaliações": "7",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324998.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 5,90",
-        "título": "Bala Butter Toffees Cacau 53%, Chocolate, 90g, 8109168, Arcor - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/bala-butter-toffees-cacau-53-chocolate-90g-8109168-arcor-pt-1-un/056363",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/056363.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 22,90",
-        "título": "Amandita chocolate wafer 200g Kraft PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/amandita-chocolate-wafer-200g-kraft-pt-1-un/325044",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325044.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 2,60",
-        "título": "Bolinho recheado chocolate Roll 34g 8303 Bauducco PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/bolinho-recheado-chocolate-roll-34g-8303-bauducco-pt-1-un/325496",
-        "estrelas": "0.0",
-        "avaliações": "6",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325496.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 3,20",
-        "título": "Barra de Cereais, Morango com chocolate, 22g, 2596, Nutry - 1 UN",
-        "link": "https://www.kalunga.com.br/prod/barra-de-cereais-morango-com-chocolate-22g-2596-nutry-1-un/325002",
+        "preço": "R$ 8,20",
+        "título": "Chocolate Ovomaltine, 77g, 8259, Hersheys - PT 1 UN",
+        "link": "https://www.kalunga.com.br/prod/chocolate-ovomaltine-77g-8259-hersheys-pt-1-un/325849",
         "estrelas": "0.0",
         "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325002.webp"
+        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325849.webp"
     },
     {
         "loja": "Kalunga",
-        "preço": " 10,10",
-        "título": "Talento ao leite, Avelãs, 85g, 12492210, Chocolates Garoto - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/talento-ao-leite-avelas-85g-12492210-chocolates-garoto-pt-1-un/325828",
-        "estrelas": "0.0",
-        "avaliações": "3",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325828.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 3,70",
-        "título": "Alfajor chocolate branco Alfashow UN 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alfajor-chocolate-branco-alfashow-un-1-un/324999",
-        "estrelas": "0.0",
-        "avaliações": "7",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324999.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 10,10",
-        "título": "Talento ao leite, Castanha do Pará, 85g, 12492203, Chocolates Garoto - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/talento-ao-leite-castanha-do-para-85g-12492203-chocolates-garoto-pt-1-un/325827",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325827.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 14,99",
-        "título": "Barras de proteína Whey, Chocolate crocante, 50g, 4749, Nutry - 1 UN",
-        "link": "https://www.kalunga.com.br/prod/barras-de-proteina-whey-chocolate-crocante-50g-4749-nutry-1-un/324338",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324338.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 4,60",
-        "título": "Alfajor Turma da Mônica chocolate 40g 8119 Perrotta PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/alfajor-turma-da-monica-chocolate-40g-8119-perrotta-pt-1-un/324988",
-        "estrelas": "0.0",
-        "avaliações": "5",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/324988.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 6,70",
-        "título": "Barra de proteína crispy, Chocolate ao leite, 30g, 3899, Nutry - 1 UN",
-        "link": "https://www.kalunga.com.br/prod/barra-de-proteina-crispy-chocolate-ao-leite-30g-3899-nutry-1-un/325023",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325023.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 10,10",
-        "título": "Talento meio amargo, 85g, 12492202, Chocolates Garoto - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/talento-meio-amargo-85g-12492202-chocolates-garoto-pt-1-un/325826",
-        "estrelas": "0.0",
-        "avaliações": "0",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325826.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 3,90",
-        "título": "Biscoito Cookie Toddy Chocoxtreme, Chocolate, 71 g, Pepsico - PT 1 UN PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/biscoito-cookie-toddy-chocoxtreme-chocolate-71-g-pepsico-pt-1-un-pt-1-un/325992",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325992.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 4,99",
-        "título": "Bolacha Wafer triplo chocolate, 140g, 40000267, Bauducco - PT 1 UN",
-        "link": "https://www.kalunga.com.br/prod/bolacha-wafer-triplo-chocolate-140g-40000267-bauducco-pt-1-un/325836",
-        "estrelas": "0.0",
-        "avaliações": "1",
-        "imagem": "https://img.kalunga.com.br/fotosdeprodutos/325836.webp"
-    },
-    {
-        "loja": "Kalunga",
-        "preço": " 6,80",
+        "preço": "R$ 6,80",
         "título": "Caneta hidrográfica Ponta Porosa Fine Pen, Ponta Fina 0.4mm,...",
         "link": "https://www.kalunga.com.br/prod/caneta-hidrografica-ponta-porosa-fine-pen-ponta-fina-0-4mm-rosa-chiclete-faber-castell-1-un/429622",
         "estrelas": "0.0",
@@ -1108,7 +1009,7 @@
     },
     {
         "loja": "Kalunga",
-        "preço": " 10,20",
+        "preço": "R$ 10,20",
         "título": "Caneta hidrográfica rosa chiclete 0,4mm Point 88/17 Stabilo UN 1 UN",
         "link": "https://www.kalunga.com.br/prod/caneta-hidrografica-rosa-chiclete-0-4mm-point-88-17-stabilo-un-1-un/174995",
         "estrelas": "0.0",
@@ -11124,7 +11025,7 @@
         "imagem": "https://http2.mlstatic.com/D_Q_NP_2X_739345-MLU73737864632_012024-V.webp"
     },
     {
-        "preço": " 7,99",
+        "preço": "R$ 7,99",
         "título": "GLIFAGE XR 500MG 30 COMPRIMIDOS DE AÇÃO PROLONGADA",
         "link": "https://www.ultrafarma.com.br/metformina-glifage-xr-500-mg-com-30-comprimidos-de-acao-prolongada",
         "loja": "ultrafarma",
@@ -11133,7 +11034,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha.jpg"
     },
     {
-        "preço": " 3,47",
+        "preço": "R$ 3,47",
         "título": "SIMETICONA 125MG 10 CÁPSULAS GELATINOSAS TEUTO",
         "link": "https://www.ultrafarma.com.br/simeticona-125mg-10-capsulas-gelatinosas-teuto",
         "loja": "ultrafarma",
@@ -11142,7 +11043,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/bf2022/799415.png"
     },
     {
-        "preço": " 5,99",
+        "preço": "R$ 5,99",
         "título": "TADALAFILA 5MG 30 COMPRIMIDOS - EMS - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/tadalafila-5-mg-com-30-comprimidos-ems-generico",
         "loja": "ultrafarma",
@@ -11151,7 +11052,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 11,92",
+        "preço": "R$ 11,92",
         "título": "ROSUVASTATINA 20MG 30 COMPRIMIDOS - LEGRAND - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/rosuvastatina-20-mg-com-30-comprimidos-legrand-generico",
         "loja": "ultrafarma",
@@ -11160,7 +11061,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 1,99",
+        "preço": "R$ 1,99",
         "título": "LOSARTANA 50MG 30 COMPRIMIDOS - EUROFARMA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/losartana-potassica-50-mg-com-30-comprimidos-revestidos-eurofarma-generico",
         "loja": "ultrafarma",
@@ -11169,7 +11070,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 9,99",
+        "preço": "R$ 9,99",
         "título": "PARACETAMOL + CLORFENIRAMINA + FENILEFRINA - CIMEGRIPE 20 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/paracetamol-clorfeniraminafenilefrina-cimegripe-20-capsulas",
         "loja": "ultrafarma",
@@ -11178,7 +11079,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/49973/small-638569158410711694-49973_1.jpg"
     },
     {
-        "preço": " 2,99",
+        "preço": "R$ 2,99",
         "título": "LORATADINA - LORASLIV 10MG 12 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/loratadina-lorasliv-10mg-com-12-comprimidos",
         "loja": "ultrafarma",
@@ -11187,7 +11088,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/813622/small-638693675036492524-813622_2.png"
     },
     {
-        "preço": " 6,43",
+        "preço": "R$ 6,43",
         "título": "IBUPROFENO - IBUPRIL 600MG 20 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/ibuprofeno-ibupril-600mg-20-comprimidos",
         "loja": "ultrafarma",
@@ -11196,7 +11097,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha.jpg"
     },
     {
-        "preço": " 19,49",
+        "preço": "R$ 19,49",
         "título": "ANALGÉSICO - DORFLEX 36 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/dorflex-36-comprimidos",
         "loja": "ultrafarma",
@@ -11205,7 +11106,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/bf2022/807587.png"
     },
     {
-        "preço": " 22,99",
+        "preço": "R$ 22,99",
         "título": "VITAMINA D3 NEO QUÍMICA 7.000UI 30 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/vitamina-d3-neo-quimica-7000ui-30-capsulas",
         "loja": "ultrafarma",
@@ -11214,7 +11115,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha.jpg"
     },
     {
-        "preço": " 5,99",
+        "preço": "R$ 5,99",
         "título": "ANALGÉSICO DORFLEX 10 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/dorflex-com-10-comprimidos",
         "loja": "ultrafarma",
@@ -11223,7 +11124,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/50088/small-638077621279797022-50088_6.jpg"
     },
     {
-        "preço": " 2,63",
+        "preço": "R$ 2,63",
         "título": "TADALAFILA 20MG 4 COMPRIMIDOS - EMS - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/tadalafila-20-mg-com-4-comprimidos-ems-generico",
         "loja": "ultrafarma",
@@ -11232,7 +11133,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 1,49",
+        "preço": "R$ 1,49",
         "título": "LOSARTANA 50MG 30 COMPRIMIDOS - NEO QUÍMICA - GENÉRICO - VALIDADE JUNHO/2025",
         "link": "https://www.ultrafarma.com.br/losartana-50-mg-com-30-comprimidos-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11241,7 +11142,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 2,81",
+        "preço": "R$ 2,81",
         "título": "BESILATO DE ANLODIPINO 5MG 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/anlodipino-5-mg-com-30-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11250,7 +11151,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 3,99",
+        "preço": "R$ 3,99",
         "título": "NEOSORO SOLUÇÃO NASAL ADULTO 30ML",
         "link": "https://www.ultrafarma.com.br/neosoro-solucao-nasal-adulto-com-30-ml",
         "loja": "ultrafarma",
@@ -11259,7 +11160,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha.jpg"
     },
     {
-        "preço": " 13,99",
+        "preço": "R$ 13,99",
         "título": "CAFEÍNA+CARISOPRODOL+DICLOFENACO SÓDICO+PARACETAMOL - TORSILAX 30 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/torsilax-com-30-comprimidos",
         "loja": "ultrafarma",
@@ -11268,7 +11169,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha.jpg"
     },
     {
-        "preço": " 16,59",
+        "preço": "R$ 16,59",
         "título": "CIPROFIBRATO 100MG 30 COMPRIMIDOS - NEO QUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/ciprofibrato-100-mg-com-30-comprimidos-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11277,7 +11178,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 10,49",
+        "preço": "R$ 10,49",
         "título": "DIPIRONA 500MG 30 COMPRIMIDOS - PRATI DONADUZZI - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/dipirona-500mg-30-comprimidos-prati-donaduzzi-generico",
         "loja": "ultrafarma",
@@ -11286,7 +11187,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/813398/small-638315370662265484-813398_2.png"
     },
     {
-        "preço": " 4,36",
+        "preço": "R$ 4,36",
         "título": "DIPIRONA 500MG/ML GOTAS 20ML - NEO QUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/dipirona-500mgml-gotas-20ml-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11295,7 +11196,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/774576/small-638772177611071395-774576_1.jpg"
     },
     {
-        "preço": " 24,96",
+        "preço": "R$ 24,96",
         "título": "AAS - SALICETIL 100MG INFANTIL 200 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/aas-salicetil-100mg-infantil-com-200-comprimidos",
         "loja": "ultrafarma",
@@ -11304,7 +11205,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/805244/small-637848660717628952-805244_2.jpg"
     },
     {
-        "preço": " 1,65",
+        "preço": "R$ 1,65",
         "título": "HIDROCLOROTIAZIDA 25MG 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/hidroclorotiazida-25-mg-com-30-comprimidos-teuto-generico-validade-junho2019",
         "loja": "ultrafarma",
@@ -11313,7 +11214,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 4,99",
+        "preço": "R$ 4,99",
         "título": "IVERMECTINA 6MG 4 COMPRIMIDOS - VITAMEDIC - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/ivermectina-6mg-4-comprimidos-vitamedic-generico",
         "loja": "ultrafarma",
@@ -11322,7 +11223,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 4,83",
+        "preço": "R$ 4,83",
         "título": "ENALAPRIL 20MG 30 COMPRIMIDOS - CIMED - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/enalapril-20-mg-com-30-comprimidos-cimed-generico",
         "loja": "ultrafarma",
@@ -11331,7 +11232,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 2,99",
+        "preço": "R$ 2,99",
         "título": "ENALAPRIL 10MG 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/enalapril-10-mg-com-30-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11340,7 +11241,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 2,49",
+        "preço": "R$ 2,49",
         "título": "LOSARTANA 50MG 30 COMPRIMIDOS - MEDLEY - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/losartana-50-mg-com-30-comprimidos-medley-generico",
         "loja": "ultrafarma",
@@ -11349,7 +11250,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 1,99",
+        "preço": "R$ 1,99",
         "título": "LOSARTANA 50MG 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/losartana-50-mg-com-30-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11358,7 +11259,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 8,79",
+        "preço": "R$ 8,79",
         "título": "PANTOPRAZOL 40MG 28 COMPRIMIDOS - MEDLEY - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/pantoprazol-40-mg-com-28-comprimidos-medley-generico",
         "loja": "ultrafarma",
@@ -11367,7 +11268,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 4,02",
+        "preço": "R$ 4,02",
         "título": "ATENOLOL 50MG 30 COMPRIMIDOS - SANDOZ - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/atenolol-50-mg-com-30-comprimidos-sandoz-generico",
         "loja": "ultrafarma",
@@ -11376,7 +11277,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 5,29",
+        "preço": "R$ 5,29",
         "título": "LOSARTANA - ARADOIS 50MG 30 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/aradois-50-mg-com-30-comprimidos",
         "loja": "ultrafarma",
@@ -11385,7 +11286,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha.jpg"
     },
     {
-        "preço": " 4,99",
+        "preço": "R$ 4,99",
         "título": "PARACETAMOL 750MG 20 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/paracetamol-750-mg-com-20-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11394,7 +11295,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/772338/small-638733151250071785-772338_2.png"
     },
     {
-        "preço": " 3,47",
+        "preço": "R$ 3,47",
         "título": "SIMETICONA 125MG 10 CÁPSULAS GELATINOSAS TEUTO",
         "link": "https://www.ultrafarma.com.br/simeticona-125mg-10-capsulas-gelatinosas-teuto",
         "loja": "ultrafarma",
@@ -11403,7 +11304,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/bf2022/799415.png"
     },
     {
-        "preço": " 3,40",
+        "preço": "R$ 3,40",
         "título": "DIPIRONA 500MG 10 COMPRIMIDOS - EMS - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/dipirona-500mg-10-comprimidos-ems-generico",
         "loja": "ultrafarma",
@@ -11412,7 +11313,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/bf2022/812686.png"
     },
     {
-        "preço": " 7,98",
+        "preço": "R$ 7,98",
         "título": "TADALAFILA 5MG 30 COMPRIMIDOS - EUROFARMA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/tadalafila-5-mg-com-30-comprimidos-eurofarma-generico",
         "loja": "ultrafarma",
@@ -11421,7 +11322,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 1,99",
+        "preço": "R$ 1,99",
         "título": "LOSARTANA 50MG 30 COMPRIMIDOS - EUROFARMA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/losartana-potassica-50-mg-com-30-comprimidos-revestidos-eurofarma-generico",
         "loja": "ultrafarma",
@@ -11430,7 +11331,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 2,63",
+        "preço": "R$ 2,63",
         "título": "TADALAFILA 20MG 4 COMPRIMIDOS - EMS - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/tadalafila-20-mg-com-4-comprimidos-ems-generico",
         "loja": "ultrafarma",
@@ -11439,7 +11340,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 10,99",
+        "preço": "R$ 10,99",
         "título": "ROSUVASTATINA 10MG 30 COMPRIMIDOS - AUROBINDO/TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/rosuvastatina-10mg-30-comprimidos-aurobindoteuto-generico",
         "loja": "ultrafarma",
@@ -11448,7 +11349,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 2,71",
+        "preço": "R$ 2,71",
         "título": "NIMESULIDA 100MG 12 COMPRIMIDOS - NEO QUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/nimesulida-100-mg-com-12-comprimidos-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11457,7 +11358,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 3,99",
+        "preço": "R$ 3,99",
         "título": "NEOSORO SOLUÇÃO NASAL ADULTO 30ML",
         "link": "https://www.ultrafarma.com.br/neosoro-solucao-nasal-adulto-com-30-ml",
         "loja": "ultrafarma",
@@ -11466,7 +11367,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha.jpg"
     },
     {
-        "preço": " 16,59",
+        "preço": "R$ 16,59",
         "título": "CIPROFIBRATO 100MG 30 COMPRIMIDOS - NEO QUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/ciprofibrato-100-mg-com-30-comprimidos-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11475,7 +11376,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 4,36",
+        "preço": "R$ 4,36",
         "título": "DIPIRONA 500MG/ML GOTAS 20ML - NEO QUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/dipirona-500mgml-gotas-20ml-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11484,7 +11385,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/774576/small-638772177611071395-774576_1.jpg"
     },
     {
-        "preço": " 2,99",
+        "preço": "R$ 2,99",
         "título": "NIMESULIDA 100MG 12 COMPRIMIDOS - VITAMEDIC - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/nimesulida-100mg-12-comprimidos-vitamedic-generico",
         "loja": "ultrafarma",
@@ -11493,7 +11394,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 8,79",
+        "preço": "R$ 8,79",
         "título": "PANTOPRAZOL 40MG 28 COMPRIMIDOS - MEDLEY - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/pantoprazol-40-mg-com-28-comprimidos-medley-generico",
         "loja": "ultrafarma",
@@ -11502,7 +11403,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 4,99",
+        "preço": "R$ 4,99",
         "título": "IVERMECTINA 6MG 4 COMPRIMIDOS - VITAMEDIC - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/ivermectina-6mg-4-comprimidos-vitamedic-generico",
         "loja": "ultrafarma",
@@ -11511,7 +11412,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 4,99",
+        "preço": "R$ 4,99",
         "título": "PARACETAMOL 750MG 20 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/paracetamol-750-mg-com-20-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11520,7 +11421,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/772338/small-638733151250071785-772338_2.png"
     },
     {
-        "preço": " 8,40",
+        "preço": "R$ 8,40",
         "título": "DIPIRONA 1G 10 COMPRIMIDOS- NEOQUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/dipirona-1g-10-comprimidos-neoquimica-generico",
         "loja": "ultrafarma",
@@ -11529,7 +11430,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/796393/small-638772179131052530-796393_1.jpg"
     },
     {
-        "preço": " 1,49",
+        "preço": "R$ 1,49",
         "título": "LOSARTANA 50MG 30 COMPRIMIDOS - NEO QUÍMICA - GENÉRICO - VALIDADE JUNHO/2025",
         "link": "https://www.ultrafarma.com.br/losartana-50-mg-com-30-comprimidos-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11538,7 +11439,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 10,99",
+        "preço": "R$ 10,99",
         "título": "ATORVASTATINA 20 MG COM 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/atorvastatina-20-mg-com-30-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11547,7 +11448,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 2,81",
+        "preço": "R$ 2,81",
         "título": "BESILATO DE ANLODIPINO 5MG 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/anlodipino-5-mg-com-30-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11556,7 +11457,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 3,45",
+        "preço": "R$ 3,45",
         "título": "DICLOFENACO SÓDICO 50MG 20 COMPRIMIDOS - ALTEFAR - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/diclofenaco-sodico-50mg-20-comprimidos-belfar-generico",
         "loja": "ultrafarma",
@@ -11565,7 +11466,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 3,67",
+        "preço": "R$ 3,67",
         "título": "ATENOLOL 25MG 60 COMPRIMIDOS - SANDOZ - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/atenolol-25-mg-com-60-comprimidos-sandoz-generico",
         "loja": "ultrafarma",
@@ -11574,7 +11475,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 25,99",
+        "preço": "R$ 25,99",
         "título": "VALSARTANA 160MG 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/valsartana-160mg-30-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11583,7 +11484,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 2,89",
+        "preço": "R$ 2,89",
         "título": "PROPRANOLOL 40MG 30 COMPRIMIDOS - TEUTO - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/propranolol-40-mg-com-30-comprimidos-teuto-generico",
         "loja": "ultrafarma",
@@ -11592,7 +11493,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 3,34",
+        "preço": "R$ 3,34",
         "título": "FLUCONAZOL 150MG 2 CÁPSULAS - CIMED - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/fluconazol-150-mg-com-2-capsulas-cimed-generico",
         "loja": "ultrafarma",
@@ -11601,7 +11502,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 7,80",
+        "preço": "R$ 7,80",
         "título": "DOMPERIDONA 10MG 60 COMPRIMIDOS - NEO QUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/domperidona-10mg-60-comprimidos-neo-quimica-generico",
         "loja": "ultrafarma",
@@ -11610,7 +11511,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 26,06",
+        "preço": "R$ 26,06",
         "título": "OLMESARTANA 20MG 30 COMPRIMIDOS - MEDLEY - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/olmesartana-20mg-30-comprimidos-medley-generico",
         "loja": "ultrafarma",
@@ -11619,7 +11520,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 35,11",
+        "preço": "R$ 35,11",
         "título": "SUCCINATO METOPROLOL 50MG 30 COMPRIMIDOS - PHARLAB - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/succinato-metoprolol-50mg-30-comprimidos-pharlab-generico",
         "loja": "ultrafarma",
@@ -11628,7 +11529,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 15,35",
+        "preço": "R$ 15,35",
         "título": "PANTOPRAZOL 40MG 60 COMPRIMIDOS - MEDQUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/pantoprazol-40mg-60-comprimidos-medquimica-generico",
         "loja": "ultrafarma",
@@ -11637,7 +11538,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/mockups/tarja_vermelha_generico.jpg"
     },
     {
-        "preço": " 1,99",
+        "preço": "R$ 1,99",
         "título": "IBUPROFENO 100MG/ML GOTAS 20ML - MEDQUÍMICA - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/ibuprofeno-100mgml-gotas-20ml-medquimica-generico",
         "loja": "ultrafarma",
@@ -11646,7 +11547,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/820344/small-638727374703375091-820344_2.jpg"
     },
     {
-        "preço": " 7,99",
+        "preço": "R$ 7,99",
         "título": "DIPIRONA 1G 10 COMPRIMIDOS - PRATI DONADUZZI - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/dipirona-1-g-com-10-comprimidos-prati-donaduzzi-generico",
         "loja": "ultrafarma",
@@ -11655,7 +11556,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/803630/small-638574407384963451-803630.png"
     },
     {
-        "preço": " 4,99",
+        "preço": "R$ 4,99",
         "título": "AAS 100MG INFANTIL 30 COMPRIMIDOS - EMS - GENÉRICO",
         "link": "https://www.ultrafarma.com.br/aas-100mg-infantil-com-30-comprimidos-ems-generico",
         "loja": "ultrafarma",
@@ -11664,7 +11565,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/bf2022/767582.png"
     },
     {
-        "preço": " 5,99",
+        "preço": "R$ 5,99",
         "título": "Soro Fisiológico 500ml Sidney Oliveira",
         "link": "https://www.ultrafarma.com.br/soro-fisiologico-500ml-sidney-oliveira",
         "loja": "ultrafarma",
@@ -11673,7 +11574,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/819354/small-638690303373517609-819354_3.png"
     },
     {
-        "preço": " 5,99",
+        "preço": "R$ 5,99",
         "título": "VITAMINA D3 - TUA D 2000UI 30 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/vitamina-d3-tua-d-2000ui-30-capsulas",
         "loja": "ultrafarma",
@@ -11682,7 +11583,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817436/small-637491621447083100-817436.png"
     },
     {
-        "preço": " 20,80",
+        "preço": "R$ 20,80",
         "título": "Vitamina B12 Metilcobalamina Nature Daily 60 cápsulas + 7 Grátis Sidney Oliveira",
         "link": "https://www.ultrafarma.com.br/metilcobalamina-vitamina-b12-nature-one-daily-67-capsulas-sidney-oliveira",
         "loja": "ultrafarma",
@@ -11691,7 +11592,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817880/small-637644533300718037-817880.png"
     },
     {
-        "preço": " 19,75",
+        "preço": "R$ 19,75",
         "título": "Tri Magnésio Nature Daily 60 cápsulas + 7 Grátis Sidney Oliveira",
         "link": "https://www.ultrafarma.com.br/tri-magnesio-nature-daily-60-capsulas-sidney-oliveira",
         "loja": "ultrafarma",
@@ -11700,7 +11601,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/818455/small-637897982428273246-818455.png"
     },
     {
-        "preço": " 22,99",
+        "preço": "R$ 22,99",
         "título": "VITAMINAS NEO QUÍMICA ÔMEGA 3 60 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/centrotabs-omega-3-60-capsulas",
         "loja": "ultrafarma",
@@ -11709,7 +11610,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817992/small-638017041566252120-817992_3.jpg"
     },
     {
-        "preço": " 67,99",
+        "preço": "R$ 67,99",
         "título": "ÔMEGA 3 1000MG CATARINENSE 120 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/omega-3-1000mg-catarinense-120-capsulas",
         "loja": "ultrafarma",
@@ -11718,7 +11619,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/815117/small-638676248483735584-815117_6.png"
     },
     {
-        "preço": " 13,99",
+        "preço": "R$ 13,99",
         "título": "MULTIVITAMINICO NEO QUÍMICA AZ 60 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/centrotabs-a-z-60-comprimidos",
         "loja": "ultrafarma",
@@ -11727,7 +11628,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817901/small-638017014959321621-817901_2.jpg"
     },
     {
-        "preço": " 7,99",
+        "preço": "R$ 7,99",
         "título": "Mel + Extrato de Própolis sabor Gengibre spray 30ml Saedra",
         "link": "https://www.ultrafarma.com.br/mel-extrato-de-propolis-sabor-gengibre-spray-30ml-saedra",
         "loja": "ultrafarma",
@@ -11736,7 +11637,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/bf2022/821270.png"
     },
     {
-        "preço": " 14,90",
+        "preço": "R$ 14,90",
         "título": "MELATONINA 210MCG MELYX 60 COMPRIMIDOS MASTIGÁVEIS SABOR MARACUJÁ SIDNEY OLIVEIRA  VALIDADE JUNHO/2025",
         "link": "https://www.ultrafarma.com.br/melatonina-melyx-60-comprimidos-jequiti-sidney-oliveira",
         "loja": "ultrafarma",
@@ -11745,7 +11646,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/823677/small-638265965555477868-823677.png"
     },
     {
-        "preço": " 49,95",
+        "preço": "R$ 49,95",
         "título": "Colágeno Tipo II + Vitamina D3 + Magnésio + Ácido Hialurônico + Msm Condricart Ultra Power 60 cápsulas Sidney Oliveira",
         "link": "https://www.ultrafarma.com.br/colageno-nao-hidrolisado-vitamina-d3-magnesio-acido-hialuronico-condricart-ultra-power-60-capsulas-sidney-oliveira",
         "loja": "ultrafarma",
@@ -11754,7 +11655,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/818673/small-638543197964012478-818673_4.png"
     },
     {
-        "preço": " 29,98",
+        "preço": "R$ 29,98",
         "título": "MAGNÉSIO DIMALATO BIONATUS 60 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/magnesio-dimalato-bionatus-60-capsulas",
         "loja": "ultrafarma",
@@ -11763,7 +11664,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/820925/small-638551035025889914-820925_3.jpg"
     },
     {
-        "preço": " 48,95",
+        "preço": "R$ 48,95",
         "título": "Colágeno Tipo Il+Cúrcuma+Ácido Hialurônico+Vit D3+MSM Condricart Cúrcuma 60 cápsulas Sidney Oliveira",
         "link": "https://www.ultrafarma.com.br/colageno-tipo-ii-curcuma-acido-hialuronico-vitamina-d3-msm-condricart-curcuma-60-capsulas-sidney-oliveira",
         "loja": "ultrafarma",
@@ -11772,7 +11673,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/825830/small-638521621888629092-825830.PNG"
     },
     {
-        "preço": " 19,84",
+        "preço": "R$ 19,84",
         "título": "Acetilcisteína 600mg 16 sachês sabor laranja Sidney Oliveira",
         "link": "https://www.ultrafarma.com.br/acetilcisteina-600mg-16-saches-sidney-oliveira",
         "loja": "ultrafarma",
@@ -11781,7 +11682,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/820889/small-637989339272580323-820889.png"
     },
     {
-        "preço": " 36,98",
+        "preço": "R$ 36,98",
         "título": "VITAMINA B12 60 COMPRIMIDOS MASTIGÁVEIS",
         "link": "https://www.ultrafarma.com.br/vitamina-b12-60-comprimidos-mastigaveis",
         "loja": "ultrafarma",
@@ -11790,7 +11691,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/822274/small-638072582202764459-822274.png"
     },
     {
-        "preço": " 12,25",
+        "preço": "R$ 12,25",
         "título": "VITAMINA C NEO QUÍMICA 500MG 30 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/vitamina-c-neo-quimica-500mg-30-comprimidos",
         "loja": "ultrafarma",
@@ -11799,7 +11700,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/827063/small-638773911500962066-827063_1.jpg"
     },
     {
-        "preço": " 13,91",
+        "preço": "R$ 13,91",
         "título": "CURATIVO BAND AID TRANSPARENTE 40 UNIDADES",
         "link": "https://www.ultrafarma.com.br/curativo-band-aid-transparente-com-40-unidades",
         "loja": "ultrafarma",
@@ -11808,7 +11709,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/145193/small-637479752375092971-145193_4.jpg"
     },
     {
-        "preço": " 15,99",
+        "preço": "R$ 15,99",
         "título": "SUPLEMENTO VITAMÍNICO CENTRUM ESSENCIAL 30 COMPRIMIDOS REVESTIDOS",
         "link": "https://www.ultrafarma.com.br/suplemento-vitaminico-centrum-essentials-30-comprimidos-revestidos",
         "loja": "ultrafarma",
@@ -11817,7 +11718,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/825482/small-638429562492001209-825482.png"
     },
     {
-        "preço": " 11,99",
+        "preço": "R$ 11,99",
         "título": "MULTIVITAMINICO NEO QUÍMICA CABELOS E UNHAS 60 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/centrotabs-cabelos-e-unhas-60-capsulas",
         "loja": "ultrafarma",
@@ -11826,7 +11727,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817993/small-638017040025243212-817993_2.jpg"
     },
     {
-        "preço": " 19,49",
+        "preço": "R$ 19,49",
         "título": "A-Z POLIVITAMINICO + POLIMINERAIS 60 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/a-z-polivitaminico-poliminerais-com-60-capsulas",
         "loja": "ultrafarma",
@@ -11835,7 +11736,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/800334/small-800334.jpg"
     },
     {
-        "preço": " 15,62",
+        "preço": "R$ 15,62",
         "título": "COMPLEXO B ARTE NATIVA 100 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/complexo-b-arte-nativa-100-comprimidos",
         "loja": "ultrafarma",
@@ -11844,7 +11745,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817238/small-637438064602567382-817238.jpg"
     },
     {
-        "preço": " 31,13",
+        "preço": "R$ 31,13",
         "título": "LAVITAN CABELOS E UNHAS 60 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/lavitan-mais-hair-cabelos-e-unhas-com-60-capsulas",
         "loja": "ultrafarma",
@@ -11853,7 +11754,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/808354/small-638763662750382306-808354_1.jpg"
     },
     {
-        "preço": " 49,67",
+        "preço": "R$ 49,67",
         "título": "MAGNÉSIO TREONATO NATURALGREEN 60 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/magnesio-treonato-400mg-60-capsulas",
         "loja": "ultrafarma",
@@ -11862,7 +11763,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817648/small-638297756369166832-817648_3.png"
     },
     {
-        "preço": " 19,95",
+        "preço": "R$ 19,95",
         "título": "ACETILCISTEÍNA 600MG + VITAMINA C 1G + ZINCO 10MG - MUCOVIT NAC 16 COMPRIMIDOS EFERVESCENTES",
         "link": "https://www.ultrafarma.com.br/acetilcisteina-600mg-vitamina-c-1000mg-zinco-10mg-mucovit-nac-16-comprimidos-efervescentes",
         "loja": "ultrafarma",
@@ -11871,7 +11772,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/825874/small-638593280737278181-825874_4.png"
     },
     {
-        "preço": " 9,99",
+        "preço": "R$ 9,99",
         "título": "MULTIVITAMINICO NEO QUÍMICA MULHER 60 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/centrotabs-mulher-60-comprimidos",
         "loja": "ultrafarma",
@@ -11880,7 +11781,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817991/small-638812084657404832-817991_3.png"
     },
     {
-        "preço": " 29,48",
+        "preço": "R$ 29,48",
         "título": "LAVITAN A-Z MULHER 60 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/lavitan-mulher-60-comprimidos",
         "loja": "ultrafarma",
@@ -11889,7 +11790,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/800855/small-638763662987657697-800855_1.jpg"
     },
     {
-        "preço": " 10,88",
+        "preço": "R$ 10,88",
         "título": "VITAMINA C + ZINCO - VITAXON C 1G + ZINCO 10MG ZERO AÇÚCAR 10 COMPRIMIDOS EFERVESCENTES",
         "link": "https://www.ultrafarma.com.br/vitamina-c-zinco-vitaxon-c-zinco-1g-10-comprimidos-efervescentes",
         "loja": "ultrafarma",
@@ -11898,7 +11799,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/815325/small-637252657368518626-815325_3.png"
     },
     {
-        "preço": " 9,99",
+        "preço": "R$ 9,99",
         "título": "VITAMINA B12 9,94MCG 30 COMPRIMIDOS OSA NUTRITION",
         "link": "https://www.ultrafarma.com.br/vitamina-b12-994mcg-30-comprimidos-osa-nutrition",
         "loja": "ultrafarma",
@@ -11907,7 +11808,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/828503/small-638821338889746416-828503_3.png"
     },
     {
-        "preço": " 146,02",
+        "preço": "R$ 146,02",
         "título": "CALDÊ MDK 2000 - 60 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/calde-mdk-2000-60-comprimidos",
         "loja": "ultrafarma",
@@ -11916,7 +11817,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/817502/small-638563195311250897-817502_2.png"
     },
     {
-        "preço": " 27,43",
+        "preço": "R$ 27,43",
         "título": "AMORA MIÚRA VITALAB 60 CÁPSULAS",
         "link": "https://www.ultrafarma.com.br/amora-miura-vitalab-60-capsulas",
         "loja": "ultrafarma",
@@ -11925,7 +11826,7 @@
         "imagem": "https://cdn.ultrafarma.com.br/static/produtos/814706/small-638532760858297546-814706_3.jpg"
     },
     {
-        "preço": " 33,98",
+        "preço": "R$ 33,98",
         "título": "LAVITAN A-Z MULHER 90 COMPRIMIDOS",
         "link": "https://www.ultrafarma.com.br/lavitan-mais-mulher-com-90-comprimidos",
         "loja": "ultrafarma",

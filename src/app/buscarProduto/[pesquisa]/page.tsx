@@ -476,7 +476,7 @@ const Pesquisa: React.FC = () => {
       </div>
 
       <div className="flex justify-center items-center text-lg text-center font-semibold text-gray-400 mt-4">
-        <p>Produtos atualizados em: 15/05/2025 feito com 💚 e Scrapy</p>
+        <p>Produtos atualizados em: 03/12/2025 feito com 💚 e Scrapy</p>
       </div>
 
       {produtosVisiveis.length > 0 ? (
