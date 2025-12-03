@@ -57,62 +57,90 @@ const Categorias: React.FC<{ onCategorySelect: (category: string) => void }> = (
 
   return (
     <div className="absolute">
-        <div
-          ref={menuRef}
-          className="absolute mt-2 w-96 bg-white hover:bg-opacity-80 border-2 transition-all border-black rounded-lg shadow-lg z-10"
-        >
-          <div className="text-left ml-5 mt-5">
-            <h2 className={`font-semibold text-xl mb-3 ${poppins.className}`}>
-              Pesquisar uma das <span className="text-green-700">categorias</span>
-            </h2>
-            <p className={`mb-5 text-[14px] text-justify`}>
-              Ao clicar em uma das categorias abaixo a <br />
-              pesquisa será feita de forma automática
-            </p>
-          </div>
-          <hr className="border border-black" />
-                  <ul className="py-2">
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer" onClick={() => {onCategorySelect('Acessórios'); router.push(`../pages/Acessórios`);}}>
+      <div
+        ref={menuRef}
+        className="absolute mt-2 w-96 bg-white dark:bg-[#0b0b0b] hover:bg-opacity-80 dark:hover:bg-opacity-90 border-2 transition-all border-black dark:border-gray-600 rounded-lg shadow-lg z-10"
+      >
+        <div className="text-left ml-5 mt-5">
+          <h2 className={`font-semibold text-xl mb-3 ${poppins.className} dark:text-white`}>
+            Pesquisar uma das 
+            <span className="text-green-700 dark:text-green-400"> categorias</span>
+          </h2>
+          <p className={`mb-5 text-[14px] text-justify dark:text-gray-300`}>
+            Ao clicar em uma das categorias abaixo a <br />
+            pesquisa será feita de forma automática
+          </p>
+        </div>
+
+        <hr className="border border-black dark:border-gray-600" />
+
+        <ul className="py-2">
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {onCategorySelect('Acessórios'); router.push(`../pages/Acessórios`);}}>
             Acessórios
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer" onClick={() => {onCategorySelect('Bebês'); router.push(`../pages/Bebês`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {onCategorySelect('Bebês'); router.push(`../pages/Bebês`);}}>
             Bebês
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer" onClick={() => {onCategorySelect('Beleza'); router.push(`../pages/Beleza`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {onCategorySelect('Beleza'); router.push(`../pages/Beleza`);}}>
             Beleza
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Decoração'); router.push(`../pages/Decoração`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Decoração'); router.push(`../pages/Decoração`);}}>
             Decoração
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Eletrodomésticos'); router.push(`../pages/Eletrodomésticos`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Eletrodomésticos'); router.push(`../pages/Eletrodomésticos`);}}>
             Eletrodomésticos
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Esporte'); router.push(`../pages/Esporte`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Esporte'); router.push(`../pages/Esporte`);}}>
             Esportes
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Informática'); router.push(`../pages/Informática`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Informática'); router.push(`../pages/Informática`);}}>
             Informática
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Lazer'); router.push(`../pages/Lazer`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Lazer'); router.push(`../pages/Lazer`);}}>
             Lazer
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Mercado e Farmácia'); router.push(`../pages/Mercado e Farmácia`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Mercado e Farmácia'); router.push(`../pages/Mercado e Farmácia`);}}>
             Mercado e Farmácia
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Papelaria'); router.push(`../pages/Papelaria`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Papelaria'); router.push(`../pages/Papelaria`);}}>
             Papelaria
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Pets'); router.push(`../pages/Pets`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Pets'); router.push(`../pages/Pets`);}}>
             Pets
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Roupas'); router.push(`../pages/Roupas`);}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigateblue rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Roupas'); router.push(`../pages/Roupas`);}}>
             Roupas
           </li>
-          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer" onClick={() => {handleCategorySelect('Sapato'); router.push(`../pages/Sapato`)}}>
+
+          <li className="px-4 py-2 hover:bg-opacity-70 hover:bg-navigategreen rounded-lg cursor-pointer dark:text-white"
+              onClick={() => {handleCategorySelect('Sapato'); router.push(`../pages/Sapato`);}}>
             Sapatos
           </li>
         </ul>
-        </div>
+      </div>
     </div>
   );
 };

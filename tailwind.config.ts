@@ -6,9 +6,10 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      colors:{
+      colors: {
         navigateblue: '#0C0440',
         navigategreen: '#0C8249'
       },

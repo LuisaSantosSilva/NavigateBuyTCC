@@ -17,6 +17,7 @@
     "flask": "^0.2.10",
     "framer-motion": "^11.3.28",
     "heroicons": "^2.1.5",
+    "lucide-react": "^0.555.0",
     "next": "^14.2.5",
     "react": "^18",
     "react-dom": "^18",

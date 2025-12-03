@@ -22,100 +22,70 @@ const Cadastro = () => {
   const [showCodeModal, setShowCodeModal] = useState(false);
   const [code, setConfirmationCode] = useState('');
 
-  // Função para cadastrar usuário
   const cadastrarConsumidor = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
       const response = await fetch('http://localhost:5000/app/cadastrar', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         credentials: "include",
-        body: JSON.stringify({
-          usuario,
-          email_consumidor,
-          senha_consumidor,
-        }),
+        body: JSON.stringify({ usuario, email_consumidor, senha_consumidor }),
       });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Erro ao cadastrar usuário, por favor, tente novamente.');
+        throw new Error(errorData.message || 'Erro ao cadastrar usuário.');
       }
 
       const data = await response.json();
-      toast.success(data.message, { position: "top-center", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+      toast.success(data.message, { position: "top-center", autoClose: 5000, theme: "dark" });
       setShowCodeModal(true);
     } catch (error) {
-      toast.error('Erro ao cadastrar usuário, tente novamente', { position: "bottom-left", autoClose: 5000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+      toast.error('Erro ao cadastrar usuário, tente novamente', { position: "bottom-left", autoClose: 5000, theme: "dark" });
     } finally {
       setLoading(false);
     }
   };
 
-  // Função para inserir e confirmar código passado ao email
   const confirmarCodigo = async () => {
     try {
       const response = await fetch('http://localhost:5000/app/confirmar_codigo', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         credentials: "include",
-        body: JSON.stringify({
-          code,
-        }),
+        body: JSON.stringify({ code }),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Código inválido.');
-      }
+      if (!response.ok) throw new Error('Código inválido.');
       toast.success('Código confirmado!', { position: "bottom-left", hideProgressBar: true, theme: "dark" });
       setShowCodeModal(false);
-      setTimeout(() => {
-        window.location.href = '../cadastro_login/fazerLogin';
-      }, 3000);
+      setTimeout(() => window.location.href = '../cadastro_login/fazerLogin', 3000);
     } catch (error) {
-      toast.error('Código incorreto! Tente novamente', { position: "bottom-left", autoClose: 2000, closeOnClick: true, pauseOnHover: true, theme: "dark" });
+      toast.error('Código incorreto! Tente novamente', { position: "bottom-left", autoClose: 2000, theme: "dark" });
     }
   };
 
-  const exibirBlur = (field: string) => {
-    setTouched({ ...touched, [field]: true });
-  };
+  const exibirBlur = (field: string) => setTouched({ ...touched, [field]: true });
 
   const getInputClass = (field: string) => {
     const isTouched = touched[field as keyof typeof touched];
     let isValid = false;
 
-    if (field === 'usuario') {
-      isValid = usuario.length > 0;
-    } else if (field === 'email_consumidor') {
-      isValid = email_consumidor.includes('@gmail') && email_consumidor.includes('.com');
-    } else if (field === 'senha_consumidor') {
-      isValid = senha_consumidor.length >= 8;
-    }
+    if (field === 'usuario') isValid = usuario.length > 0;
+    else if (field === 'email_consumidor') isValid = email_consumidor.includes('@gmail') && email_consumidor.includes('.com');
+    else if (field === 'senha_consumidor') isValid = senha_consumidor.length >= 8;
 
-    if (!isTouched) {
-      return "shadow-black";
-    }
-
-    if (isTouched && !isValid) {
-      return "border-red-500 shadow-red-500";
-    }
-
+    if (!isTouched) return "shadow-black";
+    if (isTouched && !isValid) return "border-red-500 shadow-red-500";
     return "border-navigategreen shadow-navigategreen";
   };
 
   return (
     <header className="flex flex-col md:flex-row h-screen select-none">
-      {showCodeModal && (
-        <Modal onClose={() => setShowCodeModal(false)} onConfirm={confirmarCodigo} setCode={setConfirmationCode} />
-      )}
+      {showCodeModal && <Modal onClose={() => setShowCodeModal(false)} onConfirm={confirmarCodigo} setCode={setConfirmationCode} />}
       <ToastContainer />
+
       <div className="w-full md:w-1/4 h-full overflow-hidden max-[1245px]:hidden bg-black bg-no-repeat flex items-center justify-center relative header-black">
         <div className="max-w-md p-4 sm:p-8 md:p-10 lg:p-12 text-center text-white">
           <div className="absolute top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8 lg:top-10 lg:left-10">
@@ -140,105 +110,53 @@ const Cadastro = () => {
           </Link>
         </div>
       </div>
-      <div className="flex-1 flex flex-col items-start justify-center bg-white">
-        <a href="/" className="flex flex-row text-base sm:text-lg md:text-xl lg:text-2xl ml-5 min-[1245px]:hidden text-black">
+
+      {/* Lado direito */}
+      <div className="flex-1 flex flex-col items-start justify-center bg-white dark:bg-gray-900">
+        <a href="/" className="flex flex-row text-base sm:text-lg md:text-xl lg:text-2xl ml-5 min-[1245px]:hidden text-black dark:text-white">
           <MdKeyboardArrowLeft size={30} />
           Voltar ao início
         </a>
-        <div className="max-w-6xl mx-auto p-6 md:text-[10]">
+        <div className="max-w-6xl mx-auto p-6">
           <div className='mb-28'>
-            <h1 className={`text-2xl sm:text-3xl md:text-[7] md:mt-[20px] lg:text-3xl text-center font-extrabold ${poppins.className}`}>
+            <h1 className={`text-2xl sm:text-3xl md:text-[7] md:mt-[20px] lg:text-3xl text-center font-extrabold ${poppins.className} text-black dark:text-white`}>
               Crie sua conta
             </h1>
-            <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-center mb-8 ${poppins.className}`}>
+            <p className={`text-base sm:text-lg md:text-xl lg:text-2xl text-center mb-8 ${poppins.className} text-black dark:text-white`}>
               Preencha seus dados
             </p>
           </div>
           <form onSubmit={cadastrarConsumidor} className="space-y-8 w-full max-w-lg mx-auto">
-            <div className="flex flex-wrap -mx-9 mb-6">
-              <div className="w-full px-3 relative">
-                <Image
-                  src="/img/icon_user.png"
-                  alt="user"
-                  width={40}
-                  height={40}
-                  priority
-                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
-                />
-                <input
-                  id="nome-completo"
-                  type="text"
-                  value={usuario}
-                  onChange={(e) => setUsuario(e.target.value)}
-                  onBlur={() => exibirBlur('usuario')}
-                  className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
-                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('usuario')}`}
-                  placeholder="Digite seu nome completo"
-                  required
-                />
+            {[{ id: 'usuario', placeholder: 'Digite seu nome completo', value: usuario, set: setUsuario },
+            { id: 'email_consumidor', placeholder: 'Email', value: email_consumidor, set: setEmail },
+            { id: 'senha_consumidor', placeholder: 'Senha (min: 8 caracteres)', value: senha_consumidor, set: setSenha, type: 'password' }].map((input) => (
+              <div key={input.id} className="flex flex-wrap -mx-9 mb-6">
+                <div className="w-full px-3 relative">
+                  <input
+                    id={input.id}
+                    type={input.type || 'text'}
+                    value={input.value}
+                    onChange={(e) => input.set(e.target.value)}
+                    onBlur={() => exibirBlur(input.id)}
+                    className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-gray-300 focus:outline-none shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass(input.id)} bg-white dark:bg-gray-700 dark:text-white`}
+                    placeholder={input.placeholder}
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div className="flex flex-wrap -mx-9 mb-6">
-              <div className="w-full px-3 relative">
-                <Image
-                  src="/img/icon_email.png"
-                  alt="icon email"
-                  width={40}
-                  height={40}
-                  priority
-                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
-                />
-                <input
-                  id="email"
-                  type="email"
-                  value={email_consumidor}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onBlur={() => exibirBlur('email_consumidor')}
-                  className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
-                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('email_consumidor')}`}
-                  placeholder="Email"
-                  required
-                />
-              </div>
-            </div>
-            <div className="flex flex-wrap -mx-9 mb-6">
-              <div className="w-full px-3 relative">
-                <Image
-                  src="/img/icon_senha.png"
-                  alt="icon senha"
-                  width={40}
-                  height={40}
-                  priority
-                  className="absolute left-4 sm:left-5 md:left-6 lg:left-7 top-1/2 transform -translate-y-1/2 w-auto h-auto"
-                />
-                <input
-                  id="password"
-                  type="password"
-                  value={senha_consumidor}
-                  onChange={(e) => setSenha(e.target.value)}
-                  onBlur={() => exibirBlur('senha_consumidor')}
-                  className={`py-4 sm:py-5 md:py-6 lg:py-5 px-10 sm:px-12 md:px-14 lg:px-16 text-base sm:text-lg md:text-xl lg:text-2xl rounded-2xl border border-black focus:outline-none
-                  shadow-md transition duration-500 ease-in-out w-full largeInputOnDesktop ${getInputClass('senha_consumidor')}`}
-                  placeholder="Senha (min: 8 caracteres) "
-                  required
-                />
-              </div>
-            </div>
+            ))}
             <div className="text-center">
               <button
                 type="submit"
-                className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 bg-navigategreen text-white font-semibold 
-                transition duration-1000 ease-in-out hover:bg-transparent hover:text-slate-900 hover:border-slate-900"
+                className="mt-2 py-4 sm:py-5 md:py-6 lg:py-6 px-8 sm:px-10 md:px-16 lg:px-24 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full border-2 border-navigategreen text-navigategreen bg-transparent font-semibold transition duration-1000 ease-in-out hover:bg-navigategreen hover:text-white"
               >
                 {loading ? 'Cadastrando...' : 'Cadastrar'}
               </button>
-              <div className='mt-5 text-xl min-[1245px]:hidden text-black'>
-                <h1>Já tem cadastro? <Link href={"../cadastro_login/fazerLogin"}><span className='underline hover:text-black text-gray-600'>Entrar na conta</span></Link></h1>
-              </div>
             </div>
           </form>
         </div>
       </div>
+
     </header>
   );
 };

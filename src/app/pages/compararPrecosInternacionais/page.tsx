@@ -52,7 +52,7 @@ const Conversoes = () => {
                 setCardsPerPage(3);
             }
         };
-        
+
 
         handleResize();
 
@@ -109,14 +109,17 @@ const Conversoes = () => {
     };
 
     return (
-        <main>
+        // --- MUDANÇA AQUI (Fundo Principal) ---
+        <main className="bg-white dark:bg-[#0b0b0b]">
             <Navbar />
-            <div className="text-center select-none">
+            {/* --- MUDANÇA AQUI (Texto Principal) --- */}
+            <div className="text-center select-none dark:text-white">
                 <div className="mt-20">
                     <p className={`font-bold text-4xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
                         Compare e analise o valor dos
-                        <span className="text-navigateblue"> produtos </span>internacionais<br />
-                        <span className="text-navigategreen"> em tempo real</span> e calcule taxas
+                        {/* --- MUDANÇA AQUI (Accent Colors) --- */}
+                        <span className="text-navigateblue dark:text-blue-400"> produtos </span>internacionais<br />
+                        <span className="text-navigategreen dark:text-green-400"> em tempo real</span> e calcule taxas
                     </p>
                 </div>
                 <div className="flex justify-center items-center mt-16 flex-col">
@@ -129,30 +132,26 @@ const Conversoes = () => {
                                 <p>
                                     {(() => {
                                         switch (fromCurrency) {
-                                            case "USD":
-                                                return "Dólar Americano";
-                                            case "EUR":
-                                                return "Euros";
-                                            case "GBP":
-                                                return "Libra Esterlina";
-                                            case "JPY":
-                                                return "Iene Japonês";
-                                            case "CHF":
-                                                return "Franco Suíço";
-                                            default:
-                                                return "Moeda Desconhecida";
+                                            case "USD": return "Dólar Americano";
+                                            case "EUR": return "Euros";
+                                            case "GBP": return "Libra Esterlina";
+                                            case "JPY": return "Iene Japonês";
+                                            case "CHF": return "Franco Suíço";
+                                            default: return "Moeda Desconhecida";
                                         }
                                     })()}
                                 </p>
                                 <MdArrowDropDown aria-hidden="true" className="h-5 w-5 mt-1 ml-1 text-white" />
                             </MenuButton>
-                            <MenuItems className="absolute mt-2 w-48 origin-top-left bg-white divide-y divide-gray-400 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                            {/* --- MUDANÇA AQUI (Menu Dropdown) --- */}
+                            <MenuItems className="absolute mt-2 w-48 origin-top-left bg-white dark:bg-gray-800 divide-y divide-gray-400 dark:divide-gray-600 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
                                 {["USD", "EUR", "GBP", "JPY", "CHF"].map((currency) => (
                                     <MenuItem key={currency}>
                                         {({ active }) => (
                                             <button
                                                 onClick={() => setFromCurrency(currency)}
-                                                className={`${active ? "bg-navigateblue text-white" : "text-black"} group flex w-full items-center rounded-md px-3 py-1 text-sm md:text-base max-[450px]:text-xs max-[450px]:px-2 max-[450px]:py-1`}>
+                                                // --- MUDANÇA AQUI (Texto do MenuItem) ---
+                                                className={`${active ? "bg-navigateblue text-white" : "text-black dark:text-white"} group flex w-full items-center rounded-md px-3 py-1 text-sm md:text-base max-[450px]:text-xs max-[450px]:px-2 max-[450px]:py-1`}>
                                                 {currency === "USD" && "Dólar Americano (USD)"}
                                                 {currency === "EUR" && "Euros (EUR)"}
                                                 {currency === "GBP" && "Libra Esterlina (GBP)"}
@@ -174,7 +173,10 @@ const Conversoes = () => {
                             value={amount === 0 ? "" : amount}
                             onChange={(e) => setAmount(parseFloat(e.target.value))}
                             placeholder="ex: 1,00"
-                            className="mb-2 rounded-2xl w-36 px-1 py-2 border text-center placeholder-opacity-40 font-semibold shadow-md shadow-navigateblue placeholder-black border-navigateblue bg-white text-black" />
+                            // --- MUDANÇA AQUI (Input Style) ---
+                            className="mb-2 rounded-2xl w-36 px-1 py-2 border text-center font-semibold shadow-md shadow-navigateblue border-navigateblue 
+                                       bg-white dark:bg-gray-800 text-black dark:text-white 
+                                       placeholder-black dark:placeholder-gray-400 placeholder-opacity-40" />
                     </div>
                     <div className="flex items-center mt-10 space-x-8 justify-center flex-wrap max-[820px]:flex-col">
                         <div className="text-xl">
@@ -188,7 +190,8 @@ const Conversoes = () => {
                     </div>
                     <button
                         onClick={calcularConversao}
-                        className="inline-flex justify-center mt-10 mb-12 rounded-2xl bg-navigategreen px-10 py-3 text-xl font-semibold text-white hover:bg-green-600"
+                        // --- MUDANÇA AQUI (Button Hover) ---
+                        className="inline-flex justify-center mt-10 mb-12 rounded-2xl bg-navigategreen px-10 py-3 text-xl font-semibold text-white hover:bg-green-600 dark:hover:bg-green-700"
                     >
                         Converter
                     </button>
@@ -211,7 +214,8 @@ const Conversoes = () => {
                 </div>
                 {error && (
                     <div className="flex justify-center">
-                        <p className="text-xl text-red-500">{error}</p>
+                        {/* --- MUDANÇA AQUI (Error Text) --- */}
+                        <p className="text-xl text-red-500 dark:text-red-400">{error}</p>
                     </div>
                 )}
 
@@ -222,8 +226,9 @@ const Conversoes = () => {
                     <div className="mt-20">
                         <p className={`font-bold text-3xl max-[1000px]:text-2xl mb-8 ${poppins.className}`}>
                             Quer saber mais sobre
-                            <span className="text-navigateblue"> taxas</span> de
-                            <span className="text-navigategreen"> importação </span><br />
+                            {/* --- MUDANÇA AQUI (Accent Colors) --- */}
+                            <span className="text-navigateblue dark:text-blue-400"> taxas</span> de
+                            <span className="text-navigategreen dark:text-green-400"> importação </span><br />
                             e como são calculadas?
                         </p>
                     </div>
@@ -231,11 +236,13 @@ const Conversoes = () => {
                         href="https://www.gov.br/receitafederal/pt-br/assuntos/aduana-e-comercio-exterior/manuais/remessas-postal-e-expressa/preciso-pagar-impostos-nas-compras-internacionais/quanto-pagarei-de-imposto#:~:text=A%20base%20de%20c%C3%A1lculo%20do,valor%20do%20seguro%20do%20transporte."
                         target="_blank" rel="noopener noreferrer">
                         <button
-                            className="inline-flex justify-center mt-4 mb-4 rounded-3xl bg-navigategreen px-6 py-2 text-xl font-semibold text-white hover:bg-green-600"
+                            // --- MUDANÇA AQUI (Button Hover) ---
+                            className="inline-flex justify-center mt-4 mb-4 rounded-3xl bg-navigategreen px-6 py-2 text-xl font-semibold text-white hover:bg-green-600 dark:hover:bg-green-700"
                         >Acessar</button>
                     </a>
                     <div className="flex justify-center">
                         <Image
+                            // Nota: A imagem /img/globo.png pode precisar ser otimizada para o modo escuro no próprio arquivo (se for PNG)
                             src="/img/globo.png"
                             alt="imagem globo terrestre"
                             width={4000}
@@ -256,6 +263,7 @@ const Conversoes = () => {
                     </Animated>
                 </div>
                 <div className="flex items-center justify-center space-x-4 px-4 md:px-16 py-4 xl:py-8 mb-10">
+                    {/* As setas herdam a cor dark:text-white */}
                     <MdArrowBackIosNew
                         className="text-3xl md:text-4xl cursor-pointer"
                         onClick={handlePrev}
@@ -268,7 +276,10 @@ const Conversoes = () => {
                                 .map((site) => (
                                     <div
                                         key={site.id}
-                                        className={`rounded-2xl border shadow-lg text-2xl p-4 mt-10 md:p-8 mb-6 border-navigategreen shadow-navigategreen bg-white w-full ${windowWidth <= 350 ? 'max-w-xs' : 'max-w-sm'}`}
+                                        // --- MUDANÇA AQUI (Card de Loja) ---
+                                        className={`rounded-2xl border shadow-lg text-2xl p-4 mt-10 md:p-8 mb-6 
+                                                   border-navigategreen dark:border-green-600 shadow-navigategreen dark:shadow-green-700 
+                                                   bg-white dark:bg-gray-800 w-full ${windowWidth <= 350 ? 'max-w-xs' : 'max-w-sm'}`}
                                     >
                                         <p className="text-center font-bold mb-6">{site.title}</p>
                                         <div className="text-center mb-8">
@@ -282,7 +293,8 @@ const Conversoes = () => {
                                             <p className="text-base">Moeda da loja:</p>
                                             <p className="text-base font-semibold">{site.moeda}</p>
                                         </div>
-                                        <Link href={site.url} className="text-gray-700 hover:text-black block text-center">
+                                        {/* --- MUDANÇA AQUI (Link) --- */}
+                                        <Link href={site.url} className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white block text-center">
                                             <p className="text-lg">Acessar</p>
                                         </Link>
                                     </div>
